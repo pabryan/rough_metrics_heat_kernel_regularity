@@ -75,6 +75,60 @@ Given a rough metric, we may locally define a \(g_{\alpha}\)-self-adjoint, measu
 g(X, Y) = g_{\alpha} (A_{\alpha} (X), Y).
 \]
 
+\section{The Laplacian of a Rough Metric}
+
+For a smooth function \(f \in \C^{\infty}(M)\), write \(\nabla f = df\) for the differential of \(f\). The differential \(\nabla : C^{\infty}_0(M) \to \Gamma^{\infty}_0(T^{\ast} M)\), maps smooth, compactly supported functions \(C^{\infty}_0(M)\) to smooth compactly supported one-forms \(\Gamma^{\infty}_0(T^{\ast} M)\).
+
+As an unbounded operator \(\nabla: L^2_g (M) \to \Gamma^2_g(T^{\ast} M)\) from \(L^2\) functions \(L^2_g (M)\) to \(L^2\) one-forms \(\Gamma^2_g(T^{\ast} M)\), \(\nabla\) is a closable operator. The closure \(\bar{\nabla}\) of \(\nabla\) has domain
+\[
+\domain(\bar{\nabla}) = W^{1,2}_g (M) = \lbrace \varphi \in L^2 (T^{\ast} M) : \nabla \varphi \in \Gamma^2_g(T^{\ast} M) \rbrace
+\]
+the Sobolev space of \(L^2\) functions with \(L^2\) differential.
+
+We write \(\nabla^{\ast}_g : \Gamma^2_g(T^{\ast} M) \to \Gamma^2_g(M)\) for its adjoint which satisfies
+\[
+\ip{\nabla f}{X}_{g} = \int_M g(\nabla f, X) d\mu = \int_M f \nabla^{\ast}_g X d\mu_g = \ip{f}{\nabla^{\ast}_g X}_g
+\]
+for \(f \in \domain(\nabla)\) and \(X \in \domain(\nabla^{\ast}_g)\) where \(\domain(T)\) denotes the domain of an (unbounded) operator \(T\).
+
+\begin{rem}
+Let us remark that \(\nabla\) is defined purely from the smooth structure on \(M\) independently of any metric (rough or otherwise) on \(M\). On the other hand, \(\nabla^{\ast}_g\) depends on the smooth structure and the (rough) metric \(g\).
+\end{rem}
+
+\begin{defn}
+Let \(g\) be a rough metric on a smooth manifold \(M\). The \emph{Laplacian} \(\Delta_g : L^2_g(M) \to L^2_g(M)\) is defined by
+\[
+\Delta_g f = \nabla^{\ast}_g \nabla f.
+\]
+\end{defn}
+
+\begin{rem}
+The Laplacian is (by definition) \(L^2_g\) self-adjoint:
+\[
+\ip{\Delta_g f}{h}_g = \int_M (\nabla^{\ast}_g \nabla f) h d\mu_g = \int_M g(\nabla f, \nabla h) d\mu_g = \int_M f \nabla^{\ast}_g \nabla h d\mu_g = \ip{f}{\Delta h}_g.
+\]
+Therefore, the heat semi-group
+\[
+e^{t \Delta} : L^2 \to L^2
+\]
+is defined for all \(t > 0\).
+\end{rem}
+
+\begin{defn}
+Let \(I \subset \R\) be an interval. A function \(u \in C^1(I \to W^{1,2}(M))\) solves the \emph{heat equation} if for each \(t \in I\),
+\[
+\partial_t u (\cdot, t) = \Delta u (\cdot, t)
+\]
+in \(W^{1,2}(M)\).
+\end{defn}
+
+\begin{rem}
+For any solution \(u\), of the heat equation, we have the representation formula
+\[
+u(x, t) = \left(e^{-t \Delta} u(\cdot, 0)\right) (x).
+\]
+\end{rem}
+
 \section{The Harnack Inequality}
 \label{sec:harnack}
 
