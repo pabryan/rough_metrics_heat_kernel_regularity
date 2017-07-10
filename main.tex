@@ -40,6 +40,40 @@ On a smooth manifold \(M\), equipped with a rough metric \(g\), there exists a h
 \section{Rough Metrics}
 \label{sec:rough_metrics}
 
+\begin{defn}
+Let \(M\) be a smooth manifold. A set \(E \subseteq M\) is said to be \emph{Lebesgue measurable} if for all charts \(\varphi : U \subseteq M \to V \subseteq \R^n\), the set \(\varphi(E \cap U)\) is a Lebesgue measurable set of \(\R^n\).
+\end{defn}
+
+\begin{rem}
+The Lebesgue measurable sets form a \(\sigma\)-algebra. The notion of Lebesgue measurable set does not involve a measure on \(M\). However, if \(\omega\) is volume form on \(M\), then it defines a (outer) measure \(E \mapsto \int_E \omega\) for which the \(\sigma\)-algebra of measurable sets is precisely the \(\sigma\)-algebra of Lebesgue measurable sets since with respect to any chart, \(\omega\) is absolutely continuous with respect to Lebesgue measure on \(\R^n\).
+\end{rem}
+
+\begin{defn}
+Let \(M, N\) be smooth manifolds. A function \(f : M \to N\) is \emph{Borel measurable} if for all Borel sets \(E \subset N\), \(f^{-1} (E)\) is a Borel set of \(M\). A function \(f : M \to N\) is \emph{Lebesgue measurable} if for all Lebesgue measurable sets \(E \subset N\), \(f^{-1} (E)\) is a Lebesgue measurable set of \(M\).
+\end{defn}
+
+\begin{rem}
+Equivalently, \(f\) is Lebesgue measurable if for all charts \(\phi : U \subseteq M \to V \subseteq \R^n\) and \(\psi: W \subseteq N \to Z \subseteq \R^m\), the function \(\psi \circ f \circ \phi^{-1} : \phi \circ f^{-1} (W) \subseteq \R^n \to Z \subseteq \R^m\) is Lebesgue measurable.
+\end{rem}
+
+\textbf{What about \(f^{-1}(E)\) is Lebesgue measurable for every Borel set \(E \subseteq N\)?}
+
+\begin{defn}
+A \emph{rough} metric \(g\) is a Lebesgue measurable section of \(\met(M) = (T^{\ast} M \odot T^{\ast} M)_+\), the bundle of positive definite, symmetric bilinear forms on \(TM\) that is \emph{locally comparable} to smooth metrics. That is, \(g : M \to \met(M)\) is a Lebesgue measurable function such that \(\pi \circ g = \id_M\) where \(\pi: \met(M) \to M\) is the bundle projection. To say that \(g\) is locally comparable to smooth metrics is to say that there is an open cover \(\lbrace U_{\alpha} \rbrace\) of \(M\), smooth metrics \(g_{\alpha} \in \met(U_{\alpha})\) and real constants \(C_{\alpha} > 0\) such that
+\[
+\frac{1}{C_{\alpha}} g_{\alpha} (X, Y) \leq g(X, Y) \leq C_{\alpha} g_{\alpha} (X, Y)
+\]
+for all tangent vectors \(X, Y \in TM\).
+\end{defn}
+
+\begin{rem}
+By employing a partition of unity argument, we can patch together the metrics \(g_{\alpha}\) to produce a globally defined metric \(h\). If the constants \(C_{\alpha}\) are uniformly bounded above and away from zero, then our rough metric will be globally comparable to \(h\). This is automatic whenever \(M\) is compact. If \(M\) is not compact, then this need not be true. Previously a Harnack inequality and heat kernel estimates have been obtained when the metric is globally comparable to a complete metric with bounded below curvature \cite{Saloff-Coste:/1992b}. Here we do not require the assumptions of global comparability.
+\end{rem}
+
+Given a rough metric, we may locally define a \(g_{\alpha}\)-self-adjoint, measurable operator \(A_{\alpha} : U_{\alpha} \to T^1_1 U_{\alpha}\) by
+\[
+g(X, Y) = g_{\alpha} (A_{\alpha} (X), Y).
+\]
 
 \section{The Harnack Inequality}
 \label{sec:harnack}
