@@ -48,6 +48,7 @@
 \crefname{rem}{Remark}{Remarks}
 \crefname{ass}{Assumption}{Assumptions}
 \crefname{not}{Notation}{Notation}
+\crefname{section}{Section}{Sections}
 
 %Symbols
 \renewcommand{\~}{\tilde}
@@ -128,32 +129,14 @@
 \newcommand{\BEq}[4]{#1&#2#3	 &\quad &\text{on}~#4}
 \newcommand{\br}[1]{\left(#1\right)}
 
-
-
 %Logical symbols
 \newcommand{\Ra}{\Rightarrow}
 \newcommand{\ra}{\rightarrow}
 \newcommand{\hra}{\hookrightarrow}
 \newcommand{\mt}{\mapsto}
 
-% Aleksandrov Reflection Macros
-\DeclareMathOperator{\reflectionvector}{V}
-\DeclareMathOperator{\reflectionangle}{\delta}
-\newcommand{\reflectionplane}[1][\reflectionvector]{\ensuremath{P_{#1}}}
-\newcommand{\reflectionmap}[1][\reflectionvector]{\ensuremath{R_{#1}}}
-\newcommand{\reflectionset}[2][\reflectionvector]{\ensuremath{{#2}_{#1}}}
-\newcommand{\reflectionhalfspace}[1][\reflectionvector]{\ensuremath{\reflectionset[{#1}]{H}}}
-\DeclareMathOperator{\vertvec}{e}
-\DeclareMathOperator{\origin}{O}
-\DeclareMathOperator{\radialprojection}{\pi}
-\DeclareMathOperator{\height}{h}
-\DeclareMathOperator{\equator}{E}
-\newcommand{\ip}[2]{\ensuremath{\langle{#1},{#2}\rangle}}
-\DeclareMathOperator{\intersect}{\cap}
-\DeclareMathOperator{\union}{\cup}
-\DeclareMathOperator{\nor}{\nu}
-\DeclareMathOperator{\basepoint}{p_0}
-\DeclareMathOperator{\radialdistance}{r}
+%Names
+\newcommand{\holder}{H\"older}
 
 %Fonts
 \newcommand{\mc}{\mathcal}
