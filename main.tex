@@ -17,7 +17,7 @@
 \keywords{}
 
 \begin{abstract}
-By employing a local Harnack inequality, we show $C^{\alpha}$ regularity for the heat kernel on smooth manifolds equipped with rough metrics. 
+On smooth manifolds equipped with rough metrics, by employing a local Harnack inequality, we show there exists a heat kernel that is locally $C^{\alpha}$ regular.
 \end{abstract}
 
 \maketitle
@@ -25,11 +25,21 @@ By employing a local Harnack inequality, we show $C^{\alpha}$ regularity for the
 \section{Introduction}
 \label{sec:intro}
 
+Let \(M\) be a smooth manifold. We consider \emph{rough metrics} on \(M\), the set of which we denote \(\met_{\rough} (M)\). These are metrics on \(M\) with measurable coefficients that are locally comparable to smooth smooth metrics (see \Cref{sec:rough_metrics}).
+
+Our main theorem is the following:
+
+\begin{thm}
+On a smooth manifold \(M\), equipped with a rough metric \(g\), there exists a heat kernel \(\rho_t = \rho_t(g)\), such that
+\begin{enumerate}
+\item \(\rho_t > 0\) for \(t > 0\),
+\item on a parabolic cylinder \(Q = K \times [t_1, t_2]\) with \(0 < t_1 < t_2\), \(K \subseteq M\) is compact, there exists an \(\alpha = \alpha(Q)\) so that \(\rho_t \in C^{\alpha}(K \times K)\) for \(t_1 \leq t \leq t_2\).
+\end{enumerate}
+\end{thm}
+
 \section{Rough Metrics}
 \label{sec:rough_metrics}
 
-\section{Energy and Functional Methods}
-\label{eq:energy}
 
 \section{The Harnack Inequality}
 \label{sec:harnack}
