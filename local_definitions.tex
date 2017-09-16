@@ -2,3 +2,244 @@
 \DeclareMathOperator{\rough}{\mathcal{R}}
 \DeclareMathOperator{\domain}{\mathcal{D}}
 \newcommand{\ip}[2]{\ensuremath{\langle{#1},{#2}\rangle}}
+
+% Others: 
+\newcommand{\Sum}[2]{\Sigma_{#1}^{#2}}	% Sum
+
+% Logic definitions:
+\newcommand{\disjunct}{\vee}
+\newcommand{\conjunct}{\wedge}
+
+% Mathematical niceities...
+\newcommand{\mdot}{\cdotp}
+\newcommand{\inte}[2]{\int_{#1}^{#2}}
+\newcommand{\intbox}[3]{\left[#1\right]_{#2}^{#3}}
+\newcommand{\cbrac}[1]{\left(#1\right)}
+\newcommand{\bbrac}[1]{\left[#1\right]}
+\newcommand{\dbrac}[1]{\left\{#1\right\}}
+\newcommand{\modulus}[1]{|#1|}
+\newcommand{\lmodulus}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\dbrac{#1}}
+\newcommand{\sentence}[1]{ {\text{``}}#1 {\text{''}}}
+
+\newcommand{\pw}[1]{\script{P}\cbrac{#1}}
+\newcommand{\dom}{ {\mathcal{D}}}
+\newcommand{\ran}{ {\mathcal{R}}}
+\newcommand{\nul}{ {\mathcal{N}}}
+%\newcommand{\im}[1]{ {\rm im} \cbrac{#1}}
+%\newcommand{\card}[1]{ {\rm card} \cbrac{#1}}
+\DeclareMathOperator{\card}{card}
+
+\newcommand{\comp}{\circ}
+
+
+\newcommand{\In}{\mathbb{Z}}
+\newcommand{\Na}{\ensuremath{\mathbb{N}}}
+
+\newcommand{\putt}{\ensuremath{\rightarrow}}
+\newcommand{\script}[1]{\mathscr{#1}}
+
+\newcommand{\Ccut}{\C_{\frac{\pi}{2}}}			% Cut plane
+\DeclareMathOperator{\re}{Re}			% Real part
+\DeclareMathOperator{\im}{Im}			% Imaginary part
+
+\newcommand{\ceil}[1]{\ulcorner{#1}\urcorner}
+
+% Set Theory:
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\union}{\cup}
+\newcommand{\Union}{\bigcup}
+\newcommand{\intersect}{\cap}
+\newcommand{\Intersect}{\bigcap}
+\newcommand{\disunion}{\sqcup}
+\newcommand{\Disunion}{\bigsqcup}
+%\renewcommand{\subset}{\subseteq}
+\newcommand{\symdiff}{\vartriangle}
+\newcommand{\rest}[1]{{{\lvert_{}}_{}}_{#1}}
+\newcommand{\close}[1]{\overline{#1}}		% closure
+\DeclareMathOperator{\img}{Img}
+%\newcommand{\img}[1]{{\rm Img}{\text{ }#1}}	% Image
+
+\newcommand{\powerset}{\script{P}} 
+
+\newcommand{\ind}[1]{\raisebox{\depth}{\(\chi\)}_{#1}}	% Indicator funciton
+
+\newcommand{\class}[1]{[#1]}			% Equivalence class
+\newcommand{\quotient}[2]{{#1}/{#2}}	% Quotienting
+
+\newcommand{\compl}{{}^{\rm c}}
+
+\newcommand{\Char}[1]{\chi_{#1}} 	% Characteristic function 
+
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\vphi}{\tilde{\varphi}}
+\renewcommand{\phi}{\varphi}
+\newcommand{\comspace}{\text{      }}
+%\newcommand{\comment}[1]{\hspace{1cm}\text{\it\small(#1)}}
+\DeclareMathOperator{\Graph}{graph}
+
+% Topology:
+
+\newcommand{\embed}{\hookrightarrow}		% Embeded in
+
+% Algebra:
+\newcommand{\tp}[1]{{#1}^{\mathrm{tr}}}
+%\newcommand{\dual}[1]{#1^{\ast}}		% Algebraic Dual
+\newcommand{\isomorphic}{\cong}			% Isomorphic
+\newcommand{\Alt}{\mathcal{A}}
+\newcommand{\tensor}{\otimes}
+\newcommand{\dsum}{\oplus}			% direct sum
+\DeclareMathOperator{\Span}{span}
+\newcommand{\longto}{\longrightarrow}		% --->
+\newcommand{\comm}[1]{\bbrac{#1}}		% Commutator
+\newcommand{\trans}[1]{#1^{{\rm T}}}
+
+% Specific Analysis things:
+\newcommand{\sups}[1]{{\rm sup}\set{#1}} 	% Supremum
+\newcommand{\infs}[1]{{\rm inf} \set{#1}}	% Infimum
+
+\newcommand{\upto}{\nearrow}			
+\newcommand{\downto}{\searrow}
+
+\newcommand{\norm}[1]{\| #1 \|}			% Norm
+\newcommand{\lnorm}[1]{\left\| #1 \right\|}			% Norm
+\newcommand{\spt}[1]{{\rm spt} {\text{ }}#1}	% Support 
+\DeclareMathOperator{\esssup}{esssup}
+\DeclareMathOperator{\essinf}{essinf}
+%\newcommand{\esssup}{{\rm ess {\text{ }}sup} {\text{ }} }	% Essential Supremum
+\newcommand{\conv}{\rightarrow}
+\newcommand{\weakcon}{\rightharpoonup}		% Weak Convergence
+\newcommand{\interior}[1]{\mathring{#1}}	% Interior
+
+
+% Specific GMT/Geometry things:
+\DeclareMathOperator{\tr}{tr}			% Trace
+\newcommand{\Secondff}{\mathbb{I}}		% 2nd FF
+\newcommand{\Mean}{\vec{\mathrm{H}}}
+\DeclareMathOperator{\diam}{diam}		% Diam 
+
+\DeclareMathOperator{\len}{\ell}			% Length
+\DeclareMathOperator{\rad}{rad}			% Rad
+\DeclareMathOperator{\vol}{vol}			% Volume
+
+\DeclareMathOperator{\divv}{div}		% Divergence
+
+\newcommand{\kron}{\delta}			% Kronecker delta
+
+\newcommand{\cut}{\ \llcorner\ }			% cut product
+
+\newcommand{\partt}[1][{}]{{\partial_{{#1}}}}		% Partial
+
+\newcommand{\ddt}[1][t]{\frac{d}{d#1}}		% d/dt 
+\newcommand{\partd}[2][{}]{{\frac{\partial #1}{\partial #2}}}	% d/dx
+\newcommand{\dx}[1]{{\rm d}#1} 
+
+\newcommand{\Lie}[1]{\script{L}_{#1}}		% Lie Derivative
+\newcommand{\VecF}{\script{X}}			% Vector Fields X
+\newcommand{\Christ}[2]{\Gamma^{#2}_{#1}}	% Cristoffel Symbols
+
+\newcommand{\Ric}{{\rm Ric}}			% Ricci Curvature
+\newcommand{\Rs}{\mathcal{R}_S}			% Scalar Curvature
+
+
+\newcommand{\bnd}{\partial}			% Boundary partial d
+\newcommand{\Vectors}[1]{\edge_{#1}}		% P-vectors
+\newcommand{\WForms}[1][{}]{\wedge^{#1}}		% P-Forms\\
+\newcommand{\Forms}[1][{}]{\mathbf{\Omega}^{#1}}		% P-Forms\\
+\newcommand{\Tensors}[1][{}]{{\mathcal{T}}^{(#1)}}	% Tensors
+\DeclareMathOperator{\Sym}{Sym}
+\newcommand{\Sect}{\mathbf{\Gamma}}		% Sections (tensor feilds)
+\newcommand{\current}[1]{\script{D}^{#1}}	% 
+\newcommand{\Current}[1]{\script{D}_{#1}}	%
+\newcommand{\Varifold}[1]{{\rm V}\cbrac{#1}}	% Varifold
+
+\DeclareMathOperator{\proj}{\mathbf{P}}	% Projection
+\newcommand{\tanb}{{\rm T}}		% Tangent Bundle
+\newcommand{\cotanb}{{\rm T}^\ast}	% Cotangent bundle
+\newcommand{\normalb}{{\rm N}}		% Normal bundle
+\newcommand{\conormalb}{{\rm N}^\ast}	% Conormal bundle
+
+\newcommand{\pushf}[1]{{#1}_\ast}			% Push forward
+\newcommand{\pullb}[1]{{#1}^\ast}			% Pull back
+
+\newcommand{\metric}[1]{\inprod{#1}}
+
+\DeclareFontFamily{OT1}{restrictfont}{}
+\DeclareFontShape{OT1}{restrictfont}{m}{n}{<-> fmvr8x}{}
+\def\restrictfont{\usefont{OT1}{restrictfont}{m}{n}}
+\newcommand{\restrict}{\text{\restrictfont\char157}}		% Restriction L
+
+\newcommand{\cur}[1]{\llbracket #1 \rrbracket}	% [[M]]
+\newcommand{\slice}[1]{\inprod{#1}}		% Slice <T,f,t>
+
+\newcommand{\adj}[1]{{#1}^\ast}			% Adjoint star
+\newcommand{\dirD}[1]{{\rm D}_{#1}}		% Directional Deriv
+\newcommand{\extd}{{\rm d}}			% Exterior Derivative
+\newcommand{\intd}{{\updelta}}
+\newcommand{\Dir}{{\rm D}}			% Dirac
+\newcommand{\diff}[1]{{\rm d}^{#1}}		% differential d
+\newcommand{\jacob}[1]{{\rm J}_{#1}}		% jacobian
+\newcommand{\cojacob}[1]{\adj{{\rm J}_{#1}}}	% cojacobian
+\newcommand{\integral}[3]{\int_{#1}#2  {\text{   }} {\rm d} #3}  % integral
+\newcommand{\cprod}{\mathaccent\openJoin{\mathaccent\opentimes\opentimes}}		% Product of Currents
+
+\newcommand{\inprod}[1]{\langle #1 \rangle}	% inner product braces
+\newcommand{\conn}[1][{}]{{\grad_{{#1}}}}		% Connection
+\newcommand{\Ae}{{\rm -a.e.~}}			% Almost everywhere
+\DeclareMathOperator{\Lip}{\bf Lip}			% Lip
+\DeclareMathOperator{\Lipp}{Lip}		% Lip f(x)
+\newcommand{\Vol}[1]{{\rm Vol}\cbrac{#1}}	% Volume
+%\newcommand{\diam}[1]{{\rm diam}\cbrac{#1}}	% Diam
+\newcommand{\Haus}[1]{\script{H}^{#1}}			% Hausdorff H
+\newcommand{\Leb}[1][{}]{\script{L}^{#1}}			% Lebesgue L
+\newcommand{\mass}[1]{{\rm M}_{#1}}
+
+\newcommand{\udensity}[1]{\Theta^{\ast#1}}		% Upper density
+\newcommand{\ldensity}[1]{\Theta_{\ast}^{#1}}	% Lower density
+\newcommand{\density}[1]{\Theta^{#1}}		% Density 
+
+% Functional Analysis/ Operator Theory
+
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\bddlf}{\mathcal{L}} 	% Bounded Linear Functions over #1
+\newcommand{\spec}{\sigma}		% Spectrum of #1
+\newcommand{\jspec}{\gamma}				% Joint spectrum
+\newcommand{\rs}[1]{\textsf{R}_{#1}}			% Resolvent operator
+\newcommand{\rset}{\rho}				% Resolvent Set
+\newcommand{\polalg}{\script{P}}			% Polynomial algebra, power series algebra
+\newcommand{\ratalg}[1]{\script{R}_{#1}}		% Rational algebra with no poles in #1
+\newcommand{\powalg}[1]{\script{P}_{#1}}		% Power series algebra with radius larger than #1
+\newcommand{\slim}{\mathrm{s}\text{-}\lim}		% Strong convegence
+\newcommand{\cllf}[1]{\mathcal{C}\left(#1\right)}	% Closed Linear operators over #1
+\newcommand{\hol}{\mathcal{H}}				% Holomorphic functions
+\newcommand{\conj}[1]{\overline{#1}}				% complex conjugate
+\DeclareMathOperator{\nr}{nr}				% Numerical Range
+\DeclareMathOperator{\specr}{\spec_{\mathrm{r}}}	% Spectral radius
+
+\newcommand{\Lp}[2][{}]{{\rm L}^{#2}_{\rm #1}}		% L_{#1}^{#2}
+\newcommand{\Ck}[2][{}]{{\rm C}^{#2}_{\rm #1}}		% C^k_c
+\newcommand{\Lips}[1][{}]{{\rm Lip}_{\rm #1}}		% C^k_c
+\newcommand{\Sob}[2][{}]{{\rm W}^{#2}_{\rm #1}}		% W^{k,p}_{c} Sobolev space 
+\newcommand{\SobH}[2][{}]{{\Sob[#1]{#2,2}}}	% H^k_{c}  Sobolev space 
+
+\newcommand{\convolve}{\, \ast\, }
+
+\newcommand{\ddelta}{\updelta}
+
+\newcommand{\Sec}[1]{\mathrm{S}_{#1}}
+\newcommand{\OSec}[1]{\mathrm{S}^\mathrm{o}_{#1}}
+
+
+% Harmonic ANalysis
+
+\newcommand{\mean}[1]{{\rm m}_{#1}}			% Mean.
+\newcommand{\Max}{{\mathcal{M}}}			% Maximal function
+\newcommand{\Cone}{\Gamma}				% Cone over a point
+\newcommand{\Tent}{\mathrm{T}}					% Tent
+
+
+% Script
+\newcommand{\sE}{\script{E}}
+
+% Heat kernel 
+\newcommand{\hk}{\rho}

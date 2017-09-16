@@ -8,10 +8,13 @@
 %\makeatother
 
 %\usepackage[parfill]{parskip}
-
+\usepackage{vmargin}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 \usepackage{bookmark}
-\usepackage{amsthm,thmtools,amssymb,amsmath,amscd}
+\usepackage{amsthm,thmtools,amssymb,amsmath,amscd,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+
 
 \usepackage[bibstyle=alphabetic,citestyle=alphabetic,backend=bibtex]{biblatex}
 \bibliography{Bibliography}
@@ -24,6 +27,8 @@
 \usepackage{pictexwd,dcpic}
 
 \usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+
 
 \swapnumbers
 \declaretheorem[name=Theorem,numberwithin=section]{thm}
@@ -153,3 +158,7 @@
 \let\endignorethis\relax
 \def\TOCstop{\addtocontents{toc}{\ignorethis}}
 \def\TOCstart{\addtocontents{toc}{\endignorethis}}
+
+
+\newcommand{\note}[1]{\Rd {\bf[[ #1 ]]} \Bk}
+
