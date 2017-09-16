@@ -1,0 +1,6 @@
+*~
+*.blg
+*.bbl
+*-blx.bib
+*.run.xml
+auto/
