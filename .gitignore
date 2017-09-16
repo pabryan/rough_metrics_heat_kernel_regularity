@@ -3,4 +3,9 @@
 *.bbl
 *-blx.bib
 *.run.xml
+*.aux
+*.log
+*.fls
+main.pdf
+*.fdb_latexmk
 auto/
