@@ -287,7 +287,9 @@ the following.
 \begin{defn}[$(g,\cW)$-Laplacian]
 Let \(g\) be a rough metric on a smooth manifold \(M\)
 and $\cW \subset \SobH{1}(M)$ be a closed subspace
-of $\SobH{1}(M)$ such that $\Ck[c]{\infty}(M) \subset \cW$.
+of $\SobH{1}(M)$ such that $\Ck[c]{\infty}(M) \subset \cW$
+and $\Ck{\infty} \cup \cW$ dense in $\cW$ 
+in the norm $\norm{\cdot}_{\cW} = \norm{\cdot}_{\SobH{1}}$. 
 The \emph{$(g,\cW)$-Laplacian}
 \(\Delta_{g,\cW} : \Lp{2}(M) \to \Lp{2}(M)\) is defined by
 $\Delta_{g,\cW} u = \adj{\nabla_{\cW}} \close{ \nabla_{\cW}} u,$
@@ -372,10 +374,10 @@ we don't have the classical methods at hand}
 Let $u \in \Ck{1}(\R_+, \cW)$ be a solution to the 
 Dirchlet heat equation
 for $\Delta_{g,\cW}$ with initial data $u_0 \in \Lp{2}(M)$. Then, a 
-measurable map $\hk^{g,\cW}_{\mdot}: \R_+ \times M \times M \to \R$
+measurable symmetric map $\hk^{g,\cW}_{\mdot}: \R_+ \times M \times M \to \R$
 is a heat kernel if 
 $$u(t,x) = \int_{M} \hk^{g,\cW}_t(x,y) u_0(y)\ d\omega_g(y),$$
-with $\lim_{t \to 0} \hk^{g,\cW}(\mdot,y) \to \delta(y)$, 
+with $\lim_{t \to 0} \hk_t^{g,\cW}(\mdot,y) \to \delta(y)$, 
 where $\delta(y)$ is the Dirac-delta function.
 \end{defn}
 
@@ -407,36 +409,127 @@ via the Riesz representation theorem as described in Theorem
 5.2.1 in \cite{Davies}. This proof was adapated for
 the setting of rough metrics in the setting that $M$ is
 compact in \cite{BCont} and therefore, we just provide
-a sketch of the construction. The fundamental estimate in 
-need of proof to obtain existence is the following: 
+a sketch of the construction. The fundamental estimate we
+require is the following \emph{Harnack inequality}. 
 
-\begin{enumerate}
-\item[(F)\label{Def:F}]
-For $x \in M$ and $t > 0$, there exists
-$C_{t,x} \geq 0$ such that
-$$\modulus{e^{-t\Delta_{g,\cW}}f(x)} \lesssim C_{t,x} \norm{f}_2.$$ 
-\end{enumerate}
+\begin{itemize}
+\item[] At each $x \in M$ and $t > 0$, there exists a precompact
+open set $U_x$, a constant $C = C(t, U_x)  > 0$ such that
+\begin{equation}
+\tag{H}
+\label{eq:Harnack}
+\sup_{(y,s) \in U_x \times (\frac{1}{2}t,\frac{3}{2}t)} u(y,s) 
+	\leq \inf_{(y,s) \in U_x \times (2t,\frac{5}{2}t)} u(y,s)
+\end{equation}
+\end{itemize}
 
-The passage from this to the construction of $\hk^{g,\cW}_t$ is as follows.
+The passage from this to the construction (and regularity) of $\hk^{g,\cW}_t$ is as follows.
 
 \begin{prop}
-Suppose that \ref{Def:F} holds. Then, the heat
+Suppose that \eqref{eq:Harnack} holds. Then, the heat
 kernel $\hk^{g,\cW}_{\mdot}: \R_{+} \times M \times M \to \R$
-exists.
+exists and for each precompact open $K \subset M$
+and $t \in [t_1, t_2]$ with $0 <t_1 < t_2$, 
+there exists an $\alpha$ such that $\hk^{g,\cW}_t \in \Ck{\alpha}(M \times M)$.
 \end{prop} 
 \begin{proof}
-\end{proof}
-
 \begin{enumerate}[(i)]
-\item For $u \in \Ck{\infty}$
-	with $\nabla u \in \Ck{\infty}$,
-	it is readily verified that 
+
+\item For $u \in \Ck{\infty}$, it is readily verified that 
 	$\modulus{ \nabla \modulus{u}} \leq \modulus{ \nabla u}.$
+	In particular, this means that 
+	for $u \in \Ck{\infty} \intersect \cW$
+	$\norm{\nabla \modulus{u}} = \norm{\nabla u},$
+	and therefore, whenever $u \in \cW$
+	we have that $\modulus{u} \in \cW$ 
+	with this estimate holding.
+
+\item 	By construction $\dom(\sqrt{\Delta_{g, \cW}}) = \cW$
+	and $\norm{\sqrt{\Delta_{g,\cW}} f} = \norm{\nabla f}$
+	for all $f \in \cW$ and therefore, 
+	$\norm{\sqrt{\Delta_{g, \cW}} \modulus{u}} 
+		\leq \norm{\sqrt{\Delta_{g, \cW}} u}$. 
+	By the Buerling-Deny condition (c.f.  Corollary 2.18(2) in  \cite{El-Maati}), 
+	this yeilds that for $\Lp{2}(M) \ni f \geq 0$
+	we have that  $e^{-t \Delta_{g,\cW}} f \geq 0$. That is, the semigroup 
+	$e^{-t \Delta_{g,\cW}}$ is positive preserving.  
+
+\item Now, left $f \in \Lp{2}(M)$, and write
+	$f = f_+ - f_-$, where $f_{\pm} = \max\set{0,\pm f}$.
+	It is clear that $f_{\pm} \in \Lp{2}(M)$
+	and that $\modulus{f} = f_+ + f_-$.
+	By the fact that we have shown $e^{-t\Delta_{g,\cW}}$ 
+	is positive preserving, this means that
+	for $u_{\pm} (x,t) = e^{-t\Delta_{g,\cW}} f_{\pm} \geq 0$,
+	we have that $u(x,t) = e^{-t \Delta_{g,\cW}} f = u_+(x,t) - u_-(x,t)$.
+
+\item Since $u_{\pm}(x,t) \geq 0$ are positive solutions,
+	using inequality \eqref{eq:Harnack}, we have a precompact $U_x$ 
+	with 
+	\begin{align*} 
+	\modulus{e^{-t \Delta_{g,\cW}}f(x)}  &= \modulus{u(x,t)} = u_+(x,t) + u_-(x,t) \\
+		&\leq C(t,U_x) (u_+(y,2t) + u_-(y,2t)) \\
+		&= C(t,U_x) \modulus{u(y,2t)}
+		= C(t,U_x)  \modulus{e^{-2t \Delta_{g,\cW}}f(y)}
+	\end{align*} 
+	for each $y \in U_x$.
+	On intergrating both sides over $U_x$ (which has $\omega_g(U_x) < \infty$
+	by precompactness and the properties of the measure $\omega_g$) with respect
+	to the variable $y$,
+	we have that 
+	\begin{align*} 
+	\modulus{e^{-t \Delta_{g,\cW}}f(x)} 
+		&\leq \frac{C(t,U_x))}{\omega_g(U_x)} \int_{U_x} \modulus{e^{-2t \Delta_{g,\cW}}f(y)}\ d\omega_g(y) \\
+		&\leq \frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{e^{-2t \Delta_{g,\cW}f}},
+	\end{align*}
+	where the second inequality follows from the Cauchy-Schwartz
+	inequality and since $\norm{\cdot}_{\Lp{2}(U_x)} \leq \norm{\cdot}_{\Lp{2}(M)}$.
+
+\item By the self-adjointness of $\Delta_{g,\cW}$, via functional calculus 
+	we obtain that $\norm{e^{-t\Delta_{g,\cW}}f} \leq \norm{f},$
+	and therefore, we obtain that
+	$$\modulus{e^{-t \Delta_{g,\cW}}f(x)} \leq 
+		\frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{f}.$$
+	This exactly says that $f \mapsto (e^{-t\Delta_{g,\cW}}f)(x) \in \adj{\Lp{2}(M)}$
+	for every $f \in \Lp{2}(M)$ and therefore, by the Riesz Representation theorem,
+	we obtain an $a_{t,x} \in \Lp{2}(M)$ such that
+	$$ e^{-t \Delta_{g,\cW}}f(x) = \inprod{a_{t,x},f}.$$
+
+\item Again, by self-adjointness, we have that $e^{-t \Delta_{g,\cW}}$
+	is bounded self-adjoint, and
+	on combining this with the semigroup property 
+	$e^{-t\Delta_{g,\cW}} = e^{-\frac{t}{2} \Delta_{g,\cW}}e^{-\frac{t}{2} \Delta_{g,\cW}}$, 
+	it is straightforward to check that 
+		$$\hk^{g,\cW}_t(x,y) = \inprod{a_{\frac{t}{2}, x}, a_{\frac{t}{2}, y}},$$
+	defines a measurable symmetric function for which 
+	$$e^{-t \Delta_{g,\cW}}f = \int_{M} \hk^{g,\cW}_t(x,y)f(y)\ d\omega_g(y).$$
+	Since $e^{-t \Delta_{g,\cW}}$
+	is positive preserving which shows that $\hk_t^{g,\cW}$
+	is real-valued. Moreover, since $e^{-t\Delta_{g,\cW}}f \to f$
+	in $\Lp{2}$, we have that 
+	$\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$
+	in the sense of distributions. This
+	shows that $\hk^{g,\cW}_t$ is the heat kernel.
+
+\item	Again on using that $e^{-t\Delta_{g,\cW}}$ is positive
+	preserving, $a_{t,x} \geq 0$ and  therefore $\hk^{g,\cW}_t(x,y) \geq 0$.
+	Then, the semigroup property again shows that $y \mapsto \hk^{g,\cW}_t(x,y)$
+	is a non-negative solution to the heat equation and therefore,
+	we can apply \eqref{eq:Harnack} to obtain
+	oscillation estimates which yeild the local $\Ck{\alpha}$
+	regularity in the conclusion (c.f. \cite{}).
 \end{enumerate} 
+\end{proof}
 
 \section{The Harnack Inequality and Heat Kernel Regularity}
 \label{sec:harnack}
 
+In this section, we demonstrate that the Harnack 
+estimate \eqref{eq:Harnack} holds for the rough 
+metrics we consider. We do this via a localisation
+procedure to pull the problem into $\R^n$
+and then alluding to results for weighted Sobolev
+spaces in that setting.
 
 \printbibliography
 \end{document}

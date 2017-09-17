@@ -246,6 +246,29 @@
   \field{year}{1997}
 \endentry
 
+\entry{El-Maati}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Ouhabaz}{O.}%
+     {El~Maati}{E.~M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Princeton University Press, Princeton, NJ}%
+  }
+  \strng{namehash}{OEM1}
+  \strng{fullhash}{OEM1}
+  \field{labelalpha}{Ouh05}
+  \field{sortinit}{O}
+  \field{isbn}{0-691-12016-1}
+  \field{pages}{xiv+284}
+  \field{series}{London Mathematical Society Monographs Series}
+  \field{title}{Analysis of heat equations on domains}
+  \field{volume}{31}
+  \field{year}{2005}
+\endentry
+
 \entry{SC}{article}{}
   \name{author}{1}{}{%
     {{}%

@@ -23,45 +23,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Too many commas in name 1 of "Academic Press, Inc., Orlando, FL" for entry Chavel
 while executing---line 2659 of file biblatex.bst
-You've used 11 entries,
+You've used 12 entries,
             6047 wiz_defined-function locations,
-            1230 strings with 10058 characters,
-and the built_in function-call counts, 36418 in all, are:
-= -- 1591
-> -- 1200
-< -- 445
-+ -- 408
-- -- 415
-* -- 2514
-:= -- 2206
+            1240 strings with 10240 characters,
+and the built_in function-call counts, 40627 in all, are:
+= -- 1846
+> -- 1322
+< -- 512
++ -- 462
+- -- 441
+* -- 2729
+:= -- 2405
 add.period$ -- 0
-call.type$ -- 11
-change.case$ -- 263
+call.type$ -- 12
+change.case$ -- 317
 chr.to.int$ -- 36
-cite$ -- 20
-duplicate$ -- 3962
-empty$ -- 3781
-format.name$ -- 641
-if$ -- 8468
+cite$ -- 22
+duplicate$ -- 4423
+empty$ -- 4197
+format.name$ -- 694
+if$ -- 9484
 int.to.chr$ -- 0
-int.to.str$ -- 27
+int.to.str$ -- 30
 missing$ -- 0
-newline$ -- 287
-num.names$ -- 599
-pop$ -- 3212
+newline$ -- 310
+num.names$ -- 686
+pop$ -- 3525
 preamble$ -- 1
-purify$ -- 263
+purify$ -- 316
 quote$ -- 0
-skip$ -- 2230
+skip$ -- 2515
 stack$ -- 0
-substring$ -- 1176
-swap$ -- 1391
-text.length$ -- 317
-text.prefix$ -- 16
+substring$ -- 1416
+swap$ -- 1548
+text.length$ -- 343
+text.prefix$ -- 18
 top$ -- 1
-type$ -- 406
+type$ -- 444
 warning$ -- 0
-while$ -- 256
+while$ -- 275
 width$ -- 0
-write$ -- 275
+write$ -- 297
 (There was 1 error message)
