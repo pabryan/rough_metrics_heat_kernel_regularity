@@ -368,7 +368,7 @@ or it is necessary for us to formulate the problem in this way because
 we don't have the classical methods at hand}
 \end{rem}
 
-\section{The heat kernel and its regularity}
+\section{Existence of the heat kernel}
 
 \begin{defn}[Heat kernel]
 Let $u \in \Ck{1}(\R_+, \cW)$ be a solution to the 
@@ -406,35 +406,76 @@ introduction.
 Consequently, we can instead consider heat kernels
 associated to the operator $\Delta_{g,\cW}$ in $\Lp{2}$
 via the Riesz representation theorem as described in Theorem 
-5.2.1 in \cite{Davies}. This proof was adapated for
-the setting of rough metrics in the setting that $M$ is
-compact in \cite{BCont} and therefore, we just provide
-a sketch of the construction. The fundamental estimate we
-require is the following \emph{Harnack inequality}. 
+5.2.1 in \cite{Davies}. As aforementioned, in the smooth case,
+at least for the heat kernel corresponding to the 
+Dirichlet Laplacian, we obtain the desired small time
+asymptotics. 
 
+There is a large class of rough metrics
+for which we know that the heat kernel exists
+and for which Varadhan's formula holds. 
+Take $h$ smooth and let $\psi:M \to M$
+be a Lipeomorphism (that is, a locally bi-Lipschitz map).
+Define $g = \pullb{\psi}h$, then, $g$ 
+also induces a length structure with 
+distance given by $d_g(x,y) = d_h(\psi(x), \psi(y))$.
+Moreover, a calculation gives
+that $\hk^{g}_t(x,y) = \hk^{h}_t(\psi(x), \psi(y))$
+(or more generally for $\hk^{g,\cW}_t(x,y)$). 
+On combining the fact that $\hk^h_t$ satisfies
+Varadhan's formula, it is easy to see that
+so does $\hk^{g}_t$. In fact, we 
+note that $\hk^g`_t \in \Ck{0,1}(M \times M)$,
+which is of higher regularity than we we
+obtain for general rough metrics.
+
+In what follows, we adapt the key idea in 
+the proof of Theorem 5.2.1 in \cite{Davies}
+to our setting. Due to the more general 
+nature of our problem, we are forced to 
+establish a number of a priori facts which 
+are more or less immediate in the smooth case.
+What we present here was initially adapted for the
+compact case in \cite{BRough}, but further analysis
+has shown that we can make it work in the general.
+
+With this terminlogy, we present the fundamental estimate we
+require is the following \emph{weak Harnack-type inequality}.
 \begin{itemize}
 \item[] At each $x \in M$ and $t > 0$, there exists a precompact
-open set $U_x$, a constant $C = C(t, U_x)  > 0$ such that
+open set $U_x$, a $\delta_t \geq 0$ and a constant $C = C(t, U_x)  > 0$ such that
 \begin{equation}
 \tag{H}
 \label{eq:Harnack}
-\sup_{(y,s) \in U_x \times (\frac{1}{2}t,\frac{3}{2}t)} u(y,s) 
-	\leq \inf_{(y,s) \in U_x \times (2t,\frac{5}{2}t)} u(y,s)
+\esssup_{y \in U_x} u(y,t) 
+	\leq \essinf_{y \in U_x} u(y, t + \delta_t)
 \end{equation}
 \end{itemize}
 
-The passage from this to the construction (and regularity) of $\hk^{g,\cW}_t$ is as follows.
+In the compact case, even for a
+rough metric, such an estimate can be
+obtained with $C(t,U_x)$ precisely quantified
+in terms fo the curvature of a nearby smooth metric.
+However, the key observation to pass from the compact analysis
+to the general setting we present here was to note that
+the estimates we require are purely local. In 
+what is to follow, we will see that the constant can be
+crude, it simply allows us to assert the existence and regularity
+of $\hk^{g,\cW}_t$, but the finer properties can still 
+be extracted by operator theory, in particular, from the 
+fact that $t \mapsto e^{-t\Delta_{g,\cW}}$ is a semigroup.
 
 \begin{prop}
+\label{Prop:MainRed}
 Suppose that \eqref{eq:Harnack} holds. Then, the heat
 kernel $\hk^{g,\cW}_{\mdot}: \R_{+} \times M \times M \to \R$
-exists and for each precompact open $K \subset M$
-and $t \in [t_1, t_2]$ with $0 <t_1 < t_2$, 
-there exists an $\alpha$ such that $\hk^{g,\cW}_t \in \Ck{\alpha}(M \times M)$.
+exists.
 \end{prop} 
 \begin{proof}
+We outline the steps of the construction of the heat kernel
+noting that the pointwise expressions from here on should be
+understood in an almost-everywhere sense.
 \begin{enumerate}[(i)]
-
 \item For $u \in \Ck{\infty}$, it is readily verified that 
 	$\modulus{ \nabla \modulus{u}} \leq \modulus{ \nabla u}.$
 	In particular, this means that 
@@ -460,34 +501,34 @@ there exists an $\alpha$ such that $\hk^{g,\cW}_t \in \Ck{\alpha}(M \times M)$.
 	and that $\modulus{f} = f_+ + f_-$.
 	By the fact that we have shown $e^{-t\Delta_{g,\cW}}$ 
 	is positive preserving, this means that
-	for $u_{\pm} (x,t) = e^{-t\Delta_{g,\cW}} f_{\pm} \geq 0$,
-	we have that $u(x,t) = e^{-t \Delta_{g,\cW}} f = u_+(x,t) - u_-(x,t)$.
+	for $u_{\pm} (x,t) = e^{-t\Delta_{g,\cW}} f_{\pm} \geq 0$	
+	and we have that $u(x,t) = e^{-t \Delta_{g,\cW}} f = u_+(x,t) - u_-(x,t)$.
 
-\item Since $u_{\pm}(x,t) \geq 0$ are positive solutions,
+\item  Since $u_{\pm}(x,t) \geq 0$ are positive solutions,
 	using inequality \eqref{eq:Harnack}, we have a precompact $U_x$ 
 	with 
 	\begin{align*} 
 	\modulus{e^{-t \Delta_{g,\cW}}f(x)}  &= \modulus{u(x,t)} = u_+(x,t) + u_-(x,t) \\
-		&\leq C(t,U_x) (u_+(y,2t) + u_-(y,2t)) \\
-		&= C(t,U_x) \modulus{u(y,2t)}
-		= C(t,U_x)  \modulus{e^{-2t \Delta_{g,\cW}}f(y)}
+		&\leq C(t,U_x) (u_+(y,t+\delta_t) + u_-(y,t+\delta_t)) \\
+		&= C(t,U_x) \modulus{u(y,t + \delta_t)}
+		= C(t,U_x)  \modulus{e^{-(t + \delta_t) \Delta_{g,\cW}}f(y)}
 	\end{align*} 
-	for each $y \in U_x$.
+	for almost-every $y \in U_x$.
 	On intergrating both sides over $U_x$ (which has $\omega_g(U_x) < \infty$
 	by precompactness and the properties of the measure $\omega_g$) with respect
 	to the variable $y$,
-	we have that 
+	we have that
 	\begin{align*} 
 	\modulus{e^{-t \Delta_{g,\cW}}f(x)} 
-		&\leq \frac{C(t,U_x))}{\omega_g(U_x)} \int_{U_x} \modulus{e^{-2t \Delta_{g,\cW}}f(y)}\ d\omega_g(y) \\
-		&\leq \frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{e^{-2t \Delta_{g,\cW}f}},
+		&\leq \frac{C(t,U_x))}{\omega_g(U_x)} \int_{U_x} \modulus{e^{-(t + \delta_t) \Delta_{g,\cW}}f(y)}\ d\omega_g(y) \\
+		&\leq \frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{e^{-(t + \delta_t) \Delta_{g,\cW}f}},
 	\end{align*}
 	where the second inequality follows from the Cauchy-Schwartz
 	inequality and since $\norm{\cdot}_{\Lp{2}(U_x)} \leq \norm{\cdot}_{\Lp{2}(M)}$.
 
 \item By the self-adjointness of $\Delta_{g,\cW}$, via functional calculus 
-	we obtain that $\norm{e^{-t\Delta_{g,\cW}}f} \leq \norm{f},$
-	and therefore, we obtain that
+	we obtain that $\norm{e^{-s\Delta_{g,\cW}}f} \leq \norm{f}$
+	uniformly in $s$  and therefore, we obtain that
 	$$\modulus{e^{-t \Delta_{g,\cW}}f(x)} \leq 
 		\frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{f}.$$
 	This exactly says that $f \mapsto (e^{-t\Delta_{g,\cW}}f)(x) \in \adj{\Lp{2}(M)}$
@@ -510,26 +551,112 @@ there exists an $\alpha$ such that $\hk^{g,\cW}_t \in \Ck{\alpha}(M \times M)$.
 	$\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$
 	in the sense of distributions. This
 	shows that $\hk^{g,\cW}_t$ is the heat kernel.
-
-\item	Again on using that $e^{-t\Delta_{g,\cW}}$ is positive
-	preserving, $a_{t,x} \geq 0$ and  therefore $\hk^{g,\cW}_t(x,y) \geq 0$.
-	Then, the semigroup property again shows that $y \mapsto \hk^{g,\cW}_t(x,y)$
-	is a non-negative solution to the heat equation and therefore,
-	we can apply \eqref{eq:Harnack} to obtain
-	oscillation estimates which yeild the local $\Ck{\alpha}$
-	regularity in the conclusion (c.f. \cite{}).
 \end{enumerate} 
 \end{proof}
 
-\section{The Harnack Inequality and Heat Kernel Regularity}
+\begin{rem}
+We note that the Harnack-type estimate that we assume is very 
+weak, i.e., it is not defined on cylinders or even 
+parabolic cylinders. The proof shows that the existence 
+of the heat kernel only requires such an estimate. 
+As we shall see in the next section, a stronger
+estimate is required for regularity of solutions. 
+\end{rem}
+
+\section{The Harnack inequality and regularity}
 \label{sec:harnack}
 
-In this section, we demonstrate that the Harnack 
-estimate \eqref{eq:Harnack} holds for the rough 
-metrics we consider. We do this via a localisation
-procedure to pull the problem into $\R^n$
-and then alluding to results for weighted Sobolev
-spaces in that setting.
+
+In this section, we demonstrate that a
+ stronger form of the  Harnack 
+estimate than \eqref{eq:Harnack} holds for the rough 
+metrics we consider. The estimate \eqref{eq:Harnack} 
+will then be a consequence of this estimate.
+To describe this estimate, fix a collection of 
+locally comparable charts $\psi_x:V_x \to \R^n$ denote
+for each $x \in M$ such that $\psi_x(V_x) = B_{r_x}$,
+where $B_{r_x}$ is a ball of radius $r_x > 0$. 
+Then, let
+$\delta_x(\cdot, \cdot) = \pullb{\psi_x}\delta(\cdot, \cdot)_{\R^n}$
+denote the pullback metric with $\Leb_x = \pullb{\psi_x}\Leb$
+and $d_x(y,y') = \modulus{\psi_x(y') - \psi_x(y)}_{\R^n}$.
+Recall that there is a $C_x \geq $
+with $C_x^{-1}  \modulus{u}_{\delta_x} \leq \modulus{u}_g \leq C_x \modulus{u}_{\delta_x}$
+almost-everywhere in $V_x$.
+
+For $t > 0$, and an $\epsilon > 0$, define
+\begin{equation}
+\label{eq:paradef}
+\begin{split} 
+Q_{(x,t)} &= \set{(y,s) \in V_x \times \R_+: \modulus{t - s} < \epsilon^2,\ d_x(x,y) < 2 \epsilon} \\
+Q^-_{(x,t)} &= \set{(y,s) \in V_x \times \R_+: s \in \cbrac{t - \frac{3}{4}\epsilon^2, t - \frac{1}{4} \epsilon^2},\ 
+	d_x(x,y) < \frac{1}{2} \epsilon} \\
+Q^+_{(x,t)} &= \set{(y,s) \in V_x \times \R_+: s \in \cbrac{t + \frac{3}{4}\epsilon^2, t + \epsilon^2},\ 
+	d_x(x,y) < \frac{1}{2} \epsilon}
+\end{split}
+\end{equation}
+Then, we prove the following. 
+
+\begin{thm}
+Let $u(x,t) \geq 0$ be a solution to the $\Delta_{g,\cW}$ heat equation.
+Then, there exists $\gamma = \gamma(n, C_x) > 0$ such that 
+$$ \sup_{(y,s) \in Q^-_{(x,t)}} u(y, s) \leq \gamma \inf_{(y,s) \in Q^+_{(x,t)}} u(y,s)$$
+for all $\epsilon < \frac{1}{2} r_x$.
+\end{thm} 
+
+In the compact setting, such an inequality 
+is immediate from the work of \cite{SC}. There, 
+he proves such estimates for general operators
+$L = -a \divv A \nabla$, where $a \in \Lp{\infty}(M)$
+and $A \in \Lp{\infty}(T^{1,1}M)$ and symmetric
+for smooth metric $h$ with a uniform lower bound
+on Ricci curvature.
+The key to note is that a rough metric in the 
+compact setting is globally comparable to a smooth one, 
+i.e., there exists a global constant $C \geq 1$ 
+and a 
+such that
+$$ C^{-1} \modulus{u}_{h} \leq \modulus{u}_g \leq C \modulus{u}_{h}$$
+for $u \in T_x M$ for almost-every $x \in M$.
+By the virture of compactness, it is immediate
+that the Ricci curvature of $h$ is bounded below
+by a uniform constant. 
+In fact, this procedure also works 
+for rough metrics $g$ which 
+are uniformly close to some metric $h$ with 
+lower bound on Ricci curvature in the sense
+we have just written.
+
+We emphasise that the goal in \cite{SC}
+is to quantify the constants $C(t,U_x)$
+appearing in \eqref{eq:Harnack}. In what we present here, we do not have
+the ability to control these constants. However, as
+Proposition \ref{Prop:MainRed} illustrates, this is not necessary 
+in order to obtain the existence of the heat kernel.
+Quantifying such estimates is, however, still 
+extremely important and useful when it can be done.
+For instance, Proposition \ref{Prop:MainRed} 
+only asserts that $\hk^{g}_t \in \Ck{0}(M \times M)$
+but if $g$ was uniformly close to a $h$
+with a lower bound on its Ricci curvature, then
+there would exist an $\alpha$ depending on this bound
+with $\hk^{g}_t \in \Ck{\alpha}(M \times M)$.
+\note{Verfiy this is true}
+
+The main way in which we will proceed is to use the
+results in \cite{CS}. There, they analyse
+degenerate equations via the methods of harmonic analysis.
+The following is an outline of the way in which we will use
+their results.
+\begin{enumerate}[(i)]
+\item localise our solutions in a distributional sense, 
+\item illustrate this local solution is a solution in a weighted Sobolev space,
+\item demonstrate that our measure satisfies the $A_2$ condition, and lastly,
+\item by the degeneracy of our measure, show that their test function
+	space can be suitably approximated by more regular functions. 
+\end{enumerate}
+
+
 
 \printbibliography
 \end{document}
