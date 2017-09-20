@@ -189,6 +189,35 @@
   \field{year}{1984}
 \endentry
 
+\entry{CS}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Chiarenza}{C.}%
+     {Filippo}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Serapioni}{S.}%
+     {Raul}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CFSR1}
+  \strng{fullhash}{CFSR1}
+  \field{labelalpha}{CS85}
+  \field{sortinit}{C}
+  \field{issn}{0041-8994}
+  \field{pages}{179\bibrangedash 190}
+  \field{title}{A remark on a {H}arnack inequality for degenerate parabolic
+  equations}
+  \verb{url}
+  \verb http://www.numdam.org/item?id=RSMUP_1985__73__179_0
+  \endverb
+  \field{volume}{73}
+  \field{journaltitle}{Rend. Sem. Mat. Univ. Padova}
+  \field{year}{1985}
+\endentry
+
 \entry{Davies}{book}{}
   \name{author}{1}{}{%
     {{}%

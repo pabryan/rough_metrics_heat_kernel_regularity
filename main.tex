@@ -1,4 +1,5 @@
 \documentclass[a4paper, 12pt]{amsart}
+%\usepackage{showkeys}
 
 \input{StandardPaper2.tex}
 \input{local_definitions.tex}
@@ -11,7 +12,7 @@
 
 \begin{document}
 
-\title{Heat kernals and regularity for rough metrics}
+\title{Heat kernels and regularity for rough metrics}
 
 \author{Lashi Bandara}
 \author{Paul Bryan}
@@ -34,7 +35,7 @@ we demonstrate the existence of globally continuous
 heat kernels that are locally Hölder. This is done 
 by employing local Harnack estimate for weak
 solutions of divergence form elliptic equations
-with bounded measurable cofficients in weighted Sobolev
+with bounded measurable coefficients in weighted Sobolev
 spaces.
 \end{abstract}
 
@@ -59,7 +60,7 @@ in \cite{BLM, BCont}.
 Since the manifolds we consider are smooth (topologically), we always have an 
 exterior derivative. Moreover, rough metrics, like their classical continuous
 or smooth counterparts, induce a canonical volume via the 
-experssion $d\mu(x) = \sqrt{\det g(x)} dx$ for rough metrics $g$.
+expression $d\mu(x) = \sqrt{\det g(x)} dx$ for rough metrics $g$.
 Moreover, the exterior derivative is a closable object
 in $\Lp{2}(M)$, which allows us to construct Sobolev spaces $\SobH{1}(M)$ 
 and $\SobH[0]{1}(M)$. Here the  
@@ -85,7 +86,7 @@ for some time in more general settings than smooth Riemannian manifolds,
 with the bulk of the literature focusing on metric spaces with bounds
 on certain synthetic notions of curvature.
 Many classical results can be recovered from this general 
-theory since smooth (or continous) metrics induce an associated intrinsic
+theory since smooth (or continuous) metrics induce an associated intrinsic
 distance structure. A priori, there is no reason
 why a rough metric should induce a canonical distance structure - at least
 this cannot be done via minimisation over curves since the
@@ -99,7 +100,7 @@ heat kernel via local-to-global methods, our construction is purely global.
 It is likely that in many instances we are sacrificing minimality but if we fix
 an energy space, we are obtaining an object that is unique to that energy.
 
-The former set of methods typically yeild a so-called minimal heat kernel,
+The former set of methods typically yield a so-called minimal heat kernel,
 but additional assumptions, such as a lower bound on Ricci curvature,
 is assumed in order to obtain its uniqueness (see \cite{Chavel}).
 More seriously, as \cite{??} explains, the following Varadahn's formula
@@ -142,7 +143,7 @@ We emphasise here that similar notions existed implicitly in the
 literature with the work of Norris in \cite{Norris} 
 and \cite{SC} by Saloff-Coste.
 The treatise of rough metrics we give here is rudimentary and 
-a more detailed exposition is avaiable in section 3 in \cite{BRough}. 
+a more detailed exposition is available in section 3 in \cite{BRough}. 
 We begin with the following definition, which recognises
 that a manifold affords us not only with a metric independent 
 differentiable structure, but also a metric independent measure
@@ -154,10 +155,10 @@ Let \(M\) be a smooth manifold. A set \(E \subseteq M\) is said to be \emph{Lebe
 
 \begin{rem}
 The Lebesgue measurable sets form a \(\sigma\)-algebra. The notion of Lebesgue measurable set does not involve a measure on \(M\). 
-However, if \(\omega\) is volume \Rd measure \Bk on \(M\) associated to a smooth or continous metruc, then it defines a (outer) measure \(E \mapsto \int_E\ d\omega\) for which the \(\sigma\)-algebra of measurable sets is precisely the \(\sigma\)-algebra of Lebesgue measurable sets.
+However, if \(\omega\) is volume \Rd measure \Bk on \(M\) associated to a smooth or continuous metric, then it defines a (outer) measure \(E \mapsto \int_E\ d\omega\) for which the \(\sigma\)-algebra of measurable sets is precisely the \(\sigma\)-algebra of Lebesgue measurable sets.
 A strong motivating factor for this paper is to set
 constraints 
-\Rd This can be seen by considering charts that are compact and observinv that \(\omega\) is absolutely continuous with respect to the pullback of the Lebesgue measure inside that chart. \Bk
+\Rd This can be seen by considering charts that are compact and observing that \(\omega\) is absolutely continuous with respect to the pullback of the Lebesgue measure inside that chart. \Bk
 \end{rem}
 
 Given that we have a metric independent measure structure, we can say that a function
@@ -167,13 +168,22 @@ Clearly, this extends to functions $f:M \to \C$ and on letting
 we can consider measurable sections and we denote the set of such 
 sections by $\Gamma(T^{p,q}M)$. 
 
-\begin{defn}
-A \emph{rough} metric \(g\) is a Lebesgue measurable section of \(\met(M) = (T^{\ast} M \odot T^{\ast} M)_+\), the bundle of positive definite, symmetric bilinear forms on \(TM\) that is \emph{locally comparable}: there is an open cover \(\lbrace U_{\alpha} \rbrace\) of \(M\), smooth metrics \(g_{\alpha} \in \met(U_{\alpha})\) and real constants \(C_{\alpha} > 0\) such that
+\begin{defn}[Rough metric]
+A \emph{rough} metric \(g\) is a Lebesgue measurable section of \(\met(M) = (T^{\ast} M \odot T^{\ast} M)_+\), the bundle of positive definite, symmetric bilinear forms on \(TM\) that is \emph{locally comparable}: 
+for each $x \in M$, there is a chart $\psi_x:V_x \to \R^n$ and a constant $C_x = C_x(V_x)$ such that
+\[
+\frac{1}{C_{x}} \pullb{\psi_x}\delta_{\R^n}(y) (X, Y) \leq g(y)(X, Y) \leq C_{x} \pullb{\psi_x}\delta_{\R^n}(y) (X, Y)
+\]
+for all tangent vectors \(X, Y \in T_yM\) for almost all $y \in V_x$.
+\end{defn}
+
+\begin{rem}
+This condition is equivalent to:  there is an open cover \(\lbrace U_{\alpha} \rbrace\) of \(M\), smooth metrics \(g_{\alpha} \in \met(U_{\alpha})\) and real constants \(C_{\alpha} > 0\) such that
 \[
 \frac{1}{C_{\alpha}} g_{\alpha} (X, Y) \leq g(X, Y) \leq C_{\alpha} g_{\alpha} (X, Y)
 \]
-for all tangent vectors \(X, Y \in TM\).
-\end{defn}
+for all tangent vectors \(X, Y \in T_yM\) for almost every $y \in U_\alpha$.
+\end{rem}
 
 \begin{rem}
 By employing a partition of unity argument, we can patch together the metrics \(g_{\alpha}\) to produce a globally defined metric \(h\). If the constants \(C_{\alpha}\) are uniformly bounded above and away from zero, then our rough metric will be globally comparable to \(h\). This is automatic whenever \(M\) is compact. If \(M\) is not compact, then this need not be true. Previously a Harnack inequality and heat kernel estimates have been obtained when the metric is globally comparable to a complete metric with bounded below curvature \cite{SC}. Here we do not require the assumptions of global comparability.
@@ -185,7 +195,7 @@ g(X, Y) = g_{\alpha} (A_{\alpha} (X), Y).
 \]
 Moreover, via the expression $d\omega_g(x) = \sqrt{\det g_{ij}(x)}\ dx$, where $dx$ is the pullback
 Lebesgue measure inside precompact $U_\alpha$, we obtain a well-defined volume measure. 
-A set $S \subset M$ is measurable if and only if it is $\omega_g$-measurable. This yeilds 
+A set $S \subset M$ is measurable if and only if it is $\omega_g$-measurable. This yields 
 an $\Lp{p}$-theory over the $T^{p,q}M$ tensor bundle simply via the expression:
 $$||\xi||_p^p := \int_{M} |\xi|_{g}^p\ d\omega_g < \infty$$
 for $p \in [1, \infty)$ and via
@@ -205,8 +215,8 @@ It is not dependent on the metric.
 
 Recall that in the classical setting of a smooth $g$,  the Laplacian acting on functions 
 is given  via the expression $\Delta_g = - \tr \nabla^2$, where $\nabla^2 = \nabla^{T^\ast M} \comp \nabla$
-with $\nabla^{T^\ast M}$ the Levi-Cevita connection of $g$. Indeed, for rough metrics, 
-or even for a continous metric, we cannot talk of the Levi-Cevita connection. 
+with $\nabla^{T^\ast M}$ the Levi-Civita connection of $g$. Indeed, for rough metrics, 
+or even for a continuous metric, we cannot talk of the Levi-Civita connection. 
 Therefore, we understand this operator in an appropriate weak sense as follows.
 
 First, we observe that for a rough metric $g$, the operator
@@ -226,7 +236,7 @@ assert that they were spaces of functions.
 Another consequence of the closability, coupled with the 
 fact that $\Ck[c]{\infty}(M)$ are dense in $\Lp{2}(M)$ 
 is that $\nabla_2$ and $\nabla_c$ are densely-defined
-operators. Therefore, operator theory yeilds 
+operators. Therefore, operator theory yields 
 that $\adj{\nabla_2}$ and $\adj{\nabla_c}$ exist
 as densely-defined, closed operators.
 
@@ -261,7 +271,7 @@ and moreover, $\Delta_g = \adj{\grad_c} \close{\grad_c}$,
 so it does not matter which definition we pick.
 We prefer the former picture for the
 simple fact that in the latter picture, the metric information
-and toplogical information are intertwined whereas 
+and topological information are intertwined whereas 
 in our case we have two operators in which one which clearly only depends
 on the differential structure and the other which sees the geometry $g$.
 
@@ -303,7 +313,7 @@ are densely-defined, closed, self-adjoint and satisfy
 $\dom(\sqrt{\Delta_{g,\cW}}) = \cW$.
 It is difficult to see how to obtain this from the expression for $\Delta_{g,D}$
 Rather, this operator is constructed via the Riesz representation
-theorm (or the theorem of Lax-Milagram) by considering the
+theorem (or the theorem of Lax-Milgram) by considering the
 energy $\sE_{g,\cW}(u,v) = \inprod{\nabla u, \nabla v}$ 
 with $\dom(\sE_{g,\cW}) = \cW$ written exactly as we did for the smooth case.
 These are routine facts from operator theory in far more general 
@@ -312,8 +322,8 @@ settings than what we consider here. See for instance
 
 Let us remark on why we work at this level 
 of generality. First, observe that the case of $\cW = \SobH[0]{1}(M)$
-yeilds the Dirichlet Laplacian
-and $\cW = \SobH{1}(M)$ yeilds the Neumann counterpart.
+yields the Dirichlet Laplacian
+and $\cW = \SobH{1}(M)$ yields the Neumann counterpart.
 However, beyond these two obvious choices, 
 there are many interesting spaces $\cW$ that
 can be considered. These are best
@@ -363,7 +373,7 @@ this notion of solution is stronger than our notion of solution.
 
 \note{Fix this, find out what is meant by a definition in the classical setting 
 for noncompact manifolds when they construct this heat kernel via a limit,
-and show that either our notion of a funciton is sufficiently weak to capture the classic shit
+and show that either our notion of a function is sufficiently weak to capture the classic shit
 or it is necessary for us to formulate the problem in this way because
 we don't have the classical methods at hand}
 \end{rem}
@@ -372,7 +382,7 @@ we don't have the classical methods at hand}
 
 \begin{defn}[Heat kernel]
 Let $u \in \Ck{1}(\R_+, \cW)$ be a solution to the 
-Dirchlet heat equation
+Dirichlet heat equation
 for $\Delta_{g,\cW}$ with initial data $u_0 \in \Lp{2}(M)$. Then, a 
 measurable symmetric map $\hk^{g,\cW}_{\mdot}: \R_+ \times M \times M \to \R$
 is a heat kernel if 
@@ -397,7 +407,7 @@ of this construction.
 We refrain from considering this approach in the rough setting 
 for the reason that this object may fail to be unique (uniqueness
 is known for smooth complete $g$ with 
-uniform lower bounds on Ricci curvature) and more seroiusly, the following
+uniform lower bounds on Ricci curvature) and more seriously, the following
 Varadhan's asymptotics may fail: 
 $d^2(x,y) = \lim_{t \to 0} 4t \log \hk^{\min}_t(x,y)$,
 which is a motivating factor for this paper as mentioned in the 
@@ -439,7 +449,7 @@ What we present here was initially adapted for the
 compact case in \cite{BRough}, but further analysis
 has shown that we can make it work in the general.
 
-With this terminlogy, we present the fundamental estimate we
+With this terminology, we present the fundamental estimate we
 require is the following \emph{weak Harnack-type inequality}.
 \begin{itemize}
 \item[] At each $x \in M$ and $t > 0$, there exists a precompact
@@ -455,7 +465,7 @@ open set $U_x$, a $\delta_t \geq 0$ and a constant $C = C(t, U_x)  > 0$ such tha
 In the compact case, even for a
 rough metric, such an estimate can be
 obtained with $C(t,U_x)$ precisely quantified
-in terms fo the curvature of a nearby smooth metric.
+in terms of the curvature of a nearby smooth metric.
 However, the key observation to pass from the compact analysis
 to the general setting we present here was to note that
 the estimates we require are purely local. In 
@@ -491,7 +501,7 @@ understood in an almost-everywhere sense.
 	$\norm{\sqrt{\Delta_{g, \cW}} \modulus{u}} 
 		\leq \norm{\sqrt{\Delta_{g, \cW}} u}$. 
 	By the Buerling-Deny condition (c.f.  Corollary 2.18(2) in  \cite{El-Maati}), 
-	this yeilds that for $\Lp{2}(M) \ni f \geq 0$
+	this yields that for $\Lp{2}(M) \ni f \geq 0$
 	we have that  $e^{-t \Delta_{g,\cW}} f \geq 0$. That is, the semigroup 
 	$e^{-t \Delta_{g,\cW}}$ is positive preserving.  
 
@@ -514,7 +524,7 @@ understood in an almost-everywhere sense.
 		= C(t,U_x)  \modulus{e^{-(t + \delta_t) \Delta_{g,\cW}}f(y)}
 	\end{align*} 
 	for almost-every $y \in U_x$.
-	On intergrating both sides over $U_x$ (which has $\omega_g(U_x) < \infty$
+	On integrating both sides over $U_x$ (which has $\omega_g(U_x) < \infty$
 	by precompactness and the properties of the measure $\omega_g$) with respect
 	to the variable $y$,
 	we have that
@@ -584,24 +594,27 @@ Recall that there is a $C_x \geq $
 with $C_x^{-1}  \modulus{u}_{\delta_x} \leq \modulus{u}_g \leq C_x \modulus{u}_{\delta_x}$
 almost-everywhere in $V_x$.
 
-For $t > 0$, and an $\epsilon > 0$, define
+For $t > 0$, $0 < \kappa < \tau$ and an $0 < \epsilon < \kappa$, define
 \begin{equation}
 \label{eq:paradef}
 \begin{split} 
-Q_{(x,t)} &= \set{(y,s) \in V_x \times \R_+: \modulus{t - s} < \epsilon^2,\ d_x(x,y) < 2 \epsilon} \\
-Q^-_{(x,t)} &= \set{(y,s) \in V_x \times \R_+: s \in \cbrac{t - \frac{3}{4}\epsilon^2, t - \frac{1}{4} \epsilon^2},\ 
+Q_{(x,t)}(\kappa, \tau,\epsilon) &= \set{(y,s) \in V_x \times (\kappa,\tau): \modulus{t - s} < \epsilon^2,\ d_x(x,y) < 2 \epsilon} \\
+Q^-_{(x,t)}(\kappa, \tau, \epsilon) &= \set{(y,s) \in V_x \times (\kappa,\tau): s \in \cbrac{t - \frac{3}{4}\epsilon^2, t - \frac{1}{4} \epsilon^2},\ 
 	d_x(x,y) < \frac{1}{2} \epsilon} \\
-Q^+_{(x,t)} &= \set{(y,s) \in V_x \times \R_+: s \in \cbrac{t + \frac{3}{4}\epsilon^2, t + \epsilon^2},\ 
+Q^+_{(x,t)}(\kappa, \tau, \epsilon) &= \set{(y,s) \in V_x \times (0,T): s \in \cbrac{t + \frac{3}{4}\epsilon^2, t + \epsilon^2},\ 
 	d_x(x,y) < \frac{1}{2} \epsilon}
 \end{split}
 \end{equation}
 Then, we prove the following. 
 
 \begin{thm}
+\label{thm:Harnack}
 Let $u(x,t) \geq 0$ be a solution to the $\Delta_{g,\cW}$ heat equation.
-Then, there exists $\gamma = \gamma(n, C_x) > 0$ such that 
-$$ \sup_{(y,s) \in Q^-_{(x,t)}} u(y, s) \leq \gamma \inf_{(y,s) \in Q^+_{(x,t)}} u(y,s)$$
+Then, there exists $\gamma = \gamma(n, C_x, \kappa, \tau) > 0$ such that 
+$$ \sup_{(y,s) \in Q^-_{(x,t)}(\kappa, \tau)(\epsilon)} u(y, s) 
+	\leq \gamma \inf_{(y,s) \in Q^+_{(x,t)}(\kappa,\tau,\epsilon)} u(y,s)$$
 for all $\epsilon < \frac{1}{2} r_x$.
+\note{Figure out exactly how large $\epsilon$ can be}
 \end{thm} 
 
 In the compact setting, such an inequality 
@@ -618,7 +631,7 @@ and a
 such that
 $$ C^{-1} \modulus{u}_{h} \leq \modulus{u}_g \leq C \modulus{u}_{h}$$
 for $u \in T_x M$ for almost-every $x \in M$.
-By the virture of compactness, it is immediate
+By the virtue of compactness, it is immediate
 that the Ricci curvature of $h$ is bounded below
 by a uniform constant. 
 In fact, this procedure also works 
@@ -641,22 +654,182 @@ but if $g$ was uniformly close to a $h$
 with a lower bound on its Ricci curvature, then
 there would exist an $\alpha$ depending on this bound
 with $\hk^{g}_t \in \Ck{\alpha}(M \times M)$.
-\note{Verfiy this is true}
+\note{Verify this is true}
 
 The main way in which we will proceed is to use the
 results in \cite{CS}. There, they analyse
 degenerate equations via the methods of harmonic analysis.
-The following is an outline of the way in which we will use
-their results.
-\begin{enumerate}[(i)]
-\item localise our solutions in a distributional sense, 
-\item illustrate this local solution is a solution in a weighted Sobolev space,
-\item demonstrate that our measure satisfies the $A_2$ condition, and lastly,
-\item by the degeneracy of our measure, show that their test function
-	space can be suitably approximated by more regular functions. 
-\end{enumerate}
+
+Throughout the remainder of this section,
+we assume that $u(\cdot, \cdot): M \times \R_+$ 
+is a solution to the $\Delta^{g,\cW}$ heat equation.
+Moreover, let $g(u,v) = \delta_x(A_x u,v)$
+and $a_x = \sqrt{\det A_x}$ so that
+$\omega_x(y) = a_x(y)d\Leb_x(y)$, and note
+that:
+\begin{equation}
+\label{eq:constbd}
+\begin{split}
+&C_x^{-2} \modulus{u}_{\delta_x} \leq \delta_x(A_x u, u) \leq C_x^2 \modulus{u}_{\delta_x} \\
+&C_x^{-\frac{n}{2}} \leq a_x \leq C_x^{\frac{n}{2}}.
+\end{split}
+\end{equation}
+See Section 3.3 in \cite{BRough} for details. 
+
+\begin{lemma}
+\label{eq:soln1}
+The solution $u$ satisfies the following: for all $v \in \SobH[0]{1}(V_x,g)$, 
+	\begin{equation} 
+	\label{eq:testfn1}	 
+	\inprod{a_x \partial_t u, v}_{\Lp{2}(V_x, \delta_x)} 
+		= \inprod{ B_x \nabla u, \nabla v}_{\Lp{2}(V_x, \delta_x)},
+	\end{equation}
+where $B_x = a_x A_x$. Moreover,
+\begin{equation}
+\label{eq:coeff}
+C_x^{-2} a_x \modulus{\xi}_{\delta_x}^2 \leq \delta_x(B_x \xi, \xi) 
+	\leq C_x^2 a_x \modulus{\xi}_{\delta_x}^2
+\end{equation} 
+for every $\xi \in T_xM$ and almost everywhere in $V_x$. 
+\end{lemma}
+\begin{proof}
+Since the solution $u \in \dom(\Delta_{g,\cW}) \subset \Lp{2}(M)$, we
+note that in particular, for any $v \in \Ck[c]{\infty}(M)$, 
+$\inprod{\partial_t u, v} = \inprod{\nabla u, \nabla v}$.
+Choosing $\spt v \subset V_x$, we note that $\inprod{\cdot, v} = \inprod{\cdot, v}_{\Lp{2}(V_x,g)}$
+and hence,
+$$\inprod{\partial_t u, v} = \int_{V_x} \partial_t u\conj{v}\ d\omega_g 
+	= \int_{V_x} a_x \partial_t  u \conj{v}\ d\Leb_x
+	= \inprod{\partial_t (a_x u), v}_{\Lp{2}(U_x, \delta_x)},$$
+where the last equality follows from the fact that 
+$a_x(y) \partial_t u(y,t) = \partial_t (a_x(y)u(y,t).$
+Similarly,
+$$\inprod{\nabla u, \nabla v} 
+	= \int_{V_x} g(\nabla u, \nabla v)\ d\omega_g
+	= \int_{V_x} \delta_x(a_x A_x \nabla u, \nabla v)\ d\Leb_x
+	= \inprod{B_x \nabla u, \nabla v}_{\Lp{2}(U_x, \delta_x)}.$$
+The estimate on $B_x$ follows immediately from
+\eqref{eq:constbd}.
+\end{proof} 
+
+For $0 < \kappa < \tau < \infty$ fixed, let
+define $u_\kappa(x,t) = u(x,t+\kappa)$. Then we note the following. 
+\begin{lemma}
+\label{lem:shiftsol}
+We have that: 
+\begin{enumerate}[(i)] 
+\item $u_\kappa$ is a solution to the $\Delta_{g,\cW}$ heat equation, 
+\item there is a constant $C_\kappa \geq 0$
+	which depends on $\kappa$ 
+	such that $\norm{\nabla u_\kappa} \leq C_\kappa$.
+\end{enumerate} 
+\end{lemma}
+\begin{proof}
+Note that by definition, and using the semigroup property, 
+$$u_\kappa(x,t) = e^{-(t + \kappa)\Delta_{g,\cW}} u_0 
+	=e^{-t \Delta_{g,\cW}}e^{-\kappa\Delta_{g,\cW}}u_0
+	=e^{-t \Delta_{g,\cW}}u(x,\kappa).$$ 
+Therefore, it is immediate that $u_\kappa$ is a solution
+to the heat equation. 
+
+To see the bound, we compute: 
+\begin{multline*} 
+\norm{ \nabla u_\kappa(\cdot, t)} 
+	= \norm{ \sqrt{\Delta_{g,\cW}} u_\kappa(\cdot, t)} 
+	= \norm{ \sqrt{\Delta_{g,\cW}} e^{-t\Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0} \\
+	= \norm{ e^{-t \Delta_{g,\cW}} \sqrt{ \Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0}
+	\leq \norm{\sqrt{ \Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0},
+\end{multline*}
+where the penultimate equality follows from the fact that
+$\ran(e^{-\kappa \Delta_{g,\cW}}) \subset \dom(\Delta_{g,\cW}^\alpha)$
+for all $\alpha > 0$ and via functional calculus.
+The proof is complete on setting the constant 
+$C(\kappa) = \norm{\sqrt{ \Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0}$.
+\end{proof}
 
 
+As in \cite{CS}, for $T > 0$, define 
+$$ W(T) = \set{ w \in \Lp{2}( (0,T); \SobH[0]{1}(V_x,g): \partial_t w \in \Lp{2}((0,T); \Lp{2}(V_x, g)},$$
+and let $W_0(T) = \set{ w \in W: w(0) = w(T) = 0}.$
+
+\begin{lemma}
+The solution $u_\kappa \in \Lp{2}((0, \tau - \kappa); \SobH{1}(V_x, g))$
+and is a weak solution in the following sense:
+\begin{equation}
+\label{eq:testfn2} 
+\int_{0}^{\tau - \kappa} \inprod{a_x u_\kappa(t), \partial_t w(t)}_{\Lp{2}(V_x,\delta_x)}\ dt 
+		= \int_{0}^{\tau - \kappa } \inprod{B_x \nabla u_\kappa(t), \nabla w(t)}_{\Lp{2}(V_x, \delta_x)}\ dt
+\end{equation}
+for all $w \in W_0(\tau - \kappa)$.
+\end{lemma}
+\begin{proof}
+Fix $w \in W_0$ and from \eqref{eq:soln1}, we have that
+$$\inprod{a_x \partial_t u_\kappa (t), w(t)}_{\Lp{2}(V_x, \delta_x)} 
+		= \inprod{ B_x \nabla u_\kappa(t), \nabla v(t)}_{\Lp{2}(V_x, \delta_x)}$$
+for every $t \in (0, \tau - \kappa)$.
+A calculation similar to that in Lemma \ref{lem:shiftsol} 
+yields that $\norm{ \partial_t u_\kappa} \leq C_\kappa'$
+for all $t \in (0, \tau - \kappa)$
+on noting that $\partial_t u_\kappa = \Delta_{g,\cW} u_\kappa$.
+This, along with the bound in Lemma \ref{lem:shiftsol}
+shows that  $u_\kappa \in \Lp{2}((0, \tau - \kappa); \SobH{1}(V_x, g))$
+and that $\partial_t u_\kappa \in \Lp{2}((0,\tau - \kappa); \Lp{2}(V_x, g))$. 
+
+Moreover, note that $W(\tau- \kappa) \subset \SobH{1}((0,\tau-\kappa); \Lp{2}(V_x,g))$
+and therefore $\Ck{\infty}((0,\tau-\kappa); \Lp{2}(V_x,g) \intersect W(\tau - \kappa)$
+is dense in $W$ in the Sobolev norm. Therefore on 
+choosing such a $w$, as well as the fact that $w(0) = w(\tau - \kappa) = 0$, 
+by the fundamental theorem of calculus in the Banach 
+valued setting (c.f. \cite{}), we obtain that
+$$\int_{0}^{\tau - \kappa} \inprod{ \partial_t(a_x u_\kappa(t)), w(t)}_{\Lp{2}(V_x,g)}\ dt
+	= \int_0^{\tau - \kappa} \inprod{a_x u_\kappa(t), \partial_t w(t)}_{\Lp{2}(V_x, g)}\ dt.$$
+Also, the integral on the left is equal to:
+$$\int_{0}^{\tau - \kappa} \inprod{ \nabla u_\kappa(t), \nabla w(t)}\ dt$$
+and by the aforementioned density of
+ $\Ck{\infty}((0,\tau-\kappa); \Lp{2}(V_x,g) \intersect W(\tau - \kappa)$ 
+in $W(\tau - \kappa)$ along with the fact that $\nabla u_\kappa \in \Lp{2}((0, \tau - \kappa); \Lp{2}(V_x,g))$,
+the proof is complete.
+\end{proof} 
+\note{For this lemma, we need to find the right references
+to the assertion about the density of this smooth Banach valued
+functions as well as the f.t.c.}
+
+With these three lemmas in hand, we prove
+the main theorem. 
+
+\begin{proof}[Proof of Theorem \ref{thm:Harnack}]
+Let $u(x,t) \geq 0$ be a positive solution of
+the $\Delta_{g,\cW}$ heat equation, and fix $0 < \kappa < \tau < \infty$. 
+Then, as before, write $u_\kappa(x,t) = u(x,t+\kappa)$.
+
+Let $D$ be any $n$-dimensional cube inside $\psi_x(V_x)$ then 
+on writing $D_x = \psi_x^{1}(D)$, we have  
+$$ \int_{D_x} a_x(y)\ d\Leb_x(y) \leq C_x^{\frac{n}{2}} \Leb_x(C),
+\ \text{and}\ 
+\int_{D_x} \frac{1}{a_x(y)}\ d\Leb_x(y) \leq C_x^{\frac{n}{2}}.$$
+Therefore, our density $a_x$ satisfies the so called $A_2$ condition:
+$$c_0 := \sup_{D_x} \cbrac{ \frac{1}{\Leb_x(D_x)} \int_{D_x} a_x(y)\ d\Leb_x(y)}
+\cbrac{ \frac{1}{\Leb_x(D_x)} \int_{D_x} \frac{1}{a_x(y)}\ d\Leb_x(y)} 
+	\leq C_x^n.$$
+Combining this with the \eqref{eq:coeff} as
+well as Lemma \eqref{eq:testfn2} shows that $u_\kappa$
+satisfies the hypotheses of Theorem 2.1 in \cite{CS} and
+therefore, we obtain a $\gamma = \gamma(C_x, n) > 0$
+such that 
+\begin{equation} 
+\label{eq:harnack2} 
+\sup_{(y,s) \in Q_{(x,t-\kappa)}^-(0, \tau - \kappa, \epsilon)} u_\kappa(y,s)
+		\leq \inf_{(y,s) \in Q^+_{(x,t-\kappa)}(0, \tau - \kappa, \epsilon)} u_\kappa(y,s).
+\end{equation}
+Note now that setting $s' = s + \kappa$, we have that
+$(y, s' - \kappa) \in Q^{\pm}_{(x,t- \kappa)}(0, \tau - \kappa, \epsilon)$
+if and only if $(y, s') \in Q^{\pm}(x,t)(\kappa, \tau, \epsilon)$.
+That is, \eqref{eq:harnack2} is equivalent to the statement 
+in the conclusion of the theorem and hence, this concludes
+the proof.
+\end{proof} 
+
+\section{Regularity and positivity of the heat kernel}
 
 \printbibliography
 \end{document}
