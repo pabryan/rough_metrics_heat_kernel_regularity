@@ -103,7 +103,7 @@ an energy space, we are obtaining an object that is unique to that energy.
 The former set of methods typically yield a so-called minimal heat kernel,
 but additional assumptions, such as a lower bound on Ricci curvature,
 is assumed in order to obtain its uniqueness (see \cite{Chavel}).
-More seriously, as \cite{??} explains, the following Varadahn's formula
+More seriously, as \cite{Someone?} explains, the following Varadahn's formula
 $$ d^2(x,y) = 4 \lim_{t \to 0} t \log \hk_t(x,y)$$
 may fail for this minimal heat kernel. 
 This formula is a strong motivating factor for our paper: 
@@ -378,7 +378,7 @@ or it is necessary for us to formulate the problem in this way because
 we don't have the classical methods at hand}
 \end{rem}
 
-\section{Existence of the heat kernel}
+\section{Existence and positivity of the heat kernel}
 
 \begin{defn}[Heat kernel]
 Let $u \in \Ck{1}(\R_+, \cW)$ be a solution to the 
@@ -476,7 +476,7 @@ be extracted by operator theory, in particular, from the
 fact that $t \mapsto e^{-t\Delta_{g,\cW}}$ is a semigroup.
 
 \begin{prop}
-\label{Prop:MainRed}
+\label{prop:MainRed}
 Suppose that \eqref{eq:Harnack} holds. Then, the heat
 kernel $\hk^{g,\cW}_{\mdot}: \R_{+} \times M \times M \to \R$
 exists.
@@ -573,6 +573,91 @@ As we shall see in the next section, a stronger
 estimate is required for regularity of solutions. 
 \end{rem}
 
+Lastly, in this section, we address the question of 
+the positivity of the heat kernel. For that, 
+we use the language of the convergence 
+increasing self-adjoint non-negative operators.
+We take inspiration for this proof
+from the proof of Theorem 2.1.6 in \cite{Davies}
+by Davies. 
+
+\begin{prop}
+\label{prop:hkpos}
+The heat kernel $\hk^{g,\cW}_t(x,y) > 0$ for almost every 
+$x,\ y \in M$.
+\end{prop}
+\begin{proof}
+Let $\Omega$ be a precompact open set in $M$ with $\partial \Omega$
+smooth. Let $\Delta_{g,\cW,k} = \Delta_{g,\cW} + k \ind{M \setminus \Omega}$
+and let $\sE_{g,\cW,k}$ be it associated sesquilinear
+form, given by 
+$$\dom(\sE_{g,\cW,k}) = \dom(\sqrt{\Delta_{g,\cW,k}}) 
+	= \dom(\sqrt{\Delta_{g,\cW}}) = \cW,$$
+and $\sE_{g,\cW,k}(u,v) = \inprod{\sqrt{\Delta_{g,\cW,k}} u, \sqrt{\Delta_{g,\cW,k}}v}$. 
+
+Recall that the limiting form exists by Theorem 1.2.2 
+in \cite{Davies} and is given by: 
+$u \in \dom(\sE_{g,\cW,\infty})$ if and only if
+$\sE_{g,\cW,\infty}(u,u) = \lim_{k\to\infty} \sE_{g,\cW,k}(u,u) < \infty$. 
+To compute this domain, take $u \in \Ck{\infty}(M) \intersect W$
+and 
+\begin{multline*} 
+\sE_{g,\cW,k}(u,u) = \norm{\sqrt{\Delta_{g,\cW,k}}u}^2
+	= \inprod{\Delta_{g,\cW,k}u,u} \\
+	= \norm{\nabla u^2} + k \inprod{\ind{M \setminus \Omega} u, u}
+	= \norm{\nabla u^2} + k \norm{\ind{M \setminus \Omega} u}^2.
+\end{multline*}
+Now, by the characterisation of $\dom(\sE_{g,\cW,\infty})$
+we see that we must have $u = 0$ on $M \setminus \Omega$,
+and since $\cW \subset \SobH{1}(M)$, we have that
+$u\rest{\Omega} \in \SobH[0]{1}(\Omega)$. 
+Since we've established that $e^{-t{\Delta_{g,\cW}}}$
+is positive preserving, we similarly have that 
+$e^{-t {\Delta_{g,\cW,k}}}$ is positive preserving
+by repeating the argument in Proposition \ref{prop:MainRed}
+noting that 
+$\norm{\sqrt{\Delta_{g,\cW,k}}u}^2 
+	= \norm{\nabla u^2} + k \norm{\ind{M \setminus \Omega} u}^2$
+and hence, for $f \geq 0$ with $f \in \Lp{2}(M)$,
+$ e^{-t{\Delta_{g,\cW,k}}}f \leq e^{-t{\Delta_{g,\cW}}}f.$
+Taking limits, we obtain that 
+$$e^{-t{\Delta_{g,\SobH[0]{1}(\Omega)}}}f
+	\leq e^{-t{\Delta_{g,\cW}}}f,$$
+where the left hand expression is extended
+to the whole of $M$ by $0$ 
+and $\Delta_{g,\SobH[0]{1}(\Omega)}$ is the Dirichlet
+Laplacian inside $\Omega$.
+\note{We need to ensure that this limit exists 
+for the exponential, find a citation or justify 
+why we can do this. Davies does a similar thing in Theorem 2.1.6}
+
+Now, since we assumed that $\Omega$ is precompact,
+there exists a smooth metric $h$ such that
+$g(u,v) = h(Au,v)$ with $A \in \Lp{\infty}(T^{1,1}M, h)$
+and $d\omega_g = \sqrt{\det A} d\omega_h$.
+Therefore, we have that
+$$ \norm{\nabla  u}_{\SobH[0]{1}(\Omega,h)} 
+	\lesssim \norm{\nabla u}_{\SobH[0]{1}(\Omega,g)}
+	\lesssim \norm{\nabla u}_{\SobH[0]{1}(\Omega,h)},$$
+and so we have 
+\begin{multline*}
+\set{0} = \nul(\Delta_{h, \SobH[0]{1}(\Omega,h)}) 
+	= \nul\cbrac{\sqrt{\Delta_{h, \SobH[0]{1}(\Omega,h)}}} \\
+	= \nul\cbrac{\sqrt{\Delta_{g, \SobH[0]{1}(\Omega,g)}}}
+	= \nul(\Delta_{g, \SobH[0]{1}(\Omega,g)}).
+\end{multline*}
+Moreover, we have that 
+the first eigenvalues of the Laplacians satisfy
+$$0 < \lambda_1(\Delta_{h,\SobH[0]{1}(\Omega,h)}) \leq 
+	C' \lambda_1(\Delta_{g, \SobH[0]{1}(\Omega,g)})$$
+where the constant $C' > 0$ depends on $A$
+and hence, we have that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega,h)}}\ind{\Omega} > 0$.
+Since we know that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega,h)}}$
+is positive preserving, this proves
+the claim.
+\note{Check through this argument, make sure it holds water.}
+\end{proof}  
+
 \section{The Harnack inequality and regularity}
 \label{sec:harnack}
 
@@ -594,14 +679,14 @@ Recall that there is a $C_x \geq $
 with $C_x^{-1}  \modulus{u}_{\delta_x} \leq \modulus{u}_g \leq C_x \modulus{u}_{\delta_x}$
 almost-everywhere in $V_x$.
 
-For $t > 0$, $0 < \kappa < \tau$ and an $0 < \epsilon < \kappa$, define
+Fix $0 < \kappa < \tau < \infty$ and an $0 < \epsilon < \kappa$,
+and for $x \in M$ and $t \in (\kappa, \tau)$, define
 \begin{equation}
 \label{eq:paradef}
 \begin{split} 
-Q_{(x,t)}(\kappa, \tau,\epsilon) &= \set{(y,s) \in V_x \times (\kappa,\tau): \modulus{t - s} < \epsilon^2,\ d_x(x,y) < 2 \epsilon} \\
 Q^-_{(x,t)}(\kappa, \tau, \epsilon) &= \set{(y,s) \in V_x \times (\kappa,\tau): s \in \cbrac{t - \frac{3}{4}\epsilon^2, t - \frac{1}{4} \epsilon^2},\ 
 	d_x(x,y) < \frac{1}{2} \epsilon} \\
-Q^+_{(x,t)}(\kappa, \tau, \epsilon) &= \set{(y,s) \in V_x \times (0,T): s \in \cbrac{t + \frac{3}{4}\epsilon^2, t + \epsilon^2},\ 
+Q^+_{(x,t)}(\kappa, \tau, \epsilon) &= \set{(y,s) \in V_x \times (\kappa,\tau): s \in \cbrac{t + \frac{3}{4}\epsilon^2, t + \epsilon^2},\ 
 	d_x(x,y) < \frac{1}{2} \epsilon}
 \end{split}
 \end{equation}
@@ -609,12 +694,13 @@ Then, we prove the following.
 
 \begin{thm}
 \label{thm:Harnack}
-Let $u(x,t) \geq 0$ be a solution to the $\Delta_{g,\cW}$ heat equation.
+Let $u(x,t) \geq 0$ be a 
+solution to the $\Delta_{g,\cW}$ heat equation 
+that is non-negative in $(\kappa, \tau)$. 
 Then, there exists $\gamma = \gamma(n, C_x, \kappa, \tau) > 0$ such that 
 $$ \sup_{(y,s) \in Q^-_{(x,t)}(\kappa, \tau)(\epsilon)} u(y, s) 
 	\leq \gamma \inf_{(y,s) \in Q^+_{(x,t)}(\kappa,\tau,\epsilon)} u(y,s)$$
-for all $\epsilon < \frac{1}{2} r_x$.
-\note{Figure out exactly how large $\epsilon$ can be}
+for all $\epsilon < \min\set{ \sqrt{t - \kappa}, \sqrt{\tau - t}, r_x}$.
 \end{thm} 
 
 In the compact setting, such an inequality 
@@ -642,13 +728,13 @@ we have just written.
 
 We emphasise that the goal in \cite{SC}
 is to quantify the constants $C(t,U_x)$
-appearing in \eqref{eq:Harnack}. In what we present here, we do not have
+appearing in Theorem \ref{thm:Harnack}. In what we present here, we do not have
 the ability to control these constants. However, as
-Proposition \ref{Prop:MainRed} illustrates, this is not necessary 
+Proposition \ref{prop:MainRed} illustrates, this is not necessary 
 in order to obtain the existence of the heat kernel.
 Quantifying such estimates is, however, still 
 extremely important and useful when it can be done.
-For instance, Proposition \ref{Prop:MainRed} 
+For instance, Proposition \ref{prop:MainRed} 
 only asserts that $\hk^{g}_t \in \Ck{0}(M \times M)$
 but if $g$ was uniformly close to a $h$
 with a lower bound on its Ricci curvature, then
@@ -798,8 +884,11 @@ With these three lemmas in hand, we prove
 the main theorem. 
 
 \begin{proof}[Proof of Theorem \ref{thm:Harnack}]
-Let $u(x,t) \geq 0$ be a positive solution of
-the $\Delta_{g,\cW}$ heat equation, and fix $0 < \kappa < \tau < \infty$. 
+Let $\epsilon > 0$ be sufficiently small to 
+be determined later. 
+Fix $0 < \kappa < \tau < \infty$ and suppose that $u(x,t) \geq 0$ 
+is a positive solution of
+the $\Delta_{g,\cW}$ in $(\kappa,\tau)$. 
 Then, as before, write $u_\kappa(x,t) = u(x,t+\kappa)$.
 
 Let $D$ be any $n$-dimensional cube inside $\psi_x(V_x)$ then 
@@ -814,12 +903,12 @@ $$c_0 := \sup_{D_x} \cbrac{ \frac{1}{\Leb_x(D_x)} \int_{D_x} a_x(y)\ d\Leb_x(y)}
 Combining this with the \eqref{eq:coeff} as
 well as Lemma \eqref{eq:testfn2} shows that $u_\kappa$
 satisfies the hypotheses of Theorem 2.1 in \cite{CS} and
-therefore, we obtain a $\gamma = \gamma(C_x, n) > 0$
+therefore, we obtain a $\gamma = \gamma(C_x, n, \kappa, \tau) > 0$
 such that 
 \begin{equation} 
 \label{eq:harnack2} 
 \sup_{(y,s) \in Q_{(x,t-\kappa)}^-(0, \tau - \kappa, \epsilon)} u_\kappa(y,s)
-		\leq \inf_{(y,s) \in Q^+_{(x,t-\kappa)}(0, \tau - \kappa, \epsilon)} u_\kappa(y,s).
+		\leq \gamma \inf_{(y,s) \in Q^+_{(x,t-\kappa)}(0, \tau - \kappa, \epsilon)} u_\kappa(y,s).
 \end{equation}
 Note now that setting $s' = s + \kappa$, we have that
 $(y, s' - \kappa) \in Q^{\pm}_{(x,t- \kappa)}(0, \tau - \kappa, \epsilon)$
@@ -827,9 +916,102 @@ if and only if $(y, s') \in Q^{\pm}(x,t)(\kappa, \tau, \epsilon)$.
 That is, \eqref{eq:harnack2} is equivalent to the statement 
 in the conclusion of the theorem and hence, this concludes
 the proof.
+
+Now, to compute a bound for $\epsilon$, note that
+we want to ensure 
+\begin{multline*}\set{(y,s) \in V_x \times (0, \infty): |y - s| < \epsilon, |t - s| < \epsilon^2} \\
+\subset \set{(y,s) \in V_x \times (\kappa, \tau): |y - s| < \epsilon, |t - s| < \epsilon^2}
+\end{multline*} 
+we note that we require $\kappa < t - \frac{3}{4} \epsilon^2$,
+$t + \epsilon^2 < \tau$ and $\epsilon < r_x$.
+Rearranging this gives the range of $\epsilon$
+in the conclusion.
 \end{proof} 
 
-\section{Regularity and positivity of the heat kernel}
+\section{Regularity of solutions}
+
+An important consequence of Harnack estimates for weak 
+solutions is that they yield a priori regularity estimates
+for those solutions. It is classical fact how these estimates
+yield regularity results. For the benefit of the reader, 
+we give the following brief outline of how to obtain
+regularity from the estimates in Theorem \ref{thm:Harnack}.
+We follow the argument of Theorem 6.28 in 
+\cite{Lieberman} by Lieberman.
+For the purposes of this section, let
+$$ Q_{(x,t)}(\kappa,\tau, \epsilon) 	
+	= \set{(y,s) \in V_x \times (\kappa, \tau): \modulus{x - y} \leq \epsilon, \modulus{t - s} < \epsilon^2}.$$ 
+
+\begin{prop}
+Let $u$ be a solution to the $\Delta_{g,\cW}$
+heat equation (not necessarily positive).
+Fix $x \in M$ and $0 < t_1 < t_2 < \infty$.
+Then, there exists an open set $U_x \subset V_x$ 
+with $x \in U_x$
+such that 
+$$ \modulus{u(y,s) - u(y',s)} \leq C(n, C_x, t_1, t_2) d_x(y, y')^\alpha,$$
+where 
+$$ \alpha = \log_{\frac{1}{4}}\cbrac{1 - \frac{1}{\gamma}}$$
+for every $s \in [t_1, t_2]$.
+\end{prop}
+\begin{proof}
+Let 
+$\kappa = \frac{t_1}{2},\ \tau = \frac{3t_2}{2},\ R_0 = \frac{1}{4} \min\set{t_1, r_x},$ fix $r < \frac{R_0}{4}$.
+Define, 
+\begin{align*}
+&M_4 = \sup_{(y,s) \in Q_{(x,t)}(\kappa, \tau, 4r)} u(y,s) &&m_4 = \inf_{(y,s) \in Q_{(x,t)}(\kappa, \tau, 4r)} u(y,s) \\
+&M_1 = \sup_{(y,s) \in Q_{(x,t)}(\kappa, \tau, r)} u(y,s) &&m_1 = \inf_{(y,s) \in Q_{(x,t)}(\kappa, \tau, r)} u(y,s), 
+\end{align*} 
+and note that $M_j - u$ and $u - m_j$ for $j = 1, 4$ are non-negative
+solutions to the $\Delta_{g,\cW}$ heat equation.
+By the choice of $R_0$,
+we always have that $r < \min\set{ \sqrt{t - \kappa}, \sqrt{\tau - t}, r_x}$
+for every $t \in [t_1, t_2]$
+and moreover,  $Q^{\pm}_{(x,t)}(\kappa,\tau,r) \subset Q_{(x,t)}(\kappa, \tau, r)$
+So, fix such a $t \in [t_1, t_2]$ we invoke Theorem \ref{thm:Harnack} and integrate,
+\begin{multline*}
+\iint_{Q^-_{(x,t)}(\kappa,\tau,r)} (M_4 - u)\ d\Leb_x dt 
+	\leq \gamma \iint_{Q^+_{(x,t)}(\kappa,\tau,r)} \inf_{Q^+_{(x,t)}(\kappa, \tau, r} (M_4 - u)\ d\Leb_x ds \\
+	\leq \gamma (M_4 - M_1) \int_{t+ \frac{1}{4}r^2}^{t + r^2} \int_{\psi_x^{-1}(B(x,r))}\ d\Leb_x ds
+	= \gamma w_n  \frac{1}{4}r^{2+n} (M_4 - M_1),$$
+\end{multline*}
+where $w_n$ is the constant for which $\Leb(B(x,r)) = w_n r^n$.
+Note that the constant $\gamma$ is independent of $t$, and only 
+dependent on $t_1$ and $t_2$ through our choice
+of values for $\kappa$ and $\tau$. 
+% Note:  $\inf (M_4 - u) = M_4 + \inf(-u) = M_4 - \sup{u} = M_4 - M_1$
+Similarly, 
+$$
+\iint_{Q^-_{(x,t)}(\kappa,\tau,r)} (u - m_4)\ d\Leb_x dt \leq \gamma w_n \frac{3}{4}r^{2+n} (m_1 - m_4),$$
+and adding these two inequalities together, 
+we get that
+$$
+\frac{1}{2}r^{2+n} w_n (M_4 - m_4) \leq \gamma w_n \frac{1}{4}r^{2+n} (M_4 - m_4 +m_1 - M_1).$$
+Rearranging, we find that 
+$$
+\osc_{Q_{(x,t)}(\kappa, \tau, r)} u \leq \cbrac{1 - \frac{1}{\gamma}} \osc_{Q_{(x,t)}(\kappa, \tau, 4r)} u.$$
+We note that the constant $(1 - \gamma{-1}) < 1$
+and therefore, it is of the right form to invoke the
+standard iteration procedure given in Lemma 4.6 in \cite{Lieberman}. 
+More specifically, on noting that
+our oscillation estimate is of the form (4.15)'' in \cite{Lieberman},
+we obtain the precise form for $\alpha$.
+
+The passage from this to the Hölder estimate
+we have noted in the conclusion is immediate. 
+\end{proof}
+
+\begin{rem}
+The size of the parabolic cylinders
+$Q^{\pm}_{(x,t)}(\kappa, \tau, r)$
+are crucial for this estimate, since we need
+the to ensure that the right hand constant 
+can be made less than $1$. If the parabolic
+region $Q^{-}_{(x,t)}(\kappa, \tau, r)$
+needed to be much larger, then we could no 
+longer organise this in the constant to 
+obtain the regularity estimate in this way. 
+\end{rem}
 
 \printbibliography
 \end{document}

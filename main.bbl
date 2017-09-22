@@ -247,6 +247,56 @@
   \field{year}{1989}
 \endentry
 
+\entry{Kato}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Kato}{K.}%
+     {Tosio}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer-Verlag, Berlin}%
+  }
+  \strng{namehash}{KT1}
+  \strng{fullhash}{KT1}
+  \field{labelalpha}{Kat95}
+  \field{sortinit}{K}
+  \field{isbn}{3-540-58661-X}
+  \field{note}{Reprint of the 1980 edition}
+  \field{pages}{xxii+619}
+  \field{series}{Classics in Mathematics}
+  \field{title}{Perturbation theory for linear operators}
+  \field{year}{1995}
+\endentry
+
+\entry{Lieberman}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Lieberman}{L.}%
+     {Gary~M.}{G.~M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {World Scientific Publishing Co., Inc., River Edge, NJ}%
+  }
+  \strng{namehash}{LGM1}
+  \strng{fullhash}{LGM1}
+  \field{labelalpha}{Lie96}
+  \field{sortinit}{L}
+  \verb{doi}
+  \verb 10.1142/3302
+  \endverb
+  \field{isbn}{981-02-2883-X}
+  \field{pages}{xii+439}
+  \field{title}{Second order parabolic differential equations}
+  \verb{url}
+  \verb http://dx.doi.org/10.1142/3302
+  \endverb
+  \field{year}{1996}
+\endentry
+
 \entry{Norris}{article}{}
   \name{author}{1}{}{%
     {{}%
@@ -320,6 +370,35 @@
   \field{volume}{36}
   \field{journaltitle}{J. Differential Geom.}
   \field{year}{1992}
+\endentry
+
+\entry{Yosida}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Yosida}{Y.}%
+     {K\=osaku}{K.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer-Verlag, Berlin}%
+  }
+  \strng{namehash}{YK1}
+  \strng{fullhash}{YK1}
+  \field{labelalpha}{Yos95}
+  \field{sortinit}{Y}
+  \verb{doi}
+  \verb 10.1007/978-3-642-61859-8
+  \endverb
+  \field{isbn}{3-540-58654-7}
+  \field{note}{Reprint of the sixth (1980) edition}
+  \field{pages}{xii+501}
+  \field{series}{Classics in Mathematics}
+  \field{title}{Functional analysis}
+  \verb{url}
+  \verb http://dx.doi.org/10.1007/978-3-642-61859-8
+  \endverb
+  \field{year}{1995}
 \endentry
 
 \entry{BRough}{article}{}
