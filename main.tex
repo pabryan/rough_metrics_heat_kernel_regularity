@@ -479,7 +479,8 @@ fact that $t \mapsto e^{-t\Delta_{g,\cW}}$ is a semigroup.
 \label{prop:MainRed}
 Suppose that \eqref{eq:Harnack} holds. Then, the heat
 kernel $\hk^{g,\cW}_{\mdot}: \R_{+} \times M \times M \to \R$
-exists.
+exists. Moreover, $\hk^{g,\cW}_t(x,y) > 0$ for
+every $t > 0$ and almost every $x,\ y \in M$. 
 \end{prop} 
 \begin{proof}
 We outline the steps of the construction of the heat kernel
@@ -561,6 +562,38 @@ understood in an almost-everywhere sense.
 	$\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$
 	in the sense of distributions. This
 	shows that $\hk^{g,\cW}_t$ is the heat kernel.
+
+\item Lastly, we show that $\hk^{g,\cW}_t(x,y) > 0$  almost-everywhere.
+	We reason by contradiction so assume that there
+	is a time $t > 0$ and a measurable set $A \subset M$ with $\omega_g(Z) > 0$
+	such that $\hk^{g,\cW}_t(x,y) = 0$ for $x \in A$.
+	Since $M = \union_{n} \Omega_n$ with each 
+	$\Omega_n$ precompact, we can find an integer
+	$k$ for which $B = A \intersect \union_{n=1}^k \Omega_k$ 
+	satisfies $0 < \omega_g(B) < \infty$. Then,
+	we have that $\ind{B} \in \Lp{2}(M)$ and 
+	on using the self-adjointness of $\Delta_{g,\cW}$,
+	we note
+	\begin{multline*}  
+	\norm{e^{-\frac{t}{2} \Delta_{g,\cW}}\ind{B}}^2 
+		 = \inprod{e^{-t \Delta_{g,\cW}} \ind{B},\ind{B}} \\
+		= \int_{B} \hk^{g,\cW}_t(x,y)\ind{B}(y)\ d\omega_g(y) + 
+			\int_{M \setminus B} \hk^{g,\cW}_t(x,y)\ind{B}(y)\ d\omega_g(y).
+	\end{multline*}
+	Now, note that the first integral vanishes
+	since we assume $\hk^{g,\cW}_t$ is $0$ on $B$
+	and the second since $\ind{B} = 0$ on $M \setminus B$.
+	Therefore, we find that $\norm{e^{-\frac{t}{2} \Delta_{g,\cW} \ind{B}}} = 0$.
+	This, along with the fact that we've shown $\hk^{g,\cW}_s(x,y) \geq 0$ 
+	for each $s > 0$ yields that $\hk^{g,\cW}_{\frac{t}{2}}(x,y) = 0$ for 
+	almost every $x,\ y \in B$, and on 
+	iterating this procedure, we obtain that
+	$\norm{e^{-\frac{t}{2^m} \Delta_{g,\cW} \ind{B}}} = 0$.
+	Thus, we have that $\lim_{s\to 0} e^{-s \Delta_{g,\cW}} \ind{B} = 0$, 
+	but by the non-negative self-adjointness of
+	$\Delta_{g,\cW}$, we know that $\lim_{s \to 0} e^{-t \Delta_{g,\cW}} u = u$
+	for any $u \in \Lp{2}(M)$.  This is a contradiction
+	which shows that $\hk^{g,\cW}_t(x,y) > 0$ almost everywhere.
 \end{enumerate} 
 \end{proof}
 
@@ -573,90 +606,90 @@ As we shall see in the next section, a stronger
 estimate is required for regularity of solutions. 
 \end{rem}
 
-Lastly, in this section, we address the question of 
-the positivity of the heat kernel. For that, 
-we use the language of the convergence 
-increasing self-adjoint non-negative operators.
-We take inspiration for this proof
-from the proof of Theorem 2.1.6 in \cite{Davies}
-by Davies. 
-
-\begin{prop}
-\label{prop:hkpos}
-The heat kernel $\hk^{g,\cW}_t(x,y) > 0$ for almost every 
-$x,\ y \in M$.
-\end{prop}
-\begin{proof}
-Let $\Omega$ be a precompact open set in $M$ with $\partial \Omega$
-smooth. Let $\Delta_{g,\cW,k} = \Delta_{g,\cW} + k \ind{M \setminus \Omega}$
-and let $\sE_{g,\cW,k}$ be it associated sesquilinear
-form, given by 
-$$\dom(\sE_{g,\cW,k}) = \dom(\sqrt{\Delta_{g,\cW,k}}) 
-	= \dom(\sqrt{\Delta_{g,\cW}}) = \cW,$$
-and $\sE_{g,\cW,k}(u,v) = \inprod{\sqrt{\Delta_{g,\cW,k}} u, \sqrt{\Delta_{g,\cW,k}}v}$. 
-
-Recall that the limiting form exists by Theorem 1.2.2 
-in \cite{Davies} and is given by: 
-$u \in \dom(\sE_{g,\cW,\infty})$ if and only if
-$\sE_{g,\cW,\infty}(u,u) = \lim_{k\to\infty} \sE_{g,\cW,k}(u,u) < \infty$. 
-To compute this domain, take $u \in \Ck{\infty}(M) \intersect W$
-and 
-\begin{multline*} 
-\sE_{g,\cW,k}(u,u) = \norm{\sqrt{\Delta_{g,\cW,k}}u}^2
-	= \inprod{\Delta_{g,\cW,k}u,u} \\
-	= \norm{\nabla u^2} + k \inprod{\ind{M \setminus \Omega} u, u}
-	= \norm{\nabla u^2} + k \norm{\ind{M \setminus \Omega} u}^2.
-\end{multline*}
-Now, by the characterisation of $\dom(\sE_{g,\cW,\infty})$
-we see that we must have $u = 0$ on $M \setminus \Omega$,
-and since $\cW \subset \SobH{1}(M)$, we have that
-$u\rest{\Omega} \in \SobH[0]{1}(\Omega)$. 
-Since we've established that $e^{-t{\Delta_{g,\cW}}}$
-is positive preserving, we similarly have that 
-$e^{-t {\Delta_{g,\cW,k}}}$ is positive preserving
-by repeating the argument in Proposition \ref{prop:MainRed}
-noting that 
-$\norm{\sqrt{\Delta_{g,\cW,k}}u}^2 
-	= \norm{\nabla u^2} + k \norm{\ind{M \setminus \Omega} u}^2$
-and hence, for $f \geq 0$ with $f \in \Lp{2}(M)$,
-$ e^{-t{\Delta_{g,\cW,k}}}f \leq e^{-t{\Delta_{g,\cW}}}f.$
-Taking limits, we obtain that 
-$$e^{-t{\Delta_{g,\SobH[0]{1}(\Omega)}}}f
-	\leq e^{-t{\Delta_{g,\cW}}}f,$$
-where the left hand expression is extended
-to the whole of $M$ by $0$ 
-and $\Delta_{g,\SobH[0]{1}(\Omega)}$ is the Dirichlet
-Laplacian inside $\Omega$.
-\note{We need to ensure that this limit exists 
-for the exponential, find a citation or justify 
-why we can do this. Davies does a similar thing in Theorem 2.1.6}
-
-Now, since we assumed that $\Omega$ is precompact,
-there exists a smooth metric $h$ such that
-$g(u,v) = h(Au,v)$ with $A \in \Lp{\infty}(T^{1,1}M, h)$
-and $d\omega_g = \sqrt{\det A} d\omega_h$.
-Therefore, we have that
-$$ \norm{\nabla  u}_{\SobH[0]{1}(\Omega,h)} 
-	\lesssim \norm{\nabla u}_{\SobH[0]{1}(\Omega,g)}
-	\lesssim \norm{\nabla u}_{\SobH[0]{1}(\Omega,h)},$$
-and so we have 
-\begin{multline*}
-\set{0} = \nul(\Delta_{h, \SobH[0]{1}(\Omega,h)}) 
-	= \nul\cbrac{\sqrt{\Delta_{h, \SobH[0]{1}(\Omega,h)}}} \\
-	= \nul\cbrac{\sqrt{\Delta_{g, \SobH[0]{1}(\Omega,g)}}}
-	= \nul(\Delta_{g, \SobH[0]{1}(\Omega,g)}).
-\end{multline*}
-Moreover, we have that 
-the first eigenvalues of the Laplacians satisfy
-$$0 < \lambda_1(\Delta_{h,\SobH[0]{1}(\Omega,h)}) \leq 
-	C' \lambda_1(\Delta_{g, \SobH[0]{1}(\Omega,g)})$$
-where the constant $C' > 0$ depends on $A$
-and hence, we have that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega,h)}}\ind{\Omega} > 0$.
-Since we know that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega,h)}}$
-is positive preserving, this proves
-the claim.
-\note{Check through this argument, make sure it holds water.}
-\end{proof}  
+%Lastly, in this section, we address the question of 
+%the positivity of the heat kernel. For that, 
+%we use the language of the convergence 
+%increasing self-adjoint non-negative operators.
+%We take inspiration for this proof
+%from the proof of Theorem 2.1.6 in \cite{Davies}
+%by Davies. 
+%
+%\begin{prop}
+%\label{prop:hkpos}
+%The heat kernel $\hk^{g,\cW}_t(x,y) > 0$ for almost every 
+%$x,\ y \in M$.
+%\end{prop}
+%\begin{proof}
+%Let $\Omega$ be a precompact open set in $M$ with $\partial \Omega$
+%smooth. Let $\Delta_{g,\cW,k} = \Delta_{g,\cW} + k \ind{M \setminus \Omega}$
+%and let $\sE_{g,\cW,k}$ be it associated sesquilinear
+%form, given by 
+%$$\dom(\sE_{g,\cW,k}) = \dom(\sqrt{\Delta_{g,\cW,k}}) 
+%	= \dom(\sqrt{\Delta_{g,\cW}}) = \cW,$$
+%and $\sE_{g,\cW,k}(u,v) = \inprod{\sqrt{\Delta_{g,\cW,k}} u, \sqrt{\Delta_{g,\cW,k}}v}$. 
+%
+%Recall that the limiting form exists by Theorem 1.2.2 
+%in \cite{Davies} and is given by: 
+%$u \in \dom(\sE_{g,\cW,\infty})$ if and only if
+%$\sE_{g,\cW,\infty}(u,u) = \lim_{k\to\infty} \sE_{g,\cW,k}(u,u) < \infty$. 
+%To compute this domain, take $u \in \Ck{\infty}(M) \intersect W$
+%and 
+%\begin{multline*} 
+%\sE_{g,\cW,k}(u,u) = \norm{\sqrt{\Delta_{g,\cW,k}}u}^2
+%	= \inprod{\Delta_{g,\cW,k}u,u} \\
+%	= \norm{\nabla u^2} + k \inprod{\ind{M \setminus \Omega} u, u}
+%	= \norm{\nabla u^2} + k \norm{\ind{M \setminus \Omega} u}^2.
+%\end{multline*}
+%Now, by the characterisation of $\dom(\sE_{g,\cW,\infty})$
+%we see that we must have $u = 0$ on $M \setminus \Omega$,
+%and since $\cW \subset \SobH{1}(M)$, we have that
+%$u\rest{\Omega} \in \SobH[0]{1}(\Omega)$. 
+%Since we've established that $e^{-t{\Delta_{g,\cW}}}$
+%is positive preserving, we similarly have that 
+%$e^{-t {\Delta_{g,\cW,k}}}$ is positive preserving
+%by repeating the argument in Proposition \ref{prop:MainRed}
+%noting that 
+%$\norm{\sqrt{\Delta_{g,\cW,k}}u}^2 
+%	= \norm{\nabla u^2} + k \norm{\ind{M \setminus \Omega} u}^2$
+%and hence, for $f \geq 0$ with $f \in \Lp{2}(M)$,
+%$ e^{-t{\Delta_{g,\cW,k}}}f \leq e^{-t{\Delta_{g,\cW}}}f.$
+%Taking limits, we obtain that 
+%$$e^{-t{\Delta_{g,\SobH[0]{1}(\Omega)}}}f
+%	\leq e^{-t{\Delta_{g,\cW}}}f,$$
+%where the left hand expression is extended
+%to the whole of $M$ by $0$ 
+%and $\Delta_{g,\SobH[0]{1}(\Omega)}$ is the Dirichlet
+%Laplacian inside $\Omega$.
+%\note{We need to ensure that this limit exists 
+%for the exponential, find a citation or justify 
+%why we can do this. Davies does a similar thing in Theorem 2.1.6}
+%
+%Now, since we assumed that $\Omega$ is precompact,
+%there exists a smooth metric $h$ such that
+%$g(u,v) = h(Au,v)$ with $A \in \Lp{\infty}(T^{1,1}M, h)$
+%and $d\omega_g = \sqrt{\det A} d\omega_h$.
+%Therefore, we have that
+%$$ \norm{\nabla  u}_{\SobH[0]{1}(\Omega,h)} 
+%	\lesssim \norm{\nabla u}_{\SobH[0]{1}(\Omega,g)}
+%	\lesssim \norm{\nabla u}_{\SobH[0]{1}(\Omega,h)},$$
+%and so we have 
+%\begin{multline*}
+%\set{0} = \nul(\Delta_{h, \SobH[0]{1}(\Omega,h)}) 
+%	= \nul\cbrac{\sqrt{\Delta_{h, \SobH[0]{1}(\Omega,h)}}} \\
+%	= \nul\cbrac{\sqrt{\Delta_{g, \SobH[0]{1}(\Omega,g)}}}
+%	= \nul(\Delta_{g, \SobH[0]{1}(\Omega,g)}).
+%\end{multline*}
+%Moreover, we have that 
+%the first eigenvalues of the Laplacians satisfy
+%$$0 < \lambda_1(\Delta_{h,\SobH[0]{1}(\Omega,h)}) \leq 
+%	C' \lambda_1(\Delta_{g, \SobH[0]{1}(\Omega,g)})$$
+%where the constant $C' > 0$ depends on $A$
+%and hence, we have that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega,h)}}\ind{\Omega} > 0$.
+%Since we know that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega,h)}}$
+%is positive preserving, this proves
+%the claim.
+%\note{Check through this argument, make sure it holds water.}
+%\end{proof}  
 
 \section{The Harnack inequality and regularity}
 \label{sec:harnack}
