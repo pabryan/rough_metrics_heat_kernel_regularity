@@ -732,7 +732,7 @@ and let $u(x,t) \geq 0$ be a
 solution to the $\Delta_{g,\cW}$ heat equation 
 that is non-negative in $(\kappa, \tau)$. 
 Then, there exists $\gamma = \gamma(n, C_x, \kappa, \tau) > 0$ such that 
-$$ \sup_{(y,s) \in Q^-_{(x,t)}(\kappa, \tau)(\epsilon)} u(y, s) 
+$$ \sup_{(y,s) \in Q^-_{(x,t)}(\kappa, \tau,\epsilon)} u(y, s) 
 	\leq \gamma \inf_{(y,s) \in Q^+_{(x,t)}(\kappa,\tau,\epsilon)} u(y,s)$$
 for all $\epsilon < \min\set{ \sqrt{t - \kappa}, \sqrt{\tau - t}, r_x}$.
 \end{thm} 
@@ -1005,22 +1005,22 @@ and moreover,  $Q^{\pm}_{(x,t)}(\kappa,\tau,r) \subset Q_{(x,t)}(\kappa, \tau, r
 So, fix such a $t \in [t_1, t_2]$ we invoke Theorem \ref{thm:Harnack} and integrate,
 \begin{multline*}
 \iint_{Q^-_{(x,t)}(\kappa,\tau,r)} (M_4 - u)\ d\Leb_x dt 
-	\leq \gamma \iint_{Q^+_{(x,t)}(\kappa,\tau,r)} \inf_{Q^+_{(x,t)}(\kappa, \tau, r} (M_4 - u)\ d\Leb_x ds \\
-	\leq \gamma (M_4 - M_1) \int_{t+ \frac{1}{4}r^2}^{t + r^2} \int_{\psi_x^{-1}(B(x,r))}\ d\Leb_x ds
-	= \gamma w_n  \frac{1}{4}r^{2+n} (M_4 - M_1),$$
+	\leq \gamma \iint_{Q^-_{(x,t)}(\kappa,\tau,r)} \inf_{Q^+_{(x,t)}(\kappa, \tau, r} (M_4 - u)\ d\Leb_x ds \\
+	\leq \gamma (M_4 - M_1) \int_{t- \frac{3}{4}r^2}^{t - \frac{1}{4}r^2} \int_{\psi_x^{-1}(B(x,r))}\ d\Leb_x ds
+	= \gamma w_n  \frac{1}{2}r^{2+n} (M_4 - M_1),$$
 \end{multline*}
 where $w_n$ is the constant for which $\Leb(B(x,r)) = w_n r^n$.
 Note that the constant $\gamma$ is independent of $t$, and only 
 dependent on $t_1$ and $t_2$ through our choice
 of values for $\kappa$ and $\tau$. 
 % Note:  $\inf (M_4 - u) = M_4 + \inf(-u) = M_4 - \sup{u} = M_4 - M_1$
-Similarly, 
+By a similar calculation, 
 $$
-\iint_{Q^-_{(x,t)}(\kappa,\tau,r)} (u - m_4)\ d\Leb_x dt \leq \gamma w_n \frac{3}{4}r^{2+n} (m_1 - m_4),$$
+\iint_{Q^-_{(x,t)}(\kappa,\tau,r)} (u - m_4)\ d\Leb_x dt \leq \gamma w_n \frac{1}{2}r^{2+n} (m_1 - m_4),$$
 and adding these two inequalities together, 
 we get that
 $$
-\frac{1}{2}r^{2+n} w_n (M_4 - m_4) \leq \gamma w_n \frac{1}{4}r^{2+n} (M_4 - m_4 +m_1 - M_1).$$
+\frac{1}{2}r^{2+n} w_n (M_4 - m_4) \leq \gamma w_n \frac{1}{2}r^{2+n} (M_4 - m_4 +m_1 - M_1).$$
 Rearranging, we find that 
 $$
 \osc_{Q_{(x,t)}(\kappa, \tau, r)} u \leq \cbrac{1 - \frac{1}{\gamma}} \osc_{Q_{(x,t)}(\kappa, \tau, 4r)} u.$$
@@ -1034,18 +1034,6 @@ we obtain the precise form for $\alpha$.
 The passage from this to the Hölder estimate
 we have noted in the conclusion is immediate. 
 \end{proof}
-
-\begin{rem}
-The size of the parabolic cylinders
-$Q^{\pm}_{(x,t)}(\kappa, \tau, r)$
-are crucial for this estimate, since we need
-the to ensure that the right hand constant 
-can be made less than $1$. If the parabolic
-region $Q^{-}_{(x,t)}(\kappa, \tau, r)$
-needed to be much larger, then we could no 
-longer organise this in the constant to 
-obtain the regularity estimate in this way. 
-\end{rem}
 
 \printbibliography
 \end{document}
