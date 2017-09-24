@@ -972,9 +972,6 @@ we give the following brief outline of how to obtain
 regularity from the estimates in Theorem \ref{thm:Harnack}.
 We follow the argument of Theorem 6.28 in 
 \cite{Lieberman} by Lieberman.
-For the purposes of this section, let
-$$ Q_{(x,t)}(\kappa,\tau, \epsilon) 	
-	= \set{(y,s) \in V_x \times (\kappa, \tau): \modulus{x - y} \leq \epsilon, \modulus{t - s} < \epsilon^2}.$$ 
 
 \begin{prop}
 Let $u$ be a solution to the $\Delta_{g,\cW}$
@@ -993,19 +990,18 @@ Let
 $\kappa = \frac{t_1}{2},\ \tau = \frac{3t_2}{2},\ R_0 = \frac{1}{4} \min\set{t_1, r_x},$ fix $r < \frac{R_0}{4}$.
 Define, 
 \begin{align*}
-&M_4 = \sup_{(y,s) \in Q_{(x,t)}(\kappa, \tau, 4r)} u(y,s) &&m_4 = \inf_{(y,s) \in Q_{(x,t)}(\kappa, \tau, 4r)} u(y,s) \\
-&M_1 = \sup_{(y,s) \in Q_{(x,t)}(\kappa, \tau, r)} u(y,s) &&m_1 = \inf_{(y,s) \in Q_{(x,t)}(\kappa, \tau, r)} u(y,s), 
+&M_4 = \sup_{(y,s) \in Q^{-}_{(x,t)}(\kappa, \tau, 4r)} u(y,s) &&m_4 = \inf_{(y,s) \in Q^{-}_{(x,t)}(\kappa, \tau, 4r)} u(y,s) \\
+&M_1 = \sup_{(y,s) \in Q^{-}_{(x,t)}(\kappa, \tau, r)} u(y,s) &&m_1 = \inf_{(y,s) \in Q^{-}_{(x,t)}(\kappa, \tau, r)} u(y,s), 
 \end{align*} 
 and note that $M_j - u$ and $u - m_j$ for $j = 1, 4$ are non-negative
 solutions to the $\Delta_{g,\cW}$ heat equation.
 By the choice of $R_0$,
 we always have that $r < \min\set{ \sqrt{t - \kappa}, \sqrt{\tau - t}, r_x}$
-for every $t \in [t_1, t_2]$
-and moreover,  $Q^{\pm}_{(x,t)}(\kappa,\tau,r) \subset Q_{(x,t)}(\kappa, \tau, r)$
+for every $t \in [t_1, t_2]$. 
 So, fix such a $t \in [t_1, t_2]$ we invoke Theorem \ref{thm:Harnack} and integrate,
 \begin{multline*}
 \iint_{Q^-_{(x,t)}(\kappa,\tau,r)} (M_4 - u)\ d\Leb_x dt 
-	\leq \gamma \iint_{Q^-_{(x,t)}(\kappa,\tau,r)} \inf_{Q^+_{(x,t)}(\kappa, \tau, r} (M_4 - u)\ d\Leb_x ds \\
+	\leq \gamma \iint_{Q^-_{(x,t)}(\kappa,\tau,r)} \inf_{Q^+_{(x,t)}(\kappa, \tau, r)} (M_4 - u)\ d\Leb_x ds \\
 	\leq \gamma (M_4 - M_1) \int_{t- \frac{3}{4}r^2}^{t - \frac{1}{4}r^2} \int_{\psi_x^{-1}(B(x,r))}\ d\Leb_x ds
 	= \gamma w_n  \frac{1}{2}r^{2+n} (M_4 - M_1),$$
 \end{multline*}
@@ -1023,7 +1019,7 @@ $$
 \frac{1}{2}r^{2+n} w_n (M_4 - m_4) \leq \gamma w_n \frac{1}{2}r^{2+n} (M_4 - m_4 +m_1 - M_1).$$
 Rearranging, we find that 
 $$
-\osc_{Q_{(x,t)}(\kappa, \tau, r)} u \leq \cbrac{1 - \frac{1}{\gamma}} \osc_{Q_{(x,t)}(\kappa, \tau, 4r)} u.$$
+\osc_{Q^{-}_{(x,t)}(\kappa, \tau, r)} u \leq \cbrac{1 - \frac{1}{\gamma}} \osc_{Q^{-}_{(x,t)}(\kappa, \tau, 4r)} u.$$
 We note that the constant $(1 - \gamma{-1}) < 1$
 and therefore, it is of the right form to invoke the
 standard iteration procedure given in Lemma 4.6 in \cite{Lieberman}. 
