@@ -44,26 +44,24 @@ spaces.
 \section{Introduction}
 \label{sec:intro}
 The existence and regularity of heat kernels on smooth manifolds, with smooth (or even continuous)
-metrics is now a classical fact (c.f. \cite{}). However, there has been
+metrics is now a classical fact. However, there has been
 little in the way of investigation
 of this topic for metrics beneath continuous coefficients. 
 
 A wide and useful class of potentially discontinuous metrics are called \emph{rough metrics}, 
-which are guaranteed to have only measurable coefficients, and they are Riemannian-like in the sense
-that they are locally bounded above and below almost-everywhere by a smooth metric.
+which by definition, have only measurable coefficients, and are Riemannian-like in the sense
+that they are locally comparable almost-everywhere to a smooth Riemannian metric (see \Cref{defn:rough_metric}).
 These metrics became of interest as geometric invariances of the Kato square
 root problem, particularly in the non-compact setting, in \cite{BMc, BRough}. 
 In the compact case, these metrics were used to study regularity properties
 of a geometric flow, weakly tangential to the Ricci flow, 
 in \cite{BLM, BCont}. 
 
-Since the manifolds we consider are smooth (topologically), we always have an 
-exterior derivative. Moreover, rough metrics, like their classical continuous
-or smooth counterparts, induce a canonical volume via the 
-expression $d\mu(x) = \sqrt{\det g(x)} dx$ for rough metrics $g$.
-Moreover, the exterior derivative is a closable object
-in $\Lp{2}(M)$, which allows us to construct Sobolev spaces $\SobH{1}(M)$ 
-and $\SobH[0]{1}(M)$. Here the  
+Rough metrics, like their classical continuous
+or smooth counterparts, induce a canonical volume form \(\omega_g\) via the Hodge star operator \(\ast = \ast_g\) acting on differential forms with measureable coefficients: \(\omega_g = *1\). The corresponding measure \(\omega_g(E) = \int_E d\omega_g\) is positive Radon measure given locally by the expression $d\omega(x) = \sqrt{\det g(x)} dx^1 \wedge \cdots \wedge dx^n$. Thus we may define \(\Lp{p}\) spaces of functions, and more generally \(\Lp{p}\) spaces of sections of tensor bundles.
+
+Since the underlying manifolds we consider are smooth (topologically), the exterior derivative of \(C^{\infty}\) differential forms is defined, and is closable in $\Lp{2}(M)$, allowing us to construct the Sobolev spaces $\SobH{1}(M)$
+and $\SobH[0]{1}(M)$. The
 former space is the  energy for the Neumann Laplacian
 and the latter for the Dirichlet counterpart.
 With respect to these Laplacians, we can now ask
@@ -103,18 +101,16 @@ an energy space, we are obtaining an object that is unique to that energy.
 The former set of methods typically yield a so-called minimal heat kernel,
 but additional assumptions, such as a lower bound on Ricci curvature,
 is assumed in order to obtain its uniqueness (see \cite{Chavel}).
-More seriously, as \cite{Someone?} explains, the following Varadahn's formula
+More seriously, the following Varadahn's formula
 $$ d^2(x,y) = 4 \lim_{t \to 0} t \log \hk_t(x,y)$$
-may fail for this minimal heat kernel. 
+may fail for this minimal heat kernel. In the smooth setting, it is well known that Varadahn's formula holds for the heat kernel corresponding to Dirichlet Laplacian (i.e., with energy in $\SobH[0]{1}(M)$).
+
 This formula is a strong motivating factor for our paper: 
 in the rough setting, we do not have a canonical notion of
 distance, but given that we have a canonical Laplacian, 
 any distance we may attempt to construct for a rough 
-metric should at least allow us to establish this formula.
-In the smooth setting, we can look at the heat equation
-in $\Lp{2}$, and it is well known that
-this formula holds for the heat kernel corresponding to Dirichlet Laplacian (i.e., 
-with energy in $\SobH[0]{1}(M)$). 
+metric should at least allow us to establish this formula.  A study of the distance structure associated to a rough metric will be taken up elsewhere.
+
 
 The method of constructing the global heat kernel
 via Riesz representation methods is made known to us by
@@ -132,7 +128,7 @@ how to obtain the heat kernel via \emph{local Harnack estimates}.
 
 \section*{Acknowledgements}
 
-Kaj Nyström, KAW, Warwick, Lashi's parents? 
+Kaj Nyström, KAW, Warwick, Monash, Lashi's parents, UQ and Joe Grotowski, Orbost hotel?
 
 \section{Rough Metrics}
 \label{sec:rough_metrics}
