@@ -138,66 +138,66 @@ recognised to be the geometric invariances of the Kato square root problem.
 We emphasise here that similar notions existed implicitly in the 
 literature with the work of Norris in \cite{Norris} 
 and \cite{SC} by Saloff-Coste.
-The treatise of rough metrics we give here is rudimentary and 
-a more detailed exposition is available in section 3 in \cite{BRough}. 
+We recall the most impoartant aspects of rough metrics here. A more detailed exposition is available in section 3 in \cite{BRough}.
+
 We begin with the following definition, which recognises
 that a manifold affords us not only with a metric independent 
-differentiable structure, but also a metric independent measure
+topology and differentiable structure, but also a metric independent measure
 structure.
 
 \begin{defn}
-Let \(M\) be a smooth manifold. A set \(E \subseteq M\) is said to be \emph{Lebesgue measurable} if for all charts \(\varphi : U \subseteq M \to V \subseteq \R^n\), the set \(\varphi(E \cap U)\) is a Lebesgue measurable set of \(\R^n\).
+\label{defn:borel_lebesgue}
+Let \(M^n\) be a smooth, \(n\)-dimensional manifold. A set \(B \subseteq M\) is a \emph{Borel set} if for all charts \(\varphi : U \subseteq M \to V \subseteq \R^n\), the set \(\varphi(B \cap U) \subseteq \R^n\) is a Borel set. A set \(E \subseteq M\) is said to be \emph{Lebesgue measurable} if \(\varphi(E \cap U)\) is a Lebesgue measurable set of \(\R^n\).
 \end{defn}
 
 \begin{rem}
-The Lebesgue measurable sets form a \(\sigma\)-algebra. The notion of Lebesgue measurable set does not involve a measure on \(M\). 
-However, if \(\omega\) is volume \Rd measure \Bk on \(M\) associated to a smooth or continuous metric, then it defines a (outer) measure \(E \mapsto \int_E\ d\omega\) for which the \(\sigma\)-algebra of measurable sets is precisely the \(\sigma\)-algebra of Lebesgue measurable sets.
-A strong motivating factor for this paper is to set
-constraints 
-\Rd This can be seen by considering charts that are compact and observing that \(\omega\) is absolutely continuous with respect to the pullback of the Lebesgue measure inside that chart. \Bk
+The Lebesgue measurable sets form a \(\sigma\)-algebra containing the Borel \(\sigma\)-algebra. The notion of Lebesgue measurable set does not involve a measure on \(M\) and is canonical in the following sense: a volume form, \(\omega\) on \(M\) is a measureable section of the bundle \(\Omega^n(M)\) of top differential forms. Such an \(\omega\) defines a signed, (outer) measure \(E \mapsto \int_E\ d\omega\) for which the \(\sigma\)-algebra of measurable sets is precisely the \(\sigma\)-algebra of Lebesgue measurable sets. This follows by observing that with respect to any chart, \(\omega\) is absolutely continuous with respect to the pull-back of the Lebesgue measure in the chart. That is, \(\omega = \rho dx^1 \wedge \cdots \wedge dx^n\) is absolutely continuous with respect to the local Lebesgue measure \(dx^1 \wedge \cdots \wedge dx^n\).
 \end{rem}
 
-Given that we have a metric independent measure structure, we can say that a function
-$f: M \to \R$ is measurable if $f^(-\infty, \alpha]$ is measurable for every $\alpha  \in \R$.
-Clearly, this extends to functions $f:M \to \C$ and on letting
- $T^{p,q}M$ denote the bundle of $(p,q)$ tensors of covariant rank $p$ and contravariant rank $q$,
-we can consider measurable sections and we denote the set of such 
-sections by $\Gamma(T^{p,q}M)$. 
+We may now define the notion of measurable functions and sections of smooth vector bundles.
+
+\begin{defn}[Measurable functions and sections]
+A function $f: M \to \R$ is measurable if $f^{-1}(-\infty, \alpha]$ is measurable for every $\alpha  \in \R$. A measurable section \(s\) of a vector bundle \(\pi : V \to M\) is a function \(s: M \to V\) with \(\pi \circ s = \Id_M\) and such that for any Lebesgue measurable subset \(E \subseteq V\), the set \(s^{-1}(E)\) is a Lebesgue measurable subset of \(M\).  We denote the set of such sections by $\Gamma(V)$.
+\end{defn}
+
+Note that \(V\) is a smooth manifold itself and so Lebesgue Measurability of subsets of \(V\) is defined as in \ref{defn:borel_lebesgue}. In particular, we have the bundle $\pi_{p,q} : T^{p,q}M \to M$ of $(p,q)$ tensors of covariant rank $p$ and contravariant rank $q$ as well as measurable tensor fields \(\Gamma(T^{p,q}M\). We also have the bundle of differential forms \(\pi_k : \Lambda^k T^{\ast} M \to M\) with measurable sections \(\Omega^k(M) = \Gamma(\Lambda^k T^{\ast} M)\). The exterior derivative is however, \emph{not defined} for all measurable sections. All the usual constructions of smooth sub-vector and sub-fibre bundles apply and in particular, we have a well defined notion of measurable sections of the fibre bundle, \((T^{\ast} M \odot T^{\ast} M)_+\) of positive definite, symmetric bilinear forms important in the main definition of this section:
 
 \begin{defn}[Rough metric]
-A \emph{rough} metric \(g\) is a Lebesgue measurable section of \(\met(M) = (T^{\ast} M \odot T^{\ast} M)_+\), the bundle of positive definite, symmetric bilinear forms on \(TM\) that is \emph{locally comparable}: 
+\label{defn:rough_metric}
+A \emph{rough} metric \(g\) is a Lebesgue measurable section of \(\met(M) = (T^{\ast} M \odot T^{\ast} M)_+\), the bundle of positive definite, symmetric bilinear forms on \(TM\) that are in addition, \emph{locally comparable} to Euclidean metrics:
 for each $x \in M$, there is a chart $\psi_x:V_x \to \R^n$ and a constant $C_x = C_x(V_x)$ such that
 \[
 \frac{1}{C_{x}} \pullb{\psi_x}\delta_{\R^n}(y) (X, Y) \leq g(y)(X, Y) \leq C_{x} \pullb{\psi_x}\delta_{\R^n}(y) (X, Y)
 \]
-for all tangent vectors \(X, Y \in T_yM\) for almost all $y \in V_x$.
-\end{defn}
-
-\begin{rem}
-This condition is equivalent to:  there is an open cover \(\lbrace U_{\alpha} \rbrace\) of \(M\), smooth metrics \(g_{\alpha} \in \met(U_{\alpha})\) and real constants \(C_{\alpha} > 0\) such that
+for all tangent vectors \(X, Y \in T_yM\) for almost all $y \in V_x$. Equivalently, there is an open cover \(\lbrace U_{\alpha} \rbrace\) of \(M\), smooth metrics \(g_{\alpha} \in \met(U_{\alpha})\) and real constants \(C_{\alpha} > 0\) such that
 \[
 \frac{1}{C_{\alpha}} g_{\alpha} (X, Y) \leq g(X, Y) \leq C_{\alpha} g_{\alpha} (X, Y)
 \]
 for all tangent vectors \(X, Y \in T_yM\) for almost every $y \in U_\alpha$.
-\end{rem}
+\end{defn}
 
 \begin{rem}
-By employing a partition of unity argument, we can patch together the metrics \(g_{\alpha}\) to produce a globally defined metric \(h\). If the constants \(C_{\alpha}\) are uniformly bounded above and away from zero, then our rough metric will be globally comparable to \(h\). This is automatic whenever \(M\) is compact. If \(M\) is not compact, then this need not be true. Previously a Harnack inequality and heat kernel estimates have been obtained when the metric is globally comparable to a complete metric with bounded below curvature \cite{SC}. Here we do not require the assumptions of global comparability.
+By employing a partition of unity argument, we can patch together the metrics \(g_{\alpha}\) to produce a globally defined, smooth metric \(h\). If the constants \(C_{\alpha}\) are uniformly bounded above and away from zero, then our rough metric will be globally comparable to \(h\). This is automatic whenever \(M\) is compact. If \(M\) is not compact, then this need not be true. In the globally comparable case where the metric \(h\) has bounded below sectional curvature, a Harnack inequality and heat kernel estimates have been obtained with uniform constants \cite{SC}. Here we do not require the assumptions of global comparability and as a result our constants are not uniform.
 \end{rem}
 
 Given a rough metric, we may locally define a \(g_{\alpha}\)-self-adjoint, measurable section \(A_{\alpha} : U_{\alpha} \to T^{1,1}U_{\alpha}\) by
 \[
 g(X, Y) = g_{\alpha} (A_{\alpha} (X), Y).
 \]
-Moreover, via the expression $d\omega_g(x) = \sqrt{\det g_{ij}(x)}\ dx$, where $dx$ is the pullback
-Lebesgue measure inside precompact $U_\alpha$, we obtain a well-defined volume measure. 
-A set $S \subset M$ is measurable if and only if it is $\omega_g$-measurable. This yields 
-an $\Lp{p}$-theory over the $T^{p,q}M$ tensor bundle simply via the expression:
-$$||\xi||_p^p := \int_{M} |\xi|_{g}^p\ d\omega_g < \infty$$
-for $p \in [1, \infty)$ and via
-$$||\xi||_\infty := \inf\set{C: |\xi|_g \leq C\ \text{a.e.}}.$$
-All spaces we consider are complex-valued function spaces, 
-which are obtained from the real setting by complexification.
+Such a definition has the advantage that it allows us to work with respect to the \emph{smooth} metric \(g_{\alpha}\).
+
+A rough metric gives rise to an $\Lp{p}$-theory over the $T^{p,q}M$ tensor bundle by defining \(L^p\) norms,
+\[
+\|\xi\|_p := \left(\int_{M} |\xi|_{g}^p\ d\omega_g\right)^{1/p}
+\]
+for $p \in [1, \infty)$ and
+\[
+\|\xi\|_{\infty} := \inf\set{C: |\xi|_g \leq C\ \text{a.e.}}
+\]
+where the rough metric \(g\) is extended to tensor bundles exactly as in the smooth case. For example, \(g(X \otimes Y, Z \otimes W) = g(X, Y) g(Z, W)\) gives a well defined, measurable section of positive definite, symmetric bilinear forms on \(TM \otimes TM\).
+
+Lastly, let us note that all function spaces we consider are complex-valued function spaces, which are obtained from the real setting by complexification.
+
 
 \section{Laplacians for rough metrics}
 
