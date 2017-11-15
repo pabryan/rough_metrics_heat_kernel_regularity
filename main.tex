@@ -199,35 +199,35 @@ where the rough metric \(g\) is extended to tensor bundles exactly as in the smo
 Lastly, let us note that all function spaces we consider are complex-valued function spaces, which are obtained from the real setting by complexification.
 
 
-\section{Laplacians for rough metrics}
+\section{Laplacians and Heat Equation for rough metrics}
 
 
 For a smooth function \(f \in \Ck{\infty}(M)\), write \(\nabla f = df\) for the differential of \(f\). 
 The differential \(\nabla : \Ck{\infty}(M) \to \Ck{\infty}(T^{\ast} M)\), maps smooth functions 
 \(\Ck{\infty}(M)\) to smooth one-forms \(\Ck{\infty}(T^{\ast} M)\). 
-We emphasise that this object is only dependent on choice of differentiable structure on $M$,
-which we assume to be fixed and a part of the data specifying $M$ as a manifold. 
-It is not dependent on the metric.
+We emphasise that this object is only dependent on the differentiable structure of $M$, and is independent of any choice of metric.
 
-Recall that in the classical setting of a smooth $g$,  the Laplacian acting on functions 
-is given  via the expression $\Delta_g = - \tr \nabla^2$, where $\nabla^2 = \nabla^{T^\ast M} \comp \nabla$
-with $\nabla^{T^\ast M}$ the Levi-Civita connection of $g$. Indeed, for rough metrics, 
-or even for a continuous metric, we cannot talk of the Levi-Civita connection. 
-Therefore, we understand this operator in an appropriate weak sense as follows.
+Recall that in the classical setting of a smooth $g$,  the Laplacian acting on functions is given  via the expression $\Delta_g = - \tr_g \nabla^2$, where $\nabla^2 = \nabla^{T^\ast M} \comp \nabla$
+with $\nabla^{T^\ast M}$ the Levi-Civita connection of $g$ on \(T^{\ast} M\) and the trace is taken on the \((1,1)\) hessian obtained by metric contraction of the \((2, 0)\) hessian \(\nabla^2\). Metric compatability allows one to commute the trace with \(\nabla\) to obtain equivalently that \(\Delta_g = \dive \grad_g\) where \(\grad_g\) is the metric contraction of \(\nabla\).
+
+For rough metrics, or even for a continuous metric, we have no notion of metric-compatability (begin unable to differentiate such a metric), and hence the Levi-Civita connection is not generally defined. Therefore, we understand this operator in an appropriate weak sense as follows:
 
 First, we observe that for a rough metric $g$, the operator
-$\nabla_2 := d_2: \Ck{\infty} \cap \Lp{p}(M) \to \Ck{\infty} \cap \Lp{p}(T^\ast M)$
-is closable, as well as $\nabla_c := d_c = d_2$ with $\dom(d_c) = \Ck[c]{\infty}(M)$,
+$\nabla_p := d_p: \Ck{\infty} \cap \Lp{p}(M) \to \Ck{\infty} \cap \Lp{p}(T^\ast M)$
+is closable, as well as $\nabla_c := d_c$ with $\dom(d_c) = \Ck[c]{\infty}(M)$,
 for $p \in [1, \infty)$. A proof of this statement is given in Proposition 3.10 in \cite{BRough}, 
 which reduces to covering the manifold via precompact locally comparable
-charts and noting that $d$ commutes with pullbacks inside each such chart. 
+charts and noting that $d$ commutes with pullbacks inside each such chart.
+
 Consequently, we can define first-order Sobolev spaces
-$$ \SobH[0]{1}(M) := \dom(\bar{\nabla_c})\quad \text{and}\quad  \SobH{1}(M) := \dom(\bar{\nabla_2}),$$
-with the Sobolev norm $||u||_{\SobH{1}} = ||u||_2 + ||\nabla u||_2$
-as function spaces $\SobH[0]{1}(M) \subset \SobH{1}(M) \subset \Lp{2}(M)$.
-We remark that without closability, if these spaces were obtained
-via a completion with respect to the Sobolev norm, we could not 
-assert that they were spaces of functions.
+\[
+\Sob[0]{1,p}(M) := \dom(\overline{\nabla_c})\quad \text{and}\quad  \Sob{1,p}(M) := \dom(\overline{\nabla_p}),
+\]
+where the closures are taken with respect to the \(\Lp{p}(M)\) norm. We may then define Sobolev norms
+\[
+\|u\|_{\Sob{p}} = \|u\|_p + \|\nabla u\|_p
+\]
+which are finite on the respective function spaces $\Sob[0]{1,p}(M) \subset \Sob{1,p}(M) \subset \Lp{p}(M)$. We remark that without closability, if these spaces were obtained via a completion with respect to the Sobolev norm, we could not assert that they were spaces of functions. In this paper, we exclusively with \(p = 2\).
 
 Another consequence of the closability, coupled with the 
 fact that $\Ck[c]{\infty}(M)$ are dense in $\Lp{2}(M)$ 
@@ -236,44 +236,28 @@ operators. Therefore, operator theory yields
 that $\adj{\nabla_2}$ and $\adj{\nabla_c}$ exist
 as densely-defined, closed operators.
 
+\subsection{The Laplacian in the smooth setting}
 
 In the case of a smooth $g$ that is also complete, we
 always have that $\SobH[0]{1}(M) = \SobH{1}(M)$. 
 Then, since $\nabla_c = \nabla_2$, we obtain 
 a unique Laplacian $\Delta_g = \adj{\nabla_c} \close{\nabla_c} = \adj{\nabla_2}\close{\nabla_2}$.
-We will emphasise at this moment that this does not mean that 
-the Laplacian is essentially self-adjoint on $\Ck[c]{\infty}(M)$; in 
-fact, the only general statement that can be made is that
+We will emphasise at this moment that even in the smooth case, this does not mean that the Laplacian is essentially self-adjoint on $\Ck[c]{\infty}(M)$; in fact, the only general statement that can be made is that
 $\SobH{2}(M) \subset \dom(\Delta_g)$. The 
 case of essential self-adjointness can
 be obtained under a uniform lower bound on Ricci
 curvature (see \cite{BDensity}) but it
 is not known to the authors whether this condition is sharp.
 
-It is also useful to obtain $\Delta_g$ via its ``energy''. 
-That is,  we consider the expression 
+It is also useful to obtain $\Delta_g$ via the energy,
 $$\sE_g(u,v) = \inprod{\nabla u, \nabla v} = \int_M\ g(\nabla u, \nabla v)\ d\omega_g,$$
 where $\dom(\sE_g) = \SobH[0]{1}(M) = \SobH{1}(M)$.
-The operator $\Delta_g$ is now obtained via the Riesz representation theorem
-or Lax-Milgram theorem.
-Note that in our setup, $\nabla_c$ is independent of the geometry,
-but it is in taking its adjoint $\adj{\nabla_c}$ where the
-metric information $g$ becomes of consequence. If we were
-to define the gradient $\grad u =  (\nabla u)^\sharp = g(\nabla u, \cdot)$
-then this object would see the metric. However,
-we note that 
-$\sE_g(u,v) = \inprod{\grad u, \grad v}$
-and moreover, $\Delta_g = \adj{\grad_c} \close{\grad_c}$, 
-so it does not matter which definition we pick.
-We prefer the former picture for the
-simple fact that in the latter picture, the metric information
-and topological information are intertwined whereas 
-in our case we have two operators in which one which clearly only depends
-on the differential structure and the other which sees the geometry $g$.
+The operator $\Delta_g$ is now obtained via the Riesz representation theorem or the Lax-Milgram theorem in the case \(\nabla\) is not essentially self-adjoint.
+
+Note that in our setup, $\nabla$ is independent of the geometry (i.e. the metric), but the energy is of course dependent on the geometry. At the operator level, it is in taking the adjoint $\adj{\nabla}$ where the geometry becomes of consequence. Alternatively, defining the gradient, $\grad u =  (\nabla u)^\sharp = g(\nabla u, \cdot)$, we then have by definition, $\sE_g(u,v) = \inprod{\grad u, \grad v}$. In this case, we have in fact $\Delta_g = \adj{\grad} \close{\grad}$, and so we could equivalently define \(\Delta\) via \(\grad\). We prefer the former picture for the simple fact that in the latter picture, the metric information and topological information are intertwined whereas in our case we have two operators in which one which only depends on the differential structure and the other on the geometry $g$.
 
 When $g$ fails to be complete, it may be that  
-$\SobH[0]{1}(M) \subsetneqq  \SobH{1}(M)$
-if $g$ is not assumed to be complete. 
+$\SobH[0]{1}(M) \subsetneqq  \SobH{1}(M)$.
 In that case, we obtain a \emph{Dirichlet Laplacian} and  a \emph{Neumann 
 Laplacian} corresponding to which space we pick 
 to consider the associated energy.
@@ -285,20 +269,20 @@ the Laplacian considered in the Dirichlet problem
 and $\SobH{1}(M)$ defines the energy 
 for the Laplacian considered for the Neumann problem.
 
-In our approach, which is valid even in the setting
-for smooth $g$, we proceed slightly more generally. 
-Inspired by the classical setting, we define
+\subsection{The Laplacian in the rough setting}
+
+In our approach, valid also in the smooth setting, we proceed slightly more generally. Inspired by the classical setting, we define
 the following.
  
 \begin{defn}[$(g,\cW)$-Laplacian]
 Let \(g\) be a rough metric on a smooth manifold \(M\)
 and $\cW \subset \SobH{1}(M)$ be a closed subspace
 of $\SobH{1}(M)$ such that $\Ck[c]{\infty}(M) \subset \cW$
-and $\Ck{\infty} \cup \cW$ dense in $\cW$ 
-in the norm $\norm{\cdot}_{\cW} = \norm{\cdot}_{\SobH{1}}$. 
-The \emph{$(g,\cW)$-Laplacian}
+and $\Ck{\infty} \cup \cW$ is dense in $\cW$ with respect to the norm $\norm{\cdot}_{\cW} = \norm{\cdot}_{\SobH{1}}$. The \emph{$(g,\cW)$-Laplacian}
 \(\Delta_{g,\cW} : \Lp{2}(M) \to \Lp{2}(M)\) is defined by
-$\Delta_{g,\cW} u = \adj{\nabla_{\cW}} \close{ \nabla_{\cW}} u,$
+\[
+\Delta_{g,\cW} u := \adj{\nabla_{\cW}} \close{ \nabla_{\cW}} u,
+\]
 where  $\nabla_{\cW} = \nabla$ with $\dom(\nabla_{\cW}) = \cW$. 
 The domain of the operator $\Delta_{g,\cW}$ is then given by
 $$\dom(\Delta_{g,\cW}) = \set{u \in \SobH[0]{1}(M): \modulus{\inprod{\nabla u, \nabla v}} \lesssim C_u \norm{v}\ \forall v \in \SobH[0]{1}(M)}.$$
@@ -307,7 +291,7 @@ $$\dom(\Delta_{g,\cW}) = \set{u \in \SobH[0]{1}(M): \modulus{\inprod{\nabla u, \
 By construction, the  operators $\Delta_{g,\cW}$ 
 are densely-defined, closed, self-adjoint and satisfy 
 $\dom(\sqrt{\Delta_{g,\cW}}) = \cW$.
-It is difficult to see how to obtain this from the expression for $\Delta_{g,D}$
+It is difficult to see how to obtain this from the expression for $\Delta_{g,D}$.
 Rather, this operator is constructed via the Riesz representation
 theorem (or the theorem of Lax-Milgram) by considering the
 energy $\sE_{g,\cW}(u,v) = \inprod{\nabla u, \nabla v}$ 
@@ -316,8 +300,7 @@ These are routine facts from operator theory in far more general
 settings than what we consider here. See for instance 
 \cite{Yosida, Kato}.
 
-Let us remark on why we work at this level 
-of generality. First, observe that the case of $\cW = \SobH[0]{1}(M)$
+Let us remark on why we work with the spaces \(\cW\). First, observe that the case of $\cW = \SobH[0]{1}(M)$
 yields the Dirichlet Laplacian
 and $\cW = \SobH{1}(M)$ yields the Neumann counterpart.
 However, beyond these two obvious choices, 
@@ -333,19 +316,18 @@ $\cW_{\Sigma} = \set{u \in \SobH{1}(\Omega): \spt (\Tr u) \subset \close{\Sigma}
 It is clear that $\Ck[c]{\infty}(\Omega) \subset \cW_{\Sigma}$ and
 it can be shown that $\cW_{\Sigma} \subset \SobH{1}(\Omega)$
 is a closed subset. 
-The interpretation here is that the part $\Sigma$ 
-specify Neumann boundary conditions whereas $\Omega \setminus \Sigma$
-specify Dirichlet boundary conditions. Therefore
+The interpretation here is that $\Sigma$ specifies Neumann boundary conditions whereas $\Omega \setminus \Sigma$
+specifies Dirichlet boundary conditions. Therefore
 these are mixed boundary value problems as considered
 by  Axelsson (Rosén), Keith and McIntosh in \cite{AKM2}.
+
+\subsection{The Heat Equation}
 
 Now, we proceed to define what we mean by a solution to the heat
 equation, which becomes the central theme of what is to follow.
 
 \begin{defn}[Solution to the heat equation]
-A function \(u \in \Ck{1}((0,\infty),  \dom(\Delta_{g,\cW})\) solves the \emph{heat equation} for 
-the heat equations
-with initial condition $u_0 \in \Lp{2}(M)$  if we have that
+A function \(u \in \Ck{1}((0,\infty),  \dom(\Delta_{g,\cW}))\) solves the \emph{\(\cW\)-heat equation} (or just heat equation for short) with initial condition $u_0 \in \Lp{2}(M)$ if we have that
 \begin{enumerate}[(i)]
 \item  $\partial_t u (\cdot, t) = \Delta_{g,\cW} u(\cdot, t)$ for $t \in (0, \infty)$ and 
 \item $\lim_{t \to 0} u(\cdot, t) = u_0$ in $\Lp{2}(M)$.
@@ -359,8 +341,7 @@ u(x,t) = (e^{-t \Delta_{g,\cW}}u_0)(x)
 for almost every $x \in M$.
  
 \begin{rem}
-In the compact case with a smooth metric, we can consider $\Delta = -\tr \nabla^2$,
-and there,  a solution is often formulated to mean $u \in \Ck{\infty}( M \times (0, \infty))$
+In the compact case with a smooth metric, a solution is often formulated to mean $u \in \Ck{\infty}( M \times (0, \infty))$
 with $\partial_t u(x,t) = \Delta u(x,t)$ with 
 $\lim_{t \to 0} u(x,t) = u_0 \in \Ck[c]{\infty}(M)$.
 In this case, $\Delta_{g,\cW} = \Delta_{g,\theta}$ is independent
