@@ -352,14 +352,12 @@ this notion of solution is stronger than our notion of solution.
 \section{Existence and positivity of the heat kernel}
 
 \begin{defn}[Heat kernel]
-Let $u \in \Ck{1}(\R_+, \cW)$ be a solution to the 
-Dirichlet heat equation
-for $\Delta_{g,\cW}$ with initial data $u_0 \in \Lp{2}(M)$. Then, a 
-measurable symmetric map $\hk^{g,\cW}_{\mdot}: \R_+ \times M \times M \to \R$
-is a heat kernel if 
-$$u(t,x) = \int_{M} \hk^{g,\cW}_t(x,y) u_0(y)\ d\omega_g(y),$$
-with $\lim_{t \to 0} \hk_t^{g,\cW}(\mdot,y) \to \delta(y)$, 
-where $\delta(y)$ is the Dirac-delta function.
+A measurable symmetric map $\hk^{g,\cW}_{\mdot}: \R_+ \times M \times M \to \R$ is a heat kernel if for every $u \in \Ck{1}(\R_+, \cW)$, a solution to the Dirichlet heat equation $\partial_t u = \Delta_{g,\cW}$ with initial data $u_0 \in \Lp{2}(M)$, we have
+\[
+u(t,x) = \int_{M} \hk^{g,\cW}_t(x,y) u_0(y)\ d\omega_g(y)
+\]
+and
+$\lim_{t \to 0} \hk_t^{g,\cW}(\mdot,y) \to \delta(y)$ in the sense of distributions where $\delta(y)$ is the Dirac-delta distribution.
 \end{defn}
 
 In the case of a smooth metric $g$, a typical construction for
@@ -389,7 +387,7 @@ associated to the operator $\Delta_{g,\cW}$ in $\Lp{2}$
 via the Riesz representation theorem as described in Theorem 
 5.2.1 in \cite{Davies}. As aforementioned, in the smooth case,
 at least for the heat kernel corresponding to the 
-Dirichlet Laplacian, we obtain the desired small time
+Dirichlet Laplacian, we obtain the desired small time Varadahn's
 asymptotics. 
 
 There is a large class of rough metrics
@@ -475,7 +473,7 @@ understood in an almost-everywhere sense.
 	By the Buerling-Deny condition (c.f.  Corollary 2.18(2) in  \cite{El-Maati}), 
 	this yields that for $\Lp{2}(M) \ni f \geq 0$
 	we have that  $e^{-t \Delta_{g,\cW}} f \geq 0$. That is, the semigroup 
-	$e^{-t \Delta_{g,\cW}}$ is positive preserving.  
+	$e^{-t \Delta_{g,\cW}}$ is (weakly) positive preserving.
 
 \item Now, left $f \in \Lp{2}(M)$, and write
 	$f = f_+ - f_-$, where $f_{\pm} = \max\set{0,\pm f}$.
@@ -510,29 +508,45 @@ understood in an almost-everywhere sense.
 
 \item By the self-adjointness of $\Delta_{g,\cW}$, via functional calculus 
 	we obtain that $\norm{e^{-s\Delta_{g,\cW}}f} \leq \norm{f}$
-	uniformly in $s$  and therefore, we obtain that
+	uniformly in $s$  and therefore, we obtain that for each fixed \((t, x)\),
 	$$\modulus{e^{-t \Delta_{g,\cW}}f(x)} \leq 
 		\frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{f}.$$
 	This exactly says that $f \mapsto (e^{-t\Delta_{g,\cW}}f)(x) \in \adj{\Lp{2}(M)}$
 	for every $f \in \Lp{2}(M)$ and therefore, by the Riesz Representation theorem,
-	we obtain an $a_{t,x} \in \Lp{2}(M)$ such that
-	$$ e^{-t \Delta_{g,\cW}}f(x) = \inprod{a_{t,x},f}.$$
+	we obtain, for each fixed \((t, x)\), an $a_{t,x} \in \Lp{2}(M)$ such that
+	$$ e^{-t \Delta_{g,\cW}}f(x) = \inprod{a_{t,x},f} = \int_{M} a_{t,x}(y)f(y)\ d\omega_g(y)$$
+        for every \(f \in \Lp{2}\). Because \(t \mapsto e^{-\Delta t} f\) is a continuous semi group mapping \(\Lp{2} \to \Lp{2}\) we have that \(x \mapsto a_{t,x}\) is measurable and hence \((t, x) \mapsto a_{t,x}\) is measurable.
 
-\item Again, by self-adjointness, we have that $e^{-t \Delta_{g,\cW}}$
-	is bounded self-adjoint, and
-	on combining this with the semigroup property 
-	$e^{-t\Delta_{g,\cW}} = e^{-\frac{t}{2} \Delta_{g,\cW}}e^{-\frac{t}{2} \Delta_{g,\cW}}$, 
-	it is straightforward to check that 
-		$$\hk^{g,\cW}_t(x,y) = \inprod{a_{\frac{t}{2}, x}, a_{\frac{t}{2}, y}},$$
-	defines a measurable symmetric function for which 
-	$$e^{-t \Delta_{g,\cW}}f = \int_{M} \hk^{g,\cW}_t(x,y)f(y)\ d\omega_g(y).$$
-	Since $e^{-t \Delta_{g,\cW}}$
-	is positive preserving which shows that $\hk_t^{g,\cW}$
-	is real-valued. Moreover, since $e^{-t\Delta_{g,\cW}}f \to f$
-	in $\Lp{2}$, we have that 
-	$\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$
-	in the sense of distributions. This
-	shows that $\hk^{g,\cW}_t$ is the heat kernel.
+\item We now may define the symmetric function,
+  $$\hk^{g,\cW}_t(x,y) := \inprod{a_{\frac{t}{2}, x}, a_{\frac{t}{2}, y}}$$
+        We claim that \(\hk^{g,\cW}\) is a heat kernel: we use the by the semigroup property and self adjointness of \(e^{-t\Delta_{g,\cW}}\). For clarity, let us write \(\inprod{f(y), g(y)}\) to denote that the integration is over the \(y\) variable. Then we have
+	\[
+        \begin{split}
+        (e^{-t \Delta_{g,\cW}}f) (x) &= e^{-\frac{t}{2} \Delta_{g,\cW}} (e^{-\frac{t}{2} \Delta_{g,\cW}} f) (x) = \inprod{a_{t,x} (y), e^{-\frac{t}{2} \Delta_{g,\cW}} f (y)} \\
+        &= \inprod{e^{-\frac{t}{2} \Delta_{g,\cW}} a_{t,x} (y), f (y)} = \inprod{\inprod{a_{t,y}(z), a_{t,x}(z)}, f(y)} \\
+        &= \inprod{\hk^{g,\cW}_t(x,y), f(y)}.
+        \end{split}
+        \]
+        Next, since $e^{-t \Delta_{g,\cW}}$	is positive preserving, $\hk_t^{g,\cW}$ is real-valued. Moreover, since $\lim_{t\to 0} e^{-t\Delta_{g,\cW}}f = f$ in $\Lp{2}$, we have that $\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$ in the sense of distributions.
+
+        To finish showing that $\hk^{g,\cW}_t$ is indeed the heat kernel, we verify measurability in \((x, y, t)\). Continuity of the semigroup \(e^{-t\Delta}\) implies the map \(t \mapsto e^{-t \Delta} f\) is continuous and hence for each fixed \(x\),
+        \[
+        t \mapsto e^{-t\Delta_{g,\cW}} f (x) = \inprod{a_{t,x}, f}
+        \]
+        is continuous. Composing with the diagonal map on \(t\), we see that for fixed \(x,y\), choosing \(f = a_{t,y}\) we have
+        \[
+        t \mapsto \rho_t(x, y) = \inprod{a_{t,x}, a_{t,y}}
+        \]
+        is continuous.
+
+        Next, by self-adjointness, we have that for each \(t\), $e^{-t \Delta_{g,\cW}}$
+	is a bounded self-adjoint operator on \(\Lp{2}\) so that for any \(f \in \Lp{2}\),
+        \[
+        x \mapsto (e^{-t \Delta_{g,\cW}} f) (x) = \inprod{a_{t,x}, f}
+        \]
+        is in \(\Lp{2}\). Hence \(\rho_t(x, y)\) is measurable separately in both \(x\) and \(y\) by choosing \(f = a_{t,y}\) for measurability in \(x\) and using the symmetry of \(\rho_t\) for measurability in \(y\). Now we want to conclude joint measurablity in \(x,y\).
+
+        Thus \(\rho\) is continuous in \(t\) and jointly measurable in \(x, y\), hence a Carath\'eodory function, hence jointly measurable in \(t, x, y\) by \cite[4.51 Lemma]{aliprantis06}
 
 \item Lastly, we show that $\hk^{g,\cW}_t(x,y) > 0$  almost-everywhere.
 	We reason by contradiction so assume that there
