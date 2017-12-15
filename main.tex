@@ -708,19 +708,38 @@ Q^+_{(x,t)}(\kappa, \tau, \epsilon) &= \set{(y,s) \in V_x \times (\kappa,\tau): 
 	d_x(x,y) < \frac{1}{2} \epsilon}
 \end{split}
 \end{equation}
-Then, we prove the following. 
+
+The Harnack inequality can be deduced relatively easily from the Harnack inequality stated in \cite{SC}.
 
 \begin{thm}
 \label{thm:Harnack}
-Let the dimension of $M$ be $3$ or greater 
-and let $u(x,t) \geq 0$ be a 
+Let $u(x,t) \geq 0$ be a
 solution to the $\Delta_{g,\cW}$ heat equation 
 that is non-negative in $(\kappa, \tau)$. 
 Then, there exists $\gamma = \gamma(n, C_x, \kappa, \tau) > 0$ such that 
 $$ \sup_{(y,s) \in Q^-_{(x,t)}(\kappa, \tau,\epsilon)} u(y, s) 
 	\leq \gamma \inf_{(y,s) \in Q^+_{(x,t)}(\kappa,\tau,\epsilon)} u(y,s)$$
 for all $\epsilon < \min\set{ \sqrt{t - \kappa}, \sqrt{\tau - t}, r_x}$.
-\end{thm} 
+\end{thm}
+
+\begin{proof}
+First of all, Lemma \ref{eq:soln1} below shows that a solution $u$ of the $\Delta_{g,\cW}$ heat equation is a weak solution, hence Moser's parabolic Harnack inequality \cite{MR0159139,MR0288405} is expect to apply. The only reason we cannot immediately apply Moser's result is because of the factor $a_x$. But this factor is time independent, measureable and $a_x > 0$ almost everywhere, which is precisely the situation described in \cite[Section 4]{SC}. Then we conclude Theorem 5.3 from \cite{CS} applies which is precisely our Hanack inequality stated in the theorem.
+\end{proof}
+
+\begin{rem}
+The astute reader might object that the result of \cite{SC} applies only to rough metrics that are globally comparable to a complete, smooth metric of bounded below Ricci curvature. However, the estimate is entirely local and it is only through the constants that the curvature bounds and global comparability enter. Thus in our situation, we do not obtain uniform, global constants (and indeed do not expect them at this level of generality!), but such control is not necessary for our applications.
+
+To make the argument concrete, for any relatively compact coordinate chart $U \subset \R^n$ on which the rough metric $g$ is comparably to a smooth metric $g_0$ with bounded below curvature, and any open subset $V$ with $\bar{V} \subset U$, let $\rho$ be a smooth function supported in $U$ with $\rho \equiv 1$ on $V$ and let
+\[
+h = \rho g + (1-\rho) \delta
+\]
+where $\delta$ is the Eulidean metric on $\R^n$. Then $h$ is a rough metric, globally comparable to the complete, smooth metric $h_0$ fo bounded below curvature defined by
+\[
+h_0 = \rho g_0 + (1-\rho) \delta.
+\]
+
+Then $h$ satisfies all the hypotheses of \cite{SC} and we may immediately apply Theorem 5.3 to obtain the Harnack inequality for $h$. Then our local Harnack inequality for $g$ applies by restricting the Harnack inequality for $h$ to $V$.
+\end{rem}
 
 In the compact setting, such an inequality 
 is immediate from the work of \cite{SC}. There, 
