@@ -12,7 +12,7 @@
 
 \begin{document}
 
-\title{Heat kernels and regularity for rough metrics on smooth manifolds}
+\title[Heat kernels and regularity for rough metrics]{Heat kernels and regularity for rough metrics on smooth manifolds}
 
 \author{Lashi Bandara}
 \author{Paul Bryan}
@@ -24,6 +24,11 @@
 \dedicatory{}
 \subjclass[2010]{}
 \keywords{}
+
+\maketitle
+
+\setcounter{tocdepth}{1}
+\tableofcontents
 
 \parindent0cm
 \setlength{\parskip}{\baselineskip}
@@ -38,7 +43,6 @@ solutions of divergence form elliptic equations
 with bounded measurable coefficients in weighted Sobolev spaces.
 \end{abstract}
 
-\maketitle
 
 \section{Introduction}
 \label{sec:intro}
@@ -693,7 +697,6 @@ estimate is required for regularity of solutions.
 \section{The Harnack inequality and regularity}
 \label{sec:harnack}
 
-
 In this section, we demonstrate that a
 stronger form of the  Harnack 
 estimate than \eqref{eq:Harnack} holds for rough 
@@ -774,9 +777,9 @@ The estimate on $B_x$ follows immediately from
 \eqref{eq:constbd}.
 \end{proof} 
 
-
-Using this lemma, the Harnack inequality can be deduced relatively easily from the 
-Harnack inequality stated in \cite{SC}.
+The Harnack inequality we prove is the following. We provide two proofs of this result, 
+the first proof simply on noting that we can deduce this from noting that the results
+of \cite{SC} localise, and the second from dengenerate parabolic PDE methods of \cite{CS}.
 
 \begin{thm}
 \label{thm:Harnack}
@@ -789,11 +792,9 @@ $$ \sup_{(y,s) \in Q^-_{(x,t)}(\kappa, \tau,\epsilon)} u(y, s)
 for all $\epsilon < \min\set{ \sqrt{t - \kappa}, \sqrt{\tau - t}, r_x}$.
 \end{thm}
 
-\begin{proof}
-First of all, Lemma \ref{eq:soln1} below shows that a solution $u$ of the $\Delta_{g,\cW}$ heat equation is a weak solution, hence Moser's parabolic Harnack inequality \cite{MR0159139,MR0288405} is expected to apply. The only reason we cannot immediately apply Moser's result is because of the factor $a_x$. But this factor is time independent, measurable and $a_x > 0$ almost everywhere, which is precisely the situation described in \cite[Section 4]{SC}. Thus, on noting that the results in \cite{SC} localise, we can apply Theorem 5.3 in \cite{SC} which is precisely our Harnack inequality stated in the theorem.
+\begin{proof}[Proof using \cite{SC}]
+By the use of Lemma \ref{eq:soln1}, which illustrates that solution $u$ of the $\Delta_{g,\cW}$ heat equation is a distributional solution, we can expect to use the methods of Moser's parabolic Harnack inequality \cite{MR0159139,MR0288405}. However, Lemma \ref{eq:soln1} shows that we have a heat equation in a weighted Sobolev space, weighted by $a_x$, and therefore, we cannot immediately apply Moser's results. But, the factor $a_x > 0$ almost-everywhere, time independent and measurable, which is precisely the situation described in \cite[Section 4]{SC}.  Unfortunately, the results of \cite{SC} demand that the rough metric is globally comparable to a complete, smooth metric of Ricci curvature bounded from below. However, upon more careful inspection of \cite{SC}, we can see that the estimate is entirely local and it is only through the constants that the curvature bounds and global comparability enter. In our situation, we do not obtain uniform, global constants (and indeed do not expect them at this level of generality), but such control is not necessary for our applications. Thus, on noting that the results in \cite{SC} localise, we can apply Theorem 5.3 in \cite{SC} which is precisely our Harnack inequality stated in the theorem.
 \end{proof}
-
-The astute reader might object that the result of \cite{SC} applies only to rough metrics that are globally comparable to a complete, smooth metric of bounded below Ricci curvature. However, the estimate is entirely local and it is only through the constants that the curvature bounds and global comparability enter. Thus in our situation, we do not obtain uniform, global constants (and indeed do not expect them at this level of generality!), but such control is not necessary for our applications.
 
 In the compact setting, this theorem 
 is immediate from Theorem 5.3 in \cite{SC} without having to note
@@ -834,12 +835,135 @@ with a lower bound on its Ricci curvature, then
 there would exist an $\alpha$ depending on this bound
 with $\hk^{g}_t \in \Ck{\alpha}(M \times M)$.
 
-We note that this theorem can also be obtained, albeit for dimensions $\geq 3$
-and with a lot more work, from the  results in \cite{CS}. There, the authors establish
-such Harnack estimates for weak solutions allowing for the coefficients to degenerate 
-in a controlled way via methods of real-variable harmonic analysis.
-In order to simplify our exposition, we instead allude to the local 
-nature of \cite{SC} as we have done. 
+We now give a proof using the results of \cite{CS}.
+From here on, we assume that the dimension of $M$ is $3$ or greater. 
+
+Fix $0 < \kappa < \tau < \infty$ and 
+define $u_\kappa(x,t) = u(x,t+\kappa)$. Then we note the following. 
+\begin{lemma}
+\label{lem:shiftsol}
+We have that: 
+\begin{enumerate}[(i)] 
+\item $u_\kappa$ is a solution to the $\Delta_{g,\cW}$ heat equation, 
+\item there is a constant $C_\kappa \geq 0$
+	which depends on $\kappa$ 
+	such that $\norm{\nabla u_\kappa} \leq C_\kappa$.
+\end{enumerate} 
+\end{lemma}
+\begin{proof}
+Note that by definition, and using the semigroup property, 
+$$u_\kappa(x,t) = e^{-(t + \kappa)\Delta_{g,\cW}} u_0 
+	=e^{-t \Delta_{g,\cW}}e^{-\kappa\Delta_{g,\cW}}u_0
+	=e^{-t \Delta_{g,\cW}}u(x,\kappa).$$ 
+Therefore, it is immediate that $u_\kappa$ is a solution
+to the heat equation. 
+
+To see the bound, we compute: 
+\begin{multline*} 
+\norm{ \nabla u_\kappa(\cdot, t)} 
+	= \norm{ \sqrt{\Delta_{g,\cW}} u_\kappa(\cdot, t)} 
+	= \norm{ \sqrt{\Delta_{g,\cW}} e^{-t\Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0} \\
+	= \norm{ e^{-t \Delta_{g,\cW}} \sqrt{ \Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0}
+	\leq \norm{\sqrt{ \Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0},
+\end{multline*}
+where the penultimate equality follows from the fact that
+$\ran(e^{-\kappa \Delta_{g,\cW}}) \subset \dom(\Delta_{g,\cW}^\alpha)$
+for all $\alpha > 0$ and via functional calculus.
+The proof is complete on setting the constant 
+$C(\kappa) = \norm{\sqrt{ \Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0}$.
+\end{proof}
+
+
+As in \cite{CS}, for $T > 0$, define 
+$$ W(T) = \set{ w \in \Lp{2}( (0,T); \SobH[0]{1}(V_x,g): \partial_t w \in \Lp{2}((0,T); \Lp{2}(V_x, g)},$$
+and let $W_0(T) = \set{ w \in W: w(0) = w(T) = 0}.$
+
+\begin{lemma}
+\label{Lem:testfn2} 
+The solution $u_\kappa \in \Lp{2}((0, \tau - \kappa); \SobH{1}(V_x, g))$
+and is a weak solution in the following sense:
+\begin{equation}
+\label{eq:testfn2} 
+\int_{0}^{\tau - \kappa} \inprod{a_x u_\kappa(t), \partial_t w(t)}_{\Lp{2}(V_x,\delta_x)}\ dt 
+		= -\int_{0}^{\tau - \kappa } \inprod{B_x \nabla u_\kappa(t), \nabla w(t)}_{\Lp{2}(V_x, \delta_x)}\ dt
+\end{equation}
+for all $w \in W_0(\tau - \kappa)$.
+\end{lemma}
+\begin{proof}
+Fix $w \in W_0$ and from \eqref{eq:soln1}, we have that
+$$\inprod{a_x \partial_t u_\kappa (t), w(t)}_{\Lp{2}(V_x, \delta_x)} 
+		= \inprod{ B_x \nabla u_\kappa(t), \nabla v(t)}_{\Lp{2}(V_x, \delta_x)}$$
+for every $t \in (0, \tau - \kappa)$.
+A calculation similar to that in Lemma \ref{lem:shiftsol} 
+yields that $\norm{ \partial_t u_\kappa} \leq C_\kappa'$
+for all $t \in (0, \tau - \kappa)$
+on noting that $\partial_t u_\kappa = \Delta_{g,\cW} u_\kappa$.
+This, along with the bound in Lemma \ref{lem:shiftsol}
+shows that  $u_\kappa \in \Lp{2}((0, \tau - \kappa); \SobH{1}(V_x, g))$
+and that $\partial_t u_\kappa \in \Lp{2}((0,\tau - \kappa); \Lp{2}(V_x, g))$. 
+
+Moreover, note that $W(\tau- \kappa) \subset \SobH{1}((0,\tau-\kappa); \Lp{2}(V_x,g))$
+and therefore $\Ck{\infty}((0,\tau-\kappa); \Lp{2}(V_x,g) \intersect W(\tau - \kappa)$
+is dense in $W(T)$ in the Sobolev norm. Therefore on 
+choosing such a $w$, as well as the fact that $w(0) = w(\tau - \kappa) = 0$, 
+by the fundamental theorem of calculus in the Banach 
+valued setting (c.f. \cite{}), we obtain that
+$$\int_{0}^{\tau - \kappa} \inprod{ \partial_t(a_x u_\kappa(t)), w(t)}_{\Lp{2}(V_x,g)}\ dt
+	= - \int_0^{\tau - \kappa} \inprod{a_x u_\kappa(t), \partial_t w(t)}_{\Lp{2}(V_x, g)}\ dt.$$
+Also, the integral on the left is equal to:
+$$\int_{0}^{\tau - \kappa} \inprod{ \nabla u_\kappa(t), \nabla w(t)}\ dt$$
+and by the aforementioned density of
+ $\Ck{\infty}((0,\tau-\kappa); \Lp{2}(V_x,g) \intersect W(\tau - \kappa)$ 
+in $W(\tau - \kappa)$ along with the fact that $\nabla u_\kappa \in \Lp{2}((0, \tau - \kappa); \Lp{2}(V_x,g))$,
+the proof is complete.
+\end{proof} 
+
+With these three lemmas in hand, we prove the main theorem.
+
+\begin{proof}[Proof of Theorem \ref{thm:Harnack} for $\dim M \geq 3$ using \cite{CS}]
+Let $\epsilon > 0$ be sufficiently small to 
+be determined later. 
+Fix $0 < \kappa < \tau < \infty$ and suppose that $u(x,t) \geq 0$ 
+is a positive solution of
+the $\Delta_{g,\cW}$ in $(\kappa,\tau)$. 
+Then, as before, write $u_\kappa(x,t) = u(x,t+\kappa)$.
+
+Let $D$ be any $n$-dimensional cube inside $\psi_x(V_x)$ then 
+on writing $D_x = \psi_x^{1}(D)$, we have  
+$$ \int_{D_x} a_x(y)\ d\Leb_x(y) \leq C_x^{\frac{n}{2}} \Leb_x(C),
+\ \text{and}\ 
+\int_{D_x} \frac{1}{a_x(y)}\ d\Leb_x(y) \leq C_x^{\frac{n}{2}}.$$
+Therefore, our density $a_x$ satisfies the so called $A_2$ condition:
+$$c_0 := \sup_{D_x} \cbrac{ \frac{1}{\Leb_x(D_x)} \int_{D_x} a_x(y)\ d\Leb_x(y)}
+\cbrac{ \frac{1}{\Leb_x(D_x)} \int_{D_x} \frac{1}{a_x(y)}\ d\Leb_x(y)} 
+	\leq C_x^n.$$
+Combining this with the \eqref{eq:coeff} as
+well as \eqref{eq:testfn2} from Lemma \ref{Lem:testfn2} shows that $u_\kappa$
+satisfies the hypotheses of Theorem 2.1 in \cite{CS} and
+therefore, we obtain a $\gamma = \gamma(C_x, n, \kappa, \tau) > 0$
+such that 
+\begin{equation} 
+\label{eq:harnack2} 
+\sup_{(y,s) \in Q_{(x,t-\kappa)}^-(0, \tau - \kappa, \epsilon)} u_\kappa(y,s)
+		\leq \gamma \inf_{(y,s) \in Q^+_{(x,t-\kappa)}(0, \tau - \kappa, \epsilon)} u_\kappa(y,s).
+\end{equation}
+Note now that setting $s' = s + \kappa$, we have that
+$(y, s' - \kappa) \in Q^{\pm}_{(x,t- \kappa)}(0, \tau - \kappa, \epsilon)$
+if and only if $(y, s') \in Q^{\pm}(x,t)(\kappa, \tau, \epsilon)$.
+That is, \eqref{eq:harnack2} is equivalent to the statement 
+in the conclusion of the theorem and hence, this concludes
+the proof.
+
+Now, to compute a bound for $\epsilon$, note that
+we want to ensure 
+\begin{multline*}\set{(y,s) \in V_x \times (0, \infty): |y - s| < \epsilon, |t - s| < \epsilon^2} \\
+\subset \set{(y,s) \in V_x \times (\kappa, \tau): |y - s| < \epsilon, |t - s| < \epsilon^2}
+\end{multline*} 
+we note that we require $\kappa < t - \frac{3}{4} \epsilon^2$,
+$t + \epsilon^2 < \tau$ and $\epsilon < r_x$.
+Rearranging this gives the range of $\epsilon$
+in the conclusion.
+\end{proof} 
 
 \section{Regularity of solutions}
 
@@ -909,12 +1033,6 @@ we obtain the precise form for $\alpha$.
 The passage from this to the Hölder estimate
 we have noted in the conclusion is immediate. 
 \end{proof}
-
-\begin{rem}
-Note that by this result, we obtain that $\hk^g_{t}: M \times M \to R_+$ is at least continuous. 
-Hence, the a priori separable measurability of the heat kernel that we established earlier 
-immediately improves to joint measurability via this result. 
-\end{rem}
 
 \printbibliography
 \end{document}
