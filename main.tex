@@ -110,10 +110,10 @@ we are obtaining an object that is unique to that energy.
 The former set of methods typically yield a so-called minimal heat kernel,
 but additional assumptions, such as a lower bound on Ricci curvature,
 is assumed in order to obtain its uniqueness (see \cite{Chavel}).
-More seriously, the following Varadahn's formula
+More seriously, the following Varadhan's formula
 $$ d^2(x,y) = 4 \lim_{t \to 0} t \log \hk_t(x,y)$$
 may fail for this minimal heat kernel. In the smooth setting, or on classes of
-metric spaces, it is well known that Varadahn's formula holds for the heat 
+metric spaces, it is well known that Varadhan's formula holds for the heat 
 kernel corresponding to Dirichlet Laplacian 
 (see  \cite{Berger, ERS}).
 
@@ -134,7 +134,7 @@ reduced to \emph{Harnack estimates}, which were
 furnished by observing that  
 the rough metric was globally comparable to a smooth metric
 due to the compactness of the underlying manifold and
-through the  results of Sallof-Coste in \cite{SC}.
+through the  results of Saloff-Coste in \cite{SC}.
 In our situation, these results do not apply without additional assumptions
 and so instead, we demonstrate
 how to obtain the heat kernel via \emph{local Harnack estimates}. 
@@ -406,7 +406,7 @@ associated to the operator $\Delta_{g,\cW}$ in $\Lp{2}$
 via the Riesz representation theorem as described in Theorem 
 5.2.1 in \cite{Davies}. As aforementioned, in the smooth case,
 at least for the heat kernel corresponding to the 
-Dirichlet Laplacian, we obtain the desired  Varadahn's
+Dirichlet Laplacian, we obtain the desired  Varadhan's
 asymptotics.  
 
 There is a large class of rough metrics
@@ -779,7 +779,7 @@ The estimate on $B_x$ follows immediately from
 
 The Harnack inequality we prove is the following. We provide two proofs of this result, 
 the first proof simply on noting that we can deduce this from noting that the results
-of \cite{SC} localise, and the second from dengenerate parabolic PDE methods of \cite{CS}.
+of \cite{SC} localise, and the second from degenerate parabolic PDE methods of \cite{CS}.
 
 \begin{thm}
 \label{thm:Harnack}
@@ -873,6 +873,11 @@ The proof is complete on setting the constant
 $C(\kappa) = \norm{\sqrt{ \Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0}$.
 \end{proof}
 
+In what is to follow, we shall require some facts about 
+Lebesgue and Sobolev space theory for functions valued 
+in Banach spaces. While the book \cite{CH} discusses these issues
+in detail, an excellent overview of this topic
+is contained in the thesis \cite{Kreuter}.
 
 As in \cite{CS}, for $T > 0$, define 
 $$ W(T) = \set{ w \in \Lp{2}( (0,T); \SobH[0]{1}(V_x,g): \partial_t w \in \Lp{2}((0,T); \Lp{2}(V_x, g)},$$
@@ -903,11 +908,11 @@ shows that  $u_\kappa \in \Lp{2}((0, \tau - \kappa); \SobH{1}(V_x, g))$
 and that $\partial_t u_\kappa \in \Lp{2}((0,\tau - \kappa); \Lp{2}(V_x, g))$. 
 
 Moreover, note that $W(\tau- \kappa) \subset \SobH{1}((0,\tau-\kappa); \Lp{2}(V_x,g))$
-and therefore $\Ck{\infty}((0,\tau-\kappa); \Lp{2}(V_x,g) \intersect W(\tau - \kappa)$
+and therefore $\Ck{\infty}((0,\tau-\kappa); \Lp{2}(V_x,g)) \intersect W(\tau - \kappa)$
 is dense in $W(T)$ in the Sobolev norm. Therefore on 
 choosing such a $w$, as well as the fact that $w(0) = w(\tau - \kappa) = 0$, 
 by the fundamental theorem of calculus in the Banach 
-valued setting (c.f. \cite{}), we obtain that
+valued setting by Proposition 1.4.29, Corollary 1.4.31 and Corollary 1.4.37 in  \cite{CH}, we obtain that
 $$\int_{0}^{\tau - \kappa} \inprod{ \partial_t(a_x u_\kappa(t)), w(t)}_{\Lp{2}(V_x,g)}\ dt
 	= - \int_0^{\tau - \kappa} \inprod{a_x u_\kappa(t), \partial_t w(t)}_{\Lp{2}(V_x, g)}\ dt.$$
 Also, the integral on the left is equal to:
