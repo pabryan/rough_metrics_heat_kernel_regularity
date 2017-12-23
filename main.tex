@@ -27,6 +27,14 @@
 
 \maketitle
 
+\begin{abstract}
+We consider rough metrics on smooth manifolds and corresponding Laplacians induced by such metrics.
+We demonstrate  that globally continuous heat kernels exist Hölder continuous locally space and time. 
+This is done by employing local Harnack estimates for weak
+solutions of divergence form elliptic equations
+with bounded measurable coefficients in weighted Sobolev spaces.
+\end{abstract}
+
 \setcounter{tocdepth}{1}
 \tableofcontents
 
@@ -34,26 +42,24 @@
 \setlength{\parskip}{\baselineskip}
 
 
-\begin{abstract}
-We consider rough metrics on smooth manifolds and consider Laplacians induced by such metrics.
-We demonstrate  that globally continuous heat kernels exist for corresponding heat equations 
-and that they are Hölder locally in space and time. 
-This is done by employing local Harnack estimate for weak
-solutions of divergence form elliptic equations
-with bounded measurable coefficients in weighted Sobolev spaces.
-\end{abstract}
-
 
 \section{Introduction}
 \label{sec:intro}
-The existence and regularity of heat kernels on smooth manifolds, compact or noncompact, 
-with smooth or even continuous metrics  is now a matter of classical fact. 
-Coefficients that are less than continuous in regularity arise naturally, for instance, a metric
-that arises as a pullback of a smooth metric under a lipeomorphism will in general possesses bounded measurable
-coefficients. Despite this, there has been
-little in the way of investigation of this topic for more general metrics with such low regularity. 
+The existence and regularity of heat kernels on smooth manifolds with smooth metrics, compact or noncompact, 
+is now a matter of classical fact. 
+However, it is also useful and interesting to consider this problem on
+metrics with non-smooth, and even discontinuous coefficients since such 
+metrics can arise naturally.  The prototypical example of discontinuous coefficients
+is when the metric tensor is given as a pullback of a smooth metric under a 
+lipeomorphism. Such a metric will in general possess measurable
+coefficients.
 
-A wide and useful class of potentially discontinuous metrics are called \emph{rough metrics}, 
+Indeed, there has been some progress in this direction,
+with two notable works being \cite{Norris, ERS}.
+However, the focus of their work is somewhat different to 
+what we present here, as are their methods.
+We consider a wide and useful class of 
+low regularity metrics are called \emph{rough metrics}, 
 which by definition, have only measurable coefficients, and are Riemannian-like in the sense
 that they are locally comparable almost-everywhere to a smooth Riemannian metric (see \Cref{defn:rough_metric}).
 These metrics became of interest in \cite{BMc, BRough} as they constitute geometric invariances of the Kato square
@@ -62,82 +68,88 @@ In the compact case, these metrics were used to study regularity properties
 of a geometric flow, weakly tangential to the Ricci flow, 
 in \cite{BLM, BCont}.
 
-Unlike the classical (continuous) counterparts, it is unclear, a priori, how we can construct a distance
-for rough metrics. In part, the reason for this is that the length function will not be well defined in this setting.
-Nevertheless,  rough metrics induce a Borel measure $\omega_g$ and we can define energies by the use 
-of the exterior derivative. Thus, they give rise to natural Laplacians as self-adjoint operators.
+Unlike the classical counterparts, we are not able
+to construct distances via the length functional since 
+this is not a well defined device in this setting.
+Nevertheless, rough metrics induce a Borel measure $\omega_g$ and we can define energies by the use 
+of the exterior derivative. Consequently,  they give rise to natural Laplacians as self-adjoint operators.
 
-The underlying manifolds we consider are smooth (topologically), the exterior derivative of \(C^{\infty}\) differential forms is defined, and is closable in $\Lp{2}(M)$, allowing us to construct the Sobolev spaces $\SobH{1}(M)$
+The underlying manifolds we consider are smooth (topologically), 
+the exterior derivative of \(C^{\infty}\) differential forms is defined, and is closable 
+in $\Lp{2}(M)$, allowing us to construct Sobolev spaces $\SobH{1}(M)$
 and $\SobH[0]{1}(M)$. The
 former space is the  energy for the Neumann Laplacian
 and the latter for the Dirichlet counterpart.
-With respect to these Laplacians, we can now ask
+More generally, we can consider a closed subspace $\cW$ of $\SobH{1}(M)$
+satisfying $\SobH[0]{1}(M) \subset \cW \subset \SobH{1}(M)$
+as an energy space for the so-called \emph{mixed boundary conditions}. 
+Corresponding to each such space, we obtain a Laplacian
+as a self-adjoint operator and we can now ask
 whether a heat kernel exists, and how regular one
 can expect such an object to be. In the setting of rough metrics, our main theorem
 is the following. 
 
 \begin{thm}
-On a smooth manifold \(M\), equipped with a rough metric \(g\), there exists a 
-Dirichlet heat kernel \(\hk_t^g = \hk_t\), such that
+\label{Thm:Main}
+On a smooth manifold \(M\), equipped with a rough metric \(g\), 
+and a subspace $\SobH[0]{1}(M) \subset \cW \subset \SobH{1}(M)$
+with $\Ck{\infty} \intersect \cW$ dense in $\cW$, 
+there exists a heat kernel \(\hk_t^{g,\cW}\), such that
 \begin{enumerate}
-\item \(\hk_t > 0\) for \(t > 0\),
-\item on a parabolic cylinder \(Q = K \times [t_1, t_2]\) with \(0 < t_1 < t_2\), \(K \subseteq M\) is compact, there exists an \(\alpha = \alpha(Q)\) so that \(\hk_t^g \in C^{\alpha}(K \times K)\) for \(t_1 \leq t \leq t_2\).
+\item \(\hk_t^{g,\cW} > 0\) for \(t > 0\),
+\item on a parabolic cylinder \(Q = K \times [t_1, t_2]\) with \(0 < t_1 < t_2\), \(K \subseteq M\) is compact, there exists an \(\alpha = \alpha(Q)\) so that \(\hk_t^{g,\cW} \in C^{\alpha}(K \times K)\) for \(t_1 \leq t \leq t_2\).
 \end{enumerate}
 \end{thm}
 
 
 Note that heat kernels have been considered
 for some time in more general settings than smooth Riemannian manifolds,
-with the bulk of the literature focusing on metric spaces with bounds
-on certain synthetic notions of curvature.
+for instance on metric spaces with bounds
+on certain synthetic notions of curvature (c.f. \cite{Sturmi}).
 Many classical results can be recovered from this general 
-theory since smooth (or continuous) metrics induce an associated intrinsic
-distance structure. As aforementioned, a priori, there is no reason
-why a rough metric should induce a canonical distance structure - at least
-this cannot be done via minimisation over curves since the
-length functional may not be a well-defined device. 
+theory for the special case of manifolds, 
+since smooth (or continuous) metrics induce an associated intrinsic
+distance structure. 
 
-The significance of our results in this paper is to demonstrate
-the construction of heat kernels in this setting where we may 
-not have a canonical distance but instead, we have well-defined Laplacians. 
-Unlike in many classical treatments which construct the \emph{minimal} 
-heat kernel via local-to-global methods, our construction is purely global.
-It is likely that in many instances we are sacrificing minimality but if we fix
-an energy space, by which we mean a closed subspace $B$ such that 
-$\SobH[0]{1}(M) \subset B \subset \SobH{1}(M)$, 
-we are obtaining an object that is unique to that energy.
-
-The former set of methods typically yield a so-called minimal heat kernel,
-but additional assumptions, such as a lower bound on Ricci curvature,
-is assumed in order to obtain its uniqueness (see \cite{Chavel}).
+The treatment of heat kernels on smooth manifolds with smooth metrics 
+usually proceed by constructing
+a so-called \emph{minimal} heat kernel via local-to-global methods.
+However, additional assumptions, such as lower bound on Ricci curvature,
+is required in order to obtain its uniqueness  (see \cite{Chavel}).
 More seriously, the following Varadhan's formula
-$$ d^2(x,y) = 4 \lim_{t \to 0} t \log \hk_t(x,y)$$
-may fail for this minimal heat kernel. In the smooth setting, or on classes of
-metric spaces, it is well known that Varadhan's formula holds for the heat 
-kernel corresponding to Dirichlet Laplacian 
-(see  \cite{Berger, ERS}).
+$$ d^2(x,y) = \lim_{t \to 0} 4 t \log \hk_t(x,y)$$
+may fail for this minimal heat kernel. 
+In this classical setting, (or even for certain classes of 
+metric spaces), it is well known that Varadhan's formula holds for the heat 
+kernel corresponding to Dirichlet and Neumann Laplacians 
+(see  \cite{Norris, ERS}).
 
-This formula is a strong motivating factor for our paper: 
-in the rough setting, we do not have a canonical notion of
-distance, but given that we have a canonical Laplacian, 
-any distance we may attempt to construct for a rough 
-metric should at least allow us to establish such a formula.  
-The study of distance structures associated to a rough metric 
-will be taken up elsewhere in the future.
+As aforementioned, the results of \cite{Norris, ERS} 
+are similar to our although the methods are different. 
+Our method is somewhat simpler and the 
+idea is construct the global heat kernel
+via Riesz representation methods, a method made known to us from 
+\cite{Davies} in the classical setting. However, our setting
+is more general than that of \cite{Davies} and we need to know that 
+we need to obtain a certain 
+\emph{weak Harnack type estimate}, along with 
+some operator theoretic facts, in order to employ this method.
 
-The method of constructing the global heat kernel
-via Riesz representation methods is made known to us by
-the book of Davies in \cite{Davies}.
-In \cite{BCont} where the manifold was assumed to be compact, 
+This perspective to construct a heat kernel was used previously in  
+\cite{BCont} where the manifold was assumed to be compact,  and 
 the existence and regularity of the heat kernel was
-reduced to \emph{Harnack estimates}, which were
-furnished by observing that  
-the rough metric was globally comparable to a smooth metric
+reduced to \emph{Harnack estimates} for divergence form operators
+with bounded measurable coefficients against a smooth background. 
+The required estimates
+were obtained by observing that  
+the rough metric is globally comparable to a smooth one,
 due to the compactness of the underlying manifold and
-through the  results of Saloff-Coste in \cite{SC}.
-In our situation, these results do not apply without additional assumptions
-and so instead, we demonstrate
-how to obtain the heat kernel via \emph{local Harnack estimates}. 
+through the  results  in \cite{SC}.
+In our situation,  we cannot argue in this way without imposing
+severe restrictions. Thus, we demonstrate
+how to obtain the heat kernel via \emph{local Harnack estimates} 
+before proceeding to show that such estimates 
+hold in our setting.
 
 \section*{Acknowledgements}
 
@@ -148,8 +160,8 @@ The second author would like to support the University of Queensland and Joe Gro
 Both authors would like to thank Warwick University where this project began as
 well as Kaj Nyström for his useful comments.
 Moreover, both authors would like to also acknowledge the gracious support of the first author's 
-parents for providing a week of curry and hospitality during the finishing phases
-of this paper along with Orbost hotel, Orbost, Victoria for their beer and ambience. 
+parents Jayanthi and Mano Bandara for providing a week of curry and hospitality during the finishing phases
+of this paper as well as the  Orbost hotel in Victoria for their beer and ambience. 
 
 \section{Rough Metrics}
 \label{sec:rough_metrics}
@@ -158,15 +170,15 @@ As far as the authors are aware, the term ``rough metric'' as used in the curren
 was coined in \cite{BRough} as they were 
 recognised to be the geometric invariances of the Kato square root problem.
 We emphasise here that similar notions existed implicitly in the 
-literature with the work of Norris in \cite{Norris} 
-and \cite{SC} by Saloff-Coste.
+literature  in \cite{Norris} 
+and \cite{SC}.
 We recall the most important aspects of rough metrics here. 
-A more detailed exposition is available in section 3 in \cite{BRough}.
+A more detailed exposition can be found in Section 3 in \cite{BRough}.
 
 We begin with the following definition, which recognises
 that a manifold affords us not only with a metric independent 
-topology and differentiable structure, but also a metric independent measure
-structure.
+topology and differentiable structure, but also a measure
+structure that is independent of any metric.
 
 \begin{defn}
 \label{defn:borel_lebesgue}
@@ -174,8 +186,7 @@ Let \(M^n\) be a smooth, \(n\)-dimensional manifold. A set \(B \subseteq M\) is 
 \end{defn}
 
 \begin{rem}
-The Lebesgue measurable sets form a \(\sigma\)-algebra containing the Borel \(\sigma\)-algebra. The notion of Lebesgue measurable set does not involve a measure on \(M\)  on defining a set $A$ to be measurable if $\phi(A \intersect U)$ is Lebesgue measurable for
-every chart $(\phi,U)$. It is canonical in the following sense: given any smooth (or continuous) metric $h$, this collection of subsets are exactly the collection of $\omega_h$-measurable sets.
+The Lebesgue measurable sets form a \(\sigma\)-algebra containing the Borel \(\sigma\)-algebra. The notion of Lebesgue measurable set does not involve a measure on \(M\). The collection of Lebesgue measurable sets is canonical in the following sense: given any smooth (or continuous) metric $h$, this collection of subsets are exactly the collection of $\omega_h$-measurable sets.
 \end{rem}
 
 We now define the notion of measurable functions and sections of smooth vector bundles.
@@ -184,7 +195,7 @@ We now define the notion of measurable functions and sections of smooth vector b
 A function $f: M \to \R$ is measurable if $f^{-1}(-\infty, \alpha]$ is measurable for every $\alpha  \in \R$. A measurable section \(s\) of a vector bundle \(\pi : V \to M\) is a function \(s: M \to V\) with \(\pi \circ s = \Id_M\) and such that for any Lebesgue measurable subset \(E \subseteq V\), the set \(s^{-1}(E)\) is a Lebesgue measurable subset of \(M\).  We denote the set of such sections by $\Gamma(V)$.
 \end{defn}
 
-Note that \(V\) is a smooth manifold itself and so Lebesgue Measurability of subsets of \(V\) is defined as in \ref{defn:borel_lebesgue}. In particular, we have the bundle $\pi_{p,q} : T^{p,q}M \to M$ of $(p,q)$ tensors of covariant rank $p$ and contravariant rank $q$ as well as measurable tensor fields \(\Gamma(T^{p,q}M\). We also have the bundle of differential forms \(\pi_k : \Lambda^k T^{\ast} M \to M\) with measurable sections \(\Omega^k(M) = \Gamma(\Lambda^k T^{\ast} M)\). The exterior derivative is however, \emph{not defined} for all measurable sections. All the usual constructions of smooth sub-vector and sub-fibre bundles apply and in particular, we have a well defined notion of measurable sections of the fibre bundle, \((T^{\ast} M \odot T^{\ast} M)_+\) of positive definite, symmetric bilinear forms important in the main definition of this section:11
+Note that \(V\) is a smooth manifold itself and so Lebesgue Measurability of subsets of \(V\) is defined as in \ref{defn:borel_lebesgue}. In particular, we have the bundle $\pi_{p,q} : T^{p,q}M \to M$ of $(p,q)$ tensors of covariant rank $p$ and contravariant rank $q$ as well as measurable tensor fields \(\Gamma(T^{p,q}M)\). We also have the bundle of differential forms \(\pi_k : \Lambda^k T^{\ast} M \to M\) with measurable sections \(\Omega^k(M) = \Gamma(\Lambda^k T^{\ast} M)\). The exterior derivative is however, \emph{not defined} for all measurable sections. All the usual constructions of smooth sub-vector and sub-fibre bundles apply and in particular, we have a well defined notion of measurable sections of the fibre bundle, \((T^{\ast} M \odot T^{\ast} M)_+\) of positive definite, symmetric bilinear forms important in the main definition of this section.
 
 \begin{defn}[Rough metric]
 \label{defn:rough_metric}
@@ -193,22 +204,28 @@ for each $x \in M$, there is a chart $\psi_x:V_x \to \R^n$ and a constant $C_x =
 \[
 \frac{1}{C_{x}} \pullb{\psi_x}\delta_{\R^n}(y) (X, Y) \leq g(y)(X, Y) \leq C_{x} \pullb{\psi_x}\delta_{\R^n}(y) (X, Y)
 \]
-for all tangent vectors \(X, Y \in T_yM\) for almost all $y \in V_x$. Equivalently, there is an open cover \(\lbrace U_{\alpha} \rbrace\) of \(M\), smooth metrics \(g_{\alpha} \in \met(U_{\alpha})\) and real constants \(C_{\alpha} > 0\) such that
+for all tangent vectors \(X, Y \in T_yM\) for almost all $y \in V_x$. 
+\end{defn}
+
+\begin{rem}
+Equivalently, there is an open cover \(\lbrace U_{\alpha} \rbrace\) of \(M\), smooth metrics \(g_{\alpha} \in \met(U_{\alpha})\) and real constants \(C_{\alpha} > 0\) such that
 \[
 \frac{1}{C_{\alpha}} g_{\alpha} (X, Y) \leq g(X, Y) \leq C_{\alpha} g_{\alpha} (X, Y)
 \]
 for all tangent vectors \(X, Y \in T_yM\) for almost every $y \in U_\alpha$.
-\end{defn}
-
-\begin{rem}
-By employing a partition of unity argument, we can patch together the metrics \(g_{\alpha}\) to produce a globally defined, smooth metric \(h\). If the constants \(C_{\alpha}\) are uniformly bounded above and away from zero, then our rough metric will be globally comparable to \(h\). This is automatic whenever \(M\) is compact. If \(M\) is not compact, then this need not be true. In the globally comparable case where the metric \(h\) has bounded below \Rd Ricci curvature,\Bk  a Harnack inequality and heat kernel estimates have been obtained with uniform constants \cite{SC}. Here we do not require the assumptions of global comparability and as a result our constants may fail to be uniform.
 \end{rem}
 
-Given a rough metric, we may locally define a \(g_{\alpha}\)-self-adjoint, measurable section \(A_{\alpha} : U_{\alpha} \to T^{1,1}U_{\alpha}\) by
+\begin{rem}
+By employing a partition of unity argument, we can patch together the metrics \(g_{\alpha}\) to produce a globally defined, smooth metric \(h\). If the constants \(C_{\alpha}\) are uniformly bounded above and away from zero, then our rough metric will be globally comparable to \(h\). This is automatic whenever \(M\) is compact. If \(M\) is not compact, then this need not be true.
+However, if the rough metric $g$ is at least continuous, we can find a smooth globally comparable metric for any $C > 1$. 
+\end{rem}
+
+Given a rough metric, we may locally define a \(g_{\alpha}\)-self-adjoint bounded measurable section \(A_{\alpha} : U_{\alpha} \to T^{1,1}U_{\alpha}\) by
 \[
 g(X, Y) = g_{\alpha} (A_{\alpha} (X), Y).
 \]
-Such a definition has the advantage that it allows us to work with respect to the \emph{smooth} metric \(g_{\alpha}\).
+Such a definition has the advantage that it allows us to work with respect to the \emph{smooth} metric \(g_{\alpha}\), 
+at least locally.
 
 A rough metric gives rise to an $\Lp{p}$-theory over the $T^{p,q}M$ tensor bundle by defining \(L^p\) norms,
 \[
@@ -234,13 +251,14 @@ We emphasise that this object is only dependent on the differentiable structure 
 Recall that in the classical setting of a smooth $g$,  the Laplacian acting on functions is given  via the expression $\Delta_g = - \tr_g \nabla^2$, where $\nabla^2 = \nabla^{T^\ast M} \comp \nabla$
 with $\nabla^{T^\ast M}$ the Levi-Civita connection of $g$ on \(T^{\ast} M\) and the trace is taken on the \((1,1)\) hessian obtained by metric contraction of the \((2, 0)\) hessian \(\nabla^2\). Equivalently, we obtain that  that \(\Delta_g = \grad_g^\ast \grad_g\) where \(\grad_g\) is the metric contraction of \(\nabla\).
 
-For rough metrics, or in fact, any metric below $\Ck{0,1}$, we have no notion of metric-compatibility (begin unable to differentiate such a metric), and hence the Levi-Civita connection is not generally defined. Therefore, we understand this operator in an appropriate weak sense as follows. First, we observe that for a rough metric $g$, the operator
+For rough metrics, or in fact, any metric below $\Ck{0,1}$, we have no notion of metric-compatibility (begin unable to differentiate such a metric), and hence the Levi-Civita connection is not generally defined. Therefore, we understand this operator in an appropriate weak sense as follows. 
+
+First, we observe that for a rough metric $g$, the operator
 $\nabla_p := d_p: \Ck{\infty} \cap \Lp{p}(M) \to \Ck{\infty} \cap \Lp{p}(T^\ast M)$
 is closable, as well as $\nabla_c := d_c$ with $\dom(d_c) = \Ck[c]{\infty}(M)$,
 for $p \in [1, \infty)$. A proof of this statement is given in Proposition 3.10 in \cite{BRough}, 
 which reduces to covering the manifold via precompact locally comparable
 charts and noting that $d$ commutes with pullbacks inside each such chart.
-
 Consequently, we can define first-order Sobolev spaces
 \[
 \Sob[0]{1,p}(M) := \dom(\overline{\nabla_c})\quad \text{and}\quad  \Sob{1,p}(M) := \dom(\overline{\nabla_p}),
@@ -249,8 +267,8 @@ where the closures are taken with respect to the \(\Lp{p}(M)\) norm. We may then
 \[
 \|u\|_{\Sob{p}} = \|u\|_p + \|\nabla u\|_p
 \]
-which are finite on the respective function spaces $\Sob[0]{1,p}(M) \subset \Sob{1,p}(M) \subset \Lp{p}(M)$. We remark that without closability, if these spaces were obtained via a completion with respect to the Sobolev norm, it is unclear that they are spaces of functions. In this paper, we exclusively deal with \(p = 2\) and another consequence of the closability, coupled with the 
-fact that $\Ck[c]{\infty}(M)$ are dense in $\Lp{2}(M)$,
+which are finite on the respective function spaces $\Sob[0]{1,p}(M) \subset \Sob{1,p}(M) \subset \Lp{p}(M)$. We remark that without closability, if these spaces are obtained via a completion with respect to the Sobolev norm, it is unclear that they are, in fact, spaces of functions. In this paper, we exclusively deal with \(p = 2\) and another consequence of the closability, coupled with the 
+fact that $\Ck[c]{\infty}(M)$ is dense in $\Lp{2}(M)$,
 is that $\nabla_2$ and $\nabla_c$ are densely-defined
 operators. Therefore, operator theory yields 
 that $\adj{\nabla_2}$ and $\adj{\nabla_c}$ exist
@@ -260,14 +278,14 @@ as densely-defined, closed operators.
 
 In the case of a smooth $g$ that is also complete, we
 always have that $\SobH[0]{1}(M) = \SobH{1}(M)$. 
-Then, since $\nabla_c = \nabla_2$, we obtain 
+Since $\nabla_c = \nabla_2$, we obtain 
 a unique Laplacian $\Delta_g = \adj{\nabla_c} \close{\nabla_c} = \adj{\nabla_2}\close{\nabla_2}$.
 We will emphasise at this moment that even in the smooth case, this does not mean that the Laplacian is essentially self-adjoint on $\Ck[c]{\infty}(M)$; in fact, the only general statement that can be made is that
 $\SobH{2}(M) \subset \dom(\Delta_g)$. The 
 case of essential self-adjointness can
 be obtained under a uniform lower bound on Ricci
 curvature (see \cite{BDensity}) but it
-is not known to the authors whether this condition is sharp.
+is not known to the authors whether this result is sharp.
 
 It is also useful to obtain $\Delta_g$ via the energy,
 $$\sE_g(u,v) = \inprod{\nabla u, \nabla v} = \int_M\ g(\nabla u, \nabla v)\ d\omega_g,$$
@@ -275,7 +293,7 @@ where $\dom(\sE_g) = \SobH[0]{1}(M) = \SobH{1}(M)$.
 The operator $\Delta_g$ is now obtained via the so-called first and second representation 
 theorems, Theorems 2.1 and 2.23 in Chapter IV  in \cite{Kato}.
  
-Note that in our setup, $\nabla$ is independent of the geometry (i.e. the metric), but the energy is of course geometry dependent. At the operator level, it is in taking the adjoint $\adj{\nabla}$ where the geometry becomes of consequence. Alternatively, defining the gradient, $\grad u =  (\nabla u)^\sharp = g(\nabla u, \cdot)$, we then have by definition, $\sE_g(u,v) = \inprod{\grad u, \grad v}$. In this case, we have in fact $\Delta_g = \adj{\grad} \close{\grad}$, and so we could equivalently define \(\Delta\) via \(\grad\). We prefer the former picture for the simple fact that in the latter picture, the metric information and topological information are intertwined whereas in our case we have two operators in which one which only depends on the differential structure (the exterior derivative $\nabla$) and the other on the geometry $g$ (the adjoint of the exterior derivative $\nabla^\ast_g$).
+Note that in our setup, $\nabla$ is independent of the geometry (i.e. the metric), but the energy is not. At the operator level, it is in taking the adjoint $\adj{\nabla}_g$ where the geometry becomes of consequence. Alternatively, defining the gradient, $\grad_g u =  (\nabla u)^\sharp = g(\nabla u, \cdot)$, we have by definition, $\sE_g(u,v) = \inprod{\grad_g u, \grad_g v}$. In this case, $\Delta_g = \adj{\grad}_g \close{\grad}_g$, and so we could equivalently define \(\Delta_g\) via \(\grad_g\). We prefer the former picture for the simple fact that in the latter picture, the metric information and topological information are intertwined whereas in our case we have two operators in which one which only depends on the differential structure (the exterior derivative $\nabla$) and the other on the geometry $g$ (the adjoint of the exterior derivative $\nabla^\ast_g$).
 
 When $g$ fails to be complete, it may be that  
 $\SobH[0]{1}(M) \subsetneqq  \SobH{1}(M)$.
@@ -291,8 +309,7 @@ and $\SobH{1}(M)$ defines the energy
 for the Laplacian considered for the Neumann problem.
 
 \subsection{The Laplacian in the rough setting}
-
-In our approach, valid also in the smooth setting, we proceed slightly more generally. Inspired by the classical setting, we define
+Inspired by the classical setting, we define
 the following.
  
 \begin{defn}[$(g,\cW)$-Laplacian]
@@ -306,7 +323,7 @@ and $\Ck{\infty} \cap \cW$ is dense in $\cW$ with respect to the norm $\norm{\cd
 \]
 where  $\nabla_{\cW} = \nabla$ with $\dom(\nabla_{\cW}) = \cW$. 
 The domain of the operator $\Delta_{g,\cW}$ is then given by
-$$\dom(\Delta_{g,\cW}) = \set{u \in \cW: \modulus{\inprod{\nabla u, \nabla v}} \lesssim C_u \norm{v}\ \forall v \in \cW}.$$
+$\dom(\Delta_{g,\cW}) = \set{u \in \cW: \modulus{\inprod{\nabla u, \nabla v}} \lesssim C_u \norm{v}\ \forall v \in \cW}.$
 \end{defn}
 
 By construction, the  operators $\Delta_{g,\cW}$ 
@@ -317,11 +334,11 @@ Rather, this operator is constructed via the first and second representation
 theorems, Theorems 2.1 and 2.23 in Chapter IV in \cite{Kato}, on considering the   
 energy $\sE_{g,\cW}(u,v) = \inprod{\nabla u, \nabla v}$ 
 with $\dom(\sE_{g,\cW}) = \cW$ written exactly as we did for the smooth case.
-These are routine facts from operator theory in far more general 
-settings than what we consider here and these methods are exposited to 
+These are routine facts from operator theory that are valid in far greater generality 
+than what we consider here and these methods are exposited to 
 greater depths in \cite{Yosida, Kato}.
  
-Let us remark on why we work with the spaces \(\cW\). First, observe that the case of $\cW = \SobH[0]{1}(M)$
+Let us remark on why allow for the spaces \(\cW\). First, observe that the case of $\cW = \SobH[0]{1}(M)$
 yields the Dirichlet Laplacian
 and $\cW = \SobH{1}(M)$ yields the Neumann counterpart.
 However, beyond these two obvious choices, 
@@ -338,9 +355,9 @@ It is clear that $\Ck[c]{\infty}(\Omega) \subset \cW_{\Sigma}$ and
 it can be shown that $\cW_{\Sigma} \subset \SobH{1}(\Omega)$
 is a closed subset. 
 The interpretation here is that $\Sigma$ specifies Neumann boundary conditions whereas $\Omega \setminus \Sigma$
-specifies Dirichlet boundary conditions. Therefore
-these are mixed boundary value problems as considered
-by  Axelsson (Rosén), Keith and McIntosh in \cite{AKM2}.
+specifies Dirichlet boundary conditions. 
+These are the so-called mixed boundary value problems 
+introduced to us through \cite{AKM2}.
 
 \subsection{The Heat Equation}
 
@@ -371,12 +388,15 @@ Since $\Ck{\infty}(M) \subset \Lp{2}(M)$ this notion of solution is stronger tha
 \section{Existence and positivity of the heat kernel}
 
 \begin{defn}[Heat kernel]
-A separably measurable symmetric map $\hk^{g,\cW}_{\mdot}: \R_+ \times M \times M \to \R$ is a heat kernel if for every $u \in \Ck{1}(\R_+, \cW)$, a solution to the Dirichlet heat equation $\partial_t u = \Delta_{g,\cW}$ with initial data $u_0 \in \Lp{2}(M)$, we have
+A separably measurable map $(t,x,y) \mapsto \hk^{g,\cW}_{t}(x,y): \R_+ \times M \times M \to \R$, 
+almost-everywhere symmetric in $(x,y)$, is a heat kernel 
+if for every $u \in \Ck{1}(\R_+, \cW)$, a solution to the Dirichlet heat equation 
+$\partial_t u = \Delta_{g,\cW}$ with initial data $u_0 \in \Lp{2}(M)$, we have
 \[
 u(t,x) = \int_{M} \hk^{g,\cW}_t(x,y) u_0(y)\ d\omega_g(y)
 \]
 and
-$\lim_{t \to 0} \hk_t^{g,\cW}(\mdot,y) \to \delta(y)$ in the sense of distributions where $\delta(y)$ is the Dirac-delta distribution.
+$\lim_{t \to 0} \hk_t^{g,\cW}(\mdot,y) \to \delta_y$ in the sense of distributions where $\delta_y$ is the Dirac-delta distribution at $y$.
 \end{defn}
 
 In the case of a smooth metric $g$, a typical construction for
@@ -398,16 +418,14 @@ is known for smooth complete $g$ with
 uniform lower bounds on Ricci curvature) and more seriously, the following
 Varadhan's asymptotics may fail: 
 $d^2(x,y) = \lim_{t \to 0} 4t \log \hk^{\min}_t(x,y)$.
-This is a motivating factor for this paper as mentioned in the 
-introduction.
 
 Consequently, we can instead consider heat kernels
-associated to the operator $\Delta_{g,\cW}$ in $\Lp{2}$
+associated to the operator $\Delta_{g,\cW}$ in $\Lp{2}(M)$
 via the Riesz representation theorem as described in Theorem 
 5.2.1 in \cite{Davies}. As aforementioned, in the smooth case,
 at least for the heat kernel corresponding to the 
-Dirichlet Laplacian, we obtain the desired  Varadhan's
-asymptotics.  
+Dirichlet and Neumann Laplacian, we obtain the desired  Varadhan's
+asymptotics. See the discussion on page 107 in \cite{ERS} for details.
 
 There is a large class of rough metrics
 for which we know that the heat kernel exists
@@ -421,7 +439,7 @@ Moreover, a calculation gives
 that $\hk^{g}_t(x,y) = \hk^{h}_t(\psi(x), \psi(y))$
 (or more generally for $\hk^{g,\cW}_t(x,y)$). 
 On combining the fact that $\hk^h_t$ satisfies
-Varadhan's formula, it is easy to see that
+Varadhan's formula, it is easy to see
 so does $\hk^{g}_t$. In fact, we 
 note that $\hk^g_t \in \Ck{0,1}(M \times M)$,
 which is of higher regularity than we
@@ -433,9 +451,9 @@ to our setting. Due to the more general
 nature of our problem, we are forced to 
 establish a number of a priori facts which 
 are more or less immediate in the smooth case.
-What we present here was initially adapted for the
-compact case in \cite{BRough}, but further analysis
-has shown that we can make it work in the general.
+What we present here was initially adapted from \cite{SC} 
+for the compact case in \cite{BCont}, but 
+the analysis we present here shows it can be made to work more generally. 
 
 The fundamental estimate we
 require is the following \emph{weak Harnack-type inequality}.
@@ -478,11 +496,12 @@ understood in an almost-everywhere sense.
 \item For $u \in \Ck{\infty}$, it is readily verified that 
 	$\modulus{ \nabla \modulus{u}} \leq \modulus{ \nabla u}.$
 	In particular, this means that 
-	for $u \in \Ck{\infty} \intersect \cW$
-	$\norm{\nabla \modulus{u}} = \norm{\nabla u},$
+	for $u \in \Ck{\infty} \intersect \cW$,
+	the inequality
+	$\norm{\nabla \modulus{u}} \leq \norm{\nabla u}$ holds
 	and therefore, whenever $u \in \cW$
-	we have that $\modulus{u} \in \cW$ 
-	with this estimate holding.
+	we obtain $\modulus{u} \in \cW$ 
+	with this estimate for such a $u$.
 
 \item 	By construction $\dom(\sqrt{\Delta_{g, \cW}}) = \cW$
 	and $\norm{\sqrt{\Delta_{g,\cW}} f} = \norm{\nabla f}$
@@ -534,36 +553,27 @@ understood in an almost-everywhere sense.
 	for every $f \in \Lp{2}(M)$ and therefore, by the Riesz Representation theorem,
 	we obtain, for each fixed \((t, x)\), an $a_{t,x} \in \Lp{2}(M)$ such that
 	$$ e^{-t \Delta_{g,\cW}}f(x) = \inprod{a_{t,x},f} = \int_{M} a_{t,x}(y)f(y)\ d\omega_g(y)$$
-        for every \(f \in \Lp{2}\). Because \(t \mapsto e^{-\Delta t} f\) is a continuous semi group mapping \(\Lp{2} \to \Lp{2}\) we have that \(x \mapsto a_{t,x}\) is measurable and hence \((t, x) \mapsto a_{t,x}\) is measurable.
+        for every \(f \in \Lp{2}\). Because \(t \mapsto e^{-\Delta t} f\) is a continuous semigroup mapping 
+	\(\Lp{2}(M) \to \Lp{2}(M)\), we have that \(x \mapsto a_{t,x}\) is measurable for each $t > 0$.
+	In fact, \((t, x) \mapsto a_{t,x}\) is jointly measurable by Lemma 4.51 in \cite{AB}.
 
-\item We now may define the symmetric function,
+\item We now define the symmetric function,
   $$\hk^{g,\cW}_t(x,y) := \inprod{a_{\frac{t}{2}, x}, a_{\frac{t}{2}, y}}$$
         We claim that \(\hk^{g,\cW}\) is a heat kernel: we use the by the semigroup property and self adjointness of \(e^{-t\Delta_{g,\cW}}\). For clarity, let us write \(\inprod{f(y), g(y)}\) to denote that the integration is over the \(y\) variable. Then we have
 	\[
         \begin{split}
-        (e^{-t \Delta_{g,\cW}}f) (x) &= e^{-\frac{t}{2} \Delta_{g,\cW}} (e^{-\frac{t}{2} \Delta_{g,\cW}} f) (x) = \inprod{a_{t,x} (y), e^{-\frac{t}{2} \Delta_{g,\cW}} f (y)} \\
-        &= \inprod{e^{-\frac{t}{2} \Delta_{g,\cW}} a_{t,x} (y), f (y)} = \inprod{\inprod{a_{t,y}(z), a_{t,x}(z)}, f(y)} \\
-        &= \inprod{\hk^{g,\cW}_t(x,y), f(y)}.
+        (e^{-t \Delta_{g,\cW}}f) (x) &= e^{-\frac{t}{2} \Delta_{g,\cW}} (e^{-\frac{t}{2} \Delta_{g,\cW}} f) (x) = \inprod{a_{t,x}, e^{-\frac{t}{2} \Delta_{g,\cW}} f} \\
+        &= \inprod{e^{-\frac{t}{2} \Delta_{g,\cW}} a_{t,x}, f} = \inprod{\inprod{a_{t,\cdot}, a_{t,x}}, f} \\
+        &= \inprod{\hk^{g,\cW}_t(x,\cdot), f}.
         \end{split}
         \]
         Next, since $e^{-t \Delta_{g,\cW}}$	is positive preserving, $\hk_t^{g,\cW}$ is real-valued. Moreover, since $\lim_{t\to 0} e^{-t\Delta_{g,\cW}}f = f$ in $\Lp{2}$, we have that $\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$ in the sense of distributions.
 
-        To finish showing that $\hk^{g,\cW}_t$ is indeed the heat kernel, we verify separable measurability. Continuity of the semigroup \(e^{-t\Delta}\) implies the map \(t \mapsto e^{-t \Delta} f\) is continuous and hence for each fixed \(x\),
-        \[
-        t \mapsto e^{-t\Delta_{g,\cW}} f (x) = \inprod{a_{t,x}, f}
-        \]
-        is continuous. Composing with the diagonal map on \(t\), we see that for fixed \(x,y\), choosing \(f = a_{t,y}\) we have
-        \[
-        t \mapsto \rho_t(x, y) = \inprod{a_{t,x}, a_{t,y}}
-        \]
-        is continuous.
-
-        Next, by self-adjointness, we have that for each \(t\), $e^{-t \Delta_{g,\cW}}$
-	is a bounded self-adjoint operator on \(\Lp{2}\) so that for any \(f \in \Lp{2}\),
-        \[
-        x \mapsto (e^{-t \Delta_{g,\cW}} f) (x) = \inprod{a_{t,x}, f}
-        \]
-        is in \(\Lp{2}\). Hence \(\rho_t(x, y)\) is measurable separately in both \(x\) and \(y\) by choosing \(f = a_{t,y}\) for measurability in \(x\) and using the symmetry of \(\rho_t\) for measurability in \(y\).
+        By definition of the semigroup and $a_{t,x}$, we have that $x\mapsto e^{\Delta_{g,\cW}}f(x) = \inprod{a_{t,x},f} \in \Lp{2}(M)$
+	and hence measurable in $x$ for each $f$. 
+	On choosing \(f = a_{t,y}\), we obtain 
+	measurability in \(x\) and symmetry of \(\rho_t\) yields measurability in \(y\),
+	which shows that \(\rho_t(x, y)\) is measurable separately in both \(x\) and \(y\). 
 
 \item Lastly, we show that $\hk^{g,\cW}_t(x,y) > 0$  almost-everywhere.
 	We reason by contradiction so assume that there
@@ -574,16 +584,18 @@ understood in an almost-everywhere sense.
 	$k$ for which $B = A \intersect \union_{n=1}^k \Omega_k$ 
 	satisfies $0 < \omega_g(B) < \infty$. Then,
 	we have that $\ind{B} \in \Lp{2}(M)$ and 
-	on using the self-adjointness of $\Delta_{g,\cW}$,
+	on using the self-adjointness of $e^{-t\Delta_{g,\cW}}$ as a consequence 
+	of the self-adjointness of $\Delta_{g,\cW}$,
 	we note
 	\begin{multline*}  
 	\norm{e^{-\frac{t}{2} \Delta_{g,\cW}}\ind{B}}^2 
+		 = \inprod{e^{-\frac{t}{2} \Delta_{g,\cW}} \ind{B}, e^{-{\frac{t}{2}}\Delta_{g,\cW} \ind{B}}}
 		 = \inprod{e^{-t \Delta_{g,\cW}} \ind{B},\ind{B}} \\
 		= \int_{B} \hk^{g,\cW}_t(x,y)\ind{B}(y)\ d\omega_g(y) + 
 			\int_{M \setminus B} \hk^{g,\cW}_t(x,y)\ind{B}(y)\ d\omega_g(y).
 	\end{multline*}
 	Now, note that the first integral vanishes
-	since we assume $\hk^{g,\cW}_t$ is $0$ on $B$
+	since we assume $\hk^{g,\cW}_t$ is $0$ on $A$ and since $B \subset A$, 
 	and the second since $\ind{B} = 0$ on $M \setminus B$.
 	Therefore, we find that $\norm{e^{-\frac{t}{2} \Delta_{g,\cW}} \ind{B}} = 0$.
 	This, along with the fact that we've shown $\hk^{g,\cW}_s(x,y) \geq 0$ 
@@ -593,10 +605,10 @@ understood in an almost-everywhere sense.
 	$\norm{e^{-\frac{t}{2^m} \Delta_{g,\cW}} \ind{B}} = 0$.
 	Thus, we have that $\lim_{s\to 0} e^{-s \Delta_{g,\cW}} \ind{B} = 0$, 
 	but by the non-negative self-adjointness of
-	$\Delta_{g,\cW}$, we know that $\lim_{s \to 0} e^{-t \Delta_{g,\cW}} u = u$
-	for any $u \in \Lp{2}(M)$. On applying this to $u = \ind{B}$, we
-	obtain that $\ind{B} = 0$ on a set of positive measure which is clearly false, 
+	$\Delta_{g,\cW}$, we know that $\lim_{s \to 0} e^{-t \Delta_{g,\cW}} \ind{B} = \ind{B}$.
+	But this implies that $\ind{B} = 0$ on a set of positive measure which is clearly false, 
 	and hence, to avoid contradiction, we conclude that $\hk^{g,\cW}_t(x,y) > 0$ almost everywhere.
+	\qedhere
 \end{enumerate} 
 \end{proof}
 
@@ -609,108 +621,22 @@ As we shall see in the next section, a stronger
 estimate is required for regularity of solutions. 
 \end{rem}
 
-%Lastly, in this section, we address the question of 
-%the positivity of the heat kernel. For that, 
-%we use the language of the convergence 
-%increasing self-adjoint non-negative operators.
-%We take inspiration for this proof
-%from the proof of Theorem 2.1.6 in \cite{Davies}
-%by Davies. 
-%
-%\begin{prop}
-%\label{prop:hkpos}
-%The heat kernel $\hk^{g,\cW}_t(x,y) > 0$ for almost every 
-%$x,\ y \in M$.
-%\end{prop}
-%\begin{proof}
-%Let $\Omega$ be a precompact open set in $M$ with $\partial \Omega$
-%smooth. Let $\Delta_{g,\cW,k} = \Delta_{g,\cW} + k \ind{M \setminus \Omega}$
-%and let $\sE_{g,\cW,k}$ be it associated sesquilinear
-%form, given by 
-%$$\dom(\sE_{g,\cW,k}) = \dom(\sqrt{\Delta_{g,\cW,k}}) 
-%	= \dom(\sqrt{\Delta_{g,\cW}}) = \cW,$$
-%and $\sE_{g,\cW,k}(u,v) = \inprod{\sqrt{\Delta_{g,\cW,k}} u, \sqrt{\Delta_{g,\cW,k}}v}$. 
-%
-%Recall that the limiting form exists by Theorem 1.2.2 
-%in \cite{Davies} and is given by: 
-%$u \in \dom(\sE_{g,\cW,\infty})$ if and only if
-%$\sE_{g,\cW,\infty}(u,u) = \lim_{k\to\infty} \sE_{g,\cW,k}(u,u) < \infty$. 
-%To compute this domain, take $u \in \Ck{\infty}(M) \intersect W$
-%and 
-%\begin{multline*} 
-%\sE_{g,\cW,k}(u,u) = \norm{\sqrt{\Delta_{g,\cW,k}}u}^2
-%	= \inprod{\Delta_{g,\cW,k}u,u} \\
-%	= \norm{\nabla u^2} + k \inprod{\ind{M \setminus \Omega} u, u}
-%	= \norm{\nabla u^2} + k \norm{\ind{M \setminus \Omega} u}^2.
-%\end{multline*}
-%Now, by the characterisation of $\dom(\sE_{g,\cW,\infty})$
-%we see that we must have $u = 0$ on $M \setminus \Omega$,
-%and since $\cW \subset \SobH{1}(M)$, we have that
-%$u\rest{\Omega} \in \SobH[0]{1}(\Omega)$. 
-%Since we've established that $e^{-t{\Delta_{g,\cW}}}$
-%is positive preserving, we similarly have that 
-%$e^{-t {\Delta_{g,\cW,k}}}$ is positive preserving
-%by repeating the argument in Proposition \ref{prop:MainRed}
-%noting that 
-%$\norm{\sqrt{\Delta_{g,\cW,k}}u}^2 
-%	= \norm{\nabla u^2} + k \norm{\ind{M \setminus \Omega} u}^2$
-%and hence, for $f \geq 0$ with $f \in \Lp{2}(M)$,
-%$ e^{-t{\Delta_{g,\cW,k}}}f \leq e^{-t{\Delta_{g,\cW}}}f.$
-%Taking limits, we obtain that 
-%$$e^{-t{\Delta_{g,\SobH[0]{1}(\Omega)}}}f
-%	\leq e^{-t{\Delta_{g,\cW}}}f,$$
-%where the left hand expression is extended
-%to the whole of $M$ by $0$ 
-%and $\Delta_{g,\SobH[0]{1}(\Omega)}$ is the Dirichlet
-%Laplacian inside $\Omega$.
-%\note{We need to ensure that this limit exists 
-%for the exponential, find a citation or justify 
-%why we can do this. Davies does a similar thing in Theorem 2.1.6}
-%
-%Now, since we assumed that $\Omega$ is precompact,
-%there exists a smooth metric $h$ such that
-%$g(u,v) = h(Au,v)$ with $A \in \Lp{\infty}(T^{1,1}M, h)$
-%and $d\omega_g = \sqrt{\det A} d\omega_h$.
-%Therefore, we have that
-%$$ \norm{\nabla  u}_{\SobH[0]{1}(\Omega,h)} 
-%	\lesssim \norm{\nabla u}_{\SobH[0]{1}(\Omega,g)}
-%	\lesssim \norm{\nabla u}_{\SobH[0]{1}(\Omega,h)},$$
-%and so we have 
-%\begin{multline*}
-%\set{0} = \nul(\Delta_{h, \SobH[0]{1}(\Omega,h)}) 
-%	= \nul\cbrac{\sqrt{\Delta_{h, \SobH[0]{1}(\Omega,h)}}} \\
-%	= \nul\cbrac{\sqrt{\Delta_{g, \SobH[0]{1}(\Omega,g)}}}
-%	= \nul(\Delta_{g, \SobH[0]{1}(\Omega,g)}).
-%\end{multline*}
-%Moreover, we have that 
-%the first eigenvalues of the Laplacians satisfy
-%$$0 < \lambda_1(\Delta_{h,\SobH[0]{1}(\Omega,h)}) \leq 
-%	C' \lambda_1(\Delta_{g, \SobH[0]{1}(\Omega,g)})$$
-%where the constant $C' > 0$ depends on $A$
-%and hence, we have that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega,h)}}\ind{\Omega} > 0$.
-%Since we know that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega,h)}}$
-%is positive preserving, this proves
-%the claim.
-%\note{Check through this argument, make sure it holds water.}
-%\end{proof}  
-
 \section{The Harnack inequality}
 \label{sec:harnack}
 
 In this section, we demonstrate that a
 stronger form of the  Harnack 
 estimate than \eqref{eq:Harnack} holds for rough 
-metrics. The estimate \eqref{eq:Harnack} 
-will then be a consequence of this estimate.
+metrics for which  \eqref{eq:Harnack} is a consequence.
 To describe this estimate, fix a collection of 
-locally comparable charts $\psi_x:V_x \to \R^n$ denote
+locally comparable charts $\psi_x:V_x \to \R^n$ 
 for each $x \in M$ such that $\psi_x(V_x) = B_{r_x}$,
 where $B_{r_x}$ is a ball of radius $r_x > 0$. 
 Then, let
 $\delta_x(\cdot, \cdot) = \pullb{\psi_x}\delta(\cdot, \cdot)_{\R^n}$
 denote the pullback metric with $\Leb_x = \pullb{\psi_x}\Leb$
 and $d_x(y,y') = \modulus{\psi_x(y') - \psi_x(y)}_{\R^n}$.
-Recall that there is a $C_x \geq $
+Recall that there is a $C_x \geq 1$
 with $C_x^{-1}  \modulus{u}_{\delta_x} \leq \modulus{u}_g \leq C_x \modulus{u}_{\delta_x}$
 almost-everywhere in $V_x$.
 
@@ -726,16 +652,14 @@ Q^+_{(x,t)}(\kappa, \tau, \epsilon) &= \set{(y,s) \in V_x \times (\kappa,\tau): 
 \end{split}
 \end{equation}
 
-Now, assume that $u(\cdot, \cdot): M \times \R_+$ 
-is a solution to the $\Delta^{g,\cW}$ heat equation.
-Moreover, let $g(u,v) = \delta_x(A_x u,v)$
+Let $g(u,v) = \delta_x(A_x u,v)$
 and $a_x = \sqrt{\det A_x}$ so that
 $\omega_x(y) = a_x(y)d\Leb_x(y)$, and note
 that:
 \begin{equation}
 \label{eq:constbd}
 \begin{split}
-&C_x^{-2} \modulus{u}_{\delta_x} \leq \delta_x(A_x u, u) \leq C_x^2 \modulus{u}_{\delta_x} \\
+&C_x^{-2} \modulus{u}_{\delta_x}^2 \leq \delta_x(A_x u, u) \leq C_x^2 \modulus{u}_{\delta_x}^2 \\
 &C_x^{-\frac{n}{2}} \leq a_x \leq C_x^{\frac{n}{2}}.
 \end{split}
 \end{equation}
@@ -743,7 +667,8 @@ See Section 3.3 in \cite{BRough} for details.
 
 \begin{lemma}[Localisation Lemma]
 \label{eq:soln1}
-The solution $u$ satisfies the following: for all $v \in \SobH[0]{1}(V_x,g)$, 
+Let $u(\cdot, \cdot): M \times \R_+$  be a a solution to the $\Delta^{g,\cW}$ heat equation.
+Then, for all $v \in \SobH[0]{1}(V_x,g)$, 
 	\begin{equation} 
 	\label{eq:testfn1}	 
 	\inprod{a_x \partial_t u, v}_{\Lp{2}(V_x, \delta_x)} 
@@ -758,7 +683,7 @@ C_x^{-2} a_x \modulus{\xi}_{\delta_x}^2 \leq \delta_x(B_x \xi, \xi)
 for every $\xi \in T_xM$ and almost everywhere in $V_x$. 
 \end{lemma}
 \begin{proof}
-Since the solution $u \in \dom(\Delta_{g,\cW}) \subset \Lp{2}(M)$, we
+Since for $t > 0$ the solution $u \in \dom(\Delta_{g,\cW}) \subset \Lp{2}(M)$, we
 note that in particular, for any $v \in \Ck[c]{\infty}(M)$, 
 $\inprod{\partial_t u, v} = \inprod{\nabla u, \nabla v}$.
 Choosing $\spt v \subset V_x$, we note that $\inprod{\cdot, v} = \inprod{\cdot, v}_{\Lp{2}(V_x,g)}$
@@ -779,7 +704,7 @@ The estimate on $B_x$ follows immediately from
 
 The Harnack inequality we prove is the following. We provide two proofs of this result, 
 the first proof simply on noting that we can deduce this from noting that the results
-of \cite{SC} localise, and the second from degenerate parabolic PDE methods of \cite{CS}.
+of \cite{SC} localise, and the second from degenerate parabolic equation results of \cite{CS}.
 
 \begin{thm}
 \label{thm:Harnack}
@@ -816,9 +741,9 @@ that the Ricci curvature of $h$ is bounded below
 by a uniform constant. 
 In fact, this procedure also works 
 for rough metrics $g$ which 
-are uniformly close to some metric $h$ with 
+are uniformly close to some complete metric $h$ with 
 lower bound on Ricci curvature in the sense
-we have just written.
+we have just written, rather than having to assume compactness.
 
 We emphasise that the goal in \cite{SC}
 is to quantify the constants $C(t,U_x)$
@@ -827,13 +752,9 @@ the ability to control these constants. However, as
 Proposition \ref{prop:MainRed} illustrates, this is not necessary 
 in order to obtain the existence of the heat kernel.
 Quantifying such estimates is, however, still 
-extremely important and useful when it can be done.
-For instance, Proposition \ref{prop:MainRed} 
-only asserts that $\hk^{g}_t \in \Ck{0}(M \times M)$
-but if $g$ was uniformly close to a $h$
-with a lower bound on its Ricci curvature, then
-there would exist an $\alpha$ depending on this bound
-with $\hk^{g}_t \in \Ck{\alpha}(M \times M)$.
+extremely important and useful when it can be done, 
+since this can be used to obtain better global regularity for
+solutions than we do here.
 
 We now give a proof using the results of \cite{CS}.
 From here on, we assume that the dimension of $M$ is $3$ or greater. 
@@ -880,7 +801,7 @@ in detail, an excellent overview of this topic
 is contained in the thesis \cite{Kreuter}.
 
 As in \cite{CS}, for $T > 0$, define 
-$$ W(T) = \set{ w \in \Lp{2}( (0,T); \SobH[0]{1}(V_x,g): \partial_t w \in \Lp{2}((0,T); \Lp{2}(V_x, g)},$$
+$$ W(T) = \set{ w \in \Lp{2}( (0,T); \SobH[0]{1}(V_x,g)): \partial_t w \in \Lp{2}((0,T); \Lp{2}(V_x, g))},$$
 and let $W_0(T) = \set{ w \in W: w(0) = w(T) = 0}.$
 
 \begin{lemma}
@@ -908,18 +829,13 @@ shows that  $u_\kappa \in \Lp{2}((0, \tau - \kappa); \SobH{1}(V_x, g))$
 and that $\partial_t u_\kappa \in \Lp{2}((0,\tau - \kappa); \Lp{2}(V_x, g))$. 
 
 Moreover, note that $W(\tau- \kappa) \subset \SobH{1}((0,\tau-\kappa); \Lp{2}(V_x,g))$
-and therefore $\Ck{\infty}((0,\tau-\kappa); \Lp{2}(V_x,g)) \intersect W(\tau - \kappa)$
-is dense in $W(T)$ in the Sobolev norm. Therefore on 
-choosing such a $w$, as well as the fact that $w(0) = w(\tau - \kappa) = 0$, 
-by the fundamental theorem of calculus in the Banach 
+and since in particular $w(0) = w(\tau - \kappa) = 0$, by the fundamental theorem of calculus in the Banach 
 valued setting by Proposition 1.4.29, Corollary 1.4.31 and Corollary 1.4.37 in  \cite{CH}, we obtain that
-$$\int_{0}^{\tau - \kappa} \inprod{ \partial_t(a_x u_\kappa(t)), w(t)}_{\Lp{2}(V_x,g)}\ dt
-	= - \int_0^{\tau - \kappa} \inprod{a_x u_\kappa(t), \partial_t w(t)}_{\Lp{2}(V_x, g)}\ dt.$$
+$$\int_{0}^{\tau - \kappa} \inprod{ \partial_t(a_x u_\kappa(t)), w(t)}_{\Lp{2}(V_x,\delta_x)}\ dt
+	= - \int_0^{\tau - \kappa} \inprod{a_x u_\kappa(t), \partial_t w(t)}_{\Lp{2}(V_x, \delta_x)}\ dt.$$
 Also, the integral on the left is equal to:
-$$\int_{0}^{\tau - \kappa} \inprod{ \nabla u_\kappa(t), \nabla w(t)}\ dt$$
-and by the aforementioned density of
- $\Ck{\infty}((0,\tau-\kappa); \Lp{2}(V_x,g) \intersect W(\tau - \kappa)$ 
-in $W(\tau - \kappa)$ along with the fact that $\nabla u_\kappa \in \Lp{2}((0, \tau - \kappa); \Lp{2}(V_x,g))$,
+$$ \int_0^{\tau - \kappa}  \inprod{ B_x \nabla u_\kappa(t), \nabla v(t)}_{\Lp{2}(V_x, \delta_x)}$$
+and since  $\nabla u_\kappa \in \Lp{2}((0, \tau - \kappa); \Lp{2}(V_x,g))$,
 the proof is complete.
 \end{proof} 
 
@@ -1038,6 +954,10 @@ we obtain the precise form for $\alpha$.
 The passage from this to the Hölder estimate
 we have noted in the conclusion is immediate. 
 \end{proof}
+
+We conclude this paper by noting that the proof of Theorem \ref{Thm:Main}
+follows immediately upon collating the facts we have established
+in this paper.
 
 \printbibliography
 \end{document}
