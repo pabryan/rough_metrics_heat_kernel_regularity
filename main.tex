@@ -28,11 +28,11 @@
 \maketitle
 
 \begin{abstract}
-We consider rough metrics on smooth manifolds and corresponding Laplacians induced by such metrics.
-We demonstrate  that globally continuous heat kernels exist Hölder continuous locally space and time. 
-This is done by employing local Harnack estimates for weak
-solutions of divergence form elliptic equations
-with bounded measurable coefficients in weighted Sobolev spaces.
+We consider rough metrics on smooth (not necessarily compact) manifolds and corresponding Laplacians
+induced by such metrics. We demonstrate that globally continuous heat kernels exist with local
+Hölder continuity in space and time. This is done by Riesz representation methods, and employing
+local Harnack estimates for weak solutions of divergence form elliptic equations with bounded
+measurable coefficients in weighted Sobolev spaces.
 \end{abstract}
 
 \setcounter{tocdepth}{1}
@@ -250,7 +250,7 @@ We emphasise that this object is only dependent on the differentiable structure 
 Recall that in the classical setting of a smooth $g$,  the Laplacian acting on functions is given  via the expression $\Delta_g = - \tr_g \nabla^2$, where $\nabla^2 = \nabla^{T^\ast M} \comp \nabla$
 with $\nabla^{T^\ast M}$ the Levi-Civita connection of $g$ on \(T^{\ast} M\) and the trace is taken on the \((1,1)\) hessian obtained by metric contraction of the \((2, 0)\) hessian \(\nabla^2\). Equivalently, we obtain that  that \(\Delta_g = \grad_g^\ast \grad_g\) where \(\grad_g\) is the metric contraction of \(\nabla\).
 
-For rough metrics, or in fact, any metric below $\Ck{0,1}$, we have no notion of metric-compatibility (begin unable to differentiate such a metric), and hence the Levi-Civita connection is not generally defined. Therefore, we understand this operator in an appropriate weak sense as follows. 
+For rough metrics, or in fact, any metric below $\Ck{0,1}$, we have no notion of metric-compatibility (being unable to differentiate such a metric), and hence the Levi-Civita connection is not generally defined. Therefore, we understand this operator in an appropriate weak sense as follows. 
 
 First, we observe that for a rough metric $g$, the operator
 $\nabla_p := d_p: \Ck{\infty} \cap \Lp{p}(M) \to \Ck{\infty} \cap \Lp{p}(T^\ast M)$
@@ -292,7 +292,9 @@ where $\dom(\sE_g) = \SobH[0]{1}(M) = \SobH{1}(M)$.
 The operator $\Delta_g$ is now obtained via the so-called first and second representation 
 theorems, Theorems 2.1 and 2.23 in Chapter IV  in \cite{Kato}.
  
-Note that in our setup, $\nabla$ is independent of the geometry (i.e. the metric), but the energy is not. At the operator level, it is in taking the adjoint $\adj{\nabla}_g$ where the geometry becomes of consequence. Alternatively, defining the gradient, $\grad_g u =  (\nabla u)^\sharp = g(\nabla u, \cdot)$, we have by definition, $\sE_g(u,v) = \inprod{\grad_g u, \grad_g v}$. In this case, $\Delta_g = \adj{\grad}_g \close{\grad}_g$, and so we could equivalently define \(\Delta_g\) via \(\grad_g\). We prefer the former picture for the simple fact that in the latter picture, the metric information and topological information are intertwined whereas in our case we have two operators in which one which only depends on the differential structure (the exterior derivative $\nabla$) and the other on the geometry $g$ (the adjoint of the exterior derivative $\nabla^\ast_g$).
+Note that in our setup, $\nabla$ is independent of the geometry (i.e. the metric), but the energy is not. At the operator level, it is in taking the adjoint $\adj{\nabla}_g$ where the geometry becomes of consequence. Alternatively, defining the gradient, $\grad_g u =  (\nabla u)^\sharp = g(\nabla u, \cdot)$, we have by definition, $\sE_g(u,v) = \inprod{\grad_g u, \grad_g v}$. In this case, $\Delta_g = \adj{\grad}_g \close{\grad}_g$, and so we could equivalently define \(\Delta_g\) via \(\grad_g\). We prefer the former picture for the simple fact that in the latter picture, the metric information and topological information are intertwined whereas in our case we have two operators in which one which only depends on the differential structure (the exterior derivative $\nabla$) and the other on the geometry $g$ (the adjoint of the exterior derivative $\nabla^\ast_g$). In other words, there is a canonical
+operator, $\nabla$ arising from the smooth structure and \emph{each geometry (i.e. metric) determines an adjoint $\nabla^{\ast}_g$}.
+
 
 When $g$ fails to be complete, it may be that  
 $\SobH[0]{1}(M) \subsetneqq  \SobH{1}(M)$.
@@ -380,8 +382,8 @@ for almost every $x \in M$.
 \begin{rem}
 In the compact case with a smooth metric, ``a solution'' is often formulated to mean $u \in \Ck{\infty}( M \times (0, \infty))$
 with $\partial_t u(x,t) = -\tr \nabla^2 u(x,t)$ with 
-$\lim_{t \to 0} u(x,t) = u_0 \in \Ck[c]{\infty}(M)$.
-Since $\Ck{\infty}(M) \subset \Lp{2}(M)$ this notion of solution is stronger than our notion of solution.
+$\lim_{t \to 0} u(x,t) = u_0 \in \Ck{\infty}(M)$.
+Since $\Ck{\infty}(M) \subset \Lp{2}(M)$ this notion of solution is stronger than our notion of solution. Here, a solution is a $\Ck{1}$ map from $(0, \infty)$ to $\dom(\Delta_{g,\cW}) \subset \cW \subset \SobH{1}(M)$ with the initial condition attained in the $\Lp{2}(M)$ topology.
 \end{rem}
 
 \section{Existence and positivity of the heat kernel}
@@ -455,15 +457,16 @@ for the compact case in \cite{BCont}, but
 the analysis we present here shows it can be made to work more generally. 
 
 The fundamental estimate we
-require is the following \emph{weak Harnack-type inequality}.
+require is the following \emph{weak Harnack-type inequality} for positive solutions of the heat
+equation.
 \begin{itemize}
 \item[] At each $x \in M$ and $t > 0$, there exists a precompact
-open set $U_x$, a $\delta_t \geq 0$ and a constant $C = C(t, U_x)  > 0$ such that
+open set $U_x$, a $\delta_t > 0$ and a constant $C = C(t, U_x)  > 0$ such that
 \begin{equation}
 \tag{H}
 \label{eq:Harnack}
 \esssup_{y \in U_x} u(y,t) 
-	\leq \essinf_{y \in U_x} u(y, t + \delta_t)
+	\leq C \essinf_{y \in U_x} u(y, t + \delta_t)
 \end{equation}
 \end{itemize}
 
