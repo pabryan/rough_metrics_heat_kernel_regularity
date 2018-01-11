@@ -17,21 +17,38 @@
 \author{Lashi Bandara}
 \author{Paul Bryan}
 
+\address{Lashi Bandara, 
+Institut für Mathematik,
+Universität Potsdam, 
+D-14476, Potsdam OT Golm, Germany
+}
+\urladdr{\href{http://www.math.uni-potsdam.de/~bandara}{http://www.math.uni-potsdam.de/~bandara}}
+\email{\href{mailto:lashi.bandara@uni-potsdam.de}{lashi.bandara@uni-potsdam.de}}
+
+\address{Paul Bryan, 
+School of Mathematics and Physics
+The University of Queensland
+Brisbane QLD 4072, Australia
+}
+\urladdr{\href{http://pabryan.github.io}{http://pabryan.github.io/}}
+\email{\href{mailto:paul.bryan@uq.edu.au}{paul.bryan@uq.edu.au}}
+
+
 \curraddr{}
 \email{}
 \date{\today}
 
 \dedicatory{}
-\subjclass[2010]{}
-\keywords{}
+\subjclass[2010]{58J35, 35K10, 58B20}
+\keywords{Rough metrics, parabolic Harnack estimate, heat kernel}
 
 \maketitle
 
 \begin{abstract}
 We consider rough metrics on smooth (not necessarily compact) manifolds and corresponding Laplacians
-induced by such metrics. We demonstrate that globally continuous heat kernels exist with local
-Hölder continuity in space and time. This is done by Riesz representation methods, and employing
-local Harnack estimates for weak solutions of divergence form elliptic equations with bounded
+induced by such metrics. We demonstrate that globally continuous heat kernels exist and are Hölder continuous locally in space and time.
+This is done by Riesz representation methods, and employing
+local parabolic Harnack estimates for weak solutions of divergence form elliptic equations with bounded
 measurable coefficients in weighted Sobolev spaces.
 \end{abstract}
 
@@ -48,10 +65,10 @@ measurable coefficients in weighted Sobolev spaces.
 The existence and regularity of heat kernels on smooth manifolds with smooth metrics, compact or noncompact, 
 is now a matter of classical fact. 
 However, it is also useful and interesting to consider this problem on
-metrics with non-smooth, and even discontinuous coefficients since such 
-metrics can arise naturally.  The prototypical example of discontinuous coefficients
-is when the metric tensor is given as a pullback of a smooth metric under a 
-lipeomorphism. Such a metric will in general possess measurable
+metrics with non-smooth, and even discontinuous coefficients. 
+Such metrics can arise naturally and the prototypical example 
+is when the metric tensor is obtained as a pullback of a smooth metric under a 
+Lipeomorphism. A metric of this form will in general possess measurable
 coefficients.
 
 Indeed, there has been some progress in this direction,
@@ -63,22 +80,23 @@ low regularity metrics called \emph{rough metrics},
 which by definition, have only measurable coefficients, and are Riemannian-like in the sense
 that they are locally comparable almost-everywhere to a smooth Riemannian metric (see \Cref{defn:rough_metric}).
 These metrics became of interest in \cite{BMc, BRough} as they constitute geometric invariances of the Kato square
-root problem, particularly in the non-compact setting. 
+root problem. They are particularly significant in the noncompact setting.  
 In the compact case, these metrics were used to study regularity properties
 of a geometric flow, weakly tangential to the Ricci flow, 
 in \cite{BLM, BCont}.
 
-Unlike the classical counterparts, we are not able
-to construct distances via the length functional since 
+Unlike their classical, smooth counterparts, we are not able
+to construct distances for rough metrics via the length functional as 
 this is not a well defined device in this setting.
 Nevertheless, rough metrics induce a Borel measure $\omega_g$ and we can define energies by the use 
 of the exterior derivative. Consequently,  they give rise to natural Laplacians as self-adjoint operators.
 
 The underlying manifolds we consider are smooth (topologically), 
-the exterior derivative of \(C^{\infty}\) differential forms is defined, and is closable 
+the exterior derivative of \(C^{\infty}\) functions (and  differential forms)
+ is defined, and is closable 
 in $\Lp{2}(M)$, allowing us to construct Sobolev spaces $\SobH{1}(M)$
 and $\SobH[0]{1}(M)$. The
-former space is the  energy for the Neumann Laplacian
+former space is the energy space for the Neumann Laplacian
 and the latter for the Dirichlet counterpart.
 More generally, we can consider a closed subspace $\cW$ of $\SobH{1}(M)$
 satisfying $\SobH[0]{1}(M) \subset \cW \subset \SobH{1}(M)$
@@ -94,8 +112,8 @@ is the following.
 On a smooth manifold \(M\), equipped with a rough metric \(g\), 
 and a subspace $\SobH[0]{1}(M) \subset \cW \subset \SobH{1}(M)$
 with $\Ck{\infty} \intersect \cW$ dense in $\cW$, 
-there exists a heat kernel \(\hk_t^{g,\cW}\), such that
-\begin{enumerate}
+there exists a heat kernel \(\hk_t^{g,\cW}\) satisfying:  
+\begin{enumerate}[(i)] 
 \item \(\hk_t^{g,\cW} > 0\) for \(t > 0\),
 \item on a parabolic cylinder \(Q = K \times [t_1, t_2]\) with \(0 < t_1 < t_2\), \(K \subseteq M\) is compact, there exists an \(\alpha = \alpha(Q)\) so that \(\hk_t^{g,\cW} \in C^{\alpha}(K \times K)\) for \(t_1 \leq t \leq t_2\).
 \end{enumerate}
@@ -114,35 +132,35 @@ distance structure.
 The treatment of heat kernels on smooth manifolds with smooth metrics 
 usually proceed by constructing
 a so-called \emph{minimal} heat kernel via local-to-global methods.
-However, additional assumptions, such as lower bound on Ricci curvature,
-is required in order to obtain its uniqueness  (see \cite{Chavel}).
+However, additional assumptions, typically on curvature,
+are required in order to obtain its uniqueness  (see \cite{Chavel}).
 More seriously, the following Varadhan's formula
 $$ d^2(x,y) = \lim_{t \to 0} 4 t \log \hk_t(x,y)$$
 may fail for this minimal heat kernel. 
 In this classical setting, (or even for certain classes of 
 metric spaces), it is well known that Varadhan's formula holds for the heat 
-kernel corresponding to Dirichlet and Neumann Laplacians 
+kernels corresponding to the Dirichlet and Neumann Laplacians 
 (see  \cite{Norris, ERS}).
 
 As aforementioned, the results of \cite{Norris, ERS} 
-are similar to our although the methods are different. 
-Our method is somewhat simpler and the 
-idea is construct the global heat kernel
-via Riesz representation methods, a method made known to us from 
-\cite{Davies} in the classical setting. However, our setting
-is more general than that of \cite{Davies} and we need to obtain a certain 
-\emph{weak Harnack type estimate}, along with 
-some operator theoretic facts, in order to employ this method.
+are similar to ours although their methods are different. 
+Our approach is somewhat simpler with the key 
+idea being to construct a global heat kernel
+via the Riesz representation theorem, a perspective made known to us from 
+\cite{Davies} in the smooth setting. However, given the generality of our setting,
+ we require a certain 
+weak Harnack type estimate, along with 
+some operator theoretic facts, for this technique to succeed.
 
 This approach to constructing a heat kernel was used previously in  
 \cite{BCont} where the manifold was assumed to be compact,  and 
 the existence and regularity of the heat kernel was
-reduced to \emph{Harnack estimates} for divergence form operators
+reduced to \emph{parabolic Harnack estimates} for divergence form operators
 with bounded measurable coefficients against a smooth background. 
 The required estimates
 were obtained by observing that  
 the rough metric is globally comparable to a smooth one,
-due to the compactness of the underlying manifold and
+due to the compactness of the underlying manifold, and
 through the  results  in \cite{SC}.
 In our situation,  we cannot argue in this way without imposing
 severe restrictions. Thus, we demonstrate
@@ -152,15 +170,17 @@ hold in our setting.
 
 \section*{Acknowledgements}
 
-The first author was supported by Knut and Alice Wallenberg foundation, KAW 2013.0322 
-postdoctoral program in Mathematics for researchers from outside Sweden, and from SPP2026 
+The first author was supported by the Knut and Alice Wallenberg foundation, KAW 2013.0322 
+postdoctoral program in Mathematics for researchers from outside Sweden, and from  SPP2026 
 from the German Research Foundation (DFG).
-The second author would like to support the University of Queensland and Joe Grotowski.
+The second author was 
+supported by the  EPSRC on a Programme Grant entitled ``Singularities of Geometric Partial Differential Equations'' 
+reference number EP/K00865X/1 as well as the University of Queensland and Joe Grotowski.
 Both authors would like to thank Warwick University where this project began as
 well as Kaj Nyström for his useful comments.
-Moreover, both authors would like to also acknowledge the gracious support of the first author's 
-parents Jayanthi and Mano Bandara for providing a week of curry and hospitality during the finishing phases
-of this paper as well as the  Orbost hotel in Victoria for their beer and ambience. 
+Moreover, they would like to acknowledge the gracious support of the first author's 
+parents, Jayanthi and Mano Bandara, for providing a week of curry and hospitality during some of the crucial 
+phases of this paper, along with the Orbost Hotel in Victoria for their beer and ambience. 
 
 \section{Rough Metrics}
 \label{sec:rough_metrics}
@@ -169,8 +189,7 @@ As far as the authors are aware, the term ``rough metric'' as used in the curren
 was coined in \cite{BRough} as they were 
 recognised to be the geometric invariances of the Kato square root problem.
 We emphasise here that similar notions existed implicitly in the 
-literature  in \cite{Norris} 
-and \cite{SC}.
+literature  in \cite{Norris,SC}.
 We recall the most important aspects of rough metrics here. 
 A more detailed exposition can be found in Section 3 in \cite{BRough}.
 
@@ -346,7 +365,7 @@ However, beyond these two obvious choices,
 there are many interesting spaces $\cW$ that
 can be considered. These are best
 seen emerging from boundary value problems.
-As a guiding example, let $\Omega \subset \R^n$
+As a guiding example, let $M = \Omega \subset \R^n$
 be a smooth (or Lipschitz) bounded domain, and let $\Sigma \subset \partial \Omega$
 be an open subset of the boundary $\partial \Omega$.
 On letting $\Tr: \SobH{1}(\Omega) \to \SobH{\frac{1}{2}}(\partial \Omega)$
@@ -391,8 +410,8 @@ Since $\Ck{\infty}(M) \subset \Lp{2}(M)$ this notion of solution is stronger tha
 \begin{defn}[Heat kernel]
 A separably measurable map $(t,x,y) \mapsto \hk^{g,\cW}_{t}(x,y): \R_+ \times M \times M \to \R$, 
 almost-everywhere symmetric in $(x,y)$, is a heat kernel 
-if for every $u \in \Ck{1}(\R_+, \cW)$, a solution to the Dirichlet heat equation 
-$\partial_t u = \Delta_{g,\cW}$ with initial data $u_0 \in \Lp{2}(M)$, we have
+if for every $u \in \Ck{1}(\R_+, \cW)$, a solution to the heat equation 
+$\partial_t u = \Delta_{g,\cW}u$ with initial data $u_0 \in \Lp{2}(M)$, we have
 \[
 u(t,x) = \int_{M} \hk^{g,\cW}_t(x,y) u_0(y)\ d\omega_g(y)
 \]
@@ -445,6 +464,11 @@ so does $\hk^{g}_t$. In fact, we
 note that $\hk^g_t \in \Ck{0,1}(M \times M)$,
 which is of higher regularity than we
 obtain for general rough metrics.
+More generally, \cite{Norris} constructs
+distances on Lipschitz manifolds with our
+notion of rough metrics for which this 
+formula holds, and \cite{ERS} examines
+this problem in even greater generality.
 
 In what follows, we adapt the key idea in 
 the proof of Theorem 5.2.1 in \cite{Davies}
@@ -461,12 +485,12 @@ require is the following \emph{weak Harnack-type inequality} for positive soluti
 equation.
 \begin{itemize}
 \item[] At each $x \in M$ and $t > 0$, there exists a precompact
-open set $U_x$, a $\delta_t > 0$ and a constant $C = C(t, U_x)  > 0$ such that
+open set $U_x$, a $\delta_t \geq 0$ and a constant $C(t, U_x)  > 0$ such that
 \begin{equation}
 \tag{H}
 \label{eq:Harnack}
-\esssup_{y \in U_x} u(y,t) 
-	\leq C \essinf_{y \in U_x} u(y, t + \delta_t)
+\esssup_{y \in U_x} u(y,t)
+	\leq C(t, U_x)  \essinf_{y \in U_x} u(y, t + \delta_t)
 \end{equation}
 \end{itemize}
 
@@ -561,7 +585,7 @@ understood in an almost-everywhere sense.
 
 \item We now define the symmetric function,
   $$\hk^{g,\cW}_t(x,y) := \inprod{a_{\frac{t}{2}, x}, a_{\frac{t}{2}, y}}$$
-        We claim that \(\hk^{g,\cW}\) is a heat kernel: we use the by the semigroup property and self adjointness of \(e^{-t\Delta_{g,\cW}}\). For clarity, let us write \(\inprod{f(y), g(y)}\) to denote that the integration is over the \(y\) variable. Then we have
+        We claim that \(\hk^{g,\cW}\) is a heat kernel: we use the by the semigroup property and self adjointness of \(e^{-t\Delta_{g,\cW}}\). For clarity, let us write \(\inprod{f(\cdot), g(\cdot)}\) to denote that the integration is over the \(\cdot\) variable. Then we have
 	\[
         \begin{split}
         (e^{-t \Delta_{g,\cW}}f) (x) &= e^{-\frac{t}{2} \Delta_{g,\cW}} (e^{-\frac{t}{2} \Delta_{g,\cW}} f) (x) = \inprod{a_{t,x}, e^{-\frac{t}{2} \Delta_{g,\cW}} f} \\
@@ -569,7 +593,7 @@ understood in an almost-everywhere sense.
         &= \inprod{\hk^{g,\cW}_t(x,\cdot), f}.
         \end{split}
         \]
-        Next, since $e^{-t \Delta_{g,\cW}}$	is positive preserving, $\hk_t^{g,\cW}$ is real-valued. Moreover, since $\lim_{t\to 0} e^{-t\Delta_{g,\cW}}f = f$ in $\Lp{2}$, we have that $\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$ in the sense of distributions.
+        Next, since $e^{-t \Delta_{g,\cW}}$	is positive preserving, $\hk_t^{g,\cW}$ is real-valued. Moreover, since $\lim_{t\to 0} e^{-t\Delta_{g,\cW}}f = f$ in $\Lp{2}(M)$, we have that $\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$ in the sense of distributions.
 
         By definition of the semigroup and $a_{t,x}$, we have that $x\mapsto e^{\Delta_{g,\cW}}f(x) = \inprod{a_{t,x},f} \in \Lp{2}(M)$
 	and hence measurable in $x$ for each $f$. 
@@ -615,7 +639,7 @@ understood in an almost-everywhere sense.
 \end{proof}
 
 \begin{rem}
-We note that the Harnack-type estimate that we assume is very 
+We note that the Harnack-type estimate \eqref{eq:Harnack} that we assume is very 
 weak, i.e., it is not defined on cylinders or even 
 parabolic cylinders. The proof shows that the existence 
 of the heat kernel only requires such an estimate. 
@@ -961,5 +985,10 @@ We conclude this paper by noting that the proof of Theorem \ref{Thm:Main}
 follows immediately upon collating the facts we have established
 in this paper.
 
-\printbibliography
+% Bibliography
+\bibliographystyle{amsalpha}
+\bibliography{main}
+
+\setlength{\parskip}{0mm}
+
 \end{document}
