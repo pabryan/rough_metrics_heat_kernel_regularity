@@ -1,8 +1,412 @@
 \documentclass[a4paper, 12pt]{amsart}
 %\usepackage{showkeys}
 
-\input{StandardPaper2.tex}
-\input{local_definitions.tex}
+%\usepackage{etoolbox}
+%\makeatletter
+%\let\ams@starttoc\@starttoc
+%\makeatother
+%\makeatletter
+%\let\@starttoc\ams@starttoc
+%\patchcmd{\@starttoc}{\makeatletter}{\makeatletter\parskip\z@}{}{}
+%\makeatother
+
+%\usepackage[parfill]{parskip}
+\usepackage{vmargin}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{bookmark}
+\usepackage{amsthm,thmtools,amssymb,amsmath,amscd,amsfonts}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+
+
+%\usepackage[bibstyle=alphabetic,citestyle=alphabetic,backend=bibtex]{biblatex}
+
+\usepackage{fancyhdr}
+\usepackage{esint}
+
+\usepackage{enumerate}
+
+\usepackage{pictexwd,dcpic}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+
+\declaretheorem[name=Theorem,numberwithin=section]{thm}
+\declaretheorem[name=Remark,style=remark,sibling=thm]{rem}
+\declaretheorem[name=Lemma,sibling=thm]{lemma}
+\declaretheorem[name=Proposition,sibling=thm]{prop}
+\declaretheorem[name=Definition,style=definition,sibling=thm]{defn}
+\declaretheorem[name=Corollary,sibling=thm]{cor}
+\declaretheorem[name=Assumption,style=remark,sibling=thm]{ass}
+\declaretheorem[name=Example,style=remark,sibling=thm]{example}
+
+
+\numberwithin{equation}{section}
+
+\usepackage{cleveref}
+\crefname{lemma}{Lemma}{Lemmata}
+\crefname{prop}{Proposition}{Propositions}
+\crefname{thm}{Theorem}{Theorems}
+\crefname{cor}{Corollary}{Corollaries}
+\crefname{defn}{Definition}{Definitions}
+\crefname{example}{Example}{Examples}
+\crefname{rem}{Remark}{Remarks}
+\crefname{ass}{Assumption}{Assumptions}
+\crefname{not}{Notation}{Notation}
+\crefname{section}{Section}{Sections}
+
+%Symbols
+\renewcommand{\~}{\tilde}
+\renewcommand{\-}{\bar}
+\newcommand{\bs}{\backslash}
+\newcommand{\cn}{\colon}
+\newcommand{\sub}{\subset}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\S}{\mathbb{S}}
+\renewcommand{\H}{\mathbb{H}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Di}{\mathbb{D}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\8}{\infty}
+
+%Greek letters
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+\renewcommand{\d}{\delta}
+\newcommand{\e}{\epsilon}
+\renewcommand{\k}{\kappa}
+\renewcommand{\l}{\lambda}
+\renewcommand{\o}{\omega}
+\renewcommand{\t}{\theta}
+\newcommand{\s}{\sigma}
+\newcommand{\p}{\varphi}
+\newcommand{\z}{\zeta}
+\newcommand{\vt}{\vartheta}
+\renewcommand{\O}{\Omega}
+\newcommand{\D}{\Delta}
+\newcommand{\G}{\Gamma}
+\newcommand{\T}{\Theta}
+\renewcommand{\L}{\Lambda}
+
+%Mathcal Letters
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cW}{\mathcal{W}}
+
+%Mathematical operators
+\newcommand{\INT}{\int_{\O}}
+\newcommand{\DINT}{\int_{\d\O}}
+\newcommand{\Int}{\int_{-\infty}^{\infty}}
+\newcommand{\del}{\partial}
+
+\newcommand{\inpr}[2]{\left\langle #1,#2 \right\rangle}
+\newcommand{\fr}[2]{\frac{#1}{#2}}
+\newcommand{\x}{\times}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Id}{Id}
+
+\DeclareMathOperator{\dive}{div}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\osc}{osc}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\loc}{loc}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\ric}{Ric}
+\DeclareMathOperator{\Rm}{Rm}
+\DeclareMathOperator{\weingarten}{\mathcal{W}}
+\DeclareMathOperator{\inj}{inj}
+
+%Environments
+\newcommand{\Theo}[3]{\begin{#1}\label{#2} #3 \end{#1}}
+\newcommand{\pf}[1]{\begin{proof} #1 \end{proof}}
+\newcommand{\eq}[1]{\begin{equation}\begin{alignedat}{2} #1 \end{alignedat}\end{equation}}
+\newcommand{\IntEq}[4]{#1&#2#3	 &\quad &\text{in}~#4,}
+\newcommand{\BEq}[4]{#1&#2#3	 &\quad &\text{on}~#4}
+\newcommand{\br}[1]{\left(#1\right)}
+
+%Logical symbols
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\hra}{\hookrightarrow}
+\newcommand{\mt}{\mapsto}
+
+%Names
+\newcommand{\holder}{H\"older}
+
+%Fonts
+\newcommand{\mc}{\mathcal}
+\renewcommand{\it}{\textit}
+\newcommand{\mrm}{\mathrm}
+
+%Spacing
+\newcommand{\hp}{\hphantom}
+
+
+%\parindent 0 pt
+
+\protected\def\ignorethis#1\endignorethis{}
+\let\endignorethis\relax
+\def\TOCstop{\addtocontents{toc}{\ignorethis}}
+\def\TOCstart{\addtocontents{toc}{\endignorethis}}
+
+
+\newcommand{\note}[1]{\Rd {\bf[[ #1 ]]} \Bk}
+\DeclareMathOperator{\met}{Met}
+\DeclareMathOperator{\rough}{\mathcal{R}}
+\DeclareMathOperator{\domain}{\mathcal{D}}
+\newcommand{\ip}[2]{\ensuremath{\langle{#1},{#2}\rangle}}
+
+% Others: 
+\newcommand{\Sum}[2]{\Sigma_{#1}^{#2}}	% Sum
+
+% Logic definitions:
+\newcommand{\disjunct}{\vee}
+\newcommand{\conjunct}{\wedge}
+
+% Mathematical niceities...
+\newcommand{\mdot}{\cdotp}
+\newcommand{\inte}[2]{\int_{#1}^{#2}}
+\newcommand{\intbox}[3]{\left[#1\right]_{#2}^{#3}}
+\newcommand{\cbrac}[1]{\left(#1\right)}
+\newcommand{\bbrac}[1]{\left[#1\right]}
+\newcommand{\dbrac}[1]{\left\{#1\right\}}
+\newcommand{\modulus}[1]{|#1|}
+\newcommand{\lmodulus}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\dbrac{#1}}
+\newcommand{\sentence}[1]{ {\text{``}}#1 {\text{''}}}
+
+\newcommand{\pw}[1]{\script{P}\cbrac{#1}}
+\newcommand{\dom}{ {\mathcal{D}}}
+\newcommand{\ran}{ {\mathcal{R}}}
+\newcommand{\nul}{ {\mathcal{N}}}
+%\newcommand{\im}[1]{ {\rm im} \cbrac{#1}}
+%\newcommand{\card}[1]{ {\rm card} \cbrac{#1}}
+\DeclareMathOperator{\card}{card}
+
+\newcommand{\comp}{\circ}
+
+
+\newcommand{\In}{\mathbb{Z}}
+\newcommand{\Na}{\ensuremath{\mathbb{N}}}
+
+\newcommand{\putt}{\ensuremath{\rightarrow}}
+\newcommand{\script}[1]{\mathscr{#1}}
+
+\newcommand{\Ccut}{\C_{\frac{\pi}{2}}}			% Cut plane
+\DeclareMathOperator{\re}{Re}			% Real part
+\DeclareMathOperator{\im}{Im}			% Imaginary part
+
+\newcommand{\ceil}[1]{\ulcorner{#1}\urcorner}
+
+% Set Theory:
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\union}{\cup}
+\newcommand{\Union}{\bigcup}
+\newcommand{\intersect}{\cap}
+\newcommand{\Intersect}{\bigcap}
+\newcommand{\disunion}{\sqcup}
+\newcommand{\Disunion}{\bigsqcup}
+%\renewcommand{\subset}{\subseteq}
+\newcommand{\symdiff}{\vartriangle}
+\newcommand{\rest}[1]{{{\lvert_{}}_{}}_{#1}}
+\newcommand{\close}[1]{\overline{#1}}		% closure
+\DeclareMathOperator{\img}{Img}
+%\newcommand{\img}[1]{{\rm Img}{\text{ }#1}}	% Image
+
+\newcommand{\powerset}{\script{P}} 
+
+\newcommand{\ind}[1]{\raisebox{\depth}{\(\chi\)}_{#1}}	% Indicator funciton
+
+\newcommand{\class}[1]{[#1]}			% Equivalence class
+\newcommand{\quotient}[2]{{#1}/{#2}}	% Quotienting
+
+\newcommand{\compl}{{}^{\rm c}}
+
+\newcommand{\Char}[1]{\chi_{#1}} 	% Characteristic function 
+
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\vphi}{\tilde{\varphi}}
+\renewcommand{\phi}{\varphi}
+\newcommand{\comspace}{\text{      }}
+%\newcommand{\comment}[1]{\hspace{1cm}\text{\it\small(#1)}}
+\DeclareMathOperator{\Graph}{graph}
+
+% Topology:
+
+\newcommand{\embed}{\hookrightarrow}		% Embeded in
+
+% Algebra:
+\newcommand{\tp}[1]{{#1}^{\mathrm{tr}}}
+%\newcommand{\dual}[1]{#1^{\ast}}		% Algebraic Dual
+\newcommand{\isomorphic}{\cong}			% Isomorphic
+\newcommand{\Alt}{\mathcal{A}}
+\newcommand{\tensor}{\otimes}
+\newcommand{\dsum}{\oplus}			% direct sum
+\DeclareMathOperator{\Span}{span}
+\newcommand{\longto}{\longrightarrow}		% --->
+\newcommand{\comm}[1]{\bbrac{#1}}		% Commutator
+\newcommand{\trans}[1]{#1^{{\rm T}}}
+
+% Specific Analysis things:
+\newcommand{\sups}[1]{{\rm sup}\set{#1}} 	% Supremum
+\newcommand{\infs}[1]{{\rm inf} \set{#1}}	% Infimum
+
+\newcommand{\upto}{\nearrow}			
+\newcommand{\downto}{\searrow}
+
+\newcommand{\norm}[1]{\| #1 \|}			% Norm
+\newcommand{\lnorm}[1]{\left\| #1 \right\|}			% Norm
+\newcommand{\spt}[1]{{\rm spt} {\text{ }}#1}	% Support 
+\DeclareMathOperator{\esssup}{esssup}
+\DeclareMathOperator{\essinf}{essinf}
+%\newcommand{\esssup}{{\rm ess {\text{ }}sup} {\text{ }} }	% Essential Supremum
+\newcommand{\conv}{\rightarrow}
+\newcommand{\weakcon}{\rightharpoonup}		% Weak Convergence
+\newcommand{\interior}[1]{\mathring{#1}}	% Interior
+
+
+% Specific GMT/Geometry things:
+\DeclareMathOperator{\tr}{tr}			% Trace
+\newcommand{\Secondff}{\mathbb{I}}		% 2nd FF
+\newcommand{\Mean}{\vec{\mathrm{H}}}
+\DeclareMathOperator{\diam}{diam}		% Diam 
+
+\DeclareMathOperator{\len}{\ell}			% Length
+\DeclareMathOperator{\rad}{rad}			% Rad
+\DeclareMathOperator{\vol}{vol}			% Volume
+
+\DeclareMathOperator{\divv}{div}		% Divergence
+
+\newcommand{\kron}{\delta}			% Kronecker delta
+
+\newcommand{\cut}{\ \llcorner\ }			% cut product
+
+\newcommand{\partt}[1][{}]{{\partial_{{#1}}}}		% Partial
+
+\newcommand{\ddt}[1][t]{\frac{d}{d#1}}		% d/dt 
+\newcommand{\partd}[2][{}]{{\frac{\partial #1}{\partial #2}}}	% d/dx
+\newcommand{\dx}[1]{{\rm d}#1} 
+
+\newcommand{\Lie}[1]{\script{L}_{#1}}		% Lie Derivative
+\newcommand{\VecF}{\script{X}}			% Vector Fields X
+\newcommand{\Christ}[2]{\Gamma^{#2}_{#1}}	% Cristoffel Symbols
+
+\newcommand{\Ric}{{\rm Ric}}			% Ricci Curvature
+\newcommand{\Rs}{\mathcal{R}_S}			% Scalar Curvature
+
+
+\newcommand{\bnd}{\partial}			% Boundary partial d
+\newcommand{\Vectors}[1]{\edge_{#1}}		% P-vectors
+\newcommand{\WForms}[1][{}]{\wedge^{#1}}		% P-Forms\\
+\newcommand{\Forms}[1][{}]{\mathbf{\Omega}^{#1}}		% P-Forms\\
+\newcommand{\Tensors}[1][{}]{{\mathcal{T}}^{(#1)}}	% Tensors
+\DeclareMathOperator{\Sym}{Sym}
+\newcommand{\Sect}{\mathbf{\Gamma}}		% Sections (tensor feilds)
+\newcommand{\current}[1]{\script{D}^{#1}}	% 
+\newcommand{\Current}[1]{\script{D}_{#1}}	%
+\newcommand{\Varifold}[1]{{\rm V}\cbrac{#1}}	% Varifold
+
+\DeclareMathOperator{\proj}{\mathbf{P}}	% Projection
+\newcommand{\tanb}{{\rm T}}		% Tangent Bundle
+\newcommand{\cotanb}{{\rm T}^\ast}	% Cotangent bundle
+\newcommand{\normalb}{{\rm N}}		% Normal bundle
+\newcommand{\conormalb}{{\rm N}^\ast}	% Conormal bundle
+
+\newcommand{\pushf}[1]{{#1}_\ast}			% Push forward
+\newcommand{\pullb}[1]{{#1}^\ast}			% Pull back
+
+\newcommand{\metric}[1]{\inprod{#1}}
+
+\DeclareFontFamily{OT1}{restrictfont}{}
+\DeclareFontShape{OT1}{restrictfont}{m}{n}{<-> fmvr8x}{}
+\def\restrictfont{\usefont{OT1}{restrictfont}{m}{n}}
+\newcommand{\restrict}{\text{\restrictfont\char157}}		% Restriction L
+
+\newcommand{\cur}[1]{\llbracket #1 \rrbracket}	% [[M]]
+\newcommand{\slice}[1]{\inprod{#1}}		% Slice <T,f,t>
+
+\newcommand{\adj}[1]{{#1}^\ast}			% Adjoint star
+\newcommand{\dirD}[1]{{\rm D}_{#1}}		% Directional Deriv
+\newcommand{\extd}{{\rm d}}			% Exterior Derivative
+\newcommand{\intd}{{\updelta}}
+\newcommand{\Dir}{{\rm D}}			% Dirac
+\newcommand{\diff}[1]{{\rm d}^{#1}}		% differential d
+\newcommand{\jacob}[1]{{\rm J}_{#1}}		% jacobian
+\newcommand{\cojacob}[1]{\adj{{\rm J}_{#1}}}	% cojacobian
+\newcommand{\integral}[3]{\int_{#1}#2  {\text{   }} {\rm d} #3}  % integral
+\newcommand{\cprod}{\mathaccent\openJoin{\mathaccent\opentimes\opentimes}}		% Product of Currents
+
+\newcommand{\inprod}[1]{\langle #1 \rangle}	% inner product braces
+\newcommand{\conn}[1][{}]{{\grad_{{#1}}}}		% Connection
+\newcommand{\Ae}{{\rm -a.e.~}}			% Almost everywhere
+\DeclareMathOperator{\Lip}{\bf Lip}			% Lip
+\DeclareMathOperator{\Lipp}{Lip}		% Lip f(x)
+\newcommand{\Vol}[1]{{\rm Vol}\cbrac{#1}}	% Volume
+%\newcommand{\diam}[1]{{\rm diam}\cbrac{#1}}	% Diam
+\newcommand{\Haus}[1]{\script{H}^{#1}}			% Hausdorff H
+\newcommand{\Leb}[1][{}]{\script{L}^{#1}}			% Lebesgue L
+\newcommand{\mass}[1]{{\rm M}_{#1}}
+
+\newcommand{\udensity}[1]{\Theta^{\ast#1}}		% Upper density
+\newcommand{\ldensity}[1]{\Theta_{\ast}^{#1}}	% Lower density
+\newcommand{\density}[1]{\Theta^{#1}}		% Density 
+
+% Functional Analysis/ Operator Theory
+
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\bddlf}{\mathcal{L}} 	% Bounded Linear Functions over #1
+\newcommand{\spec}{\sigma}		% Spectrum of #1
+\newcommand{\jspec}{\gamma}				% Joint spectrum
+\newcommand{\rs}[1]{\textsf{R}_{#1}}			% Resolvent operator
+\newcommand{\rset}{\rho}				% Resolvent Set
+\newcommand{\polalg}{\script{P}}			% Polynomial algebra, power series algebra
+\newcommand{\ratalg}[1]{\script{R}_{#1}}		% Rational algebra with no poles in #1
+\newcommand{\powalg}[1]{\script{P}_{#1}}		% Power series algebra with radius larger than #1
+\newcommand{\slim}{\mathrm{s}\text{-}\lim}		% Strong convegence
+\newcommand{\cllf}[1]{\mathcal{C}\left(#1\right)}	% Closed Linear operators over #1
+\newcommand{\hol}{\mathcal{H}}				% Holomorphic functions
+\newcommand{\conj}[1]{\overline{#1}}				% complex conjugate
+\DeclareMathOperator{\nr}{nr}				% Numerical Range
+\DeclareMathOperator{\specr}{\spec_{\mathrm{r}}}	% Spectral radius
+
+\newcommand{\Lp}[2][{}]{{\rm L}^{#2}_{\rm #1}}		% L_{#1}^{#2}
+\newcommand{\Ck}[2][{}]{{\rm C}^{#2}_{\rm #1}}		% C^k_c
+\newcommand{\Lips}[1][{}]{{\rm Lip}_{\rm #1}}		% C^k_c
+\newcommand{\Sob}[2][{}]{{\rm W}^{#2}_{\rm #1}}		% W^{k,p}_{c} Sobolev space 
+\newcommand{\SobH}[2][{}]{{\Sob[#1]{#2,2}}}	% H^k_{c}  Sobolev space 
+
+\newcommand{\convolve}{\, \ast\, }
+
+\newcommand{\ddelta}{\updelta}
+
+\newcommand{\Sec}[1]{\mathrm{S}_{#1}}
+\newcommand{\OSec}[1]{\mathrm{S}^\mathrm{o}_{#1}}
+
+
+% Harmonic ANalysis
+
+\newcommand{\mean}[1]{{\rm m}_{#1}}			% Mean.
+\newcommand{\Max}{{\mathcal{M}}}			% Maximal function
+\newcommand{\Cone}{\Gamma}				% Cone over a point
+\newcommand{\Tent}{\mathrm{T}}					% Tent
+
+
+% Script
+\newcommand{\sE}{\script{E}}
+
+% Heat kernel 
+\newcommand{\hk}{\rho}
 
 \newcommand{\Bk}{\color{black}}
 \newcommand{\Pu}{\color{purple}}
@@ -26,13 +430,12 @@ D-14476, Potsdam OT Golm, Germany
 \email{\href{mailto:lashi.bandara@uni-potsdam.de}{lashi.bandara@uni-potsdam.de}}
 
 \address{Paul Bryan, 
-Department of Mathematics
-Macquarie University 
-NSW, 2109, Australia
+School of Mathematics and Physics
+The University of Queensland
+Brisbane QLD 4072, Australia
 }
 \urladdr{\href{http://pabryan.github.io}{http://pabryan.github.io/}}
-\email{\href{mailto:paul.bryan@mq.edu.au}{paul.bryan@mq.edu.au}}
-
+\email{\href{mailto:paul.bryan@uq.edu.au}{paul.bryan@uq.edu.au}}
 
 
 \curraddr{}
@@ -46,11 +449,11 @@ NSW, 2109, Australia
 \maketitle
 
 \begin{abstract}
-We consider rough metrics on smooth (not necessarily compact) manifolds and corresponding Laplacians
-induced by such metrics. We demonstrate that globally continuous heat kernels exist and are Hölder continuous locally in space and time.
-This is done by Riesz representation methods, and employing
-local parabolic Harnack estimates for weak solutions of divergence form elliptic equations with bounded
-measurable coefficients in weighted Sobolev spaces.
+We consider rough metrics on smooth manifolds and corresponding Laplacians induced by such metrics.
+We demonstrate  that globally continuous heat kernels exist and are Hölder continuous locally in space and time. 
+This is done via local parabolic Harnack estimates for weak
+solutions of operators in divergence form with bounded measurable coefficients 
+in weighted Sobolev spaces.
 \end{abstract}
 
 \setcounter{tocdepth}{1}
@@ -270,7 +673,7 @@ We emphasise that this object is only dependent on the differentiable structure 
 Recall that in the classical setting of a smooth $g$,  the Laplacian acting on functions is given  via the expression $\Delta_g = - \tr_g \nabla^2$, where $\nabla^2 = \nabla^{T^\ast M} \comp \nabla$
 with $\nabla^{T^\ast M}$ the Levi-Civita connection of $g$ on \(T^{\ast} M\) and the trace is taken on the \((1,1)\) hessian obtained by metric contraction of the \((2, 0)\) hessian \(\nabla^2\). Equivalently, we obtain that  that \(\Delta_g = \grad_g^\ast \grad_g\) where \(\grad_g\) is the metric contraction of \(\nabla\).
 
-For rough metrics, or in fact, any metric below $\Ck{0,1}$, we have no notion of metric-compatibility (being unable to differentiate such a metric), and hence the Levi-Civita connection is not generally defined. Therefore, we understand this operator in an appropriate weak sense as follows. 
+For rough metrics, or in fact, any metric below $\Ck{0,1}$, we have no notion of metric-compatibility (begin unable to differentiate such a metric), and hence the Levi-Civita connection is not generally defined. Therefore, we understand this operator in an appropriate weak sense as follows. 
 
 First, we observe that for a rough metric $g$, the operator
 $\nabla_p := d_p: \Ck{\infty} \cap \Lp{p}(M) \to \Ck{\infty} \cap \Lp{p}(T^\ast M)$
@@ -312,9 +715,7 @@ where $\dom(\sE_g) = \SobH[0]{1}(M) = \SobH{1}(M)$.
 The operator $\Delta_g$ is now obtained via the so-called first and second representation 
 theorems, Theorems 2.1 and 2.23 in Chapter IV  in \cite{Kato}.
  
-Note that in our setup, $\nabla$ is independent of the geometry (i.e. the metric), but the energy is not. At the operator level, it is in taking the adjoint $\adj{\nabla}_g$ where the geometry becomes of consequence. Alternatively, defining the gradient, $\grad_g u =  (\nabla u)^\sharp = g(\nabla u, \cdot)$, we have by definition, $\sE_g(u,v) = \inprod{\grad_g u, \grad_g v}$. In this case, $\Delta_g = \adj{\grad}_g \close{\grad}_g$, and so we could equivalently define \(\Delta_g\) via \(\grad_g\). We prefer the former picture for the simple fact that in the latter picture, the metric information and topological information are intertwined whereas in our case we have two operators in which one which only depends on the differential structure (the exterior derivative $\nabla$) and the other on the geometry $g$ (the adjoint of the exterior derivative $\nabla^\ast_g$). In other words, there is a canonical
-operator, $\nabla$ arising from the smooth structure and \emph{each geometry (i.e. metric) determines an adjoint $\nabla^{\ast}_g$}.
-
+Note that in our setup, $\nabla$ is independent of the geometry (i.e. the metric), but the energy is not. At the operator level, it is in taking the adjoint $\adj{\nabla}_g$ where the geometry becomes of consequence. Alternatively, defining the gradient, $\grad_g u =  (\nabla u)^\sharp = g(\nabla u, \cdot)$, we have by definition, $\sE_g(u,v) = \inprod{\grad_g u, \grad_g v}$. In this case, $\Delta_g = \adj{\grad}_g \close{\grad}_g$, and so we could equivalently define \(\Delta_g\) via \(\grad_g\). We prefer the former picture for the simple fact that in the latter picture, the metric information and topological information are intertwined whereas in our case we have two operators in which one which only depends on the differential structure (the exterior derivative $\nabla$) and the other on the geometry $g$ (the adjoint of the exterior derivative $\nabla^\ast_g$).
 
 When $g$ fails to be complete, it may be that  
 $\SobH[0]{1}(M) \subsetneqq  \SobH{1}(M)$.
@@ -402,8 +803,8 @@ for almost every $x \in M$.
 \begin{rem}
 In the compact case with a smooth metric, ``a solution'' is often formulated to mean $u \in \Ck{\infty}( M \times (0, \infty))$
 with $\partial_t u(x,t) = -\tr \nabla^2 u(x,t)$ with 
-$\lim_{t \to 0} u(x,t) = u_0 \in \Ck{\infty}(M)$.
-Since $\Ck{\infty}(M) \subset \Lp{2}(M)$ this notion of solution is stronger than our notion of solution. Here, a solution is a $\Ck{1}$ map from $(0, \infty)$ to $\dom(\Delta_{g,\cW}) \subset \cW \subset \SobH{1}(M)$ with the initial condition attained in the $\Lp{2}(M)$ topology.
+$\lim_{t \to 0} u(x,t) = u_0 \in \Ck[c]{\infty}(M)$.
+Since $\Ck{\infty}(M) \subset \Lp{2}(M)$ this notion of solution is stronger than our notion of solution.
 \end{rem}
 
 \section{Existence and positivity of the heat kernel}
@@ -482,15 +883,14 @@ for the compact case in \cite{BCont}, but
 the analysis we present here shows it can be made to work more generally. 
 
 The fundamental estimate we
-require is the following \emph{weak Harnack-type inequality} for positive solutions of the heat
-equation.
+require is the following \emph{weak Harnack-type inequality}.
 \begin{itemize}
 \item[] At each $x \in M$ and $t > 0$, there exists a precompact
 open set $U_x$, a $\delta_t \geq 0$ and a constant $C(t, U_x)  > 0$ such that
 \begin{equation}
 \tag{H}
 \label{eq:Harnack}
-\esssup_{y \in U_x} u(y,t)
+\esssup_{y \in U_x} u(y,t) 
 	\leq C(t, U_x)  \essinf_{y \in U_x} u(y, t + \delta_t)
 \end{equation}
 \end{itemize}
@@ -512,7 +912,8 @@ fact that $t \mapsto e^{-t\Delta_{g,\cW}}$ is a semigroup.
 \label{prop:MainRed}
 Suppose that \eqref{eq:Harnack} holds. Then, the heat
 kernel $\hk^{g,\cW}_{\mdot}: \R_{+} \times M \times M \to \R$
-exists. Moreover, for every $t > 0$ and almost-every $y \in M$,  $x\mapsto \hk^{g,\cW}_t(x,y) > 0$ for almost-every $x \in M$.
+exists. Moreover, $\hk^{g,\cW}_t(x,y) > 0$ for
+every $t > 0$ and almost every $x,\ y \in M$. 
 \end{prop} 
 \begin{proof}
 We outline the steps of the construction of the heat kernel
@@ -600,75 +1001,41 @@ understood in an almost-everywhere sense.
 	On choosing \(f = a_{t,y}\), we obtain 
 	measurability in \(x\) and symmetry of \(\rho_t\) yields measurability in \(y\),
 	which shows that \(\rho_t(x, y)\) is measurable separately in both \(x\) and \(y\). 
-\Bl
-\item To show the statement regarding weak-positivity, we first reduce the problem to a local one. 
-	Let $\Omega \subset M$, an open connected subset with compact closure and piecewise smooth boundary  and let $f \in \Lp{2}(\Omega)$.
-	Observing that $\SobH[0]{1}(\Omega) \embed \cW$ and let $\Delta_{g,\SobH[0]{1}(\Omega)}$ denote the associated Dirichlet Laplacian inside $\Omega$ with respect to the energy $\inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega, g)}$.
-	Then, when $u \in \SobH[0]{1}(\Omega)$, we have that $\modulus{u} \in \SobH[0]{1}(\Omega) \subset \cW$ and that if $v \in \cW$ with $\modulus{v} \leq \modulus{u}$ implies that $v \sgn u \in \SobH[0]{1}(\Omega)$,
-	where $\sgn u = u/\modulus{u}$ for $u(x) \neq 0$ and $0$ for $u(x) = 0$. 
-	That is, $\SobH[0]{1}(\Omega)$ is a \emph{ideal} in $\cW$, and therefore, by invoking Theorem 4.1 in \cite{MVV} by Manavi, Vogt and Voigt, we obtain that
- 	$$ \modulus{e^{-t\Delta_{g, \SobH[0]{1}(\Omega)}} f} \leq e^{-t \Delta_{g, \cW}} \modulus{f}$$
-	for all $f \in \Lp{2}(\Omega,g)$.
-	Therefore, when $f \in \Lp{2}(\Omega,g)$ with $f \geq 0$, we have that by using the non-negativity of $\Delta_{g, \SobH[0]{1}(\Omega)}$ (by (i) of this proposition) that
-	$$ \modulus{e^{-t\Delta_{g, \SobH[0]{1}(\Omega)}} (\chi_{\Omega} f)} \leq e^{-t \Delta_{g, \cW}} \modulus{f}.$$
 
-\item Now, we show that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega)}}f > 0$ whenever $f \geq 0$ but $f \neq 0$.
-	That is essentially given by the proof of Theorem 4.5 in \cite{El-Maati}, which is done for a quadratic form in Euclidean space, but works in this context with minimal modification.
-	Note first that by the compactness of $\close{\Omega}$, there exists a smooth metric $h$ on $\Omega$ that is quasi-isometric to $g$ on $\Omega$ so that 
-	$$ \inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega,g}) = \int_{\Omega} h((\sqrt{\det B}) B \nabla u, \nabla v)\ d\omega_h = \inprod{(\sqrt{\det B})B \nabla u, \nabla v}_{\Lp{2}(\Omega,h)},$$
-	where $B$ are symmetric, bounded, measurable coefficients such that $h(Bu,v) = g(u,v)$.
-
-	Corollary 2.11 in \cite{El-Maati} states the strict positivity of the semigroup  holds if and only if for any subset $\Omega' \subset \Omega$ with $\chi_{\Omega'} u \in \Sob[0]{1}(\Omega)$ implies that $\omega_h(\Omega') = 0$ or $\omega_h(\Omega\setminus \Omega') = 0$. 
-	For contradiction, suppose there exists an $\Omega'$ with $\chi_{\Omega'} u \in \SobH[0]{1}(\Omega)$ but with $\omega_h(\Omega') > 0$ and $\omega_h(\Omega \setminus \Omega') > 0$.
-	Fix some $u \in \Ck[c]{\infty}(\Omega)$ and since $\chi_{\Omega'} u \in \SobH[0]{1}(\Omega)$ and $\nabla (\chi_{\Omega'} u)(x) = (\nabla u)(x)$ for $x$-a.e. in $\Omega'$ and $0$ otherwise given that $\nabla$ is a local operator, we obtain that
-	$$\chi_{\Omega'}\nabla u = \nabla(\chi_{\Omega'} u)$$
-	inside $\Omega$.
-	Combining this with the assumption that the  closure of $\Omega$ is compact with smooth boundary, we obtain that $\chi_{\Omega'} u \in \Sob{1,p}(\Omega)$ for all $p \in [1,\infty]$. 
-	Since we assumed $\partial \Omega$ is piecewise smooth, from the Sobolev embedding theorem for manifolds with piecewise smooth boundary (c.f. Theorem 2.34 in \cite{Aubin}), we get that $\chi_{\Omega'} u = v$ for some continuous $v$.
-
-	Now, there exists $x_0 \in \Omega$ such that for all sufficiently small $\eta > 0$, 
-	$$\omega_h(B(x_0, \eta_x) \intersect \Omega') > 0\quad\text{and}\quad\omega_h(B(x_0, \eta_x) \intersect (\Omega\setminus\Omega'))> 0.$$
-	If this weren't the case, then for all $x \in \Omega$, there exists $ \eta_x > 0$ such that $\omega_h(B(x, \eta_x) \intersect \Omega) = 0$ 
-	or $\omega_h(B(x_0, \eta_x) \intersect (\Omega\setminus\Omega')) = 0$. In this case, we write 
-	\begin{align*} 
-	\Omega_1 &= \Union \set{B(x,\eta_x): \omega_h(B(x, \eta_x) \intersect \Omega) = 0}\ \text{and}\\
-	\Omega_2 &= \Union \set{B(x,\eta_x): \omega_h(B(x, \eta_x) \intersect(\Omega \setminus \Omega') = 0}
-	\end{align*}
-	to obtain two open sets which satisfy: $\Omega = \Omega_1 \union \Omega_2$ and $\Omega_1 \intersect \Omega_2 = \emptyset$. But this contradicts connectedness of $\Omega$. 
-
-	Let $u \in \Ck[c]{\infty}(\Omega)$ and let $u(x) = 1$ on $B(x,1/2 \eta)$ and $0$ outside $B(x,\eta)$. 
-	Then, for all $x \in B(x_0,\eta) \intersect \Omega'$ and $y \in B(x_0,\eta) \intersect (\Omega \setminus \Omega')$, 
-	$$1 = \chi_{\Omega'}(x)u(x) = \chi_{\Omega'}(x) u(x) - \chi_{\Omega'}(y)u(y) = \modulus{v(x) - v(y)},$$ 
-	which contradicts the continuity of $v$.
-
-
-\item Fix some $t > 0$,  we show that $\mu_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} = 0$. 
-	Suppose not, i.e., for some $t > 0$, we have that $\mu_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} > 0$.
-	So, there exists a set $P \subset \Omega$ with $\mu(P) > 0$ and for $y \in P$, we have that $\hk^{g,\cW}_t(x,y) = 0$ for $x$-a.e. in $\Omega$.
-	Then, for any $y \in P$ and $f \in \Lp{2}(M)$ with $\spt f \subset P$ that
-	$$ (e^{-t\Delta_{g,\cW}} \int_{\Omega} f)(y) = \int_{P} \hk_t^{g,\cW}(x,y) f(x)\ d\omega_g(x) = 0.$$
-	Set $f = \chi_{P}$, and then so,
-	$$ 0 = \inprod{e^{-t\Delta_{g,\cW}} \chi_{P}, \chi_{P}} = \norm{  e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_{P}}_{P}^2.$$ 
-	That is,
-	$$ 0 = \int_{P} \hk^{g,\cW}_{\frac{t}{2}}(x,y)\ d\omega_g(x) = \norm{\hk^{g,\cW}_{\frac{t}{2}}(\cdot,y)}_{\Lp{1}(P)},$$
-	so that $x \mapsto \hk^{g,\cW}_{\frac{t}{2}}(x,y) = 0$ for $x$-a.e. $P$.	
-	Iterating this procedure, we find sets $P_{i+1} \subset P_i$ with $P_1 = P$ such that for every $y \in P_i$, $x \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in $P_i$.
-	Letting $P_\infty = \intersect_{i=0}^\infty P_i$, it is easy to see from the subadditivity of the measure that $\omega_g(P_\infty) = \omega_g(P) > 0$ and so we have that for every $y \in P_\infty$,
-	the map $x \mapsto \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in $P_\infty$.
-	But then, for almost every $y \in P_\infty$, 
-	$$1 = \chi_{P_\infty}(y) = \lim_{s \to 0} (e^{-s \Delta_{g,\cW}}\chi_{P_\infty})(y) = \lim_{i \to \infty} \int_{M} \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) \chi_{P_\infty}(x)\ d\omega_g(x) = 0,$$
-	which is a contradiction. 
-
-\item Now, suppose that there exists  set $M'$ and $M''$ and a $t > 0$ for which for almost-every $y \in M'$, $\hk^{g,\cW}_t(x,y) = 0$ for $x$ a.e. in $M''$
-	Since $M = \union_{j=1}^\infty \Omega_j$, where each $\Omega_j$ has piecewise smooth boundary and has compact closure, 
-	there exists a $K$ such that $\omega_g(M' \intersect M_K) > 0$ and $\omega_g(M'' \intersect M_K) > 0$, where $M_K = \union_{j=1}^K \Omega_j$ which is another set with piecewise smooth boundary.
-	But since $\hk^{g,\cW}_{s}(x,y) \neq 0$ identically for all $s \in (0,\infty)$  by (xi) on $M_K$ and $\hk^{g,\cW}_{s}(x,y) \geq 0$ for all $s \in (0,\infty)$ by (ii) and (vi), 
-	we obtain: 
-	$$ 0 < e^{-\frac{t}{2}} \Delta_{g,\SobH[0]{1}(M_k)}(\chi_{M_k} \hk^{g,\cW}_{\frac{t}{2}}(\cdot,y))(x) \leq e^{-\frac{t}{2}} \Delta_{g,\cW}\hk^{g,\cW}_{\frac{t}{2}}(\cdot,y))(x)  = \hk^{g,\cW}_{t}(x,y)$$
-	for almost every $x$ in $M_K$.
-	But this contradicts that $\omega_g(M'') > 0$. 
-	This shows that for almost every $y \in M$, $x \mapsto \hk^{g,\cW}_t(x,y) > 0$ for $x$-a.e.
-	\qedhere \Bk
+\item Lastly, we show that $\hk^{g,\cW}_t(x,y) > 0$  almost-everywhere.
+	We reason by contradiction so assume that there
+	is a time $t > 0$ and a measurable set $A \subset M$ with $\omega_g(Z) > 0$
+	such that $\hk^{g,\cW}_t(x,y) = 0$ for $x \in A$.
+	Since $M = \union_{n} \Omega_n$ with each 
+	$\Omega_n$ precompact, we can find an integer
+	$k$ for which $B = A \intersect \union_{n=1}^k \Omega_k$ 
+	satisfies $0 < \omega_g(B) < \infty$. Then,
+	we have that $\ind{B} \in \Lp{2}(M)$ and 
+	on using the self-adjointness of $e^{-t\Delta_{g,\cW}}$ as a consequence 
+	of the self-adjointness of $\Delta_{g,\cW}$,
+	we note
+	\begin{multline*}  
+	\norm{e^{-\frac{t}{2} \Delta_{g,\cW}}\ind{B}}^2 
+		 = \inprod{e^{-\frac{t}{2} \Delta_{g,\cW}} \ind{B}, e^{-{\frac{t}{2}}\Delta_{g,\cW} \ind{B}}}
+		 = \inprod{e^{-t \Delta_{g,\cW}} \ind{B},\ind{B}} \\
+		= \int_{B} \hk^{g,\cW}_t(x,y)\ind{B}(y)\ d\omega_g(y) + 
+			\int_{M \setminus B} \hk^{g,\cW}_t(x,y)\ind{B}(y)\ d\omega_g(y).
+	\end{multline*}
+	Now, note that the first integral vanishes
+	since we assume $\hk^{g,\cW}_t$ is $0$ on $A$ and since $B \subset A$, 
+	and the second since $\ind{B} = 0$ on $M \setminus B$.
+	Therefore, we find that $\norm{e^{-\frac{t}{2} \Delta_{g,\cW}} \ind{B}} = 0$.
+	This, along with the fact that we've shown $\hk^{g,\cW}_s(x,y) \geq 0$ 
+	for each $s > 0$ yields that $\hk^{g,\cW}_{\frac{t}{2}}(x,y) = 0$ for 
+	almost every $x,\ y \in B$, and on 
+	iterating this procedure, we obtain that
+	$\norm{e^{-\frac{t}{2^m} \Delta_{g,\cW}} \ind{B}} = 0$.
+	Thus, we have that $\lim_{s\to 0} e^{-s \Delta_{g,\cW}} \ind{B} = 0$, 
+	but by the non-negative self-adjointness of
+	$\Delta_{g,\cW}$, we know that $\lim_{s \to 0} e^{-t \Delta_{g,\cW}} \ind{B} = \ind{B}$.
+	But this implies that $\ind{B} = 0$ on a set of positive measure which is clearly false, 
+	and hence, to avoid contradiction, we conclude that $\hk^{g,\cW}_t(x,y) > 0$ almost everywhere.
+	\qedhere
 \end{enumerate} 
 \end{proof}
 
@@ -1018,13 +1385,124 @@ we have noted in the conclusion is immediate.
 We conclude this paper by noting that the proof of Theorem \ref{Thm:Main}
 follows immediately upon collating the facts we have established
 in this paper.
-\Bl 
-Note that the regularity result contributes to all the notions of almost-everywhere becoming everywhere. \Bk
 
 % Bibliography
 \bibliographystyle{amsalpha}
-\bibliography{Bibliography}
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{AKM06}
 
-\setlength{\parskip}{0pt}
+\bibitem[AB06]{AB}
+Charalambos~D. Aliprantis and Kim~C. Border, \emph{Infinite dimensional
+  analysis: a hitchhiker's guide}, Springer, Berlin; London, 2006.
+
+\bibitem[AKM06]{AKM2}
+Andreas Axelsson, Stephen Keith, and Alan McIntosh, \emph{The {K}ato square
+  root problem for mixed boundary value problems}, J. London Math. Soc. (2)
+  \textbf{74} (2006), no.~1, 113--130.
+
+\bibitem[Ban14]{BDensity}
+Lashi Bandara, \emph{Density problems on vector bundles and manifolds}, Proc.
+  Amer. Math. Soc. \textbf{142} (2014), no.~8, 2683--2695. \MR{3209324}
+
+\bibitem[Ban16]{BRough}
+\bysame, \emph{Rough metrics on manifolds and quadratic estimates}, Math. Z.
+  \textbf{283} (2016), no.~3-4, 1245--1281. \MR{3520003}
+
+\bibitem[Ban17]{BCont}
+\bysame, \emph{Continuity of solutions to space-varying pointwise linear
+  elliptic equations}, Publ. Mat. \textbf{61} (2017), no.~1, 239--258.
+
+\bibitem[BLM17]{BLM}
+Lashi Bandara, Sajjad Lakzian, and Michael Munn, \emph{Geometric singularities
+  and a flow tangent to the {R}icci flow}, Ann. Sc. Norm. Super. Pisa Cl. Sci.
+  (5) \textbf{17} (2017), no.~2, 763--804. \MR{3700383}
+
+\bibitem[BM16]{BMc}
+Lashi Bandara and Alan McIntosh, \emph{The {K}ato {S}quare {R}oot {P}roblem on
+  {V}ector {B}undles with {G}eneralised {B}ounded {G}eometry}, J. Geom. Anal.
+  \textbf{26} (2016), no.~1, 428--462. \MR{3441522}
+
+\bibitem[CH98]{CH}
+Thierry Cazenave and Alain Haraux, \emph{An introduction to semilinear
+  evolution equations}, Oxford Lecture Series in Mathematics and its
+  Applications, vol.~13, The Clarendon Press, Oxford University Press, New
+  York, 1998, Translated from the 1990 French original by Yvan Martel and
+  revised by the authors. \MR{1691574}
+
+\bibitem[Cha84]{Chavel}
+Isaac Chavel, \emph{Eigenvalues in {R}iemannian geometry}, Pure and Applied
+  Mathematics, vol. 115, Academic Press Inc., Orlando, FL, 1984, Including a
+  chapter by Burton Randol, With an appendix by Jozef Dodziuk. \MR{768584
+  (86g:58140)}
+
+\bibitem[CS85]{CS}
+Filippo Chiarenza and Raul Serapioni, \emph{A remark on a {H}arnack inequality
+  for degenerate parabolic equations}, Rend. Sem. Mat. Univ. Padova \textbf{73}
+  (1985), 179--190. \MR{799906}
+
+\bibitem[Dav89]{Davies}
+E.~B. Davies, \emph{Heat kernels and spectral theory}, Cambridge Tracts in
+  Mathematics, vol.~92, Cambridge University Press, Cambridge, 1989. \MR{990239
+  (90e:35123)}
+
+\bibitem[Kat95]{Kato}
+Tosio Kato, \emph{Perturbation theory for linear operators}, Classics in
+  Mathematics, Springer-Verlag, Berlin, 1995, Reprint of the 1980 edition.
+  \MR{1335452}
+
+\bibitem[Kre15]{Kreuter}
+Marcel Kreuter, \emph{Sobolev spaces of vector-valued functions}, Master's
+  thesis, Ulm University, 2015.
+
+\bibitem[Lie96]{Lieberman}
+Gary~M. Lieberman, \emph{Second order parabolic differential equations}, World
+  Scientific Publishing Co., Inc., River Edge, NJ, 1996. \MR{1465184}
+
+\bibitem[Mos64]{MR0159139}
+J\"urgen Moser, \emph{A {H}arnack inequality for parabolic differential
+  equations}, Comm. Pure Appl. Math. \textbf{17} (1964), 101--134. \MR{0159139}
+
+\bibitem[Mos71]{MR0288405}
+\bysame, \emph{On a pointwise estimate for parabolic differential equations},
+  Comm. Pure Appl. Math. \textbf{24} (1971), 727--740. \MR{0288405}
+
+\bibitem[Nor97]{Norris}
+James~R. Norris, \emph{Heat kernel asymptotics and the distance function in
+  {L}ipschitz {R}iemannian manifolds}, Acta Math. \textbf{179} (1997), no.~1,
+  79--103. \MR{1484769 (99d:58167)}
+
+\bibitem[Ouh05]{El-Maati}
+El~Maati Ouhabaz, \emph{Analysis of heat equations on domains}, London
+  Mathematical Society Monographs Series, vol.~31, Princeton University Press,
+  Princeton, NJ, 2005. \MR{2124040}
+
+\bibitem[SC92]{SC}
+Laurent Saloff-Coste, \emph{Uniformly elliptic operators on {R}iemannian
+  manifolds}, J. Differential Geom. \textbf{36} (1992), no.~2, 417--450.
+  \MR{1180389 (93m:58122)}
+
+\bibitem[Stu98]{Sturm}
+K.~T. Sturm, \emph{Diffusion processes and heat kernels on metric spaces}, Ann.
+  Probab. \textbf{26} (1998), no.~1, 1--55. \MR{1617040}
+
+\bibitem[tERS07]{ERS}
+A.~F.~M. ter Elst, Derek~W. Robinson, and Adam Sikora, \emph{Small time
+  asymptotics of diffusion processes}, J. Evol. Equ. \textbf{7} (2007), no.~1,
+  79--112. \MR{2305727}
+
+\bibitem[Yos95]{Yosida}
+K\=osaku Yosida, \emph{Functional analysis}, Classics in Mathematics,
+  Springer-Verlag, Berlin, 1995, Reprint of the sixth (1980) edition.
+  \MR{1336382}
+
+\end{thebibliography}
+
+\setlength{\parskip}{0mm}
 
 \end{document}

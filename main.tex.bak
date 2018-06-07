@@ -26,13 +26,12 @@ D-14476, Potsdam OT Golm, Germany
 \email{\href{mailto:lashi.bandara@uni-potsdam.de}{lashi.bandara@uni-potsdam.de}}
 
 \address{Paul Bryan, 
-Department of Mathematics
-Macquarie University 
-NSW, 2109, Australia
+School of Mathematics and Physics
+The University of Queensland
+Brisbane QLD 4072, Australia
 }
 \urladdr{\href{http://pabryan.github.io}{http://pabryan.github.io/}}
-\email{\href{mailto:paul.bryan@mq.edu.au}{paul.bryan@mq.edu.au}}
-
+\email{\href{mailto:paul.bryan@uq.edu.au}{paul.bryan@uq.edu.au}}
 
 
 \curraddr{}
@@ -600,7 +599,7 @@ understood in an almost-everywhere sense.
 	On choosing \(f = a_{t,y}\), we obtain 
 	measurability in \(x\) and symmetry of \(\rho_t\) yields measurability in \(y\),
 	which shows that \(\rho_t(x, y)\) is measurable separately in both \(x\) and \(y\). 
-\Bl
+
 \item To show the statement regarding weak-positivity, we first reduce the problem to a local one. 
 	Let $\Omega \subset M$, an open connected subset with compact closure and piecewise smooth boundary  and let $f \in \Lp{2}(\Omega)$.
 	Observing that $\SobH[0]{1}(\Omega) \embed \cW$ and let $\Delta_{g,\SobH[0]{1}(\Omega)}$ denote the associated Dirichlet Laplacian inside $\Omega$ with respect to the energy $\inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega, g)}$.
@@ -615,13 +614,13 @@ understood in an almost-everywhere sense.
 \item Now, we show that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega)}}f > 0$ whenever $f \geq 0$ but $f \neq 0$.
 	That is essentially given by the proof of Theorem 4.5 in \cite{El-Maati}, which is done for a quadratic form in Euclidean space, but works in this context with minimal modification.
 	Note first that by the compactness of $\close{\Omega}$, there exists a smooth metric $h$ on $\Omega$ that is quasi-isometric to $g$ on $\Omega$ so that 
-	$$ \inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega,g}) = \int_{\Omega} h((\sqrt{\det B}) B \nabla u, \nabla v)\ d\omega_h = \inprod{(\sqrt{\det B})B \nabla u, \nabla v}_{\Lp{2}(\Omega,h)},$$
+	$$ \inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega,g} = \int_{\Omega} h(\sqrt{\det B} B \nabla u, \nabla v)\ d\omega_h,$$
 	where $B$ are symmetric, bounded, measurable coefficients such that $h(Bu,v) = g(u,v)$.
 
 	Corollary 2.11 in \cite{El-Maati} states the strict positivity of the semigroup  holds if and only if for any subset $\Omega' \subset \Omega$ with $\chi_{\Omega'} u \in \Sob[0]{1}(\Omega)$ implies that $\omega_h(\Omega') = 0$ or $\omega_h(\Omega\setminus \Omega') = 0$. 
 	For contradiction, suppose there exists an $\Omega'$ with $\chi_{\Omega'} u \in \SobH[0]{1}(\Omega)$ but with $\omega_h(\Omega') > 0$ and $\omega_h(\Omega \setminus \Omega') > 0$.
 	Fix some $u \in \Ck[c]{\infty}(\Omega)$ and since $\chi_{\Omega'} u \in \SobH[0]{1}(\Omega)$ and $\nabla (\chi_{\Omega'} u)(x) = (\nabla u)(x)$ for $x$-a.e. in $\Omega'$ and $0$ otherwise given that $\nabla$ is a local operator, we obtain that
-	$$\chi_{\Omega'}\nabla u = \nabla(\chi_{\Omega'} u)$$
+	$$\chi_{\Omega'}\nabla u = \nabla(\Omega' u)$$
 	inside $\Omega$.
 	Combining this with the assumption that the  closure of $\Omega$ is compact with smooth boundary, we obtain that $\chi_{\Omega'} u \in \Sob{1,p}(\Omega)$ for all $p \in [1,\infty]$. 
 	Since we assumed $\partial \Omega$ is piecewise smooth, from the Sobolev embedding theorem for manifolds with piecewise smooth boundary (c.f. Theorem 2.34 in \cite{Aubin}), we get that $\chi_{\Omega'} u = v$ for some continuous $v$.
@@ -655,7 +654,7 @@ understood in an almost-everywhere sense.
 	Iterating this procedure, we find sets $P_{i+1} \subset P_i$ with $P_1 = P$ such that for every $y \in P_i$, $x \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in $P_i$.
 	Letting $P_\infty = \intersect_{i=0}^\infty P_i$, it is easy to see from the subadditivity of the measure that $\omega_g(P_\infty) = \omega_g(P) > 0$ and so we have that for every $y \in P_\infty$,
 	the map $x \mapsto \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in $P_\infty$.
-	But then, for almost every $y \in P_\infty$, 
+	But then, for almost evey $y \in P_\infty$, 
 	$$1 = \chi_{P_\infty}(y) = \lim_{s \to 0} (e^{-s \Delta_{g,\cW}}\chi_{P_\infty})(y) = \lim_{i \to \infty} \int_{M} \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) \chi_{P_\infty}(x)\ d\omega_g(x) = 0,$$
 	which is a contradiction. 
 
@@ -668,7 +667,7 @@ understood in an almost-everywhere sense.
 	for almost every $x$ in $M_K$.
 	But this contradicts that $\omega_g(M'') > 0$. 
 	This shows that for almost every $y \in M$, $x \mapsto \hk^{g,\cW}_t(x,y) > 0$ for $x$-a.e.
-	\qedhere \Bk
+	\qedhere
 \end{enumerate} 
 \end{proof}
 
@@ -1018,13 +1017,9 @@ we have noted in the conclusion is immediate.
 We conclude this paper by noting that the proof of Theorem \ref{Thm:Main}
 follows immediately upon collating the facts we have established
 in this paper.
-\Bl 
-Note that the regularity result contributes to all the notions of almost-everywhere becoming everywhere. \Bk
 
 % Bibliography
 \bibliographystyle{amsalpha}
 \bibliography{Bibliography}
-
-\setlength{\parskip}{0pt}
 
 \end{document}
