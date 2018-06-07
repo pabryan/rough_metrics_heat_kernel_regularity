@@ -9,3 +9,6 @@
 main.pdf
 *.fdb_latexmk
 auto/
+*.toc
+main-2.pdf
+main-arxiv.pdf
