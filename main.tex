@@ -653,10 +653,10 @@ understood in an almost-everywhere sense.
 	$$ (e^{-t\Delta_{g,\cW}} f)(y) = \int_{P} \hk_t^{g,\cW}(x,y) f(x)\ d\omega_g(x) = 0.$$
 	In particular, setting $f = \chi_{P}$, we obtain
 	$$ 0 = \inprod{e^{-t\Delta_{g,\cW}} \chi_{P}, \chi_{P}} = \norm{  e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_{P}}_{\Lp{2}}.$$ 
-\Bl	That is, $e^{-\frac{t}{2}}\Delta_{g,\cW} \chi_P = 0$ in $\Lp{2}$ and iterating this procedure in this way, we obtain that 
-	$ e^{-\frac{t}{2^i}}\Delta_{g,\cW}\chi_P = 0$ for all $i \in \Na$ and therefore, $\lim_{i \to \infty} e^{-\frac{t}{2^i}}\Delta_{g,\cW}\chi_P = 0$ in $\Lp{2}$.
-	However, since $\Delta_{g,\cW}$ is non-negative self-adjoint, operator theory yeilds that $\chi_P = \lim_{i \to \infty} e^{-\frac{t}{2^i}}\Delta_{g,\cW}\chi_P$. 
-	This leads to $\omega_g(P) = \int_{M} \chi_P\ d\omega_g = \int_{M} \chi_{P}^2 d\omega_g = 0$, which is clearly a contradiction. \Bk
+\Bl	That is, $e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_P = 0$ in $\Lp{2}$ and iterating this procedure in this way, we obtain that
+	$ e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P = 0$ for all $i \in \Na$ and therefore, $\lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}} \chi_P = 0$ in $\Lp{2}$.
+	However, since $\Delta_{g,\cW}$ is non-negative self-adjoint, operator theory yeilds that $\chi_P = \lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P$.
+       This leads to $\omega_g(P) = \int_{M} \chi_P\ d\omega_g = \int_{M} \chi_{P}^2 d\omega_g = 0$, which is clearly a contradiction. \Bk
 %	That is,
 %	$$ 0 = \int_{P} \hk^{g,\cW}_{\frac{t}{2}}(x,y)\ d\omega_g(x) = \norm{\hk^{g,\cW}_{\frac{t}{2}}(\cdot,y)}_{\Lp{1}(P)},$$
 %	so that for $y$-a.e. in $P$, $x \mapsto \hk^{g,\cW}_{\frac{t}{2}}(x,y) = 0$ for $x$-a.e. in $P$.
