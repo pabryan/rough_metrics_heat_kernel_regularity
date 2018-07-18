@@ -645,20 +645,27 @@ understood in an almost-everywhere sense.
 
 
 \item Next we show that $\mu_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} = 0$ for every $t>0$. 
-	Suppose not, i.e., for some $t > 0$, we have that $\mu_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} > 0$.
-	So, there exists a set $P \subset \Omega$ with $\mu(P) > 0$ and for $y \in P$, we have that $\hk^{g,\cW}_t(x,y) = 0$ for $x$-a.e. in $\Omega$.
+\Bl 	That is, we want to show that $x \mapsto \hk^{g,\cW}_{t}(x,y)$ is not identically zero for almost every $y \in \Omega$.
+	To obtain a contradiction, suppose not.
+	That is, for some $t > 0$, we have that $\mu_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} > 0$.
+	Since $M$ is $\sigma$-finite, we can find a set $P \subset \Omega$ with $\mu(P) > 0$ and for $y \in P$, we have that $\hk^{g,\cW}_t(x,y) = 0$ for $x$-a.e. in $\Omega$. \Bk 
 	Then for any $y \in P$ and $f \in \Lp{2}(M)$ vanishing outside of $P$, we have
 	$$ (e^{-t\Delta_{g,\cW}} f)(y) = \int_{P} \hk_t^{g,\cW}(x,y) f(x)\ d\omega_g(x) = 0.$$
-	In particular, for $f = \chi_{P}$,
-	$$ 0 = \inprod{e^{-t\Delta_{g,\cW}} \chi_{P}, \chi_{P}} = \norm{  e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_{P}}_{P}^2.$$ 
-	That is,
-	$$ 0 = \int_{P} \hk^{g,\cW}_{\frac{t}{2}}(x,y)\ d\omega_g(x) = \norm{\hk^{g,\cW}_{\frac{t}{2}}(\cdot,y)}_{\Lp{1}(P)},$$
-	so that for $y$-a.e. in $P$, $x \mapsto \hk^{g,\cW}_{\frac{t}{2}}(x,y) = 0$ for $x$-a.e. in $P$.	
-	Iterating this procedure, we find sets $P_{i+1} \subset P_i$ with $P_1 = P$ such that for $y$-a.e. in $P_i$, $x \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in $P_i$.
-	Letting $P_\infty = \intersect_{i=0}^\infty P_i$, since $\omega_g(P_i \setminus P_{i+1}) = 0$, from the subadditivity of the measure we have $\omega_g(P_\infty) = \omega_g(P) > 0$. So we have that for every $y \in P_\infty$,
-	the map $x \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in the positive measure set $P_\infty$.
-	But then, for almost every $y \in P_\infty$, we obtain the contradiction
-	$$1 = \chi_{P_\infty}(y) = \lim_{s \to 0} (e^{-s \Delta_{g,\cW}}\chi_{P_\infty})(y) = \lim_{i \to \infty} \int_{M} \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) \chi_{P_\infty}(x)\ d\omega_g(x) = 0.$$
+	In particular, setting $f = \chi_{P}$, we obtain
+	$$ 0 = \inprod{e^{-t\Delta_{g,\cW}} \chi_{P}, \chi_{P}} = \norm{  e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_{P}}_{\Lp{2}}.$$ 
+\Bl	That is, $e^{-\frac{t}{2}}\Delta_{g,\cW} \chi_P = 0$ in $\Lp{2}$ and iterating this procedure in this way, we obtain that 
+	$ e^{-\frac{t}{2^i}}\Delta_{g,\cW}\chi_P = 0$ for all $i \in \Na$ and therefore, $\lim_{i \to \infty} e^{-\frac{t}{2^i}}\Delta_{g,\cW}\chi_P = 0$ in $\Lp{2}$.
+	However, since $\Delta_{g,\cW}$ is non-negative self-adjoint, operator theory yeilds that $\chi_P = \lim_{i \to \infty} e^{-\frac{t}{2^i}}\Delta_{g,\cW}\chi_P$. 
+	This leads to $\omega_g(P) = \int_{M} \chi_P\ d\omega_g = \int_{M} \chi_{P}^2 d\omega_g = 0$, which is clearly a contradiction. \Bk
+%	That is,
+%	$$ 0 = \int_{P} \hk^{g,\cW}_{\frac{t}{2}}(x,y)\ d\omega_g(x) = \norm{\hk^{g,\cW}_{\frac{t}{2}}(\cdot,y)}_{\Lp{1}(P)},$$
+%	so that for $y$-a.e. in $P$, $x \mapsto \hk^{g,\cW}_{\frac{t}{2}}(x,y) = 0$ for $x$-a.e. in $P$.
+%
+%	Iterating this procedure, we find sets $P_{i+1} \subset P_i$ with $P_1 = P$ such that for $y$-a.e. in $P_i$, $x \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in $P_i$.
+%	Letting $P_\infty = \intersect_{i=0}^\infty P_i$, since $\omega_g(P_i \setminus P_{i+1}) = 0$, from the subadditivity of the measure we have $\omega_g(P_\infty) = \omega_g(P) > 0$. So we have that for every $y \in P_\infty$,
+%	the map $x \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in the positive measure set $P_\infty$.
+%	But then, for almost every $y \in P_\infty$, we obtain the contradiction
+%	$$1 = \chi_{P_\infty}(y) = \lim_{s \to 0} (e^{-s \Delta_{g,\cW}}\chi_{P_\infty})(y) = \lim_{i \to \infty} \int_{M} \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) \chi_{P_\infty}(x)\ d\omega_g(x) = 0.$$
 
       \item Finally, we may obtain the strict positivity of the heat kernel. By (ii) and (vi) we have for any $f \in \Lp{2}(M, g)$ with $f \geq 0$,
         $$\inprod{\hk^{g,\cW}_t(x,\cdot), f} (e^{-t \Delta_{g,\cW}}f) (x) \geq 0$$
