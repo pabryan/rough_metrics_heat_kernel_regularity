@@ -46,11 +46,11 @@ NSW, 2109, Australia
 \maketitle
 
 \begin{abstract}
-We consider rough metrics on smooth (not necessarily compact) manifolds and corresponding Laplacians
-induced by such metrics. We demonstrate that globally continuous heat kernels exist and are Hölder continuous locally in space and time.
-This is done by Riesz representation methods, and employing
-local parabolic Harnack estimates for weak solutions of divergence form elliptic equations with bounded
-measurable coefficients in weighted Sobolev spaces.
+We consider rough metrics on smooth manifolds and corresponding Laplacians induced by such metrics.
+We demonstrate  that globally continuous heat kernels exist and are Hölder continuous locally in space and time. 
+This is done via local parabolic Harnack estimates for weak
+solutions of operators in divergence form with bounded measurable coefficients 
+in weighted Sobolev spaces.
 \end{abstract}
 
 \setcounter{tocdepth}{1}
@@ -519,10 +519,10 @@ We outline the steps of the construction of the heat kernel
 noting that the pointwise expressions from here on should be
 understood in an almost-everywhere sense.
 \begin{enumerate}[(i)]
-\item For $u \in \Ck{\infty}$, it is readily verified that 
+\item For $u \in \Ck{\infty}(M)$, it is readily verified that 
 	$\modulus{ \nabla \modulus{u}} \leq \modulus{ \nabla u}.$
 	In particular, this means that 
-	for $u \in \Ck{\infty} \intersect \cW$,
+	for $u \in \Ck{\infty}(M) \intersect \cW$,
 	the inequality
 	$\norm{\nabla \modulus{u}} \leq \norm{\nabla u}$ holds
 	and therefore, whenever $u \in \cW$
@@ -575,7 +575,7 @@ understood in an almost-everywhere sense.
 	uniformly in $s$  and therefore, we obtain that for each fixed \((t, x)\),
 	$$\modulus{e^{-t \Delta_{g,\cW}}f(x)} \leq 
 		\frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{f}.$$
-	This exactly says that $f \mapsto (e^{-t\Delta_{g,\cW}}f)(x) \in \adj{\Lp{2}(M)}$
+	This exactly says that $f \mapsto (e^{-t\Delta_{g,\cW}}f)(x) \in \adj{(\Lp{2}(M))}$
 	for every $f \in \Lp{2}(M)$ and therefore, by the Riesz Representation theorem,
 	we obtain, for each fixed \((t, x)\), an $a_{t,x} \in \Lp{2}(M)$ such that
 	$$ e^{-t \Delta_{g,\cW}}f(x) = \inprod{a_{t,x},f} = \int_{M} a_{t,x}(y)f(y)\ d\omega_g(y)$$
@@ -585,12 +585,12 @@ understood in an almost-everywhere sense.
 
 \item We now define the symmetric function,
   $$\hk^{g,\cW}_t(x,y) := \inprod{a_{\frac{t}{2}, x}, a_{\frac{t}{2}, y}}$$
-        We claim that \(\hk^{g,\cW}\) is a heat kernel: we use the by the semigroup property and self adjointness of \(e^{-t\Delta_{g,\cW}}\). For clarity, let us write \(\inprod{f(\cdot), g(\cdot)}\) to denote that the integration is over the \(\cdot\) variable. Then we have
+        We claim that \(\hk_t^{g,\cW}\) is a heat kernel: we use the by the semigroup property and self adjointness of \(e^{-t\Delta_{g,\cW}}\). For clarity, let us write \(\inprod{f(\cdot), g(\cdot)}\) to denote that the integration is over the \(\cdot\) variable. Then we have
 	\[
         \begin{split}
         (e^{-t \Delta_{g,\cW}}f) (x) &= e^{-\frac{t}{2} \Delta_{g,\cW}} (e^{-\frac{t}{2} \Delta_{g,\cW}} f) (x) = \inprod{a_{t,x}, e^{-\frac{t}{2} \Delta_{g,\cW}} f} \\
         &= \inprod{e^{-\frac{t}{2} \Delta_{g,\cW}} a_{t,x}, f} = \inprod{\inprod{a_{t,\cdot}, a_{t,x}}, f} \\
-        &= \inprod{\hk^{g,\cW}_t(x,\cdot), f}.
+        &= \inprod{\hk^{g,\cW}_t(x,(\cdot)), f}.
         \end{split}
         \]
         Next, since $e^{-t \Delta_{g,\cW}}$	is positive preserving, $\hk_t^{g,\cW}$ is real-valued. Moreover, since $\lim_{t\to 0} e^{-t\Delta_{g,\cW}}f = f$ in $\Lp{2}(M)$, we have that $\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$ in the sense of distributions.
@@ -613,14 +613,16 @@ understood in an almost-everywhere sense.
         Therefore, when $f \in \Lp{2}(\Omega,g)$ with $f \geq 0$, we have by using the non-negativity of $\Delta_{g, \SobH[0]{1}(\Omega)}$ (by (i) of this proposition) that
 	$$ \modulus{e^{-t\Delta_{g, \SobH[0]{1}(\Omega)}} (\chi_{\Omega} f)} \leq e^{-t \Delta_{g, \cW}} \modulus{f}.$$
 
-\item Now, we show that the localised semi-group is strictly positive preserving: $e^{-t\Delta_{g,\SobH[0]{1}(\Omega)}}f (x) > 0$ for $x$-a.e. in $\Omega$ and $t>0$ whenever $f \geq 0$ but $f \neq 0$.
+\item Now, we show that the localised semi-group is strictly positive: $e^{-t\Delta_{g,\SobH[0]{1}(\Omega)}}f (x) > 0$ for $x$-a.e. in $\Omega$ and $t>0$ whenever $f \geq 0$ but $f \neq 0$.
 	That is essentially given by the proof of Theorem 4.5 in \cite{El-Maati}, which is done for a quadratic form in Euclidean space, but works in this context with minimal modification.
-	Note first that by the compactness of $\close{\Omega}$, there exists a smooth metric $h$ on $\Omega$ that is quasi-isometric to $g$ on $\Omega$ so that 
-	$$ \inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega,g)} = \int_{\Omega} h((\sqrt{\det B}) B \nabla u, \nabla v)\ d\omega_h = \inprod{(\sqrt{\det B})B \nabla u, \nabla v}_{\Lp{2}(\Omega,h)},$$
+	Note first that by the compactness of $\close{\Omega}$, there exists a smooth metric $h$ on $\Omega$ that is quasi-isometric to $g$ on $\Omega$  \Bl (but not necessarily all of $M$) \Bk so that 
+	\begin{multline*} 
+	\inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega,g)} = \int_{\Omega} h((\sqrt{\det B}) B \nabla u, \nabla v)\ d\omega_h \\ = \inprod{(\sqrt{\det B})B \nabla u, \nabla v}_{\Lp{2}(\Omega,h)},
+	\end{multline*} 
 	where $B$ are symmetric, bounded, measurable coefficients such that $h(Bu,v) = g(u,v)$.
 
-	Corollary 2.11 in \cite{El-Maati} states the strict positivity of the semigroup  holds if and only if every subset $\Omega' \subset \Omega$ with the property that $\chi_{\Omega'} u \in \Sob[0]{1}(\Omega)$ for every $u \in \Sob[0]{1}\Omega$ must satisfy either $\omega_h(\Omega') = 0$ or $\omega_h(\Omega\setminus \Omega') = 0$. 
-	For contradiction, suppose there exists such an $\Omega'$ with $\chi_{\Omega'} u \in \SobH[0]{1}(\Omega)$ for every $u \in \Sob[0]{1}\Omega$ but $\omega_h(\Omega') > 0$ and $\omega_h(\Omega \setminus \Omega') > 0$.
+	Corollary 2.11 in \cite{El-Maati} states the strict positivity of the semigroup  holds if and only if every subset $\Omega' \subset \Omega$ with the property that $\chi_{\Omega'} u \in \Sob[0]{1}(\Omega)$ for every $u \in \Sob[0]{1}(\Omega)$ must satisfy either $\omega_h(\Omega') = 0$ or $\omega_h(\Omega\setminus \Omega') = 0$. 
+	For contradiction, suppose there exists such an $\Omega'$ with $\chi_{\Omega'} u \in \SobH[0]{1}(\Omega)$ for every $u \in \Sob[0]{1}(\Omega)$ but $\omega_h(\Omega') > 0$ and $\omega_h(\Omega \setminus \Omega') > 0$.
 
         Now, there exists $x_0 \in \Omega$ such that for all $\eta > 0$,
 	$$\omega_h(B(x_0, \eta) \intersect \Omega') > 0\quad\text{and}\quad\omega_h(B(x_0, \eta) \intersect (\Omega\setminus\Omega'))> 0.$$
@@ -644,34 +646,26 @@ understood in an almost-everywhere sense.
         $$B(x_0, \eta) = (B(x_0,\eta) \intersect \Omega') \bigcup (B(x_0,\eta) \intersect (\Omega \setminus \Omega')).$$
 
 
-\item Next we show that $\mu_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} = 0$ for every $t>0$. 
-\Bl 	That is, we want to show that $x \mapsto \hk^{g,\cW}_{t}(x,y)$ is not identically zero for almost every $y \in \Omega$.
+\item Next we show that $\omega_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} = 0$ for every $t>0$. 
+l 	That is, we want to show that $x \mapsto \hk^{g,\cW}_{t}(x,y)$ is not identically zero for almost every $y \in \Omega$.
 	To obtain a contradiction, suppose not.
-	That is, for some $t > 0$, we have that $\mu_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} > 0$.
-	Since $M$ is $\sigma$-finite, we can find a set $P \subset \Omega$ with $\mu(P) > 0$ and for $y \in P$, we have that $\hk^{g,\cW}_t(x,y) = 0$ for $x$-a.e. in $\Omega$. \Bk 
+	That is, for some $t > 0$, we have that $\omega_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} > 0$.
+	Since $M$ is $\sigma$-finite, we can find a set $P \subset \Omega$ with $\omega_g(P) > 0$ and for $y \in P$, we have that $\hk^{g,\cW}_t(x,y) = 0$ for $x$-a.e. in $\Omega$. 
 	Then for any $y \in P$ and $f \in \Lp{2}(M, g)$ vanishing outside of $P$, we have
 	$$ (e^{-t\Delta_{g,\cW}} f)(y) = \int_{P} \hk_t^{g,\cW}(x,y) f(x)\ d\omega_g(x) = 0.$$
 	In particular, setting $f = \chi_{P}$, we obtain
 	$$ 0 = \inprod{e^{-t\Delta_{g,\cW}} \chi_{P}, \chi_{P}} = \norm{  e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_{P}}_{\Lp{2}}.$$ 
-\Rd	That is, $e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_P = 0$ in $\Lp{2}(M, g)$ and iterating this procedure in this way, we obtain that
-	$ e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P = 0$ for all $i \in \Na$ and therefore, $\lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}} \chi_P = 0$ in $\Lp{2}(M, g)$.
-	However, since $\Delta_{g,\cW}$ is non-negative self-adjoint, operator theory yeilds that $\chi_P = \lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P$.
-       But \(\chi_P \equiv 1\) on the positive measure set $P$ contradicting that $\lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P = 0$ in $\Lp{2}(M, g)$. \Bk
-%	That is,
-%	$$ 0 = \int_{P} \hk^{g,\cW}_{\frac{t}{2}}(x,y)\ d\omega_g(x) = \norm{\hk^{g,\cW}_{\frac{t}{2}}(\cdot,y)}_{\Lp{1}(P)},$$
-%	so that for $y$-a.e. in $P$, $x \mapsto \hk^{g,\cW}_{\frac{t}{2}}(x,y) = 0$ for $x$-a.e. in $P$.
-%
-%	Iterating this procedure, we find sets $P_{i+1} \subset P_i$ with $P_1 = P$ such that for $y$-a.e. in $P_i$, $x \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in $P_i$.
-%	Letting $P_\infty = \intersect_{i=0}^\infty P_i$, since $\omega_g(P_i \setminus P_{i+1}) = 0$, from the subadditivity of the measure we have $\omega_g(P_\infty) = \omega_g(P) > 0$. So we have that for every $y \in P_\infty$,
-%	the map $x \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in the positive measure set $P_\infty$.
-%	But then, for almost every $y \in P_\infty$, we obtain the contradiction
-%	$$1 = \chi_{P_\infty}(y) = \lim_{s \to 0} (e^{-s \Delta_{g,\cW}}\chi_{P_\infty})(y) = \lim_{i \to \infty} \int_{M} \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) \chi_{P_\infty}(x)\ d\omega_g(x) = 0.$$
-
-      \item Finally, we obtain the strict positivity of the heat kernel. By (ii) and (vi) we have for any $f \in \Lp{2}(M, g)$ with $f \geq 0$,
+	That is, $e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_P = 0$ in $\Lp{2}(M, g)$ and iterating this procedure in this way, we obtain that
+	$ e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P = 0$ for all $i \in \Na$.
+	Therefore, $\lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}} \chi_P = 0$ in $\Lp{2}(M, g)$.
+	However, since $\Delta_{g,\cW}$ is non-negative self-adjoint, operator theory yields that $\chi_P = \lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P$.
+        But \(\chi_P \equiv 1\) on the positive measure set $P$ contradicting that $\lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P = 0$ in $\Lp{2}(M, g)$.
+	
+\item Finally, we obtain the strict positivity of the heat kernel. By (ii) and (vi) we have for any $f \in \Lp{2}(M, g)$ with $f \geq 0$,
         $$\inprod{\hk^{g,\cW}_t(x,\cdot), f} = (e^{-t \Delta_{g,\cW}}f) (x) \geq 0$$
-        and hence $\hk^{g,\cW} \geq 0$ for $x$-a.e. in $M$.
+        and hence $\hk_t^{g,\cW} \geq 0$ for $x$-a.e. in $M$.
 
-        Suppose for a contradiction to $\hk^{g,\cW} > 0$ for all $t > 0$ and $x$-a.e. in $M$ that there exists positive measure sets $M'$ and $M''$ and a $t > 0$ such that for $y$-a.e. in $M'$, $\hk^{g,\cW}_t(x,y) = 0$ for $x$ a.e. in $M''$.
+        Suppose for a contradiction to $\hk_t^{g,\cW} > 0$ for all $t > 0$ and $x$-a.e. in $M$ that there exists positive measure sets $M'$ and $M''$ and a $t > 0$ such that for $y$-a.e. in $M'$, $\hk^{g,\cW}_t(x,y) = 0$ for $x$ a.e. in $M''$.
 	Since $M = \union_{j=1}^\infty \Omega_j$, where each $\Omega_j$ has piecewise smooth boundary and has compact closure, 
 	there exists a $K$ such that for $\Omega = \union_{j=1}^K \Omega_j$ (a set with piecewise smooth boundary) we have $\omega_g(M' \intersect \Omega) > 0$ and $\omega_g(M'' \intersect \Omega) > 0$.
         

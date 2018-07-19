@@ -26,12 +26,13 @@ D-14476, Potsdam OT Golm, Germany
 \email{\href{mailto:lashi.bandara@uni-potsdam.de}{lashi.bandara@uni-potsdam.de}}
 
 \address{Paul Bryan, 
-School of Mathematics and Physics
-The University of Queensland
-Brisbane QLD 4072, Australia
+Department of Mathematics
+Macquarie University 
+NSW, 2109, Australia
 }
 \urladdr{\href{http://pabryan.github.io}{http://pabryan.github.io/}}
-\email{\href{mailto:paul.bryan@uq.edu.au}{paul.bryan@uq.edu.au}}
+\email{\href{mailto:paul.bryan@mq.edu.au}{paul.bryan@mq.edu.au}}
+
 
 
 \curraddr{}
@@ -45,11 +46,11 @@ Brisbane QLD 4072, Australia
 \maketitle
 
 \begin{abstract}
-We consider rough metrics on smooth (not necessarily compact) manifolds and corresponding Laplacians
-induced by such metrics. We demonstrate that globally continuous heat kernels exist and are Hölder continuous locally in space and time.
-This is done by Riesz representation methods, and employing
-local parabolic Harnack estimates for weak solutions of divergence form elliptic equations with bounded
-measurable coefficients in weighted Sobolev spaces.
+We consider rough metrics on smooth manifolds and corresponding Laplacians induced by such metrics.
+We demonstrate  that globally continuous heat kernels exist and are Hölder continuous locally in space and time. 
+This is done via local parabolic Harnack estimates for weak
+solutions of operators in divergence form with bounded measurable coefficients 
+in weighted Sobolev spaces.
 \end{abstract}
 
 \setcounter{tocdepth}{1}
@@ -518,10 +519,10 @@ We outline the steps of the construction of the heat kernel
 noting that the pointwise expressions from here on should be
 understood in an almost-everywhere sense.
 \begin{enumerate}[(i)]
-\item For $u \in \Ck{\infty}$, it is readily verified that 
+\item For $u \in \Ck{\infty}(M)$, it is readily verified that 
 	$\modulus{ \nabla \modulus{u}} \leq \modulus{ \nabla u}.$
 	In particular, this means that 
-	for $u \in \Ck{\infty} \intersect \cW$,
+	for $u \in \Ck{\infty}(M) \intersect \cW$,
 	the inequality
 	$\norm{\nabla \modulus{u}} \leq \norm{\nabla u}$ holds
 	and therefore, whenever $u \in \cW$
@@ -574,7 +575,7 @@ understood in an almost-everywhere sense.
 	uniformly in $s$  and therefore, we obtain that for each fixed \((t, x)\),
 	$$\modulus{e^{-t \Delta_{g,\cW}}f(x)} \leq 
 		\frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{f}.$$
-	This exactly says that $f \mapsto (e^{-t\Delta_{g,\cW}}f)(x) \in \adj{\Lp{2}(M)}$
+	This exactly says that $f \mapsto (e^{-t\Delta_{g,\cW}}f)(x) \in \adj{(\Lp{2}(M))}$
 	for every $f \in \Lp{2}(M)$ and therefore, by the Riesz Representation theorem,
 	we obtain, for each fixed \((t, x)\), an $a_{t,x} \in \Lp{2}(M)$ such that
 	$$ e^{-t \Delta_{g,\cW}}f(x) = \inprod{a_{t,x},f} = \int_{M} a_{t,x}(y)f(y)\ d\omega_g(y)$$
@@ -584,12 +585,12 @@ understood in an almost-everywhere sense.
 
 \item We now define the symmetric function,
   $$\hk^{g,\cW}_t(x,y) := \inprod{a_{\frac{t}{2}, x}, a_{\frac{t}{2}, y}}$$
-        We claim that \(\hk^{g,\cW}\) is a heat kernel: we use the by the semigroup property and self adjointness of \(e^{-t\Delta_{g,\cW}}\). For clarity, let us write \(\inprod{f(\cdot), g(\cdot)}\) to denote that the integration is over the \(\cdot\) variable. Then we have
+        We claim that \(\hk_t^{g,\cW}\) is a heat kernel: we use the by the semigroup property and self adjointness of \(e^{-t\Delta_{g,\cW}}\). For clarity, let us write \(\inprod{f(\cdot), g(\cdot)}\) to denote that the integration is over the \(\cdot\) variable. Then we have
 	\[
         \begin{split}
         (e^{-t \Delta_{g,\cW}}f) (x) &= e^{-\frac{t}{2} \Delta_{g,\cW}} (e^{-\frac{t}{2} \Delta_{g,\cW}} f) (x) = \inprod{a_{t,x}, e^{-\frac{t}{2} \Delta_{g,\cW}} f} \\
         &= \inprod{e^{-\frac{t}{2} \Delta_{g,\cW}} a_{t,x}, f} = \inprod{\inprod{a_{t,\cdot}, a_{t,x}}, f} \\
-        &= \inprod{\hk^{g,\cW}_t(x,\cdot), f}.
+        &= \inprod{\hk^{g,\cW}_t(x,(\cdot)), f}.
         \end{split}
         \]
         Next, since $e^{-t \Delta_{g,\cW}}$	is positive preserving, $\hk_t^{g,\cW}$ is real-valued. Moreover, since $\lim_{t\to 0} e^{-t\Delta_{g,\cW}}f = f$ in $\Lp{2}(M)$, we have that $\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$ in the sense of distributions.
@@ -600,73 +601,78 @@ understood in an almost-everywhere sense.
 	measurability in \(x\) and symmetry of \(\rho_t\) yields measurability in \(y\),
 	which shows that \(\rho_t(x, y)\) is measurable separately in both \(x\) and \(y\). 
 
-\item To show the statement regarding weak-positivity, we first reduce the problem to a local one. 
-	Let $\Omega \subset M$, an open connected subset with compact closure and piecewise smooth boundary  and let $f \in \Lp{2}(\Omega)$.
-	Observing that $\SobH[0]{1}(\Omega) \embed \cW$ and let $\Delta_{g,\SobH[0]{1}(\Omega)}$ denote the associated Dirichlet Laplacian inside $\Omega$ with respect to the energy $\inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega, g)}$.
-	Then, when $u \in \SobH[0]{1}(\Omega)$, we have that $\modulus{u} \in \SobH[0]{1}(\Omega) \subset \cW$ and that if $v \in \cW$ with $\modulus{v} \leq \modulus{u}$ implies that $v \sgn u \in \SobH[0]{1}(\Omega)$,
-	where $\sgn u = u/\modulus{u}$ for $u(x) \neq 0$ and $0$ for $u(x) = 0$. 
-	That is, $\SobH[0]{1}(\Omega)$ is a \emph{ideal} in $\cW$, and therefore, by invoking Theorem 4.1 in \cite{MVV} by Manavi, Vogt and Voigt, we obtain that
+\item To show heat-kernel is strictly positive, we first localise the semi-group.
+	Let $\Omega \subset M$ be an open connected subset with compact closure and piecewise smooth boundary  and let $f \in \Lp{2}(\Omega)$.
+	Observing that $\SobH[0]{1}(\Omega) \embed \cW$ embeds isometrically as a closed subspace via extension by zero outside of $\Omega$, we consider \(\SobH[0]{1}(\Omega)\) as a closed subspace of $\cW$. Likewise for $\Lp{2}(\Omega) \embed \Lp{2}(M)$, in which case the $\Lp{2}(M)$-orthogonal projection onto $\Lp{2}(\Omega)$ is just $f \mapsto \chi_{\Omega} f$.
+
+        When $u \in \SobH[0]{1}(\Omega)$, we have that $\modulus{u} \in \SobH[0]{1}(\Omega) \subset \cW$ and that $v \in \cW$ with $\modulus{v} \leq \modulus{u}$ implies that $v \sgn u \in \SobH[0]{1}(\Omega)$,
+	where $\sgn u = u/\modulus{u}$ for $u(x) \neq 0$ and $0$ for $u(x) = 0$. That is, $\SobH[0]{1}(\Omega)$ is a \emph{ideal} in $\cW$. Let $\Delta_{g,\SobH[0]{1}(\Omega)}$ denote the associated Dirichlet Laplacian inside $\Omega$ with respect to the energy $\inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega, g)}$. Then , we see that (vi) in Theorem 4.1 in \cite{MVV} by Manavi, Vogt and Voigt is satisfied, hence we obtain that (ii) of the same theorem holds. That is,
  	$$ \modulus{e^{-t\Delta_{g, \SobH[0]{1}(\Omega)}} f} \leq e^{-t \Delta_{g, \cW}} \modulus{f}$$
 	for all $f \in \Lp{2}(\Omega,g)$.
-	Therefore, when $f \in \Lp{2}(\Omega,g)$ with $f \geq 0$, we have that by using the non-negativity of $\Delta_{g, \SobH[0]{1}(\Omega)}$ (by (i) of this proposition) that
+
+        Therefore, when $f \in \Lp{2}(\Omega,g)$ with $f \geq 0$, we have by using the non-negativity of $\Delta_{g, \SobH[0]{1}(\Omega)}$ (by (i) of this proposition) that
 	$$ \modulus{e^{-t\Delta_{g, \SobH[0]{1}(\Omega)}} (\chi_{\Omega} f)} \leq e^{-t \Delta_{g, \cW}} \modulus{f}.$$
 
-\item Now, we show that $e^{-t\Delta_{g,\SobH[0]{1}(\Omega)}}f > 0$ whenever $f \geq 0$ but $f \neq 0$.
+\item Now, we show that the localised semi-group is strictly positive: $e^{-t\Delta_{g,\SobH[0]{1}(\Omega)}}f (x) > 0$ for $x$-a.e. in $\Omega$ and $t>0$ whenever $f \geq 0$ but $f \neq 0$.
 	That is essentially given by the proof of Theorem 4.5 in \cite{El-Maati}, which is done for a quadratic form in Euclidean space, but works in this context with minimal modification.
-	Note first that by the compactness of $\close{\Omega}$, there exists a smooth metric $h$ on $\Omega$ that is quasi-isometric to $g$ on $\Omega$ so that 
-	$$ \inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega,g} = \int_{\Omega} h(\sqrt{\det B} B \nabla u, \nabla v)\ d\omega_h,$$
+	Note first that by the compactness of $\close{\Omega}$, there exists a smooth metric $h$ on $\Omega$ that is quasi-isometric to $g$ on $\Omega$  \Bl (but not necessarily all of $M$) \Bk so that 
+	\begin{multline*} 
+	\inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega,g)} = \int_{\Omega} h((\sqrt{\det B}) B \nabla u, \nabla v)\ d\omega_h \\ = \inprod{(\sqrt{\det B})B \nabla u, \nabla v}_{\Lp{2}(\Omega,h)},
+	\end{multline*} 
 	where $B$ are symmetric, bounded, measurable coefficients such that $h(Bu,v) = g(u,v)$.
 
-	Corollary 2.11 in \cite{El-Maati} states the strict positivity of the semigroup  holds if and only if for any subset $\Omega' \subset \Omega$ with $\chi_{\Omega'} u \in \Sob[0]{1}(\Omega)$ implies that $\omega_h(\Omega') = 0$ or $\omega_h(\Omega\setminus \Omega') = 0$. 
-	For contradiction, suppose there exists an $\Omega'$ with $\chi_{\Omega'} u \in \SobH[0]{1}(\Omega)$ but with $\omega_h(\Omega') > 0$ and $\omega_h(\Omega \setminus \Omega') > 0$.
-	Fix some $u \in \Ck[c]{\infty}(\Omega)$ and since $\chi_{\Omega'} u \in \SobH[0]{1}(\Omega)$ and $\nabla (\chi_{\Omega'} u)(x) = (\nabla u)(x)$ for $x$-a.e. in $\Omega'$ and $0$ otherwise given that $\nabla$ is a local operator, we obtain that
-	$$\chi_{\Omega'}\nabla u = \nabla(\Omega' u)$$
-	inside $\Omega$.
-	Combining this with the assumption that the  closure of $\Omega$ is compact with smooth boundary, we obtain that $\chi_{\Omega'} u \in \Sob{1,p}(\Omega)$ for all $p \in [1,\infty]$. 
-	Since we assumed $\partial \Omega$ is piecewise smooth, from the Sobolev embedding theorem for manifolds with piecewise smooth boundary (c.f. Theorem 2.34 in \cite{Aubin}), we get that $\chi_{\Omega'} u = v$ for some continuous $v$.
+	Corollary 2.11 in \cite{El-Maati} states the strict positivity of the semigroup  holds if and only if every subset $\Omega' \subset \Omega$ with the property that $\chi_{\Omega'} u \in \Sob[0]{1}(\Omega)$ for every $u \in \Sob[0]{1}(\Omega)$ must satisfy either $\omega_h(\Omega') = 0$ or $\omega_h(\Omega\setminus \Omega') = 0$. 
+	For contradiction, suppose there exists such an $\Omega'$ with $\chi_{\Omega'} u \in \SobH[0]{1}(\Omega)$ for every $u \in \Sob[0]{1}(\Omega)$ but $\omega_h(\Omega') > 0$ and $\omega_h(\Omega \setminus \Omega') > 0$.
 
-	Now, there exists $x_0 \in \Omega$ such that for all sufficiently small $\eta > 0$, 
-	$$\omega_h(B(x_0, \eta_x) \intersect \Omega') > 0\quad\text{and}\quad\omega_h(B(x_0, \eta_x) \intersect (\Omega\setminus\Omega'))> 0.$$
-	If this weren't the case, then for all $x \in \Omega$, there exists $ \eta_x > 0$ such that $\omega_h(B(x, \eta_x) \intersect \Omega) = 0$ 
-	or $\omega_h(B(x_0, \eta_x) \intersect (\Omega\setminus\Omega')) = 0$. In this case, we write 
+        Now, there exists $x_0 \in \Omega$ such that for all $\eta > 0$,
+	$$\omega_h(B(x_0, \eta) \intersect \Omega') > 0\quad\text{and}\quad\omega_h(B(x_0, \eta) \intersect (\Omega\setminus\Omega'))> 0.$$
+	If this weren't the case, then for all $x \in \Omega$, there exists $\eta_x > 0$ such that $\omega_h(B(x, \eta_x) \intersect \Omega) = 0$ or $\omega_h(B(x_0, \eta_x) \intersect (\Omega\setminus\Omega')) = 0$. In this case, we write 
 	\begin{align*} 
-	\Omega_1 &= \Union \set{B(x,\eta_x): \omega_h(B(x, \eta_x) \intersect \Omega) = 0}\ \text{and}\\
+	\Omega_1 &= \Union \set{B(x,\eta_x): \omega_h(B(x, \eta_x) \intersect \Omega') = 0}\ \text{and}\\
 	\Omega_2 &= \Union \set{B(x,\eta_x): \omega_h(B(x, \eta_x) \intersect(\Omega \setminus \Omega') = 0}
 	\end{align*}
-	to obtain two open sets which satisfy: $\Omega = \Omega_1 \union \Omega_2$ and $\Omega_1 \intersect \Omega_2 = \emptyset$. But this contradicts connectedness of $\Omega$. 
+	to obtain two open sets which satisfy $\Omega = \Omega_1 \union \Omega_2$ and $\Omega_1 \intersect \Omega_2 = \emptyset$ (metric balls have positive measure). Since $\Omega$ is connected, either $\Omega_1 = \Omega$ or $\Omega_2 = \Omega$. If $\Omega = \Omega_1$, then we would conclude that $\omega_h(\Omega') = 0$ contrary to assumption. Similarly if $\Omega = \Omega_2$ then $\omega_h(\Omega \setminus \Omega') = 0$ contrary to assumption.
 
-	Let $u \in \Ck[c]{\infty}(\Omega)$ and let $u(x) = 1$ on $B(x,1/2 \eta)$ and $0$ outside $B(x,\eta)$. 
+	Having established the existence of $x_0$, given any $\eta > 0$ sufficiently small so that $B(x_0,\eta) \subset \Omega$, let $u \in \Ck[c]{\infty}(\Omega)$ be such that $u(x) = 1$ on $B(x_0, \eta/2)$ and $0$ outside $B(x_0,\eta)$. By assumption, $\chi_{\Omega'} u \in \SobH[0]{1}(\Omega)$ and  given that $\nabla$ is a local operator, $\nabla (\chi_{\Omega'} u)(x) = (\nabla u)(x)$ for $x$-a.e. in $\Omega'$ and $0$ otherwise. Then we obtain that
+	$$\chi_{\Omega'}\nabla u = \nabla(\chi_{\Omega'} u)$$
+	inside $\Omega$.
+	Combining this with the assumption that the  closure of $\Omega$ is compact with piecewise smooth boundary, we obtain that $\chi_{\Omega'} u \in \Sob{1,p}(\Omega)$ for all $p \in [1,\infty]$. 
+	Also since $\partial \Omega$ is piecewise smooth, from the Sobolev embedding theorem for manifolds with piecewise smooth boundary (c.f. Theorem 2.34 in \cite{Aubin}), we get that $\chi_{\Omega'} u = v$ for some continuous $v$.
+
+	
 	Then, for all $x \in B(x_0,\eta) \intersect \Omega'$ and $y \in B(x_0,\eta) \intersect (\Omega \setminus \Omega')$, 
-	$$1 = \chi_{\Omega'}(x)u(x) = \chi_{\Omega'}(x) u(x) - \chi_{\Omega'}(y)u(y) = \modulus{v(x) - v(y)},$$ 
-	which contradicts the continuity of $v$.
+	$$1 = \chi_{\Omega'}(x)u(x) = \chi_{\Omega'}(x) u(x) - \chi_{\Omega'}(y)u(y) = \modulus{v(x) - v(y)}$$ 
+	contradicting that $v$ is continuous on
+        $$B(x_0, \eta) = (B(x_0,\eta) \intersect \Omega') \bigcup (B(x_0,\eta) \intersect (\Omega \setminus \Omega')).$$
 
 
-\item Fix some $t > 0$,  we show that $\mu_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} = 0$. 
-	Suppose not, i.e., for some $t > 0$, we have that $\mu_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} > 0$.
-	So, there exists a set $P \subset \Omega$ with $\mu(P) > 0$ and for $y \in P$, we have that $\hk^{g,\cW}_t(x,y) = 0$ for $x$-a.e. in $\Omega$.
-	Then, for any $y \in P$ and $f \in \Lp{2}(M)$ with $\spt f \subset P$ that
-	$$ (e^{-t\Delta_{g,\cW}} \int_{\Omega} f)(y) = \int_{P} \hk_t^{g,\cW}(x,y) f(x)\ d\omega_g(x) = 0.$$
-	Set $f = \chi_{P}$, and then so,
-	$$ 0 = \inprod{e^{-t\Delta_{g,\cW}} \chi_{P}, \chi_{P}} = \norm{  e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_{P}}_{P}^2.$$ 
-	That is,
-	$$ 0 = \int_{P} \hk^{g,\cW}_{\frac{t}{2}}(x,y)\ d\omega_g(x) = \norm{\hk^{g,\cW}_{\frac{t}{2}}(\cdot,y)}_{\Lp{1}(P)},$$
-	so that $x \mapsto \hk^{g,\cW}_{\frac{t}{2}}(x,y) = 0$ for $x$-a.e. $P$.	
-	Iterating this procedure, we find sets $P_{i+1} \subset P_i$ with $P_1 = P$ such that for every $y \in P_i$, $x \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in $P_i$.
-	Letting $P_\infty = \intersect_{i=0}^\infty P_i$, it is easy to see from the subadditivity of the measure that $\omega_g(P_\infty) = \omega_g(P) > 0$ and so we have that for every $y \in P_\infty$,
-	the map $x \mapsto \mapsto \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) = 0$ for $x$-a.e. in $P_\infty$.
-	But then, for almost evey $y \in P_\infty$, 
-	$$1 = \chi_{P_\infty}(y) = \lim_{s \to 0} (e^{-s \Delta_{g,\cW}}\chi_{P_\infty})(y) = \lim_{i \to \infty} \int_{M} \hk^{g,\cW}_{\frac{t}{2^i}}(x,y) \chi_{P_\infty}(x)\ d\omega_g(x) = 0,$$
-	which is a contradiction. 
+\item Next we show that $\omega_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} = 0$ for every $t>0$. 
+l 	That is, we want to show that $x \mapsto \hk^{g,\cW}_{t}(x,y)$ is not identically zero for almost every $y \in \Omega$.
+	To obtain a contradiction, suppose not.
+	That is, for some $t > 0$, we have that $\omega_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} > 0$.
+	Since $M$ is $\sigma$-finite, we can find a set $P \subset \Omega$ with $\omega_g(P) > 0$ and for $y \in P$, we have that $\hk^{g,\cW}_t(x,y) = 0$ for $x$-a.e. in $\Omega$. 
+	Then for any $y \in P$ and $f \in \Lp{2}(M, g)$ vanishing outside of $P$, we have
+	$$ (e^{-t\Delta_{g,\cW}} f)(y) = \int_{P} \hk_t^{g,\cW}(x,y) f(x)\ d\omega_g(x) = 0.$$
+	In particular, setting $f = \chi_{P}$, we obtain
+	$$ 0 = \inprod{e^{-t\Delta_{g,\cW}} \chi_{P}, \chi_{P}} = \norm{  e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_{P}}_{\Lp{2}}.$$ 
+	That is, $e^{-\frac{t}{2}\Delta_{g,\cW}} \chi_P = 0$ in $\Lp{2}(M, g)$ and iterating this procedure in this way, we obtain that
+	$ e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P = 0$ for all $i \in \Na$.
+	Therefore, $\lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}} \chi_P = 0$ in $\Lp{2}(M, g)$.
+	However, since $\Delta_{g,\cW}$ is non-negative self-adjoint, operator theory yeilds that $\chi_P = \lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P$.
+        But \(\chi_P \equiv 1\) on the positive measure set $P$ contradicting that $\lim_{i \to \infty} e^{-\frac{t}{2^i}\Delta_{g,\cW}}\chi_P = 0$ in $\Lp{2}(M, g)$.
+	
+\item Finally, we obtain the strict positivity of the heat kernel. By (ii) and (vi) we have for any $f \in \Lp{2}(M, g)$ with $f \geq 0$,
+        $$\inprod{\hk^{g,\cW}_t(x,\cdot), f} = (e^{-t \Delta_{g,\cW}}f) (x) \geq 0$$
+        and hence $\hk_t^{g,\cW} \geq 0$ for $x$-a.e. in $M$.
 
-\item Now, suppose that there exists  set $M'$ and $M''$ and a $t > 0$ for which for almost-every $y \in M'$, $\hk^{g,\cW}_t(x,y) = 0$ for $x$ a.e. in $M''$
+        Suppose for a contradiction to $\hk_t^{g,\cW} > 0$ for all $t > 0$ and $x$-a.e. in $M$ that there exists positive measure sets $M'$ and $M''$ and a $t > 0$ such that for $y$-a.e. in $M'$, $\hk^{g,\cW}_t(x,y) = 0$ for $x$ a.e. in $M''$.
 	Since $M = \union_{j=1}^\infty \Omega_j$, where each $\Omega_j$ has piecewise smooth boundary and has compact closure, 
-	there exists a $K$ such that $\omega_g(M' \intersect M_K) > 0$ and $\omega_g(M'' \intersect M_K) > 0$, where $M_K = \union_{j=1}^K \Omega_j$ which is another set with piecewise smooth boundary.
-	But since $\hk^{g,\cW}_{s}(x,y) \neq 0$ identically for all $s \in (0,\infty)$  by (xi) on $M_K$ and $\hk^{g,\cW}_{s}(x,y) \geq 0$ for all $s \in (0,\infty)$ by (ii) and (vi), 
-	we obtain: 
-	$$ 0 < e^{-\frac{t}{2}} \Delta_{g,\SobH[0]{1}(M_k)}(\chi_{M_k} \hk^{g,\cW}_{\frac{t}{2}}(\cdot,y))(x) \leq e^{-\frac{t}{2}} \Delta_{g,\cW}\hk^{g,\cW}_{\frac{t}{2}}(\cdot,y))(x)  = \hk^{g,\cW}_{t}(x,y)$$
-	for almost every $x$ in $M_K$.
-	But this contradicts that $\omega_g(M'') > 0$. 
-	This shows that for almost every $y \in M$, $x \mapsto \hk^{g,\cW}_t(x,y) > 0$ for $x$-a.e.
+	there exists a $K$ such that for $\Omega = \union_{j=1}^K \Omega_j$ (a set with piecewise smooth boundary) we have $\omega_g(M' \intersect \Omega) > 0$ and $\omega_g(M'' \intersect \Omega) > 0$.
+        
+	But then applying (ix) and (vii) on $\Omega$ to $f = \chi_{\Omega} \hk^{g,\cW}_{t/2} \geq 0$ we obtain that for $y$-a.e. in $\Omega$,
+	$$0 < e^{-\frac{t}{2}} \Delta_{g,\SobH[0]{1}(\Omega)}(\chi_{\Omega} \hk^{g,\cW}_{\frac{t}{2}}(\cdot,y))(x) \leq e^{-\frac{t}{2}} \Delta_{g,\cW}\hk^{g,\cW}_{\frac{t}{2}}(\cdot,y))(x)  = \hk^{g,\cW}_{t}(x,y)$$
+	for almost every $x$ in $\Omega$ contradicting that $\omega_g(M'') > 0$.
+        This shows that for almost every $y \in M$, $x \mapsto \hk^{g,\cW}_t(x,y) > 0$ for $x$-a.e.
 	\qedhere
 \end{enumerate} 
 \end{proof}
@@ -1016,10 +1022,12 @@ we have noted in the conclusion is immediate.
 
 We conclude this paper by noting that the proof of Theorem \ref{Thm:Main}
 follows immediately upon collating the facts we have established
-in this paper.
+in this paper. The regularity result of global continuity then ensures all the notions of almost-everywhere become pointwise everywhere.
 
 % Bibliography
 \bibliographystyle{amsalpha}
 \bibliography{Bibliography}
+
+\setlength{\parskip}{0pt}
 
 \end{document}
