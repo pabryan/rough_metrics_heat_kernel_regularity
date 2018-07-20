@@ -615,10 +615,9 @@ understood in an almost-everywhere sense.
 
 \item Now, we show that the localised semi-group is strictly positive: $e^{-t\Delta_{g,\SobH[0]{1}(\Omega)}}f (x) > 0$ for $x$-a.e. in $\Omega$ and $t>0$ whenever $f \geq 0$ but $f \neq 0$.
 	That is essentially given by the proof of Theorem 4.5 in \cite{El-Maati}, which is done for a quadratic form in Euclidean space, but works in this context with minimal modification.
-	Note first that by the compactness of $\close{\Omega}$, there exists a smooth metric $h$ on $\Omega$ that is quasi-isometric to $g$ on $\Omega$  \Bl (but not necessarily all of $M$) \Bk so that 
-	\begin{multline*} 
-	\inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega,g)} = \int_{\Omega} h((\sqrt{\det B}) B \nabla u, \nabla v)\ d\omega_h \\ = \inprod{(\sqrt{\det B})B \nabla u, \nabla v}_{\Lp{2}(\Omega,h)},
-	\end{multline*} 
+	Note first that by the compactness of $\close{\Omega}$, there exists a smooth metric $h$ on $\Omega$ that is quasi-isometric to $g$ on $\Omega$   (but not necessarily all of $M$) so that 
+	$$\inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega,g)} = \int_{\Omega} h((\sqrt{\det B}) B \nabla u, \nabla v)\ d\omega_h = \inprod{(\sqrt{\det B})B \nabla u, \nabla v}_{\Lp{2}(\Omega,h)},
+	$$
 	where $B$ are symmetric, bounded, measurable coefficients such that $h(Bu,v) = g(u,v)$.
 
 	Corollary 2.11 in \cite{El-Maati} states the strict positivity of the semigroup  holds if and only if every subset $\Omega' \subset \Omega$ with the property that $\chi_{\Omega'} u \in \Sob[0]{1}(\Omega)$ for every $u \in \Sob[0]{1}(\Omega)$ must satisfy either $\omega_h(\Omega') = 0$ or $\omega_h(\Omega\setminus \Omega') = 0$. 
@@ -647,7 +646,7 @@ understood in an almost-everywhere sense.
 
 
 \item Next we show that $\omega_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} = 0$ for every $t>0$. 
-l 	That is, we want to show that $x \mapsto \hk^{g,\cW}_{t}(x,y)$ is not identically zero for almost every $y \in \Omega$.
+	That is, we want to show that $x \mapsto \hk^{g,\cW}_{t}(x,y)$ is not identically zero for almost every $y \in \Omega$.
 	To obtain a contradiction, suppose not.
 	That is, for some $t > 0$, we have that $\omega_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} > 0$.
 	Since $M$ is $\sigma$-finite, we can find a set $P \subset \Omega$ with $\omega_g(P) > 0$ and for $y \in P$, we have that $\hk^{g,\cW}_t(x,y) = 0$ for $x$-a.e. in $\Omega$. 
