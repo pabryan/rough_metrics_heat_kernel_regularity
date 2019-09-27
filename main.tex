@@ -1,4 +1,6 @@
 \documentclass[a4paper, 12pt]{amsart}
+\usepackage[switch,pagewise]{lineno}
+\linenumbers
 %\usepackage{showkeys}
 
 \input{StandardPaper2.tex}
@@ -214,7 +216,7 @@ We now define the notion of measurable functions and sections of smooth vector b
 A function $f: M \to \R$ is measurable if $f^{-1}(-\infty, \alpha]$ is measurable for every $\alpha  \in \R$. A measurable section \(s\) of a vector bundle \(\pi : V \to M\) is a function \(s: M \to V\) with \(\pi \circ s = \Id_M\) and such that for any Lebesgue measurable subset \(E \subseteq V\), the set \(s^{-1}(E)\) is a Lebesgue measurable subset of \(M\).  We denote the set of such sections by $\Gamma(V)$.
 \end{defn}
 
-Note that \(V\) is a smooth manifold itself and so Lebesgue Measurability of subsets of \(V\) is defined as in \ref{defn:borel_lebesgue}. In particular, we have the bundle $\pi_{p,q} : T^{p,q}M \to M$ of $(p,q)$ tensors of covariant rank $p$ and contravariant rank $q$ as well as measurable tensor fields \(\Gamma(T^{p,q}M)\). We also have the bundle of differential forms \(\pi_k : \Lambda^k T^{\ast} M \to M\) with measurable sections \(\Omega^k(M) = \Gamma(\Lambda^k T^{\ast} M)\). The exterior derivative is however, \emph{not defined} for all measurable sections. All the usual constructions of smooth sub-vector and sub-fibre bundles apply and in particular, we have a well defined notion of measurable sections of the fibre bundle, \((T^{\ast} M \odot T^{\ast} M)_+\) of positive definite, symmetric bilinear forms important in the main definition of this section.
+Note that \(V\) is a smooth manifold itself and so Lebesgue measurability of subsets of \(V\) is defined as in \ref{defn:borel_lebesgue}. In particular, we have the bundle $\pi_{p,q} : T^{p,q}M \to M$ of $(p,q)$ tensors of covariant rank $p$ and contravariant rank $q$ as well as measurable tensor fields \(\Gamma(T^{p,q}M)\). We also have the bundle of differential forms \(\pi_k : \Lambda^k T^{\ast} M \to M\) with measurable sections \(\Omega^k(M) = \Gamma(\Lambda^k T^{\ast} M)\). The exterior derivative is however, \emph{not defined} for all measurable sections. All the usual constructions of smooth sub-vector and sub-fibre bundles apply and in particular, we have a well defined notion of measurable sections of the fibre bundle, \((T^{\ast} M \odot T^{\ast} M)_+\) of positive definite, symmetric bilinear forms important in the main definition of this section.
 
 \begin{defn}[Rough metric]
 \label{defn:rough_metric}
@@ -252,7 +254,7 @@ A rough metric gives rise to an $\Lp{p}$-theory over the $T^{p,q}M$ tensor bundl
 \]
 for $p \in [1, \infty)$ and
 \[
-\|\xi\|_{\infty} := \inf\set{C: |\xi|_g \leq C\ \text{a.e.}}
+\|\xi\|_{\infty} := \inf\set{C: |\xi|_g \leq C\quad \omega_g\text{-a.e.}}
 \]
 where the rough metric \(g\) is extended to tensor bundles exactly as in the smooth case. For example, \(g(X \otimes Y, Z \otimes W) = g(X, Y) g(Z, W)\) gives a well defined, measurable section of positive definite, symmetric bilinear forms on \(TM \otimes TM\).
 
@@ -268,7 +270,7 @@ The differential \(\nabla : \Ck{\infty}(M) \to \Ck{\infty}(T^{\ast} M)\), maps s
 We emphasise that this object is only dependent on the differentiable structure of $M$, and is independent of any choice of metric.
 
 Recall that in the classical setting of a smooth $g$,  the Laplacian acting on functions is given  via the expression $\Delta_g = - \tr_g \nabla^2$, where $\nabla^2 = \nabla^{T^\ast M} \comp \nabla$
-with $\nabla^{T^\ast M}$ the Levi-Civita connection of $g$ on \(T^{\ast} M\) and the trace is taken on the \((1,1)\) hessian obtained by metric contraction of the \((2, 0)\) hessian \(\nabla^2\). Equivalently, we obtain that  that \(\Delta_g = \grad_g^\ast \grad_g\) where \(\grad_g\) is the metric contraction of \(\nabla\).
+with $\nabla^{T^\ast M}$ the Levi-Civita connection of $g$ on \(T^{\ast} M\) and the trace is taken on the \((1,1)\) Hessian obtained by metric contraction of the \((2, 0)\) hessian \(\nabla^2\). Equivalently, we obtain that  that \(\Delta_g = \grad_g^\ast \grad_g\) where \(\grad_g\) is the metric contraction of \(\nabla\).
 
 For rough metrics, or in fact, any metric below $\Ck{0,1}$, we have no notion of metric-compatibility (being unable to differentiate such a metric), and hence the Levi-Civita connection is not generally defined. Therefore, we understand this operator in an appropriate weak sense as follows. 
 
@@ -393,7 +395,7 @@ A function \(u \in \Ck{1}((0,\infty),  \dom(\Delta_{g,\cW}))\) solves the \emph{
 \end{enumerate}
 \end{defn}
 
-For any solution \(u\), of the heat equation, we have the representation formula
+For any solution \(u\), of the heat equation, through the Borel functional calculus, we have the representation formula
 \[
 u(x,t) = (e^{-t \Delta_{g,\cW}}u_0)(x)
 \]
@@ -412,7 +414,7 @@ Since $\Ck{\infty}(M) \subset \Lp{2}(M)$ this notion of solution is stronger tha
 A separably measurable map $(t,x,y) \mapsto \hk^{g,\cW}_{t}(x,y): \R_+ \times M \times M \to \R$, 
 almost-everywhere symmetric in $(x,y)$, is a heat kernel 
 if for every $u \in \Ck{1}(\R_+, \cW)$, a solution to the heat equation 
-$\partial_t u = \Delta_{g,\cW}u$ with initial data $u_0 \in \Lp{2}(M)$, we have
+$\partial_t u = \Delta_{g,\cW}u$ with initial data $u_0 \in \Lp{2}(M)$, for almost every $x$, we have
 \[
 u(t,x) = \int_{M} \hk^{g,\cW}_t(x,y) u_0(y)\ d\omega_g(y)
 \]
@@ -565,7 +567,7 @@ understood in an almost-everywhere sense.
 	\begin{align*} 
 	\modulus{e^{-t \Delta_{g,\cW}}f(x)} 
 		&\leq \frac{C(t,U_x))}{\omega_g(U_x)} \int_{U_x} \modulus{e^{-(t + \delta_t) \Delta_{g,\cW}}f(y)}\ d\omega_g(y) \\
-		&\leq \frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{e^{-(t + \delta_t) \Delta_{g,\cW}f}},
+		&\leq \frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{e^{-(t + \delta_t) \Delta_{g,\cW}f}}_{\Lp{2}(M)},
 	\end{align*}
 	where the second inequality follows from the Cauchy-Schwartz
 	inequality and since $\norm{\cdot}_{\Lp{2}(U_x)} \leq \norm{\cdot}_{\Lp{2}(M)}$.
@@ -574,7 +576,7 @@ understood in an almost-everywhere sense.
 	we obtain that $\norm{e^{-s\Delta_{g,\cW}}f} \leq \norm{f}$
 	uniformly in $s$  and therefore, we obtain that for each fixed \((t, x)\),
 	$$\modulus{e^{-t \Delta_{g,\cW}}f(x)} \leq 
-		\frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{f}.$$
+		\frac{C(t,U_x)}{\omega_g(U_x)^{\frac{1}{2}}} \norm{f}_{\Lp{2}(M)}.$$
 	This exactly says that $f \mapsto (e^{-t\Delta_{g,\cW}}f)(x) \in \adj{(\Lp{2}(M))}$
 	for every $f \in \Lp{2}(M)$ and therefore, by the Riesz Representation theorem,
 	we obtain, for each fixed \((t, x)\), an $a_{t,x} \in \Lp{2}(M)$ such that
@@ -585,15 +587,15 @@ understood in an almost-everywhere sense.
 
 \item We now define the symmetric function,
   $$\hk^{g,\cW}_t(x,y) := \inprod{a_{\frac{t}{2}, x}, a_{\frac{t}{2}, y}}$$
-        We claim that \(\hk_t^{g,\cW}\) is a heat kernel: we use the by the semigroup property and self adjointness of \(e^{-t\Delta_{g,\cW}}\). For clarity, let us write \(\inprod{f(\cdot), g(\cdot)}\) to denote that the integration is over the \(\cdot\) variable. Then we have
+        We claim that \(\hk_t^{g,\cW}\) is a heat kernel: we use the semigroup property and self adjointness of \(e^{-t\Delta_{g,\cW}}\). For clarity, let us write \(\inprod{f(\cdot), g(\cdot)}\) to denote that the integration is over the \(\cdot\) variable. Then we have
 	\[
         \begin{split}
-        (e^{-t \Delta_{g,\cW}}f) (x) &= e^{-\frac{t}{2} \Delta_{g,\cW}} (e^{-\frac{t}{2} \Delta_{g,\cW}} f) (x) = \inprod{a_{t,x}, e^{-\frac{t}{2} \Delta_{g,\cW}} f} \\
-        &= \inprod{e^{-\frac{t}{2} \Delta_{g,\cW}} a_{t,x}, f} = \inprod{\inprod{a_{t,\cdot}, a_{t,x}}, f} \\
+        (e^{-t \Delta_{g,\cW}}f) (x) &= e^{-\frac{t}{2} \Delta_{g,\cW}} (e^{-\frac{t}{2} \Delta_{g,\cW}} f) (x) = \inprod{a_{\frac{t}{2},x}, e^{-\frac{t}{2} \Delta_{g,\cW}} f} \\
+        &= \inprod{e^{-\frac{t}{2} \Delta_{g,\cW}} a_{\frac{t}{2},x}, f} = \inprod{\inprod{a_{\frac{t}{2},\cdot}, a_{\frac{t}{2},x}}, f} \\
         &= \inprod{\hk^{g,\cW}_t(x,(\cdot)), f}.
         \end{split}
         \]
-        Next, since $e^{-t \Delta_{g,\cW}}$	is positive preserving, $\hk_t^{g,\cW}$ is real-valued. Moreover, since $\lim_{t\to 0} e^{-t\Delta_{g,\cW}}f = f$ in $\Lp{2}(M)$, we have that $\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) \to  \delta(y)$ in the sense of distributions.
+        Next, since $e^{-t \Delta_{g,\cW}}$	is positive preserving, $\hk_t^{g,\cW}$ is real-valued. Moreover, since $\lim_{t\to 0} e^{-t\Delta_{g,\cW}}f = f$ in $\Lp{2}(M)$, we have that $\lim_{t \to 0} \hk^{g,\cW}_t(\mdot,y) = \delta(y)$ in the sense of distributions.
 
         By definition of the semigroup and $a_{t,x}$, we have that $x\mapsto e^{\Delta_{g,\cW}}f(x) = \inprod{a_{t,x},f} \in \Lp{2}(M)$
 	and hence measurable in $x$ for each $f$. 
@@ -601,12 +603,12 @@ understood in an almost-everywhere sense.
 	measurability in \(x\) and symmetry of \(\rho_t\) yields measurability in \(y\),
 	which shows that \(\rho_t(x, y)\) is measurable separately in both \(x\) and \(y\). 
 
-\item To show heat-kernel is strictly positive, we first localise the semi-group.
+\item To show that the heat kernel is strictly positive, we first localise the semi-group.
 	Let $\Omega \subset M$ be an open connected subset with compact closure and piecewise smooth boundary  and let $f \in \Lp{2}(\Omega)$.
 	Observing that $\SobH[0]{1}(\Omega) \embed \cW$ embeds isometrically as a closed subspace via extension by zero outside of $\Omega$, we consider \(\SobH[0]{1}(\Omega)\) as a closed subspace of $\cW$. Likewise for $\Lp{2}(\Omega) \embed \Lp{2}(M)$, in which case the $\Lp{2}(M)$-orthogonal projection onto $\Lp{2}(\Omega)$ is just $f \mapsto \chi_{\Omega} f$.
 
         When $u \in \SobH[0]{1}(\Omega)$, we have that $\modulus{u} \in \SobH[0]{1}(\Omega) \subset \cW$ and that $v \in \cW$ with $\modulus{v} \leq \modulus{u}$ implies that $v \sgn u \in \SobH[0]{1}(\Omega)$,
-	where $\sgn u = u/\modulus{u}$ for $u(x) \neq 0$ and $0$ for $u(x) = 0$. That is, $\SobH[0]{1}(\Omega)$ is a \emph{ideal} in $\cW$. Let $\Delta_{g,\SobH[0]{1}(\Omega)}$ denote the associated Dirichlet Laplacian inside $\Omega$ with respect to the energy $\inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega, g)}$. Then , we see that (vi) in Theorem 4.1 in \cite{MVV} by Manavi, Vogt and Voigt is satisfied, hence we obtain that (ii) of the same theorem holds. That is,
+	where $\sgn u = u/\modulus{u}$ for $u(x) \neq 0$ and $0$ for $u(x) = 0$. That is, $\SobH[0]{1}(\Omega)$ is a \emph{ideal} in $\cW$. Let $\Delta_{g,\SobH[0]{1}(\Omega)}$ denote the associated Dirichlet Laplacian inside $\Omega$ with respect to the energy $\inprod{\nabla u, \nabla v}_{\Lp{2}(\Omega, g)}$. Then, we see that (vi) in Theorem 4.1 in \cite{MVV} by Manavi, Vogt and Voigt is satisfied, hence we obtain that (ii) of the same theorem holds. That is,
  	$$ \modulus{e^{-t\Delta_{g, \SobH[0]{1}(\Omega)}} f} \leq e^{-t \Delta_{g, \cW}} \modulus{f}$$
 	for all $f \in \Lp{2}(\Omega,g)$.
 
@@ -645,10 +647,10 @@ understood in an almost-everywhere sense.
         $$B(x_0, \eta) = (B(x_0,\eta) \intersect \Omega') \bigcup (B(x_0,\eta) \intersect (\Omega \setminus \Omega')).$$
 
 
-\item Next we show that $\omega_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} = 0$ for every $t>0$. 
+\item Next we show that $\omega_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{$x$-a.e. in}\ \Omega} = 0$ for every $t>0$. 
 	That is, we want to show that $x \mapsto \hk^{g,\cW}_{t}(x,y)$ is not identically zero for almost every $y \in \Omega$.
 	To obtain a contradiction, suppose not.
-	That is, for some $t > 0$, we have that $\omega_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{x-a.e. in}\ \Omega} > 0$.
+	That is, for some $t > 0$, we have that $\omega_g\set{y \in \Omega: \hk^{g,\cW}_{t}(x,y) = 0\ \text{$x$-a.e. in}\ \Omega} > 0$.
 	Since $M$ is $\sigma$-finite, we can find a set $P \subset \Omega$ with $\omega_g(P) > 0$ and for $y \in P$, we have that $\hk^{g,\cW}_t(x,y) = 0$ for $x$-a.e. in $\Omega$. 
 	Then for any $y \in P$ and $f \in \Lp{2}(M, g)$ vanishing outside of $P$, we have
 	$$ (e^{-t\Delta_{g,\cW}} f)(y) = \int_{P} \hk_t^{g,\cW}(x,y) f(x)\ d\omega_g(x) = 0.$$
