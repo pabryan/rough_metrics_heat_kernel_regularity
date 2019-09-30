@@ -1,0 +1,8 @@
+(1) Gave a more compelete comparision as asked. 
+(2) Added more motivation for the study of non-smooth metrics by pointing out metrics coming from limits of Riemannian manifolds.
+(3) Fixed this "classica" business. 
+(4) Added that we actually prove this local weak harnack estimate. No geometry is needed. 
+(5) Added a sentence to the end of the introduction about regularity - the lack of reliance on a distance strcuture in our arguments.  "Severe restriction" made clear - i.e., the existence of a metric with lower Ricci curvature bounds. 
+(6) Changed this remark to show that it is neccessary in the way we prove the existence of the heat kernel. 
+(7) Added the parts that need to be inspected in [SC92].
+(8) Removed the "standard". It is simply the iteration process given by the Lemma.
