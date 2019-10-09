@@ -1,6 +1,6 @@
 \documentclass[a4paper, 12pt]{amsart}
 \usepackage[switch,pagewise]{lineno}
-\linenumbers
+%\linenumbers
 %\usepackage{showkeys}
 
 \input{StandardPaper2.tex}
@@ -76,7 +76,7 @@ coefficients.
 
 Indeed, there has been some progress in this direction,
 with two notable works being \cite{Norris, ERS}.
-\Rd However, the focus of their work and their methods deviate from our presentation in this article.  \Bk 
+However, the focus of their work and their methods deviate from our presentation in this article.
 We consider a wide and useful class of 
 low regularity metrics called \emph{rough metrics}, 
 which by definition, have only measurable coefficients, and are Riemannian-like in the sense
@@ -87,13 +87,13 @@ root problem. They are particularly significant in the noncompact setting.
 In the compact case, these metrics were used to study regularity properties
 of a geometric flow, weakly tangential to the Ricci flow, 
 in \cite{BLM, BCont}.
-\Rd 
+
 More generally, non-smooth metric tensors have arisen in the study of limits of sequences of Riemannian manifolds.
 The prototypical convergence for non-compact manifolds is in a pointed Gromov-Hausdorff sense, and typically, these limiting metrics enjoy continuity or slightly better regularity.
 See \cite{Petersen}, \cite{Perales} and references therein.
 Moreover, in \cite{Burtscher}, continuous metric tensors and their related structures were studied. 
 At the level of rough metrics, \cite{SC} studies such metrics in the presence of a nearby smooth metric with Ricci curvature bounded below, although the point of view here is really to treat them as weighted divergence form operators with elliptic, bounded measurable coefficients.
-\Bk
+
 
 Unlike their classical, smooth counterparts, we are not able
 to construct distances for rough metrics via the length functional as 
@@ -147,15 +147,15 @@ are required in order to obtain its uniqueness  (see \cite{Chavel}).
 More seriously, the following Varadhan's formula
 $$ d^2(x,y) = \lim_{t \to 0} 4 t \log \hk_t(x,y)$$
 may fail for this minimal heat kernel. 
-In this classical setting  \Rd of smooth metrics on manifolds, or even for certain classes of  metric spaces, \Bk it is well known that Varadhan's formula holds for the heat  kernels corresponding to the Dirichlet and Neumann Laplacians 
+In this classical setting  of smooth metrics on manifolds, or even for certain classes of  metric spaces,  it is well known that Varadhan's formula holds for the heat  kernels corresponding to the Dirichlet and Neumann Laplacians
 (see  \cite{Norris, ERS}).
 
 As aforementioned, the results of \cite{Norris, ERS} 
 are similar to ours although their methods are different. 
-\Rd Their focus is to obtain small time asymptotics for their heat kernels using metric space methods.
-In particular, in \cite{Norris}, considerable effort is spent in building a metric structure whereas in \cite{ERS} the metric structure and the existence of a continuous heat kernel is an assumption. \Bk
+Their focus is to obtain small time asymptotics for their heat kernels using metric space methods.
+In particular, in \cite{Norris}, considerable effort is spent in building a metric structure whereas in \cite{ERS} the metric structure and the existence of a continuous heat kernel is an assumption.
 Our approach is somewhat simpler with the key idea being to construct a global heat kernel via the Riesz representation theorem, a perspective made known to us from \cite{Davies} in the smooth setting. 
-However, given the generality of our setting, we require a certain weak Harnack type estimate \Rd(which we later show is automatically satisfied in our setting), \Bk along with some operator theoretic facts, for this technique to succeed.
+However, given the generality of our setting, we require a certain weak Harnack type estimate (which we later show is automatically satisfied in our setting),  along with some operator theoretic facts, for this technique to succeed.
 
 This approach to constructing a heat kernel was used previously in  
 \cite{BCont} where the manifold was assumed to be compact,  and 
@@ -167,9 +167,9 @@ were obtained by observing that
 the rough metric is globally comparable to a smooth one,
 due to the compactness of the underlying manifold, and
 through the  results  in \cite{SC}.
-In our situation,  we cannot argue in this way without imposing \Rd the existence of a metric with Ricci bounded below uniformly comparable to the original metric, which is an artificial and severe restriction. \Bk
+In our situation,  we cannot argue in this way without imposing the existence of a metric with Ricci bounded below uniformly comparable to the original metric, which is an artificial and severe restriction.
 Thus, we demonstrate how to obtain the heat kernel via \emph{local Harnack estimates}  before proceeding to show that such estimates  hold in our setting.
-\Rd Moreover, these estimates yield local Hölder regularity, which is the best that can be expected given the lack of a reliance on a distance structure in our arguments. \Bk 
+Moreover, these estimates yield local Hölder regularity, which is the best that can be expected given the lack of a reliance on a distance structure in our arguments.
 
 
 \section*{Acknowledgements}
@@ -681,8 +681,8 @@ understood in an almost-everywhere sense.
 
 \begin{rem}
 We note that the Harnack-type estimate \eqref{eq:Harnack} that we assume is very weak, i.e., it is not defined on cylinders or even parabolic cylinders. 
-\Rd Our proof requires it to show the existence of the heat kernel since our method requires us to assert that   $f \mapsto e^{-t \Delta_{g,\cW}}f$ is  linear functional on $L^2(M)$ for each $t > 0$. 
-Moreover, the positivity of the heat kernel also relies on this estimate. \Bk 
+Our proof requires it to show the existence of the heat kernel since our method requires us to assert that   $f \mapsto e^{-t \Delta_{g,\cW}}f$ is  linear functional on $L^2(M)$ for each $t > 0$.
+Moreover, the positivity of the heat kernel also relies on this estimate.
 As we shall see in the next section, a stronger estimate is required for regularity of solutions. 
 \end{rem}
 
@@ -785,8 +785,8 @@ for all $\epsilon < \min\set{ \sqrt{t - \kappa}, \sqrt{\tau - t}, r_x}$.
 \begin{proof}[Proof using \cite{SC}]
 By the use of Lemma \ref{eq:soln1}, which illustrates that solution $u$ of the $\Delta_{g,\cW}$ heat equation is a distributional solution, we can expect to use the methods of Moser's parabolic Harnack inequality \cite{MR0159139,MR0288405}. 
 However, Lemma \ref{eq:soln1} shows that we have a heat equation in a weighted Sobolev space, weighted by $a_x$, and therefore, we cannot immediately apply Moser's results. 
-But, the factor $a_x > 0$ almost-everywhere, time independent and measurable, which is precisely the situation described in \Rd Section 4 in  \cite{SC}. \Bk  Unfortunately, the results of \cite{SC} demand that the rough metric is globally comparable to a complete, smooth metric of Ricci curvature bounded from below. 
-However, upon more careful inspection of the proof in \cite{SC}, \Rd namely Theorem 3.1 and the results of Section 5 in \cite{SC}, \Bk we can see that the estimate is entirely local and it is only through the constants that the curvature bounds and global comparability enter. 
+But, the factor $a_x > 0$ almost-everywhere, time independent and measurable, which is precisely the situation described in Section 4 in  \cite{SC}.   Unfortunately, the results of \cite{SC} demand that the rough metric is globally comparable to a complete, smooth metric of Ricci curvature bounded from below.
+However, upon more careful inspection of the proof in \cite{SC}, namely Theorem 3.1 and the results of Section 5 in \cite{SC},  we can see that the estimate is entirely local and it is only through the constants that the curvature bounds and global comparability enter.
 In our situation, we do not obtain uniform, global constants (and indeed do not expect them at this level of generality), but such control is not necessary for our applications. Thus, on noting that the results in \cite{SC} localise, we can apply Theorem 5.3 in \cite{SC} which is precisely our Harnack inequality stated in the theorem.
 \end{proof}
 
@@ -1014,7 +1014,7 @@ Rearranging, we find that
 $$
 \osc_{Q^{-}_{(x,t)}(\kappa, \tau, r)} u \leq \cbrac{1 - \frac{1}{\gamma}} \osc_{Q^{-}_{(x,t)}(\kappa, \tau, 4r)} u.$$
 We note that the constant $(1 - \gamma{-1}) < 1$
-and therefore, it is of the right form to invoke \Rd the iteration procedure \Bk given in Lemma 4.6 in \cite{Lieberman}. 
+and therefore, it is of the right form to invoke the iteration procedure given in Lemma 4.6 in \cite{Lieberman}.
 More specifically, on noting that
 our oscillation estimate is of the form (4.15)'' in \cite{Lieberman},
 we obtain the precise form for $\alpha$.

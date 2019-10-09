@@ -1,11 +1,11 @@
-\contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.1}
-\contentsline {section}{\tocsection {}{}{Acknowledgements}}{3}{section*.2}
-\contentsline {section}{\tocsection {}{2}{Rough Metrics}}{3}{section.2}
-\contentsline {section}{\tocsection {}{3}{Laplacians and Heat Equation for rough metrics}}{5}{section.3}
-\contentsline {subsection}{\tocsubsection {}{3.1}{The Laplacian in the smooth setting}}{6}{subsection.3.1}
-\contentsline {subsection}{\tocsubsection {}{3.2}{The Laplacian in the rough setting}}{7}{subsection.3.2}
-\contentsline {subsection}{\tocsubsection {}{3.3}{The Heat Equation}}{7}{subsection.3.3}
-\contentsline {section}{\tocsection {}{4}{Existence and positivity of the heat kernel}}{8}{section.4}
-\contentsline {section}{\tocsection {}{5}{The Harnack inequality}}{13}{section.5}
-\contentsline {section}{\tocsection {}{6}{Regularity of solutions}}{17}{section.6}
-\contentsline {section}{\tocsection {}{}{References}}{18}{section*.4}
+\contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.1}% 
+\contentsline {section}{\tocsection {}{}{Acknowledgements}}{3}{section*.2}% 
+\contentsline {section}{\tocsection {}{2}{Rough Metrics}}{4}{section.2}% 
+\contentsline {section}{\tocsection {}{3}{Laplacians and Heat Equation for rough metrics}}{5}{section.3}% 
+\contentsline {subsection}{\tocsubsection {}{3.1}{The Laplacian in the smooth setting}}{6}{subsection.3.1}% 
+\contentsline {subsection}{\tocsubsection {}{3.2}{The Laplacian in the rough setting}}{7}{subsection.3.2}% 
+\contentsline {subsection}{\tocsubsection {}{3.3}{The Heat Equation}}{8}{subsection.3.3}% 
+\contentsline {section}{\tocsection {}{4}{Existence and positivity of the heat kernel}}{8}{section.4}% 
+\contentsline {section}{\tocsection {}{5}{The Harnack inequality}}{13}{section.5}% 
+\contentsline {section}{\tocsection {}{6}{Regularity of solutions}}{17}{section.6}% 
+\contentsline {section}{\tocsection {}{}{References}}{19}{section*.4}% 
