@@ -122,7 +122,7 @@ is the following.
 On a smooth manifold \(M\), equipped with a rough metric \(g\), 
 and a subspace $\SobH[0]{1}(M) \subset \cW \subset \SobH{1}(M)$
 with $\Ck{\infty} \intersect \cW$ dense in $\cW$, 
-there exists a heat kernel \(\hk_t^{g,\cW}\) satisfying:  
+there exists a heat kernel \(\hk_t^{g,\cW} \in C^{0}(M \times M)\) satisfying:  
 \begin{enumerate}[(i)] 
 \item \(\hk_t^{g,\cW} > 0\) for \(t > 0\),
 \item on a parabolic cylinder \(Q = K \times [t_1, t_2]\) with \(0 < t_1 < t_2\), \(K \subseteq M\) is compact, there exists an \(\alpha = \alpha(Q)\) so that \(\hk_t^{g,\cW} \in C^{\alpha}(K \times K)\) for \(t_1 \leq t \leq t_2\).
@@ -208,7 +208,7 @@ Let \(M^n\) be a smooth, \(n\)-dimensional manifold. A set \(B \subseteq M\) is 
 \end{defn}
 
 \begin{rem}
-The Lebesgue measurable sets form a \(\sigma\)-algebra containing the Borel \(\sigma\)-algebra. The notion of Lebesgue measurable set does not involve a measure on \(M\). The collection of Lebesgue measurable sets is canonical in the following sense: given any smooth (or continuous) metric $h$, this collection of subsets are exactly the collection of $\omega_h$-measurable sets.
+The Lebesgue measurable sets form a \(\sigma\)-algebra containing the Borel \(\sigma\)-algebra. The notion of Lebesgue measurable set does not involve a measure on \(M\). The collection of Lebesgue measurable sets is canonical in the following sense: given any smooth (or continuous) metric $h$, this collection of subsets are exactly the collection of $\omega_h$-measurable sets, where $\omega_h$ is the induced measure from $h$.
 \end{rem}
 
 We now define the notion of measurable functions and sections of smooth vector bundles.
@@ -217,14 +217,14 @@ We now define the notion of measurable functions and sections of smooth vector b
 A function $f: M \to \R$ is measurable if $f^{-1}(-\infty, \alpha]$ is measurable for every $\alpha  \in \R$. A measurable section \(s\) of a vector bundle \(\pi : V \to M\) is a function \(s: M \to V\) with \(\pi \circ s = \Id_M\) and such that for any Lebesgue measurable subset \(E \subseteq V\), the set \(s^{-1}(E)\) is a Lebesgue measurable subset of \(M\).  We denote the set of such sections by $\Gamma(V)$.
 \end{defn}
 
-Note that \(V\) is a smooth manifold itself and so Lebesgue measurability of subsets of \(V\) is defined as in \ref{defn:borel_lebesgue}. In particular, we have the bundle $\pi_{p,q} : T^{p,q}M \to M$ of $(p,q)$ tensors of covariant rank $p$ and contravariant rank $q$ as well as measurable tensor fields \(\Gamma(T^{p,q}M)\). We also have the bundle of differential forms \(\pi_k : \Lambda^k T^{\ast} M \to M\) with measurable sections \(\Omega^k(M) = \Gamma(\Lambda^k T^{\ast} M)\). The exterior derivative is however, \emph{not defined} for all measurable sections. All the usual constructions of smooth sub-vector and sub-fibre bundles apply and in particular, we have a well defined notion of measurable sections of the fibre bundle, \((T^{\ast} M \odot T^{\ast} M)_+\) of positive definite, symmetric bilinear forms important in the main definition of this section.
+Note that \(V\) is a smooth manifold itself and so Lebesgue measurability of subsets of \(V\) is defined as in definition \ref{defn:borel_lebesgue}. In particular, we have the bundle $\pi_{p,q} : T^{p,q}M \to M$ of $(p,q)$ tensors of covariant rank $p$ and contravariant rank $q$ as well as measurable tensor fields \(\Gamma(T^{p,q}M)\). We also have the bundle of differential forms \(\pi_k : \Lambda^k T^{\ast} M \to M\) with measurable sections \(\Omega^k(M) = \Gamma(\Lambda^k T^{\ast} M)\). The exterior derivative is however, \emph{not defined} for all measurable sections. All the usual constructions of smooth sub-vector and sub-fibre bundles apply and in particular, we have a well defined notion of measurable sections of the fibre bundle, \((T^{\ast} M \odot T^{\ast} M)_+\) of positive definite, symmetric bilinear forms important in the main definition of this section.
 
 \begin{defn}[Rough metric]
 \label{defn:rough_metric}
 A \emph{rough} metric \(g\) is a Lebesgue measurable section of \(\met(M) = (T^{\ast} M \odot T^{\ast} M)_+\), the bundle of positive definite, symmetric bilinear forms on \(TM\) that are in addition, \emph{locally comparable} to Euclidean metrics:
 for each $x \in M$, there is a chart $\psi_x:V_x \to \R^n$ and a constant $C_x = C_x(V_x)$ such that
 \[
-\frac{1}{C_{x}} \pullb{\psi_x}\delta_{\R^n}(y) (X, Y) \leq g(y)(X, Y) \leq C_{x} \pullb{\psi_x}\delta_{\R^n}(y) (X, Y)
+\frac{1}{C_{x}} (\pullb{\psi_x}\delta_{\R^n})(y) (X, Y) \leq g(y)(X, Y) \leq C_{x} (\pullb{\psi_x}\delta_{\R^n})(y) (X, Y)
 \]
 for all tangent vectors \(X, Y \in T_yM\) for almost all $y \in V_x$. 
 \end{defn}
@@ -249,7 +249,9 @@ g(X, Y) = g_{\alpha} (A_{\alpha} (X), Y).
 Such a definition has the advantage that it allows us to work with respect to the \emph{smooth} metric \(g_{\alpha}\), 
 at least locally.
 
-A rough metric gives rise to an $\Lp{p}$-theory over the $T^{p,q}M$ tensor bundle by defining \(L^p\) norms,
+As in the the smooth case, a rough metric gives rise to a measure $\omega_g$ which takes the local expression $\sqrt{\det (g_{ij})} d\Leb$. 
+The $\omega_g$-measurable sets are exactly the Lebesgue measurable sets. 
+Moreover, it has an $\Lp{p}$-theory over the $T^{p,q}M$ tensor bundle by defining \(L^p\) norms,
 \[
 \|\xi\|_p := \left(\int_{M} |\xi|_{g}^p\ d\omega_g\right)^{1/p}
 \]
@@ -277,7 +279,7 @@ For rough metrics, or in fact, any metric below $\Ck{0,1}$, we have no notion of
 
 First, we observe that for a rough metric $g$, the operator
 $\nabla_p := d_p: \Ck{\infty} \cap \Lp{p}(M) \to \Ck{\infty} \cap \Lp{p}(T^\ast M)$
-is closable, as well as $\nabla_c := d_c$ with $\dom(d_c) = \Ck[c]{\infty}(M)$,
+is closable, as is $\nabla_c := d_c$ with $\dom(d_c) = \Ck[c]{\infty}(M)$,
 for $p \in [1, \infty)$. A proof of this statement is given in Proposition 3.10 in \cite{BRough}, 
 which reduces to covering the manifold via precompact locally comparable
 charts and noting that $d$ commutes with pullbacks inside each such chart.
@@ -289,10 +291,10 @@ where the closures are taken with respect to the \(\Lp{p}(M)\) norm. We may then
 \[
 \|u\|_{\Sob{p}} = \|u\|_p + \|\nabla u\|_p
 \]
-which are finite on the respective function spaces $\Sob[0]{1,p}(M) \subset \Sob{1,p}(M) \subset \Lp{p}(M)$. We remark that without closability, if these spaces are obtained via a completion with respect to the Sobolev norm, it is unclear that they are, in fact, spaces of functions. In this paper, we exclusively deal with \(p = 2\) and another consequence of the closability, coupled with the 
-fact that $\Ck[c]{\infty}(M)$ is dense in $\Lp{2}(M)$,
-is that $\nabla_2$ and $\nabla_c$ are densely-defined
-operators. Therefore, operator theory yields 
+which are finite on the respective function spaces $\Sob[0]{1,p}(M) \subset \Sob{1,p}(M) \subset \Lp{p}(M)$. We remark that without closability, if these spaces are obtained via a completion with respect to the Sobolev norm, it is unclear that they are, in fact, spaces of functions. 
+In this paper, we exclusively deal with \(p = 2\). 
+Another consequence of the closability, coupled with the fact that $\Ck[c]{\infty}(M)$ is dense in $\Lp{2}(M)$, is that $\nabla_2$ and $\nabla_c$ are densely-defined operators. 
+Therefore, operator theory yields 
 that $\adj{\nabla_2}$ and $\adj{\nabla_c}$ exist
 as densely-defined, closed operators.
 
@@ -302,12 +304,8 @@ In the case of a smooth $g$ that is also complete, we
 always have that $\SobH[0]{1}(M) = \SobH{1}(M)$. 
 Since $\nabla_c = \nabla_2$, we obtain 
 a unique Laplacian $\Delta_g = \adj{\nabla_c} \close{\nabla_c} = \adj{\nabla_2}\close{\nabla_2}$.
-We will emphasise at this moment that even in the smooth case, this does not mean that the Laplacian is essentially self-adjoint on $\Ck[c]{\infty}(M)$; in fact, the only general statement that can be made is that
-$\SobH{2}(M) \subset \dom(\Delta_g)$. The 
-case of essential self-adjointness can
-be obtained under a uniform lower bound on Ricci
-curvature (see \cite{BDensity}) but it
-is not known to the authors whether this result is sharp.
+We will emphasise at this moment that even in the smooth case, this does not mean that the Laplacian is essentially self-adjoint on $\Ck[c]{\infty}(M)$; in fact, the only general statement that can be made is that $\SobH{2}(M) \subset \dom(\Delta_g)$. 
+Essential self-adjointness can be obtained under bounds on Ricci curvature (c.f. \cite{IRV} and \cite{BDensity}) but the sharpness of these bounds are unknown to the authors.
 
 It is also useful to obtain $\Delta_g$ via the energy,
 $$\sE_g(u,v) = \inprod{\nabla u, \nabla v} = \int_M\ g(\nabla u, \nabla v)\ d\omega_g,$$
@@ -396,7 +394,7 @@ A function \(u \in \Ck{1}((0,\infty),  \dom(\Delta_{g,\cW}))\) solves the \emph{
 \end{enumerate}
 \end{defn}
 
-For any solution \(u\), of the heat equation, through the Borel functional calculus, we have the representation formula
+For any solution \(u\) of the heat equation, through the Borel functional calculus, we have the representation formula
 \[
 u(x,t) = (e^{-t \Delta_{g,\cW}}u_0)(x)
 \]
