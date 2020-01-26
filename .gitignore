@@ -6,9 +6,13 @@
 *.aux
 *.log
 *.fls
+*.out
+*.pag
+*.toc
 main.pdf
 *.fdb_latexmk
 auto/
 *.toc
 main-2.pdf
 main-arxiv.pdf
+MANA-NJD/main-MANA-NJD.pdf
