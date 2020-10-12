@@ -48,11 +48,7 @@ NSW, 2109, Australia
 \maketitle
 
 \begin{abstract}
-We consider rough metrics on smooth manifolds and corresponding Laplacians induced by such metrics.
-We demonstrate  that globally continuous heat kernels exist and are Hölder continuous locally in space and time. 
-This is done via local parabolic Harnack estimates for weak
-solutions of operators in divergence form with bounded measurable coefficients 
-in weighted Sobolev spaces.
+We consider rough metrics on smooth manifolds and corresponding Laplacians induced by such metrics. We demonstrate  that globally continuous heat kernels exist and are Hölder continuous locally in space and time. This is done via local parabolic Harnack estimates for weak solutions of operators in divergence form with bounded measurable coefficients in weighted Sobolev spaces.
 \end{abstract}
 
 \setcounter{tocdepth}{1}
@@ -304,8 +300,8 @@ In the case of a smooth $g$ that is also complete, we
 always have that $\SobH[0]{1}(M) = \SobH{1}(M)$. 
 Since $\nabla_c = \nabla_2$, we obtain 
 a unique Laplacian $\Delta_g = \adj{\nabla_c} \close{\nabla_c} = \adj{\nabla_2}\close{\nabla_2}$.
-We will emphasise at this moment that even in the smooth case, this does not mean that the Laplacian is essentially self-adjoint on $\Ck[c]{\infty}(M)$; in fact, the only general statement that can be made is that $\SobH{2}(M) \subset \dom(\Delta_g)$. 
-Essential self-adjointness can be obtained under bounds on Ricci curvature (c.f. \cite{IRV} and \cite{BDensity}) but the sharpness of these bounds are unknown to the authors.
+
+We will emphasise at this moment that even in the smooth case the only general statement that can be made is that $\SobH{2}(M) \subset \dom(\Delta_g)$. Equality can be obtained under bounds on Ricci curvature (c.f. \cite{IRV} and \cite{BDensity}) but the sharpness of these results are unknown to the authors.
 
 It is also useful to obtain $\Delta_g$ via the energy,
 $$\sE_g(u,v) = \inprod{\nabla u, \nabla v} = \int_M\ g(\nabla u, \nabla v)\ d\omega_g,$$
@@ -338,14 +334,12 @@ the following.
 Let \(g\) be a rough metric on a smooth manifold \(M\)
 and $\cW \subset \SobH{1}(M)$ be a closed subspace
 of $\SobH{1}(M)$ such that $\Ck[c]{\infty}(M) \subset \cW$
-and $\Ck{\infty} \cap \cW$ is dense in $\cW$ with respect to the norm $\norm{\cdot}_{\cW} = \norm{\cdot}_{\SobH{1}}$. The \emph{$(g,\cW)$-Laplacian}
-\(\Delta_{g,\cW} : \Lp{2}(M) \to \Lp{2}(M)\) is defined by
+and $\Ck{\infty} \cap \cW$ is dense in $\cW$ with respect to the norm $\norm{\cdot}_{\cW} = \norm{\cdot}_{\SobH{1}}$. The \emph{$(g,\cW)$-Laplacian} \(\Delta_{g,\cW} : \Lp{2}(M) \to \Lp{2}(M)\) is defined by
 \[
 \Delta_{g,\cW} u := \adj{\nabla_{\cW}} \close{ \nabla_{\cW}} u,
 \]
 where  $\nabla_{\cW} = \nabla$ with $\dom(\nabla_{\cW}) = \cW$. 
-The domain of the operator $\Delta_{g,\cW}$ is then given by
-$\dom(\Delta_{g,\cW}) = \set{u \in \cW: \modulus{\inprod{\nabla u, \nabla v}} \lesssim C_u \norm{v}\ \forall v \in \cW}.$
+The domain of the operator $\Delta_{g,\cW}$ is then given by $\dom(\Delta_{g,\cW}) = \set{u \in \cW: \exists C_{u} > 0\,, \forall v \,, \modulus{\inprod{\nabla u, \nabla v}} \leq C_u \norm{v}\ \forall v \in \cW}.$
 \end{defn}
 
 By construction, the  operators $\Delta_{g,\cW}$ 
@@ -412,13 +406,11 @@ Since $\Ck{\infty}(M) \subset \Lp{2}(M)$ this notion of solution is stronger tha
 \begin{defn}[Heat kernel]
 A separably measurable map $(t,x,y) \mapsto \hk^{g,\cW}_{t}(x,y): \R_+ \times M \times M \to \R$, 
 almost-everywhere symmetric in $(x,y)$, is a heat kernel 
-if for every $u \in \Ck{1}(\R_+, \cW)$, a solution to the heat equation 
-$\partial_t u = \Delta_{g,\cW}u$ with initial data $u_0 \in \Lp{2}(M)$, for almost every $x$, we have
+if $\lim_{t \to 0} \hk_t^{g,\cW}(\mdot,y) \to \delta_y$ in the sense of distributions (where $\delta_y$ is the Dirac-delta distribution at $y$) and for every solution $u \in \Ck{1}(\R_+, \cW)$ to the heat equation 
+$\partial_t u = \Delta_{g,\cW}u$ with initial data $u_0 \in \Lp{2}(M)$, for almost every $x$ we have
 \[
-u(t,x) = \int_{M} \hk^{g,\cW}_t(x,y) u_0(y)\ d\omega_g(y)
+u(t,x) = \int_{M} \hk^{g,\cW}_t(x,y) u_0(y)\ d\omega_g(y).
 \]
-and
-$\lim_{t \to 0} \hk_t^{g,\cW}(\mdot,y) \to \delta_y$ in the sense of distributions where $\delta_y$ is the Dirac-delta distribution at $y$.
 \end{defn}
 
 In the case of a smooth metric $g$, a typical construction for
@@ -483,18 +475,13 @@ for the compact case in \cite{BCont}, but
 the analysis we present here shows it can be made to work more generally. 
 
 The fundamental estimate we
-require is the following \emph{weak Harnack-type inequality} for positive solutions of the heat
-equation.
-\begin{itemize}
-\item[] At each $x \in M$ and $t > 0$, there exists a precompact
-open set $U_x$, a $\delta_t \geq 0$ and a constant $C(t, U_x)  > 0$ such that
+require is the following \emph{weak Harnack-type inequality} for positive solutions of the heat equation: at each $x \in M$ and $t > 0$, there exists a precompact open set $U_x$, a $\delta_t \geq 0$ and a constant $C(t, U_x)  > 0$ such that
 \begin{equation}
 \tag{H}
 \label{eq:Harnack}
 \esssup_{y \in U_x} u(y,t)
 	\leq C(t, U_x)  \essinf_{y \in U_x} u(y, t + \delta_t)
 \end{equation}
-\end{itemize}
 
 In the compact case, even for a
 rough metric, such an estimate can be
@@ -626,7 +613,7 @@ understood in an almost-everywhere sense.
 
         Now, there exists $x_0 \in \Omega$ such that for all $\eta > 0$,
 	$$\omega_h(B(x_0, \eta) \intersect \Omega') > 0\quad\text{and}\quad\omega_h(B(x_0, \eta) \intersect (\Omega\setminus\Omega'))> 0.$$
-	If this weren't the case, then for all $x \in \Omega$, there exists $\eta_x > 0$ such that $\omega_h(B(x, \eta_x) \intersect \Omega) = 0$ or $\omega_h(B(x_0, \eta_x) \intersect (\Omega\setminus\Omega')) = 0$. In this case, we write 
+	If this were not the case, then for all $x \in \Omega$, there exists $\eta_x > 0$ such that $\omega_h(B(x, \eta_x) \intersect \Omega) = 0$ or $\omega_h(B(x_0, \eta_x) \intersect (\Omega\setminus\Omega')) = 0$. In this case, we write 
 	\begin{align*} 
 	\Omega_1 &= \Union \set{B(x,\eta_x): \omega_h(B(x, \eta_x) \intersect \Omega') = 0}\ \text{and}\\
 	\Omega_2 &= \Union \set{B(x,\eta_x): \omega_h(B(x, \eta_x) \intersect(\Omega \setminus \Omega') = 0}
@@ -847,13 +834,13 @@ Therefore, it is immediate that $u_\kappa$ is a solution
 to the heat equation. 
 
 To see the bound, we compute: 
-\begin{multline*} 
+\begin{align*}
 \norm{ \nabla u_\kappa(\cdot, t)} 
-	= \norm{ \sqrt{\Delta_{g,\cW}} u_\kappa(\cdot, t)} 
+	&= \norm{ \sqrt{\Delta_{g,\cW}} u_\kappa(\cdot, t)} 
 	= \norm{ \sqrt{\Delta_{g,\cW}} e^{-t\Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0} \\
-	= \norm{ e^{-t \Delta_{g,\cW}} \sqrt{ \Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0}
+	&= \norm{ e^{-t \Delta_{g,\cW}} \sqrt{ \Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0}
 	\leq \norm{\sqrt{ \Delta_{g,\cW}} e^{-\kappa \Delta_{g,\cW}}u_0},
-\end{multline*}
+\end{align*}
 where the penultimate equality follows from the fact that
 $\ran(e^{-\kappa \Delta_{g,\cW}}) \subset \dom(\Delta_{g,\cW}^\alpha)$
 for all $\alpha > 0$ and via functional calculus.
@@ -1011,7 +998,7 @@ $$
 Rearranging, we find that 
 $$
 \osc_{Q^{-}_{(x,t)}(\kappa, \tau, r)} u \leq \cbrac{1 - \frac{1}{\gamma}} \osc_{Q^{-}_{(x,t)}(\kappa, \tau, 4r)} u.$$
-We note that the constant $(1 - \gamma{-1}) < 1$
+We note that the constant $1 - \tfrac{1}{\gamma} < 1$
 and therefore, it is of the right form to invoke the iteration procedure given in Lemma 4.6 in \cite{Lieberman}.
 More specifically, on noting that
 our oscillation estimate is of the form (4.15)'' in \cite{Lieberman},
